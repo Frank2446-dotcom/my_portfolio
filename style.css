@@ -19,14 +19,18 @@ body {
 
 }
 
-.logo {
-    width: 120px; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
+
+.title-block img {
+    width: 70px; /* Adjust as needed */
+    height: auto;
+    margin-right: 10px;
     position: absolute; /* Position absolutely */
     top: 10px; /* 10px from the top */
     left: 10px; /* 10px from the left */
    
 }
+
+
 
 /*hamburger menu" or "toggle menu*/
 
@@ -132,6 +136,7 @@ h2 {
 
 
 /*My Profession Section*/
+/* Professions Section */
 #professions {
     background-color: #d2d4ee; /* Set background color for the whole section */
     padding: 20px; /* Add padding to create space inside the section */
@@ -149,6 +154,7 @@ h2 {
     padding: 0; /* Remove default padding */
     display: flex; /* Arrange items horizontally */
     justify-content: center; /* Center align the items */
+    flex-wrap: wrap; /* Allow wrapping */
 }
 
 #professions li {
@@ -172,6 +178,25 @@ h2 {
     background-color: #d885c3; /* Change background color on hover */
 }
 
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    #professions {
+        padding: 10px; /* Decrease padding for smaller screens */
+    }
+
+    #professions li {
+        margin: 5px; /* Decrease margin for spacing between boxes on smaller screens */
+        padding: 8px; /* Decrease padding for spacing on smaller screens */
+    }
+
+    #professions li a {
+        font-size: 16px; /* Decrease text size for links on smaller screens */
+    }
+}
+
+
+
+/* Skills Section */
 
 /* Skills Section */
 #skills {
@@ -180,15 +205,15 @@ h2 {
     margin: 20px auto; /* Center the section horizontally */
     max-width: 1200px; /* Set maximum width */
     border-radius: 10px; /* Add border radius */
-  }
-  
-  #skills h2 {
+}
+
+#skills h2 {
     text-align: center; /* Center align the heading */
     margin-bottom: 20px; /* Add margin bottom */
-  }
-  
-  /* Style for skill categories */
-  #skills > div {
+}
+
+/* Style for skill categories */
+#skills > div {
     display: flex; /* Arrange boxes horizontally */
     flex-wrap: wrap; /* Allow wrapping */
     justify-content: center; /* Center items horizontally */
@@ -196,41 +221,122 @@ h2 {
     padding: 10px; /* Add padding */
     margin-bottom: 20px; /* Add margin bottom */
     border-radius: 5px; /* Add border radius */
-    
     transition: background-color 0.3s ease; /* Add animation */
-  }
-  
-  #skills > div:hover {
+}
+
+#skills > div:hover {
     background-color: #f3eeee; /* Change background color on hover */
-  }
-  
-  #skills h3 {
+}
+
+#skills h3 {
     background-color: #aee468; /* Set background color for skill titles */
     padding: 10px; /* Add padding */
     margin-bottom: 10px; /* Add margin bottom */
     border-radius: 5px; /* Add border radius */
     width: 100%; /* Expand to full width */
-  }
-  
-  #skills ul {
+}
+
+#skills ul {
     list-style: none; /* Remove default list style */
     padding: 0; /* Remove default padding */
     display: flex; /* Arrange list items horizontally */
     flex-wrap: wrap; /* Allow wrapping */
     justify-content: center; /* Center items horizontally */
-  }
-  
-  #skills ul li {
+}
+
+#skills ul li {
     background-color: #c1bfdf; /* Set background color for list items */
     padding: 10px; /* Add padding to list items */
     border-radius: 5px; /* Add border radius to list items */
     margin: 5px; /* Add margin between list items */
-    cursor: pointer; /* Change cursor to pointer */
-    
-  }
-  
-  #skills ul li:hover {
-    background-color: #a57878; /* Change background color of list items on hover */
-  }
+    text-decoration: none;
+}
 
-  
+#skills ul li:hover {
+    background-color: #a57878; /* Change background color of list items on hover */
+}
+
+/* Remove underline and blue color for Academic Writing list */
+#skills .academic-writing li {
+    text-decoration: none;
+    color: inherit; /* Use the default color */
+    
+}
+
+
+  /* Styles for Projects section */
+/* Styles for Projects section */
+#projects {
+    padding: 20px;
+    background-color: #aee468;
+    margin: auto;
+}
+
+@media only screen and (min-width: 768px) {
+    #projects {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #projects {
+        margin-left: 200px;
+        margin-right: 200px;
+    }
+}
+
+.project-category {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.project-category h3 {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.project-list {
+    list-style: none;
+    padding: 0;
+}
+
+.project-list li {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.project-list li:hover {
+    background-color: #f0f0f0;
+}
+
+
+#contacts {
+    background-color: #3498db; /* Blue background color */
+    padding: 20px;
+    color: #fff; /* White text color */
+}
+
+.contact-info {
+    font-size: 18px;
+}
+
+.contact-info a {
+    color: #fff; /* White link color */
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: none;
+}
+
+footer {
+    background-color: #3498db; /* Blue background color */
+    text-align: center;
+    padding: 10px;
+    color: #fff; /* White text color */
+}
