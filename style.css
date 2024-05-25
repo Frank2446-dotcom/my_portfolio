@@ -3,12 +3,44 @@ body {
     margin: 0;
     padding: 0;
     padding-top: 130px; /* Adjust as needed to account for the combined height of title and navigation */
+    color: rgb(236, 220, 230); /* Text color */
+    background-image: url('https://media.licdn.com/dms/image/D4D12AQGmVEW9PRcsGw/article-cover_image-shrink_720_1280/0/1693874124818?e=2147483647&v=beta&t=pmvy7TiXaLcsMA0lUDWzxGkpMaooDI3wdMBxIGFHNCM');
+    background-size: cover; /* This ensures that the entire image is visible without distortion */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    background-position: center; /* Center the background image */
+    background-attachment: fixed; /* Fix the background image in place */
+    animation: slide 10s infinite linear; /* Smooth animation with sliding effect */
 }
+
+@keyframes slide {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: 100% 0%;
+    }
+}
+
+
+/*Profile Picture*/
+.profile-picture {
+    flex: 1;
+    max-width: 30%;
+    margin-left: 20px;
+}
+
+.profile-picture img {
+    width: 100%;
+    height: auto;
+}
+
+
+
 
 .title-block {
     text-align: center;
-    color: #333;
-    background-color: rgb(165, 170, 170);
+    color: #1b2020;
+    background-color: rgb(54, 179, 179);
     padding: 2%;
     margin: 0%;
     position: fixed;
@@ -33,25 +65,35 @@ body {
 
 
 /*hamburger menu" or "toggle menu*/
-
-
-
 .navigation-block {
-    background-color: #ece3e3;
+    background-color: #73b2db;
     text-align: center;
-    padding: 10px 0;
+    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 50px;
     position: fixed;
-    top: 100px;
+    top: 75px;
     left: 0;
     width: 100%;
     z-index: 1000;
     text-decoration: rgb(163, 106, 31);
+    animation: slideDown 0.5s ease-in-out;
+    font-weight: bold;
 }
 
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* Navigation Bar */
 .navigation-block ul {
     list-style-type: none;
     margin: 0;
@@ -62,17 +104,24 @@ body {
 .navigation-block ul li {
     display: inline;
     margin-right: 20px;
+    transition: margin-right 0.3s ease; /* Smooth transition for margin changes */
 }
 
 .navigation-block ul li a {
     text-decoration: none;
     color: #333;
     font-size: 20px;
+    transition: color 0.3s ease; /* Smooth transition for color changes */
+}
+
+.navigation-block ul li:hover {
+    margin-right: 25px; /* Increase margin on hover */
 }
 
 .navigation-block ul li a:hover {
-    color: #555;
+    color: #555; /* Change color on hover */
 }
+
 
 section {
     padding: 50px 0;
@@ -81,7 +130,7 @@ section {
 }
 
 h2 {
-    color: #333;
+    color: #f8ebeb;
     font-size: 30px;
     margin: 0 0 20px 0;
 }
@@ -89,21 +138,34 @@ h2 {
 
 /* Existing styles remain unchanged */
 .text-box {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #f1dada;
+    background-color: #111010;
     margin-bottom: 20px;
     border-radius: 10px;
     overflow: hidden;
     text-align: justify;
     font-size: 20px;
+    position: relative;
+}
+
+.profile-picture {
+    position: relative;
+    float: right;
+    margin-left: 20px; /* Adjust as needed */
+}
+
+.profile-picture img {
+    width: 250px; /* Adjust as needed */
+    height: auto;
+    border-radius: 10px; /* Optional: adds rounded corners to the image */
 }
 
 
 .about-title {
     display: inline-block; /* Ensures the background covers the entire text */
-    background-color: #d6c2c2;
+    background-color: #0c0c0c;
     padding: 5px 10px;
     border-radius: 10px;
 }
@@ -131,14 +193,46 @@ h2 {
 }
 
 .read-more:hover {
-    color: rgb(167, 167, 175);
+    color: rgb(39, 39, 163);
 }
+
+/* Read more on about me, hidden content by default */
+.hidden-content {
+    display: none;
+    overflow: hidden; /* Hide any overflowing content */
+    transition: max-height 0.3s ease; /* Add smooth transition */
+}
+
+.hidden-content:before {
+    content: ''; /* Add pseudo-element for gradient overlay */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 100%); /* Gradient overlay */
+    filter: blur(10px); /* Apply blur effect */
+    transition: opacity 0.3s ease; /* Add smooth transition for opacity */
+    pointer-events: none; /* Allow clicks to pass through the overlay */
+    opacity: 0; /* Initially hide the overlay */
+}
+
+.show-content .hidden-content:before {
+    opacity: 1; /* Show the overlay when content is visible */
+}
+
+
+
+/*Hamburger Menu*/
+
+
+
 
 
 /*My Profession Section*/
 /* Professions Section */
 #professions {
-    background-color: #d2d4ee; /* Set background color for the whole section */
+    background-color: #4e464e; /* Set background color for the whole section */
     padding: 20px; /* Add padding to create space inside the section */
     margin: 0 auto; /* Center the section horizontally */
     max-width: 1200px; /* Set a maximum width for the section */
@@ -170,7 +264,7 @@ h2 {
 
 #professions li a {
     text-decoration: none; /* Remove text underline for links */
-    color: #ffffff; /* Set text color for links */
+    color: #f7f3f3; /* Set text color for links */
     font-size: 20px; /* Increase text size for links */
 }
 
@@ -196,15 +290,15 @@ h2 {
 
 
 
-/* Skills Section */
 
 /* Skills Section */
 #skills {
-    background-color: #f0f0f0; /* Set background color for the whole section */
+    background-color: #181515; /* Set background color for the whole section */
     padding: 20px; /* Add padding */
     margin: 20px auto; /* Center the section horizontally */
     max-width: 1200px; /* Set maximum width */
     border-radius: 10px; /* Add border radius */
+    text-decoration: none;
 }
 
 #skills h2 {
@@ -222,6 +316,7 @@ h2 {
     margin-bottom: 20px; /* Add margin bottom */
     border-radius: 5px; /* Add border radius */
     transition: background-color 0.3s ease; /* Add animation */
+    text-decoration: none; /* Remove underline */
 }
 
 #skills > div:hover {
@@ -229,11 +324,12 @@ h2 {
 }
 
 #skills h3 {
-    background-color: #aee468; /* Set background color for skill titles */
+    background-color: #6885e4; /* Set background color for skill titles */
     padding: 10px; /* Add padding */
     margin-bottom: 10px; /* Add margin bottom */
     border-radius: 5px; /* Add border radius */
     width: 100%; /* Expand to full width */
+    text-decoration: none;
 }
 
 #skills ul {
@@ -241,7 +337,9 @@ h2 {
     padding: 0; /* Remove default padding */
     display: flex; /* Arrange list items horizontally */
     flex-wrap: wrap; /* Allow wrapping */
-    justify-content: center; /* Center items horizontally */
+    justify-content: left; /* Center items horizontally */
+    text-decoration: none;
+    
 }
 
 #skills ul li {
@@ -249,7 +347,7 @@ h2 {
     padding: 10px; /* Add padding to list items */
     border-radius: 5px; /* Add border radius to list items */
     margin: 5px; /* Add margin between list items */
-    text-decoration: none;
+    text-decoration: none; /* Remove underline */
 }
 
 #skills ul li:hover {
@@ -260,15 +358,15 @@ h2 {
 #skills .academic-writing li {
     text-decoration: none;
     color: inherit; /* Use the default color */
+    color: #0c0c0c;
     
 }
 
 
-  /* Styles for Projects section */
 /* Styles for Projects section */
 #projects {
     padding: 20px;
-    background-color: #aee468;
+    background-color: #1c1d1a;
     margin: auto;
 }
 
@@ -292,26 +390,41 @@ h2 {
 }
 
 .project-category h3 {
-    background-color: #f0f0f0;
+    background-color: #4d99cc;
     padding: 10px;
     border-radius: 5px;
+    color: #0c0c0c;
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.project-category h3:hover {
+    background-color: #5c2c2c; /* New background color on hover */
 }
 
 .project-list {
     list-style: none;
     padding: 0;
+    overflow: hidden; /* Hide the project list by default */
+    max-height: 0; /* Set max-height to 0 */
+    transition: max-height 0.3s ease; /* Add smooth transition */
+}
+
+.project-category.open .project-list {
+    max-height: 500px; /* Adjust the max-height to your preference */
 }
 
 .project-list li {
-    background-color: #fff;
+    background-color: #214a52;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 5px;
     cursor: pointer;
+    color: #eee7e7;
+    padding-left: 100px; /* Add left padding for indentation */
 }
 
 .project-list li:hover {
-    background-color: #f0f0f0;
+    background-color: #7e5656;
 }
 
 
