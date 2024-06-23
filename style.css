@@ -1,7 +1,7 @@
+
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif;  
     padding-top: 130px; /* Adjust as needed to account for the combined height of title and navigation */
     color: rgb(236, 220, 230); /* Text color */
     background-image: url('https://media.licdn.com/dms/image/D4D12AQGmVEW9PRcsGw/article-cover_image-shrink_720_1280/0/1693874124818?e=2147483647&v=beta&t=pmvy7TiXaLcsMA0lUDWzxGkpMaooDI3wdMBxIGFHNCM');
@@ -9,7 +9,7 @@ body {
     background-repeat: no-repeat; /* Prevent the background image from repeating */
     background-position: center; /* Center the background image */
     background-attachment: fixed; /* Fix the background image in place */
-    animation: slide 10s infinite linear; /* Smooth animation with sliding effect */
+    animation: slide 20s infinite linear; /* Smooth animation with sliding effect */
 }
 
 @keyframes slide {
@@ -20,6 +20,20 @@ body {
         background-position: 100% 0%;
     }
 }
+
+
+
+/* MEDIA QUERY-SMALL DEVICE*/
+/* Example CSS for small devices */
+.small-device #projects {
+    padding: 80px; /* Adjust padding for smaller devices */
+}
+
+.small-device .project-category h3 {
+    font-size: 1.5rem; /* Adjust font size for category headings on smaller devices */
+}
+
+
 
 
 /*Profile Picture*/
@@ -39,13 +53,11 @@ body {
 
 .title-block {
     text-align: center;
-    color: #1b2020;
-    background-color: rgb(54, 179, 179);
+    color: #c1d6d6;
+    background-color: rgb(2, 20, 20);
     padding: 2%;
     margin: 0%;
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     z-index: 1000;
 
@@ -64,6 +76,11 @@ body {
 
 
 
+
+
+
+
+
 /*hamburger menu" or "toggle menu*/
 .navigation-block {
     background-color: #73b2db;
@@ -72,10 +89,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
+    height: 20px;
     position: fixed;
     top: 75px;
-    left: 0;
     width: 100%;
     z-index: 1000;
     text-decoration: rgb(163, 106, 31);
@@ -96,8 +112,6 @@ body {
 /* Navigation Bar */
 .navigation-block ul {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
     display: flex;
 }
 
@@ -107,11 +121,12 @@ body {
     transition: margin-right 0.3s ease; /* Smooth transition for margin changes */
 }
 
+/* Smooth scrolling for navigation links */
 .navigation-block ul li a {
     text-decoration: none;
     color: #333;
     font-size: 20px;
-    transition: color 0.3s ease; /* Smooth transition for color changes */
+    transition: color 0.3s ease, margin-top 0.3s ease; /* Add transition for smooth color change and margin change */
 }
 
 .navigation-block ul li:hover {
@@ -120,13 +135,38 @@ body {
 
 .navigation-block ul li a:hover {
     color: #555; /* Change color on hover */
+    margin-top: -5px; /* Adjust as needed */
+}
+
+
+
+/*SPA ARCHITECTURE*/
+/* Initial state of sections */
+section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    padding: 100px 0px; /* Adjust padding as needed */
+}
+
+/* Active state of sections */
+section.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Hide all sections initially */
+section:not(.active) {
+    display: none;
+    opacity: 0;
 }
 
 
 section {
-    padding: 50px 0;
+    padding: 100px 0;
     text-align: center;
     margin-bottom: 20px;
+    padding-top: 120px; /* Adjust as needed based on your navigation bar height */
 }
 
 h2 {
@@ -165,7 +205,7 @@ h2 {
 
 .about-title {
     display: inline-block; /* Ensures the background covers the entire text */
-    background-color: #0c0c0c;
+   
     padding: 5px 10px;
     border-radius: 10px;
 }
@@ -233,7 +273,7 @@ h2 {
 /* Professions Section */
 #professions {
     background-color: #4e464e; /* Set background color for the whole section */
-    padding: 20px; /* Add padding to create space inside the section */
+    padding: 140px; /* Add padding to create space inside the section */
     margin: 0 auto; /* Center the section horizontally */
     max-width: 1200px; /* Set a maximum width for the section */
     border-radius: 10px; /* Add border-radius for rounded corners */
@@ -294,16 +334,17 @@ h2 {
 /* Skills Section */
 #skills {
     background-color: #181515; /* Set background color for the whole section */
-    padding: 20px; /* Add padding */
+    padding: 120px; /* Add padding */
     margin: 20px auto; /* Center the section horizontally */
     max-width: 1200px; /* Set maximum width */
     border-radius: 10px; /* Add border radius */
-    text-decoration: none;
+    
 }
 
 #skills h2 {
     text-align: center; /* Center align the heading */
     margin-bottom: 20px; /* Add margin bottom */
+    text-decoration: none;
 }
 
 /* Style for skill categories */
@@ -315,12 +356,15 @@ h2 {
     padding: 10px; /* Add padding */
     margin-bottom: 20px; /* Add margin bottom */
     border-radius: 5px; /* Add border radius */
-    transition: background-color 0.3s ease; /* Add animation */
+    cursor: pointer; /* Add cursor pointer */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Animation for background and transform */
+   
     text-decoration: none; /* Remove underline */
 }
 
 #skills > div:hover {
     background-color: #f3eeee; /* Change background color on hover */
+    transform: scale(1.05); /* Scale effect on hover */
 }
 
 #skills h3 {
@@ -329,16 +373,24 @@ h2 {
     margin-bottom: 10px; /* Add margin bottom */
     border-radius: 5px; /* Add border radius */
     width: 100%; /* Expand to full width */
+    cursor: pointer; /* Add cursor pointer */
     text-decoration: none;
+    transition: background-color 0.3s ease; /* Animation for background */
+}
+
+#skills h3:hover {
+    background-color: #6b8dff; /* Lighter shade on hover */
 }
 
 #skills ul {
     list-style: none; /* Remove default list style */
     padding: 0; /* Remove default padding */
-    display: flex; /* Arrange list items horizontally */
     flex-wrap: wrap; /* Allow wrapping */
     justify-content: left; /* Center items horizontally */
     text-decoration: none;
+    display: none; /* Hide by default */
+    opacity: 0; /* Start with opacity 0 for fade-in effect */
+    transition: opacity 0.3s ease; /* Animation for opacity */
     
 }
 
@@ -348,6 +400,8 @@ h2 {
     border-radius: 5px; /* Add border radius to list items */
     margin: 5px; /* Add margin between list items */
     text-decoration: none; /* Remove underline */
+    cursor: pointer; /* Add cursor pointer */
+    transition: background-color 0.3s ease; /* Animation for background */
 }
 
 #skills ul li:hover {
@@ -363,9 +417,13 @@ h2 {
 }
 
 
+
+
+
+
 /* Styles for Projects section */
 #projects {
-    padding: 20px;
+    padding: 120px;
     background-color: #1c1d1a;
     margin: auto;
 }
@@ -394,6 +452,7 @@ h2 {
     padding: 10px;
     border-radius: 5px;
     color: #0c0c0c;
+    cursor: pointer;
     transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
 
@@ -428,28 +487,94 @@ h2 {
 }
 
 
+
+
+
+
+
+
+/* CONTACT INFORMATION */
 #contacts {
-    background-color: #3498db; /* Blue background color */
-    padding: 20px;
+    background-color: #56828d; /* Blue background color */
+    padding: 120px;
     color: #fff; /* White text color */
+    text-align: center; /* Center align text */
 }
 
 .contact-info {
-    font-size: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px; /* Spacing between contacts */
+}
+
+.contact-info p {
+    margin: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px; /* Rounded corners for each contact info box */
+    padding: 10px 20px; /* Padding inside each contact info box */
+    background-color: rgba(221, 28, 28, 0.1); /* Transparent white background */
+    transition: background-color 0.3s ease-in-out; /* Smooth background color transition */
+}
+
+.contact-info p:hover {
+    background-color: rgba(158, 106, 106, 0.3); /* Lighten background on hover */
+}
+
+.contact-info i {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #fff; /* White icon color */
+    transition: transform 0.3s ease-in-out; /* Animation for icon */
 }
 
 .contact-info a {
     color: #fff; /* White link color */
     text-decoration: none;
+    transition: color 0.3s ease; /* Animation for link color */
 }
 
 .contact-info a:hover {
-    text-decoration: none;
+    color: #f8f8f8; /* Lighter white on hover */
+    text-decoration: none; /* Remove underline on hover */
 }
 
+.contact-info p:hover i {
+    transform: scale(1.2); /* Scale up icon on hover */
+}
+
+
+
+
+
+
+
+/*Keep footer at the bottom*/
+/* Ensure the body takes up at least 100% of the viewport height */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Flexbox container to push footer to the bottom */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure body takes full height of viewport */
+}
+
+/* Main content should take up all available space */
+main {
+    flex: 1;
+}
+
+/* Footer styles */
 footer {
-    background-color: #3498db; /* Blue background color */
+    background-color: #010405;
     text-align: center;
     padding: 10px;
-    color: #fff; /* White text color */
+    color: #fff;
+    margin-top: auto; /* Push footer to the bottom */
+    width: 100%;
 }
