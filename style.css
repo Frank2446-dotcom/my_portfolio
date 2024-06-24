@@ -1,0 +1,721 @@
+
+
+body {
+    font-family: Arial, sans-serif;  
+    padding-top: 130px; /* Adjust as needed to account for the combined height of title and navigation */
+    color: rgb(236, 220, 230); /* Text color */
+    background-image: url('https://media.licdn.com/dms/image/D4D12AQGmVEW9PRcsGw/article-cover_image-shrink_720_1280/0/1693874124818?e=2147483647&v=beta&t=pmvy7TiXaLcsMA0lUDWzxGkpMaooDI3wdMBxIGFHNCM');
+    background-size: cover; /* This ensures that the entire image is visible without distortion */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    background-position: center; /* Center the background image */
+    background-attachment: fixed; /* Fix the background image in place */
+    animation: slide 5s infinite linear; /* Smooth animation with sliding effect */
+}
+
+@keyframes slide {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: 100% 0%;
+    }
+}
+
+
+
+/* MEDIA QUERY-SMALL DEVICE*/
+/* Example CSS for small devices */
+.small-device #projects {
+    padding: 80px; /* Adjust padding for smaller devices */
+}
+
+.small-device .project-category h3 {
+    font-size: 1.5rem; /* Adjust font size for category headings on smaller devices */
+}
+
+
+
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .title-block {
+        flex-direction: column;
+    }
+
+    .navigation-block {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .navigation-block ul {
+        flex-direction: column;
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger menu */
+    }
+}
+
+@media (min-width: 601px) {
+    .navigation-block {
+        display: flex; /* Show navigation on larger screens */
+    }
+
+    .hamburger-menu {
+        display: none; /* Hide hamburger menu on larger screens */
+    }
+
+    .navigation-block ul {
+        flex-direction: row; /* Arrange items horizontally */
+    }
+
+    .navigation-block ul li {
+        margin: 0 15px;
+    }
+}
+
+
+
+
+
+/*Profile Picture*/
+.profile-picture {
+    flex: 1;
+    max-width: 30%;
+    margin-left: 20px;
+}
+
+.profile-picture img {
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+
+/* Header styles */
+/* Header styles */
+header {
+    background-color: #222423;
+    padding: 20px 0;
+    color: #fff;
+    text-align: center;
+    position: fixed; /* Fixed position to stick to the top */
+    width: 100%;
+    top: 0; /* Align to the top of the viewport */
+    z-index: 1000; /* Ensure it stays above other content */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.title-block {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 0;
+}
+
+.title-block img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px; /* Space between image and text */
+    margin-left: 10px; /* Space between image and left edge */
+    cursor: pointer;
+    align-self: center; /* Center align vertically within flex container */
+}
+
+
+
+
+
+
+
+
+
+/*hamburger menu" or "toggle menu*/
+
+/* Styles for hamburger icon */
+#hamburger-menu {
+    display: block; /* Always display hamburger menu icon */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1100; /* Higher than navigation block */
+}
+
+/*Navigation menu*/
+.navigation-block {
+    background-color: #73b2db;
+    text-align: center;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    position: fixed;
+    top: 90px;
+    width: 100%;
+    z-index: 1000;
+    text-decoration: rgb(163, 106, 31);
+    animation: slideDown 0.5s ease-in-out;
+    font-weight: bold;
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* Navigation Bar */
+.navigation-block ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.navigation-block ul li {
+    display: inline;
+    margin-right: 20px;
+    transition: margin-right 0.3s ease; /* Smooth transition for margin changes */
+}
+
+/* Smooth scrolling for navigation links */
+.navigation-block ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+    transition: color 0.3s ease, margin-top 0.3s ease; /* Add transition for smooth color change and margin change */
+}
+
+.navigation-block ul li:hover {
+    margin-right: 25px; /* Increase margin on hover */
+}
+
+.navigation-block ul li a:hover {
+    color: #555; /* Change color on hover */
+    margin-top: -5px; /* Adjust as needed */
+}
+
+
+
+
+
+/* Responsive adjustments for nav and title block */
+@media only screen and (max-width: 768px) {
+    .title-block img {
+        margin-right: 5px; /* Adjust margin for smaller screens */
+    }
+
+    .navigation-block {
+        top: 60px; /* Adjust top position for smaller screens */
+    }
+
+    .navigation-block ul li {
+        margin-right: 10px; /* Adjust margin for smaller screens */
+    }
+
+    .navigation-block ul li a {
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+}
+
+/*SPA ARCHITECTURE*/
+/* Initial state of sections */
+section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    padding: 100px 0px; /* Adjust padding as needed */
+}
+
+/* Active state of sections */
+section.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Hide all sections initially */
+section:not(.active) {
+    display: none;
+    opacity: 0;
+}
+
+
+section {
+    padding: 100px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 120px; /* Adjust as needed based on your navigation bar height */
+}
+
+h2 {
+    color: #f8ebeb;
+    font-size: 30px;
+    margin: 0 0 20px 0;
+}
+
+
+
+
+
+
+/* Bio section styles */
+#bio {
+    padding: 150px 20px;
+    background-color: #436775;
+    display: none; /* Hide by default */
+    transition: all 0.5s ease-in-out;
+}
+
+#bio.active {
+    display: block; /* Show when active */
+}
+
+.text-box {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #111010;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: justify;
+    font-size: 20px;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    line-height: 1.6; /* Adjust line height for readability */
+}
+
+/* Adjust text size for smaller screens */
+@media only screen and (max-width: 768px) {
+    .text-box {
+        font-size: 18px; /* Decrease font size for smaller screens */
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+}
+
+
+.profile-picture {
+    position: relative;
+    float: right;
+    margin-left: 20px; /* Adjust as needed */
+}
+
+.profile-picture img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+
+
+/*ABOUT ME*/
+.about-title {
+    display: inline-block; /* Ensures the background covers the entire text */
+   
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.about-title h2,
+.about-title span {
+    margin: 0; /* Reset margin to remove any default spacing */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start with opacity 0 */
+    }
+    to {
+        opacity: 1; /* Fade in to full opacity */
+    }
+}
+
+.read-more {
+    display: inline-block;
+    text-align: right;
+    text-decoration: none;
+    color: rgb(29, 195, 224);
+    margin-top: 10px;
+}
+
+.read-more:hover {
+    color: rgb(39, 39, 163);
+    
+}
+
+/* Read more on about me, hidden content by default */
+.hidden-content {
+    display: none;
+    overflow: hidden; /* Hide any overflowing content */
+    transition: max-height 0.3s ease; /* Add smooth transition */
+}
+
+.hidden-content:before {
+    content: ''; /* Add pseudo-element for gradient overlay */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 100%); /* Gradient overlay */
+    filter: blur(10px); /* Apply blur effect */
+    transition: opacity 0.3s ease; /* Add smooth transition for opacity */
+    pointer-events: none; /* Allow clicks to pass through the overlay */
+    opacity: 0; /* Initially hide the overlay */
+}
+
+.show-content .hidden-content:before {
+    opacity: 1; /* Show the overlay when content is visible */
+}
+
+
+
+
+/*My Profession Section*/
+
+#professions {
+    background-color: #201912; /* Set background color for the whole section */
+    padding: 150px; /* Add padding to create space inside the section */
+    margin: 0 auto; /* Center the section horizontally */
+    max-width: 1200px; /* Set a maximum width for the section */
+    border-radius: 10px; /* Add border-radius for rounded corners */
+}
+
+#professions h2 {
+    text-align: center; /* Center align the heading */
+}
+
+#professions ol {
+    list-style: none; /* Remove default list styles */
+    padding: 0; /* Remove default padding */
+    display: flex; /* Arrange items horizontally */
+    justify-content: center; /* Center align the items */
+    flex-wrap: wrap; /* Allow wrapping */
+}
+
+#professions li {
+    background-color: #76a3d6; /* Set background color for the boxes */
+    border: 1px solid #99c72d; /* Add border for the boxes */
+    padding: 10px; /* Add padding for spacing */
+    margin: 10px; /* Add margin for spacing between boxes */
+    text-align: center; /* Center align the text */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    flex: 1; /* Ensure equal width for all boxes */
+    max-width: 200px; /* Limit maximum width of each box */
+}
+
+#professions li a {
+    text-decoration: none; /* Remove text underline for links */
+    color: #f7f3f3; /* Set text color for links */
+    font-size: 20px; /* Increase text size for links */
+}
+
+#professions li:hover {
+    background-color: #d885c3; /* Change background color on hover */
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    #professions {
+        padding: 10px; /* Decrease padding for smaller screens */
+    }
+
+    #professions li {
+        margin: 5px; /* Decrease margin for spacing between boxes on smaller screens */
+        padding: 8px; /* Decrease padding for spacing on smaller screens */
+    }
+
+    #professions li a {
+        font-size: 16px; /* Decrease text size for links on smaller screens */
+    }
+}
+
+
+/* Profession section for smaller screens*/
+@media only screen and (min-width: 768px) {
+    #professions {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #professions {
+        margin-left: 200px;
+        margin-right: 200px;
+    }
+}
+
+
+
+/* Skills Section */
+#skills {
+    background-color: #181515; /* Set background color for the whole section */
+    padding: 150px; /* Add padding */
+    margin: 20px auto; /* Center the section horizontally */
+    max-width: 1200px; /* Set maximum width */
+    border-radius: 10px; /* Add border radius */
+    
+}
+
+#skills h2 {
+    text-align: center; /* Center align the heading */
+    margin-bottom: 20px; /* Add margin bottom */
+    text-decoration: none;
+}
+
+/* Style for skill categories */
+#skills > div {
+    display: flex; /* Arrange boxes horizontally */
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: center; /* Center items horizontally */
+    background-color: #ddd; /* Set background color for skill categories */
+    padding: 10px; /* Add padding */
+    margin-bottom: 20px; /* Add margin bottom */
+    border-radius: 5px; /* Add border radius */
+    cursor: pointer; /* Add cursor pointer */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Animation for background and transform */
+   
+    text-decoration: none; /* Remove underline */
+}
+
+#skills > div:hover {
+    background-color: #f3eeee; /* Change background color on hover */
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+#skills h3 {
+    background-color: #6885e4; /* Set background color for skill titles */
+    padding: 10px; /* Add padding */
+    margin-bottom: 10px; /* Add margin bottom */
+    border-radius: 5px; /* Add border radius */
+    width: 100%; /* Expand to full width */
+    cursor: pointer; /* Add cursor pointer */
+    text-decoration: none;
+    transition: background-color 0.3s ease; /* Animation for background */
+}
+
+#skills h3:hover {
+    background-color: #6b8dff; /* Lighter shade on hover */
+}
+
+#skills ul {
+    list-style: none; /* Remove default list style */
+    padding: 0; /* Remove default padding */
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: left; /* Center items horizontally */
+    text-decoration: none;
+    display: none; /* Hide by default */
+    opacity: 0; /* Start with opacity 0 for fade-in effect */
+    transition: opacity 0.3s ease; /* Animation for opacity */
+    
+}
+
+#skills ul li {
+    background-color: #c1bfdf; /* Set background color for list items */
+    padding: 10px; /* Add padding to list items */
+    border-radius: 5px; /* Add border radius to list items */
+    margin: 5px; /* Add margin between list items */
+    text-decoration: none; /* Remove underline */
+    cursor: pointer; /* Add cursor pointer */
+    transition: background-color 0.3s ease; /* Animation for background */
+}
+
+#skills ul li:hover {
+    background-color: #a57878; /* Change background color of list items on hover */
+}
+
+/* Remove underline and blue color for Academic Writing list */
+#skills .academic-writing li {
+    text-decoration: none;
+    color: inherit; /* Use the default color */
+    color: #0c0c0c;
+    
+}
+
+
+
+
+
+
+/* Styles for Projects section */
+#projects {
+    padding: 150px;
+    background-color: #1c1d1a;
+    margin: auto;
+}
+
+@media only screen and (min-width: 768px) {
+    #projects {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #projects {
+        margin-left: 200px;
+        margin-right: 200px;
+    }
+}
+
+.project-category {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.project-category h3 {
+    background-color: #4d99cc;
+    padding: 10px;
+    border-radius: 5px;
+    color: #0c0c0c;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.project-category h3:hover {
+    background-color: #5c2c2c; /* New background color on hover */
+}
+
+.project-list {
+    list-style: none;
+    padding: 0;
+    overflow: hidden; /* Hide the project list by default */
+    max-height: 0; /* Set max-height to 0 */
+    transition: max-height 0.3s ease; /* Add smooth transition */
+}
+
+.project-category.open .project-list {
+    max-height: 500px; /* Adjust the max-height to your preference */
+}
+
+.project-list li {
+    background-color: #214a52;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    color: #eee7e7;
+    padding-left: 100px; /* Add left padding for indentation */
+}
+
+.project-list li:hover {
+    background-color: #7e5656;
+}
+
+
+/*Project section Smaller Screens Projects and Professional*/
+/* Responsive adjustments */
+@media only screen and (max-width: 768px) {
+    .section {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    #projects, #professions {
+        padding: 10px; /* Adjust padding for smaller screens */
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .project-list li, .profession-list li {
+        padding-left: 20px; /* Adjust padding for smaller screens */
+    }
+}
+
+
+
+
+
+/* CONTACT INFORMATION */
+#contacts {
+    background-color: #29221d; /* Blue background color */
+    padding: 150px;
+    color: #fff; /* White text color */
+    text-align: center; /* Center align text */
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px; /* Spacing between contacts */
+}
+
+.contact-info p {
+    margin: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px; /* Rounded corners for each contact info box */
+    padding: 10px 20px; /* Padding inside each contact info box */
+    background-color: rgba(221, 28, 28, 0.1); /* Transparent white background */
+    transition: background-color 0.3s ease-in-out; /* Smooth background color transition */
+}
+
+.contact-info p:hover {
+    background-color: rgba(214, 68, 68, 0.3); /* Lighten background on hover */
+}
+
+.contact-info i {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #78e033; /* White icon color */
+    transition: transform 0.3s ease-in-out; /* Animation for icon */
+}
+
+.contact-info a {
+    color: #faf6f6; /* White link color */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Animation for link color */
+}
+
+.contact-info a:hover {
+    color: #67cceb; /* Lighter white on hover */
+    text-decoration: none; /* Remove underline on hover */
+}
+
+.contact-info p:hover i {
+    transform: scale(1.2); /* Scale up icon on hover */
+}
+
+
+
+
+
+
+
+/*Keep footer at the bottom*/
+/* Ensure the body takes up at least 100% of the viewport height */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Flexbox container to push footer to the bottom */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure body takes full height of viewport */
+}
+
+/* Main content should take up all available space */
+main {
+    flex: 1;
+}
+
+/* Footer styles */
+footer {
+    background-color: #010405;
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+    margin-top: auto; /* Push footer to the bottom */
+    width: 100%;
+}
