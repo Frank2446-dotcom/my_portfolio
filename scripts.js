@@ -25,20 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    // Hamburger menu toggle
-    var hamburgerMenu = document.getElementById('hamburger-menu');
-    var navigationBlock = document.getElementById('navigation-block');
-
-    if (hamburgerMenu) {
-        hamburgerMenu.addEventListener('click', function() {
-            if (navigationBlock.style.display === 'none' || navigationBlock.style.display === '') {
-                navigationBlock.style.display = 'flex';
-            } else {
-                navigationBlock.style.display = 'none';
-            }
-        });
-    }
+    
 
     // Ensure navigation block visibility on window resize
     window.addEventListener('resize', function() {
@@ -53,15 +40,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //HAMBURGER MENU
 document.addEventListener('DOMContentLoaded', function() {
-    var hamburgerMenu = document.getElementById('hamburger-menu');
-    var navigationBlock = document.querySelector('.navigation-block');
+    var hamburgerMenu = document.getElementById('menu__toggle');
+    var menuBox = document.querySelector('.menu__box');
 
-    // Toggle navigation block visibility on hamburger menu click
+    // Toggle menu box visibility on hamburger menu click
     hamburgerMenu.addEventListener('click', function() {
-        navigationBlock.classList.toggle('open');
+        menuBox.classList.toggle('open');
     });
 });
-
 
 
 //PROJECT LIST  VIEWING

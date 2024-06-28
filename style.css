@@ -22,85 +22,11 @@ body {
 }
 
 
-
-/* MEDIA QUERY-SMALL DEVICE*/
-/* Example CSS for small devices */
-.small-device #projects {
-    padding: 80px; /* Adjust padding for smaller devices */
-}
-
-.small-device .project-category h3 {
-    font-size: 1.5rem; /* Adjust font size for category headings on smaller devices */
-}
-
-
-
-
-/* Responsive design */
-@media (max-width: 600px) {
-    .title-block {
-        flex-direction: column;
-    }
-
-    .navigation-block {
-        flex-direction: column;
-        padding: 10px;
-    }
-
-    .navigation-block ul {
-        flex-direction: column;
-    }
-
-    .hamburger-menu {
-        display: block; /* Show hamburger menu */
-    }
-}
-
-@media (min-width: 601px) {
-    .navigation-block {
-        display: flex; /* Show navigation on larger screens */
-    }
-
-    .hamburger-menu {
-        display: none; /* Hide hamburger menu on larger screens */
-    }
-
-    .navigation-block ul {
-        flex-direction: row; /* Arrange items horizontally */
-    }
-
-    .navigation-block ul li {
-        margin: 0 15px;
-    }
-}
-
-
-
-
-
-/*Profile Picture*/
-.profile-picture {
-    flex: 1;
-    max-width: 30%;
-    margin-left: 20px;
-}
-
-.profile-picture img {
-    width: 100%;
-    height: auto;
-}
-
-
-
-
-
-/* Header styles */
 /* Header styles */
 header {
-    background-color: #222423;
+    background-color: #1b382a;
     padding: 20px 0;
     color: #fff;
-    text-align: center;
     position: fixed; /* Fixed position to stick to the top */
     width: 100%;
     top: 0; /* Align to the top of the viewport */
@@ -126,23 +52,102 @@ header {
 
 
 
-
-
-
-
-
-
-/*hamburger menu" or "toggle menu*/
-
 /* Styles for hamburger icon */
-#hamburger-menu {
-    display: block; /* Always display hamburger menu icon */
-    position: absolute;
+#menu__toggle {
+    opacity: 0;
+}
+
+#menu__toggle:checked+.menu__btn>span {
+    transform: rotate(45deg);
+}
+
+#menu__toggle:checked+.menu__btn>span::before {
+    top: 0;
+    transform: rotate(0deg);
+}
+
+#menu__toggle:checked+.menu__btn>span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+#menu__toggle:checked~.menu__box {
+    left: 0 !important;
+}
+
+.menu__btn {
+    position: fixed;
     top: 20px;
     right: 20px;
+    width: 26px;
+    height: 26px;
     cursor: pointer;
-    z-index: 1100; /* Higher than navigation block */
+    z-index: 1;
 }
+
+.menu__btn>span,
+.menu__btn>span::before,
+.menu__btn>span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #616161;
+    transition-duration: .25s;
+}
+
+.menu__btn>span::before {
+    content: '';
+    top: -8px;
+}
+
+.menu__btn>span::after {
+    content: '';
+    top: 8px;
+}
+
+.menu__box {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 100%;
+    margin: 0;
+    padding: 80px 0;
+    list-style: none;
+    background-color: #ECEFF1;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+    transition-duration: .25s;
+}
+
+.menu__item {
+    display: block;
+    padding: 12px 24px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    transition-duration: .25s;
+}
+
+.menu__item:hover {
+    background-color: #CFD8DC;
+}
+
+
+
+
+/* Navigation block */
+.navigation-block {
+    display: none; /* Hidden by default */
+}
+
+.navigation-block.open {
+    display: block; /* Display navigation when open */
+}
+
 
 /*Navigation menu*/
 .navigation-block {
@@ -205,25 +210,6 @@ header {
 
 
 
-/* Responsive adjustments for nav and title block */
-@media only screen and (max-width: 768px) {
-    .title-block img {
-        margin-right: 5px; /* Adjust margin for smaller screens */
-    }
-
-    .navigation-block {
-        top: 60px; /* Adjust top position for smaller screens */
-    }
-
-    .navigation-block ul li {
-        margin-right: 10px; /* Adjust margin for smaller screens */
-    }
-
-    .navigation-block ul li a {
-        font-size: 16px; /* Adjust font size for smaller screens */
-    }
-}
-
 /*SPA ARCHITECTURE*/
 /* Initial state of sections */
 section {
@@ -262,15 +248,15 @@ h2 {
 
 
 
-
-
 /* Bio section styles */
 #bio {
-    padding: 150px 20px;
+    margin-top: 140px; /* Adjust this value based on the height of your navigation bar */
+    padding: 20px;
     background-color: #436775;
     display: none; /* Hide by default */
     transition: all 0.5s ease-in-out;
 }
+
 
 #bio.active {
     display: block; /* Show when active */
@@ -291,15 +277,9 @@ h2 {
     line-height: 1.6; /* Adjust line height for readability */
 }
 
-/* Adjust text size for smaller screens */
-@media only screen and (max-width: 768px) {
-    .text-box {
-        font-size: 18px; /* Decrease font size for smaller screens */
-        padding: 15px; /* Adjust padding for smaller screens */
-    }
-}
 
 
+/* Bio-Profile Picture*/
 .profile-picture {
     position: relative;
     float: right;
@@ -387,10 +367,14 @@ h2 {
     margin: 0 auto; /* Center the section horizontally */
     max-width: 1200px; /* Set a maximum width for the section */
     border-radius: 10px; /* Add border-radius for rounded corners */
+    margin-top: 100px; /* Adjust margin-top to start below the navigation bar */
 }
+
+
 
 #professions h2 {
     text-align: center; /* Center align the heading */
+    margin-top: 0; /* Remove default margin from the top of h2 */
 }
 
 #professions ol {
@@ -420,38 +404,6 @@ h2 {
 
 #professions li:hover {
     background-color: #d885c3; /* Change background color on hover */
-}
-
-/* Media Query for smaller screens */
-@media (max-width: 768px) {
-    #professions {
-        padding: 10px; /* Decrease padding for smaller screens */
-    }
-
-    #professions li {
-        margin: 5px; /* Decrease margin for spacing between boxes on smaller screens */
-        padding: 8px; /* Decrease padding for spacing on smaller screens */
-    }
-
-    #professions li a {
-        font-size: 16px; /* Decrease text size for links on smaller screens */
-    }
-}
-
-
-/* Profession section for smaller screens*/
-@media only screen and (min-width: 768px) {
-    #professions {
-        margin-left: 100px;
-        margin-right: 100px;
-    }
-}
-
-@media only screen and (min-width: 992px) {
-    #professions {
-        margin-left: 200px;
-        margin-right: 200px;
-    }
 }
 
 
@@ -543,9 +495,6 @@ h2 {
 
 
 
-
-
-
 /* Styles for Projects section */
 #projects {
     padding: 150px;
@@ -553,19 +502,6 @@ h2 {
     margin: auto;
 }
 
-@media only screen and (min-width: 768px) {
-    #projects {
-        margin-left: 100px;
-        margin-right: 100px;
-    }
-}
-
-@media only screen and (min-width: 992px) {
-    #projects {
-        margin-left: 200px;
-        margin-right: 200px;
-    }
-}
 
 .project-category {
     margin-bottom: 20px;
@@ -612,32 +548,11 @@ h2 {
 }
 
 
-/*Project section Smaller Screens Projects and Professional*/
-/* Responsive adjustments */
-@media only screen and (max-width: 768px) {
-    .section {
-        padding: 10px; /* Reduce padding for smaller screens */
-    }
-
-    #projects, #professions {
-        padding: 10px; /* Adjust padding for smaller screens */
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .project-list li, .profession-list li {
-        padding-left: 20px; /* Adjust padding for smaller screens */
-    }
-}
-
-
-
-
 
 /* CONTACT INFORMATION */
 #contacts {
-    background-color: #29221d; /* Blue background color */
-    padding: 150px;
+    background-color: #352b24; /* Blue background color */
+    padding: 150px; /* Adjust padding as needed */
     color: #fff; /* White text color */
     text-align: center; /* Center align text */
 }
@@ -654,19 +569,12 @@ h2 {
     font-size: 16px;
     border-radius: 20px; /* Rounded corners for each contact info box */
     padding: 10px 20px; /* Padding inside each contact info box */
-    background-color: rgba(221, 28, 28, 0.1); /* Transparent white background */
+    background-color: rgba(34, 221, 81, 0.1); /* Transparent white background */
     transition: background-color 0.3s ease-in-out; /* Smooth background color transition */
 }
 
 .contact-info p:hover {
     background-color: rgba(214, 68, 68, 0.3); /* Lighten background on hover */
-}
-
-.contact-info i {
-    font-size: 24px;
-    margin-right: 10px;
-    color: #78e033; /* White icon color */
-    transition: transform 0.3s ease-in-out; /* Animation for icon */
 }
 
 .contact-info a {
@@ -684,8 +592,48 @@ h2 {
     transform: scale(1.2); /* Scale up icon on hover */
 }
 
+/* Style for Font Awesome icons */
+.fa {
+    padding: 10px; /* Padding around each icon */
+    font-size: 24px; /* Icon size */
+    width: 40px; /* Icon width */
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 10px; /* Margin around each icon */
+    border-radius: 50%; /* Circle shape */
+    background-color: #555; /* Default background color */
+    color: white; /* Icon color */
+    transition: background-color 0.3s, transform 0.3s ease-in-out; /* Smooth transition */
+}
 
+.fa:hover {
+    background-color: #777; /* Darken background on hover */
+    transform: scale(1.1); /* Scale up on hover */
+}
 
+/* Email*/
+/* Style for the icon link */
+.icon-link {
+    display: inline-block;
+    margin-top: 5px;
+    text-decoration: none;
+    color: #333;
+    padding: 10px 20px;
+    background-color: #636a7c;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.icon-link:hover {
+    background-color: #e0e0e0;
+}
+
+/* Style for the Material Icons */
+.material-icons {
+    margin-right: 10px;
+    color: #007bff; /* Change color to blue */
+    font-size: 24px;
+}
 
 
 
@@ -718,4 +666,74 @@ footer {
     color: #fff;
     margin-top: auto; /* Push footer to the bottom */
     width: 100%;
+}
+
+
+
+
+
+
+
+
+
+/* Container styles */
+.container {
+    width: 100%;
+    max-width: 1536px;
+    margin: 0 auto;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    border: 1px solid red; /* Red border for the container */
+}
+
+/* Media queries for responsive design */
+@media (max-width: 1536px) {
+    .container {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .container {
+        max-width: 1280px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container {
+        max-width: 1024px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+@media (max-width: 640px) {
+    .container {
+        max-width: 640px;
+    }
+}
+
+@media (max-width: 475px) {
+    .container {
+        max-width: 475px;
+    }
+}
+
+@media (max-width: 360px) {
+    .container {
+        padding: 0 10px;
+    }
+}
+
+/* Styles for sections inside .container */
+.container section {
+    padding: 20px; /* Example padding for sections */
+    background-color: #fff; /* Example background color for sections */
+    margin-bottom: 20px; /* Example margin between sections */
+    border-radius: 5px; /* Example border radius for sections */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Example box shadow */
 }
