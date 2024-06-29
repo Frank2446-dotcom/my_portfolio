@@ -50,6 +50,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+//Contact  toggle the .blink class on icon click:
+
 //PROJECT LIST  VIEWING
 
 document.addEventListener("DOMContentLoaded", function() {

@@ -140,6 +140,7 @@ header {
 
 
 /* Navigation block */
+/* Navigation block */
 .navigation-block {
     display: none; /* Hidden by default */
 }
@@ -148,8 +149,7 @@ header {
     display: block; /* Display navigation when open */
 }
 
-
-/*Navigation menu*/
+/* Navigation Bar */
 .navigation-block {
     background-color: #73b2db;
     text-align: center;
@@ -157,7 +157,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 20px;
+    height: auto; /* Adjust height to fit content */
     position: fixed;
     top: 90px;
     width: 100%;
@@ -167,6 +167,7 @@ header {
     font-weight: bold;
 }
 
+/* Navigation Bar Animation */
 @keyframes slideDown {
     0% {
         transform: translateY(-100%);
@@ -176,15 +177,19 @@ header {
     }
 }
 
-
-/* Navigation Bar */
+/* Navigation Menu */
 .navigation-block ul {
     list-style-type: none;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Ensure ul spans the width of the navigation block */
 }
 
 .navigation-block ul li {
-    display: inline;
+    display: inline-flex; /* Ensure list items are inline and flex */
     margin-right: 20px;
     transition: margin-right 0.3s ease; /* Smooth transition for margin changes */
 }
@@ -193,7 +198,7 @@ header {
 .navigation-block ul li a {
     text-decoration: none;
     color: #333;
-    font-size: 20px;
+    font-size: 1.5vw; /* Use vw units for responsive font size */
     transition: color 0.3s ease, margin-top 0.3s ease; /* Add transition for smooth color change and margin change */
 }
 
@@ -274,9 +279,26 @@ h2 {
     font-size: 20px;
     position: relative;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+
     line-height: 1.6; /* Adjust line height for readability */
+    min-width: 300px; /* Ensure a minimum width */
+    max-width: 800px; /* Ensure a maximum width */
+    line-height: 1.6; /* Adjust line height for readability */
+    flex: 1 1 60%; /* Allow text-box to take up to 60% of the container */
+    
 }
 
+
+/* Bio container to manage layout */
+.bio-container {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
 
 /* Bio-Profile Picture*/
@@ -284,11 +306,16 @@ h2 {
     position: relative;
     float: right;
     margin-left: 20px; /* Adjust as needed */
+
+    flex: 0 1 30%; /* Allow profile picture to take up to 30% of the container */
+    max-width: 250px; /* Limit the maximum width */
+    margin-left: 20px; /* Adjust as needed */
 }
 
 .profile-picture img {
     width: 250px;
-    height: 250px;
+    
+    height: auto; /* Maintain aspect ratio */
     border-radius: 50%;
     display: block;
     margin: 0 auto 20px;
@@ -299,7 +326,6 @@ h2 {
 /*ABOUT ME*/
 .about-title {
     display: inline-block; /* Ensures the background covers the entire text */
-   
     padding: 5px 10px;
     border-radius: 10px;
 }
@@ -382,7 +408,11 @@ h2 {
     padding: 0; /* Remove default padding */
     display: flex; /* Arrange items horizontally */
     justify-content: center; /* Center align the items */
-    flex-wrap: wrap; /* Allow wrapping */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    grid-gap: 10px; /* Adjust the gap between the boxes as needed */
+
+    
 }
 
 #professions li {
@@ -394,6 +424,7 @@ h2 {
     cursor: pointer; /* Change cursor to pointer on hover */
     flex: 1; /* Ensure equal width for all boxes */
     max-width: 200px; /* Limit maximum width of each box */
+    min-width: 150px; /* Ensure a minimum width for each box */
 }
 
 #professions li a {
@@ -410,33 +441,45 @@ h2 {
 
 /* Skills Section */
 #skills {
-    background-color: #181515; /* Set background color for the whole section */
+    background-color: #181515; /* Set initial background color for the whole section */
     padding: 150px; /* Add padding */
     margin: 20px auto; /* Center the section horizontally */
     max-width: 1200px; /* Set maximum width */
-    border-radius: 10px; /* Add border radius */
-    
+    border-radius: 500px; /* Add border radius */
+    animation: pulseBackground 5s infinite alternate; /* Apply animation to background color */
+}
+
+@keyframes pulseBackground {
+    0% {
+        background-color: #181515;
+    }
+    50% {
+        background-color: #6885e4; /* Color to transition to */
+    }
+    100% {
+        background-color: #181515;
+    }
 }
 
 #skills h2 {
     text-align: center; /* Center align the heading */
     margin-bottom: 20px; /* Add margin bottom */
-    text-decoration: none;
+    
 }
 
 /* Style for skill categories */
 #skills > div {
     display: flex; /* Arrange boxes horizontally */
     flex-wrap: wrap; /* Allow wrapping */
-    justify-content: center; /* Center items horizontally */
+    justify-content: center; /* Center items horizontally */    
     background-color: #ddd; /* Set background color for skill categories */
     padding: 10px; /* Add padding */
     margin-bottom: 20px; /* Add margin bottom */
     border-radius: 5px; /* Add border radius */
     cursor: pointer; /* Add cursor pointer */
     transition: background-color 0.3s ease, transform 0.3s ease; /* Animation for background and transform */
-   
     text-decoration: none; /* Remove underline */
+
 }
 
 #skills > div:hover {
@@ -462,7 +505,9 @@ h2 {
 #skills ul {
     list-style: none; /* Remove default list style */
     padding: 0; /* Remove default padding */
-    flex-wrap: wrap; /* Allow wrapping */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    grid-gap: 10px; /* Adjust the gap between the boxes as needed */
     justify-content: left; /* Center items horizontally */
     text-decoration: none;
     display: none; /* Hide by default */
@@ -478,7 +523,7 @@ h2 {
     margin: 5px; /* Add margin between list items */
     text-decoration: none; /* Remove underline */
     cursor: pointer; /* Add cursor pointer */
-    transition: background-color 0.3s ease; /* Animation for background */
+    transition: background-color 0.3s ease; /* Animation for background */          
 }
 
 #skills ul li:hover {
@@ -495,12 +540,31 @@ h2 {
 
 
 
+
+/* Styles for Projects section */
+/* Styles for Projects section */
 /* Styles for Projects section */
 #projects {
     padding: 150px;
-    background-color: #1c1d1a;
+    background: 
+        url('https://www.shutterstock.com/shutterstock/videos/1057790755/thumb/1.jpg?ip=x480.jpg') center center/cover fixed,
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), /* Gradient overlay */
+        linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)); /* Additional gradient overlay */
     margin: auto;
+    max-width: 1200px; /* Limit maximum width of the projects section */
+    animation: moveBackground 60s linear infinite; /* Apply moveBackground animation */
 }
+
+/* Animation for the background position */
+@keyframes moveBackground {
+    0% {
+        background-position: center bottom, left top;
+    }
+    100% {
+        background-position: center top, left top;
+    }
+}
+
 
 
 .project-category {
@@ -511,10 +575,14 @@ h2 {
 .project-category h3 {
     background-color: #4d99cc;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 5px; /* Reduced border-radius for smoother appearance */
     color: #0c0c0c;
     cursor: pointer;
+    width: calc(100% - 20px); /* Set width relative to parent with padding */
     transition: background-color 0.3s ease; /* Smooth transition for background color */
+    overflow: hidden; /* Hide overflow to prevent text clipping */
+    text-overflow: ellipsis; /* Add ellipsis for overflowed text */
+    white-space: nowrap; /* Prevent text from wrapping */
 }
 
 .project-category h3:hover {
@@ -524,6 +592,7 @@ h2 {
 .project-list {
     list-style: none;
     padding: 0;
+    max-width: 100%; /* Limit the maximum width */
     overflow: hidden; /* Hide the project list by default */
     max-height: 0; /* Set max-height to 0 */
     transition: max-height 0.3s ease; /* Add smooth transition */
@@ -540,12 +609,19 @@ h2 {
     margin-bottom: 5px;
     cursor: pointer;
     color: #eee7e7;
-    padding-left: 100px; /* Add left padding for indentation */
+    max-width: 100%; /* Limit the maximum width */
+    overflow-wrap: break-word; /* Break words if they exceed container width */
 }
 
 .project-list li:hover {
     background-color: #7e5656;
 }
+
+
+
+
+
+
 
 
 
@@ -555,13 +631,69 @@ h2 {
     padding: 150px; /* Adjust padding as needed */
     color: #fff; /* White text color */
     text-align: center; /* Center align text */
+    position: relative; /* Ensure positioning for pseudo-elements */
+    overflow: hidden; /* Hide overflow for smooth animation */
+
+    /* Animation for background */
+    animation: animateBackground 20s ease infinite;
+}
+
+/* Animation keyframes for background */
+@keyframes animateBackground {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 400% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/* Pseudo-element for circular gradient */
+#contacts::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0) 70%);
+    pointer-events: none; /* Prevent interaction with pseudo-element */
+}
+
+/* Pseudo-element for animated dots */
+#contacts::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    background-image: radial-gradient(circle, #fff 5%, transparent 5%);
+    background-size: 20px 20px; /* Size of dots */
+    opacity: 0.4; /* Adjust opacity of dots */
+    pointer-events: none; /* Prevent interaction with pseudo-element */
+    animation: animateDots 1s linear infinite; /* Animation for dots */
+}
+
+/* Animation keyframes for dots */
+@keyframes animateDots {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(20px, 20px);
+    }
 }
 
 .contact-info {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 30px; /* Spacing between contacts */
+    justify-content: center; /* Center items horizontally */
+    margin-top: 30px; /* Spacing between rows */
 }
 
 .contact-info p {
@@ -571,11 +703,16 @@ h2 {
     padding: 10px 20px; /* Padding inside each contact info box */
     background-color: rgba(34, 221, 81, 0.1); /* Transparent white background */
     transition: background-color 0.3s ease-in-out; /* Smooth background color transition */
+    text-align: center; /* Center align text */
+    flex: 1 0 200px; /* Ensure equal width for all boxes, with a maximum width */
+    min-width: 150px; /* Ensure a minimum width for each box */
+    max-width: 200px; /* Limit maximum width of each box */
 }
 
 .contact-info p:hover {
     background-color: rgba(214, 68, 68, 0.3); /* Lighten background on hover */
 }
+
 
 .contact-info a {
     color: #faf6f6; /* White link color */
@@ -635,7 +772,18 @@ h2 {
     font-size: 24px;
 }
 
-
+/* Define blink animation */
+@keyframes blinkAnimation {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 
 
 /*Keep footer at the bottom*/
