@@ -1,8 +1,3 @@
-//HEADER
-
-
-
-
 //READ MORE ABOUT ME SECTION
 document.addEventListener('DOMContentLoaded', function() {
     // Toggle hidden content in the About Me section
@@ -50,7 +45,38 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-//Contact  toggle the .blink class on icon click:
+
+// Smooth scroll functionality for navigation links for menus items
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to handle smooth scrolling
+    function scrollToSection(sectionId) {
+        var section = document.querySelector(sectionId);
+        if (section) {
+            var sectionTop = section.offsetTop - 100; // Adjust offset as needed
+            window.scrollTo({
+                top: sectionTop,
+                behavior: 'smooth' // Smooth scrolling behavior
+            });
+        }
+    }
+
+    // Attach click event listeners to navigation links
+    var navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(function(navLink) {
+        navLink.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default anchor behavior
+            var sectionId = navLink.getAttribute('href'); // Get the href attribute value
+            scrollToSection(sectionId); // Scroll to the section
+        });
+    });
+
+    // Check hash on page load and scroll to section if hash exists
+    var hash = window.location.hash;
+    if (hash) {
+        scrollToSection(hash);
+    }
+});
+
 
 //PROJECT LIST  VIEWING
 
@@ -79,12 +105,44 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener('DOMContentLoaded', function() {
     // Get the logo element
     const logo = document.querySelector('.logo');
+    const bioSection = document.getElementById('bio');
 
     // Add click event listener to logo
     logo.addEventListener('click', function() {
-        // Redirect to homepage
-        window.location.href = 'index.html'; // Replace 'index.html' with the URL of your homepage
+        // Add 'active' class to bio section
+        bioSection.classList.add('active');
+
+        // Remove 'active' class from other sections
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => {
+            if (section !== bioSection) {
+                section.classList.remove('active');
+            }
+        });
+
+        // Smooth scroll to bio section
+        bioSection.scrollIntoView({ behavior: 'smooth' });
     });
+
+    // Check if the logo was clicked to open bio section from another page
+    const url = new URL(window.location.href);
+    const hash = url.hash;
+
+    if (hash === '#bio') {
+        // Add 'active' class to bio section
+        bioSection.classList.add('active');
+
+        // Remove 'active' class from other sections
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => {
+            if (section !== bioSection) {
+                section.classList.remove('active');
+            }
+        });
+
+        // Smooth scroll to bio section
+        bioSection.scrollIntoView({ behavior: 'smooth' });
+    }
 });
 
 
