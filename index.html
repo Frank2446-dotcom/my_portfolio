@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-bN0YeKBA5WJoz0mQEMe+tPCmCxX5k2l9WXyoyLpM/XG+nFvHd7heLWIudBJwNZ1/zqRVbIBkbzE7fFZ9jeVqWg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 </head>
 <body>    
     <header>
@@ -370,6 +371,45 @@
                         <a href="https://www.linkedin.com/in/ambetsafrankline" class="fa fa-linkedin" target="_blank"></a>
                     </p>
                 </div>
+                <h2>Leave a Message</h2>
+                
+                <form id="contactForm" action="contact.php" method="post">
+                    <div class="row">
+                        <div class="col">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" 
+                            placeholder="Type your name here" required>
+                        </div>
+                        <div class="col">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" 
+                            placeholder="Type your email here (e.g., name@example.com)" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="tel">Tel</label>
+                            <input id="phone" type="tel" name="phone" 
+                            placeholder="Type your Tel No."/>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="messageTitle">Message Title</label>
+                        <select id="messageTitle" name="messageTitle" required>
+                            <option value="">-- Select Message Title --</option>
+                            <option value="Data Science and Analytics">Data Science and Analytics</option>
+                            <option value="Web Development">Web Development</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" 
+                        placeholder="Type your message/inquiry here" required></textarea>
+                    </div>
+                    <button type="submit">Send</button>
+                </form>
+
             </section>
 
             
