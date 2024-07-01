@@ -643,7 +643,7 @@ h2 {
     text-align: center; /* Center align text */
     position: relative; /* Ensure positioning for pseudo-elements */
     overflow: hidden; /* Hide overflow for smooth animation */
-    height: 1000px; /* Fixed height */
+    height: auto; /* Fixed height */
     bottom: 0; /* Attach to the bottom */
     width: 1000px; /* Full width */
     box-sizing: border-box; /* Include padding in height and width */
@@ -1049,12 +1049,15 @@ footer {
         font-size: 25px;
     }
 
-    #contacts {
+     /* Contacts Section */
+     #contacts {
+        background-color: #352b24; /* Background color */
         padding: 150px 20px; /* Adjust padding as needed */
-        height: 700px; /* Fixed height */
-        width: 100%; /* Full width */
+        color: #fff; /* White text color */
+        height: auto; /* Auto height */
+        overflow-y: auto; /* Enable vertical scroll if content overflows */
+        max-height: 1000px; /* Maximum height based on viewport minus header padding */
     }
-
 
     .contact-info a {        
         font-size: 30px; /* Increase icon size */
@@ -1069,6 +1072,7 @@ footer {
 
     /* Form Rows */
     .row {
+        display: flex;
         flex-direction: column; /* Stack items vertically */
         margin-bottom: 17px; /* Reduced margin */
     }
@@ -1089,18 +1093,136 @@ footer {
     select {
         width: 100%; /* Full width */
         margin-bottom: 14px; /* Spacing between inputs */
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: border-color 0.3s ease;
     }
 
     /* Textarea Styles */
     textarea {
-        height: 95px; /* Reduced height */
+        height: 200px; /* Reduced height */
+        resize: vertical; /* Allow vertical resizing */
+        width: calc(100% - 22px); /* Adjust width to fit container */
+        padding: 10px; /* Padding around textarea */
+        border: 1px solid #ccc; /* Border style */
+        border-radius: 5px; /* Border radius */
+        font-size: 16px; /* Font size */
+        transition: border-color 0.3s ease; /* Transition for border color */
+        box-sizing: border-box; /* Include padding and border in element's total width and height */
     }
+
 
     /* Button Styles */
     button[type="submit"] {
         width: 100%; /* Full width */
         padding: 14px; /* Reduced padding */
+        background-color: #67cceb;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
     }
+
+    button[type="submit"]:hover {
+        background-color: #5aaad1;
+    }
+
+    /* Placeholder Styling */
+    input::placeholder,
+    textarea::placeholder,
+    select::placeholder {
+        color: #ccc;
+        font-size: 14px;
+    }
+
+    /* Contacts Section */
+    #contacts {
+        
+        padding: 150px 20px; /* Adjust padding as needed */        
+        height: auto; /* Auto height */
+        width: 100%; /* Full width */
+        overflow-y: auto; /* Enable vertical scroll if content overflows */
+        
+    }
+
+    .contact-info a {        
+        font-size: 35px; /* Increase icon size */
+    }
+
+    /* Form Container */
+    #contactForm {
+        max-width: 100%; /* Full width */
+        padding: 15px; /* Reduced padding */
+        border-radius: 0; /* No border radius */
+    }
+
+    /* Form Rows */
+    .row {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        margin-bottom: 18px; /* Reduced margin */
+    }
+
+    /* Label Styles with Gradient Animation */
+    label {
+        width: auto; /* Auto width */
+        font-size: 19px; /* Smaller font size */
+        margin-right: 0; /* No margin between labels */
+        margin-bottom: 5px; /* Spacing below labels */
+    }
+
+    /* Input Styles */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+        width: 100%; /* Full width */
+        margin-bottom: 14px; /* Spacing between inputs */
+        padding: 10px;
+        
+        border-radius: 5px;
+        font-size: 17px;
+        
+    }
+
+        /* Textarea Styles */
+    textarea {
+        height: 250px; /* Reduced height */
+        resize: vertical; /* Allow vertical resizing */
+        width: calc(100% - 22px); /* Adjust width to fit container */
+        padding: 10px; /* Padding around textarea */
+        border: 1px solid #ccc; /* Border style */
+        border-radius: 5px; /* Border radius */
+        font-size: 17px; /* Font size */
+        transition: border-color 0.3s ease; /* Transition for border color */
+        box-sizing: border-box; /* Include padding and border in element's total width and height */
+    }
+
+
+    /* Button Styles */
+    button[type="submit"] {
+        width: 100%; /* Full width */
+        padding: 15px; /* Reduced padding */
+        border-radius: 5px;
+        font-size: 15px;
+        
+    }
+
+    
+
+    /* Placeholder Styling */
+    input::placeholder,
+    textarea::placeholder,
+    select::placeholder {
+        color: #ccc;
+        font-size: 15px;
+    }
+
 }
 
 
@@ -1184,12 +1306,17 @@ footer {
         font-size: 22px;
     }
 
-    #contacts {
-        padding: 150px 20px; /* Adjust padding as needed */
-        height: 650px; /* Fixed height */
-        width: 100%; /* Full width */
-    }
+    
 
+    /* Contacts Section */
+    #contacts {
+        
+        padding: 150px 20px; /* Adjust padding as needed */        
+        height: auto; /* Auto height */
+        width: 100%; /* Full width */
+        overflow-y: auto; /* Enable vertical scroll if content overflows */
+        
+    }
 
     .contact-info a {        
         font-size: 30px; /* Increase icon size */
@@ -1198,20 +1325,21 @@ footer {
     /* Form Container */
     #contactForm {
         max-width: 100%; /* Full width */
-        padding: 12px; /* Reduced padding */
+        padding: 14px; /* Reduced padding */
         border-radius: 0; /* No border radius */
     }
 
     /* Form Rows */
     .row {
+        display: flex;
         flex-direction: column; /* Stack items vertically */
-        margin-bottom: 16px; /* Reduced margin */
+        margin-bottom: 17px; /* Reduced margin */
     }
 
     /* Label Styles with Gradient Animation */
     label {
         width: auto; /* Auto width */
-        font-size: 17px; /* Smaller font size */
+        font-size: 18px; /* Smaller font size */
         margin-right: 0; /* No margin between labels */
         margin-bottom: 5px; /* Spacing below labels */
     }
@@ -1223,26 +1351,56 @@ footer {
     textarea,
     select {
         width: 100%; /* Full width */
-        margin-bottom: 12px; /* Spacing between inputs */
+        margin-bottom: 14px; /* Spacing between inputs */
+        padding: 10px;
+        
+        border-radius: 5px;
+        font-size: 16px;
+        
     }
 
-    /* Textarea Styles */
+        /* Textarea Styles */
     textarea {
-        height: 85px; /* Reduced height */
+        height: 200px; /* Reduced height */
+        resize: vertical; /* Allow vertical resizing */
+        width: calc(100% - 22px); /* Adjust width to fit container */
+        padding: 10px; /* Padding around textarea */
+        border: 1px solid #ccc; /* Border style */
+        border-radius: 5px; /* Border radius */
+        font-size: 16px; /* Font size */
+        transition: border-color 0.3s ease; /* Transition for border color */
+        box-sizing: border-box; /* Include padding and border in element's total width and height */
     }
+
 
     /* Button Styles */
     button[type="submit"] {
         width: 100%; /* Full width */
-        padding: 12px; /* Reduced padding */
+        padding: 14px; /* Reduced padding */
+        border-radius: 5px;
+        font-size: 14px;
+        
     }
+
+    
+
+    /* Placeholder Styling */
+    input::placeholder,
+    textarea::placeholder,
+    select::placeholder {
+        color: #ccc;
+        font-size: 14px;
+    }
+
+
+
+    
 }
 
 
 
 
 
-}
 
 
 /* LARGE PHONES */
@@ -1331,39 +1489,45 @@ footer {
         font-size: 20px;
     }
 
-    #contacts {
-        padding: 150px 20px; /* Adjust padding as needed */
-        height: 600px; /* Fixed height */
-        width: 100%; /* Full width */
-    }
+    
 
 
     .contact-info a {        
         font-size: 25px; /* Increase icon size */
     }
 
-    
+    /* Contacts Section */
+    #contacts {
+        
+        padding: 150px 20px; /* Adjust padding as needed */        
+        height: auto; /* Auto height */
+        width: 100%; /* Full width */
+        overflow-y: auto; /* Enable vertical scroll if content overflows */
+        
+    }
 
-
-
+    .contact-info a {        
+        font-size: 30px; /* Increase icon size */
+    }
 
     /* Form Container */
     #contactForm {
         max-width: 100%; /* Full width */
-        padding: 10px; /* Reduced padding */
+        padding: 14px; /* Reduced padding */
         border-radius: 0; /* No border radius */
     }
 
     /* Form Rows */
     .row {
+        display: flex;
         flex-direction: column; /* Stack items vertically */
-        margin-bottom: 15px; /* Reduced margin */
+        margin-bottom: 17px; /* Reduced margin */
     }
 
     /* Label Styles with Gradient Animation */
     label {
         width: auto; /* Auto width */
-        font-size: 16px; /* Smaller font size */
+        font-size: 18px; /* Smaller font size */
         margin-right: 0; /* No margin between labels */
         margin-bottom: 5px; /* Spacing below labels */
     }
@@ -1375,19 +1539,53 @@ footer {
     textarea,
     select {
         width: 100%; /* Full width */
-        margin-bottom: 10px; /* Spacing between inputs */
+        margin-bottom: 14px; /* Spacing between inputs */
+        padding: 10px;
+        
+        border-radius: 5px;
+        font-size: 16px;
+        
     }
 
-    /* Textarea Styles */
+        /* Textarea Styles */
     textarea {
-        height: 80px; /* Reduced height */
+        height: 200px; /* Reduced height */
+        resize: vertical; /* Allow vertical resizing */
+        width: calc(100% - 22px); /* Adjust width to fit container */
+        padding: 10px; /* Padding around textarea */
+        border: 1px solid #ccc; /* Border style */
+        border-radius: 5px; /* Border radius */
+        font-size: 16px; /* Font size */
+        transition: border-color 0.3s ease; /* Transition for border color */
+        box-sizing: border-box; /* Include padding and border in element's total width and height */
     }
+
 
     /* Button Styles */
     button[type="submit"] {
         width: 100%; /* Full width */
-        padding: 10px; /* Reduced padding */
+        padding: 14px; /* Reduced padding */
+        border-radius: 5px;
+        font-size: 14px;
+        
     }
+
+    
+
+    /* Placeholder Styling */
+    input::placeholder,
+    textarea::placeholder,
+    select::placeholder {
+        color: #ccc;
+        font-size: 14px;
+    }
+
+    
+
+
+
+
+    
 }
 
 
@@ -1471,35 +1669,44 @@ footer {
         margin-left: -105px;
     }
 
-    #contacts {
-        padding: 140px 18px; /* Adjust padding as needed */
-        height: 500px; /* Fixed height */
-        width: 100%; /* Full width */
-    }
-
 
     .contact-info a {        
         font-size: 20px; /* Increase icon size */
     }
 
 
+    /* Contacts Section */
+    #contacts {
+        
+        padding: 150px 20px; /* Adjust padding as needed */        
+        height: auto; /* Auto height */
+        width: 100%; /* Full width */
+        overflow-y: auto; /* Enable vertical scroll if content overflows */
+        
+    }
+
+    .contact-info a {        
+        font-size: 30px; /* Increase icon size */
+    }
+
     /* Form Container */
     #contactForm {
         max-width: 100%; /* Full width */
-        padding: 8px; /* Reduced padding */
+        padding: 14px; /* Reduced padding */
         border-radius: 0; /* No border radius */
     }
 
     /* Form Rows */
     .row {
+        display: flex;
         flex-direction: column; /* Stack items vertically */
-        margin-bottom: 13px; /* Reduced margin */
+        margin-bottom: 17px; /* Reduced margin */
     }
 
     /* Label Styles with Gradient Animation */
     label {
         width: auto; /* Auto width */
-        font-size: 14px; /* Smaller font size */
+        font-size: 18px; /* Smaller font size */
         margin-right: 0; /* No margin between labels */
         margin-bottom: 5px; /* Spacing below labels */
     }
@@ -1511,18 +1718,45 @@ footer {
     textarea,
     select {
         width: 100%; /* Full width */
-        margin-bottom: 8px; /* Spacing between inputs */
+        margin-bottom: 14px; /* Spacing between inputs */
+        padding: 10px;
+        
+        border-radius: 5px;
+        font-size: 16px;
+        
     }
 
-    /* Textarea Styles */
+        /* Textarea Styles */
     textarea {
-        height: 70px; /* Reduced height */
+        height: 150px; /* Reduced height */
+        resize: vertical; /* Allow vertical resizing */
+        width: calc(100% - 22px); /* Adjust width to fit container */
+        padding: 10px; /* Padding around textarea */
+        border: 1px solid #ccc; /* Border style */
+        border-radius: 5px; /* Border radius */
+        font-size: 15px; /* Font size */
+        transition: border-color 0.3s ease; /* Transition for border color */
+        box-sizing: border-box; /* Include padding and border in element's total width and height */
     }
+
 
     /* Button Styles */
     button[type="submit"] {
         width: 100%; /* Full width */
-        padding: 8px; /* Reduced padding */
+        padding: 13px; /* Reduced padding */
+        border-radius: 5px;
+        font-size: 13px;
+        
+    }
+
+    
+
+    /* Placeholder Styling */
+    input::placeholder,
+    textarea::placeholder,
+    select::placeholder {
+        color: #ccc;
+        font-size: 14px;
     }
 }
 
