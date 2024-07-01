@@ -455,13 +455,19 @@ h2 {
 
 @keyframes pulseBackground {
     0% {
-        background-color: #181515;
+        background-color: #64423c;
     }
+    25% {
+        background-color:hsl(249, 32%, 34%)}
+        
     50% {
-        background-color: #6885e4; /* Color to transition to */
+        background-color: hsl(152, 52%, 19%); /* Color to transition to */
+    }
+    75% {
+        background-color: #274737;
     }
     100% {
-        background-color: #181515;
+        background-color: #302424;
     }
 }
 
@@ -943,6 +949,16 @@ footer {
         font-size: 28px;
     }
 
+    #contacts {
+    
+        padding: 150px 20px; /* Adjust padding as needed */
+        
+        height: auto; /* Auto height */
+        overflow-y: auto; /* Enable vertical scroll if content overflows */
+        width: 100%;
+        
+    }
+
 
 
 }
@@ -975,6 +991,16 @@ footer {
 
     #contacts h2 {
         font-size: 27px;
+    }
+
+    #contacts {
+    
+        padding: 150px 20px; /* Adjust padding as needed */
+        
+        height: auto; /* Auto height */
+        overflow-y: auto; /* Enable vertical scroll if content overflows */
+        width: 100%;
+        
     }
 
 
@@ -1050,12 +1076,13 @@ footer {
     }
 
      /* Contacts Section */
-     #contacts {
+    #contacts {
         background-color: #352b24; /* Background color */
         padding: 150px 20px; /* Adjust padding as needed */
         color: #fff; /* White text color */
         height: auto; /* Auto height */
         overflow-y: auto; /* Enable vertical scroll if content overflows */
+        width: auto;
         max-height: 1000px; /* Maximum height based on viewport minus header padding */
     }
 
