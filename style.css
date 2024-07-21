@@ -92,9 +92,9 @@ header {
     position: absolute;
     width: 100%;
     height: 2px;
-    background-color: #616161;
+    background-color: hsl(216, 45%, 98%);
     top: 20px;
-    transition-duration: .25s;
+    transition-duration: .35s;
 }
 
 .menu__btn>span::before {
@@ -117,9 +117,10 @@ header {
     margin: 0;
     padding: 80px 0;
     list-style: none;
-    background-color: #ECEFF1;
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+    background-color: #3670a7;
+    box-shadow: 2px 2px 6px rgba(15, 15, 15, 0.4);
     transition-duration: .25s;
+    color: #1fe984;
 }
 
 .menu__item {
@@ -136,6 +137,9 @@ header {
 .menu__item:hover {
     background-color: #CFD8DC;
 }
+
+/* Click on Menu Item hides Nav bar*/
+
 
 
 
@@ -267,6 +271,67 @@ h2 {
     display: block; /* Show when active */
 }
 
+
+/* Base style for h3 */
+#bio .content h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: -20px;
+    position: relative;
+    display: inline-block;
+    color: transparent; /* Hide original text */
+}
+
+/* Pseudo-element for animation */
+#bio .content h3::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    color: black;
+    width: 100%;
+    animation: revealText 3s steps(30, end) infinite, blinkText 0.9s step-end 5;
+}
+
+/* Keyframes for text reveal animation */
+@keyframes revealText {
+    from {
+        width: 0;
+    }
+    to {
+        width: 105%;
+    }
+}
+
+/* Keyframes for text color gradient animation */
+@keyframes gradientColors {
+    0% { color: #e74c3c; }
+    20% { color: #f39c12; }
+    40% { color: #2ecc71; }
+    60% { color: #3498db; }
+    80% { color: #9b59b6; }
+    100% { color: #e74c3c; }
+}
+
+/* Keyframes for blinking effect */
+@keyframes blinkText {
+    0%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+}
+
+/* Apply gradient color animation and blinking */
+#bio .content h3::before {
+    animation: revealText 5s steps(30, end) infinite, gradientColors 5s infinite, blinkText 0.5s step-end 3;
+}
+
+
+
+
 .text-box {
     max-width: 800px;
     margin: 0 auto;
@@ -381,6 +446,116 @@ h2 {
 .show-content .hidden-content:before {
     opacity: 1; /* Show the overlay when content is visible */
 }
+
+
+
+
+
+
+
+
+.skills-preview {
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    color: #6134ca;
+    font-weight: bold;
+    background-color: rgb(255, 255, 255);
+    padding: 10px 0; /* Padding around the scrolling area */
+}
+
+.skills-container {
+    display: flex;
+    animation: scroll-left 40s linear infinite;
+}
+
+.skill-category {
+    display: inline-block;
+    text-align: center;
+    margin-right: 50px; /* Spacing between categories */
+}
+
+.skill-name {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    white-space: nowrap;
+}
+
+.skill-icons i {
+    font-size: 36px; /* Adjust size as needed */
+    margin: 0 10px; /* Spacing between icons */
+    transition: transform 0.3s ease-in-out;
+    color: inherit; /* Ensures icons use default color */
+}
+
+.skill-icons .fa-r-project { color: #276DC3; } /* Example default color for R */
+.skill-icons .fa-python { color: #3572A5; } /* Example default color for Python */
+.skill-icons .fa-database { color: #F0DB4F; } /* Example default color for SQL/Database */
+.skill-icons .fa-chart-bar { color: #4CAF50; } /* Example default color for Analytics */
+.skill-icons .fa-file-excel { color: #217346; } /* Example default color for Excel */
+.skill-icons .fa-chart-line { color: #2E8B57; } /* Example default color for Line Chart */
+.skill-icons .fa-chart-pie { color: #FF6347; } /* Example default color for Pie Chart */
+.skill-icons .fa-tools { color: #FFA500; } /* Example default color for Tools */
+.skill-icons .fa-layer-group { color: #7B68EE; } /* Example default color for Layers */
+.skill-icons .fa-vials { color: #8A2BE2; } /* Example default color for Vials */
+
+.skill-icons .fa-cloud { color: #00BFFF; } /* Example default color for Cloud */
+.skill-icons .fa-css3-alt { color: #264DE4; } /* Example default color for CSS */
+.skill-icons .fa-html5 { color: #E34F26; } /* Example default color for HTML */
+.skill-icons .fa-js { color: #F0DB4F; } /* Example default color for JavaScript */
+
+.skill-icons .fa-code { color: #000000; } /* Example default color for Code */
+.skill-icons .fa-java { color: #007396; } /* Example default color for Java */
+.skill-icons .fa-d-and-d { color: #3A3845; } /* Example default color for Dart/Flutter */
+.skill-icons .fa-copyright { color: #FF4500; } /* Example default color for C */
+.skill-icons .fa-cuttlefish { color: #1E90FF; } /* Example default color for C++ */
+.skill-icons .fa-windows { color: #00BFFF; } /* Example default color for C# */
+
+.skill-icons i {
+    font-size: 36px; /* Adjust size as needed */
+    margin: 0 10px; /* Spacing between icons */
+    transition: transform 0.3s ease-in-out;
+}
+
+.skill-icons i:hover {
+    transform: scale(1.2); /* Slight zoom effect on hover */
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(20%);
+    }
+    
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+
+
+
+
+
+
+
+.skill-icons {
+animation: scroll 20s linear infinite;
+}
+
+.skill-icons:hover {
+animation-play-state: paused; /* Pauses animation on hover */
+}
+
+
+
+
+
+
+
 
 
 
@@ -634,6 +809,14 @@ h2 {
 }
 
 
+object {
+    width: 100%;
+    height: 500px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 
 
 
@@ -791,6 +974,10 @@ label {
 
 
 
+
+
+
+
 /* Input Styles */
 input[type="text"],
 input[type="email"],
@@ -898,6 +1085,20 @@ footer {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Container styles */
 .container {
     width: 100%;
@@ -905,7 +1106,7 @@ footer {
     margin: 0 auto;
     padding: 0.5rem;
     box-sizing: border-box;
-    border: 1px solid red; /* Red border for the container */
+    /*border: 1px solid red; /* Red border for the container */
 }
 
 
@@ -1438,6 +1639,14 @@ footer {
     .container * {
         font-size: 3vw; /* Responsive font size for large phones */
     }
+    
+    
+    /* Header styles */
+    header {        
+        font-size: 12px;
+    }
+
+
     .navigation-block ul li a {
         font-size: 3vw; /* Increase nav bar font size */
     }    
@@ -1451,8 +1660,10 @@ footer {
     }
 
     .text-box {    
-        padding-top: 180px; /* Adjust this value as needed */        
-        font-size: 25px; /* Adjust the font size as needed */       
+        padding-top: 300px; /* Adjust this value as needed */        
+        font-size: 25px; /* Adjust the font size as needed */    
+        margin-left: -7px;      
+    }   
     }
 
     #professions {   
@@ -1509,8 +1720,10 @@ footer {
     .project-list {
         min-width: 300px;
         margin-left: -115px;
-    }
+    }   
 
+
+    
 
     #contacts h2 {
         font-size: 20px;
@@ -1607,20 +1820,28 @@ footer {
         font-size: 14px;
     }
 
-    
 
 
 
 
-    
-}
 
 
 
-    
 
 
-/* SMALL PHONES */
+
+
+
+
+
+
+
+
+
+
+
+
+    /* SMALL PHONES */
 @media (max-width: 360px) {
     .container {
         padding: 0 10px;
@@ -1628,20 +1849,52 @@ footer {
     .container * {
         font-size: 3.5vw; /* Responsive font size for small phones */
     }
+
+        /* Header styles */
+    header {        
+        font-size: 12px;
+    
+    }
     .navigation-block ul li a {
-        font-size: 3.5vw; /* Increase nav bar font size */
+        font-size: 3.1vw; /* Increase nav bar font size */
     }
     #bio .profile-picture {
         position: absolute; /* Position the profile picture absolutely */
         top: 15px; /* Distance from the top of the container */
-        left: 15px; /* Distance from the left of the container */        
+        left: 25px; /* Distance from the left of the container */        
         
     }
 
     .text-box {    
-        padding-top: 150px; /* Adjust this value as needed */        
-        font-size: 15px; /* Adjust the font size as needed */       
+        padding-top: 280px; /* Adjust this value as needed */        
+        font-size: 15px; /* Adjust the font size as needed */ 
+        margin-left: -12px;      
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     #professions {   
         margin-top: 10px; /* Adjust margin-top to start below the navigation bar */
     }
@@ -1654,6 +1907,9 @@ footer {
     #professions li a {
         font-size: 10px; /* Increase text size for links */
     }
+
+
+    
 
     #skills h2 {
         font-size: 10px;        
@@ -1787,11 +2043,6 @@ footer {
     }
 }
 
-
-
-
-
-}
 
 
 

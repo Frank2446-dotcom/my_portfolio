@@ -305,3 +305,70 @@ const phoneInput = window.intlTelInput(phoneInputField, {
     utilsScript:
     "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
 });
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to scroll to the bio section
+    function scrollToBio() {
+        var bioSection = document.getElementById('bio');
+        if (bioSection) {
+            bioSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    // Scroll to bio section when the page loads
+    scrollToBio();
+
+    // Scroll to bio section when the bio link is clicked
+    var bioLink = document.getElementById('bioLink');
+    if (bioLink) {
+        bioLink.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default link behavior
+            scrollToBio();
+        });
+    }
+});
+
+
+
+//ACADEMIC WRITING PROJECTS
+// scripts.js
+document.addEventListener('DOMContentLoaded', function() {
+    const projectItems = document.querySelectorAll('.project-list li');
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    projectItems.forEach(item => {
+        observer.observe(item);
+    });
+});
+
+
+//CLICK ON MENUS BAR HIDES NAV 
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const menuList = document.getElementById('menuList');
+
+    hamburger.addEventListener('click', () => {
+        menuList.classList.toggle('show');
+    });
+
+    // Close the menu when a menu item is clicked
+    menuList.addEventListener('click', () => {
+        menuList.classList.remove('show');
+    });
+});
