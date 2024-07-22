@@ -452,7 +452,7 @@ h2 {
 
 
 
-
+/*SKILLS PREVIEW IN THE BIO SECTION*/
 
 .skills-preview {
     overflow: hidden;
@@ -535,13 +535,6 @@ h2 {
 }
 
 
-
-
-
-
-
-
-
 .skill-icons {
 animation: scroll 20s linear infinite;
 }
@@ -560,7 +553,7 @@ animation-play-state: paused; /* Pauses animation on hover */
 
 
 
-/*My Profession Section*/
+/* My Profession Section */
 
 #professions {
     background-color: #201912; /* Set background color for the whole section */
@@ -571,160 +564,477 @@ animation-play-state: paused; /* Pauses animation on hover */
     margin-top: 20px; /* Adjust margin-top to start below the navigation bar */
 }
 
-
-
 #professions h2 {
     text-align: center; /* Center align the heading */
     margin-top: 0; /* Remove default margin from the top of h2 */
-    font-size: 25PX;
+    font-size: 25px;
+    color: #fff;
+    animation: fadeIn 1s ease-in-out;
 }
 
-#professions ol {
-    list-style: none; /* Remove default list styles */
-    padding: 0; /* Remove default padding */
-    display: flex; /* Arrange items horizontally */
-    justify-content: center; /* Center align the items */
+.professions-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 200px);
-    grid-gap: 10px; /* Adjust the gap between the boxes as needed */
-    
-
-    
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px; /* Adjust the gap between the boxes as needed */
+    justify-content: center; /* Center align the items */
 }
 
-#professions li {
+.profession-item {
     background-color: #76a3d6; /* Set background color for the boxes */
-    border: 1px solid #99c72d; /* Add border for the boxes */
     padding: 10px; /* Add padding for spacing */
-    margin: 10px; /* Add margin for spacing between boxes */
     text-align: center; /* Center align the text */
-    cursor: pointer; /* Change cursor to pointer on hover */
-    flex: 1; /* Ensure equal width for all boxes */
-    max-width: 200px; /* Limit maximum width of each box */
-    min-width: 150px; /* Ensure a minimum width for each box */
+    border-radius: 10px; /* Add border-radius for rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 1s ease-in-out;
 }
 
-#professions li a {
-    text-decoration: none; /* Remove text underline for links */
-    color: #f7f3f3; /* Set text color for links */
-    font-size: 18px; /* Increase text size for links */
+.profession-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
 }
 
-#professions li:hover {
-    background-color: #d885c3; /* Change background color on hover */
+.profession-item p {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #f7f3f3;
 }
+
+/* Hover effect */
+.profession-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+
+
+
 
 
 
 /* Skills Section */
+
+/* General styles for the skills section */
 #skills {
-    background-color: #181515; /* Set initial background color for the whole section */
-    padding: 150px; /* Add padding */
-    margin: 20px auto; /* Center the section horizontally */
-    max-width: 1200px; /* Set maximum width */
-    border-radius: 500px; /* Add border radius */
-    animation: pulseBackground 5s infinite alternate; /* Apply animation to background color */
-    width: 100%; /* Ensure full width responsiveness */
-    box-sizing: border-box; /* Include padding and border in width calculation */
+    padding: 2rem;
+    margin-top: 130px;
+    background-color: #e3eef1; /* Light background for the whole section */
 }
 
-@keyframes pulseBackground {
-    0% {
-        background-color: #64423c;
-    }
-    25% {
-        background-color:hsl(249, 32%, 34%)}
-        
-    50% {
-        background-color: hsl(152, 52%, 19%); /* Color to transition to */
-    }
-    75% {
-        background-color: #274737;
-    }
-    100% {
-        background-color: #302424;
-    }
+.skill-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Skills Section Headings */
+
+/* Style for h2 headings in the skills section */
 #skills h2 {
-    text-align: center; /* Center align the heading */
-    margin-bottom: 20px; /* Add margin bottom */
-    font-size: 30px;
-    
+    font-size: 15px; /* Font size for h2 headings */
+    color: #1a0f0f; /* Text color for h2 headings */
+    margin-bottom: 1rem; /* Space below the h2 heading */
+    text-align: center; /* Center text */
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation */
 }
 
-/* Style for skill categories */
-#skills > div {
-    display: flex; /* Arrange boxes horizontally */
-    flex-wrap: wrap; /* Allow wrapping */
-    justify-content: center; /* Center items horizontally */  
-    
-    padding: 10px; /* Add padding */
-    margin-bottom: 20px; /* Add margin bottom */
-    border-radius: 5px; /* Add border radius */
-    cursor: pointer; /* Add cursor pointer */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Animation for background and transform */
-    text-decoration: none; /* Remove underline */
-    min-width: 500px;
-
-}
-
-#skills > div:hover {
-    background-color: #f3eeee; /* Change background color on hover */
-    transform: scale(1.05); /* Scale effect on hover */
-}
-
+/* Style for h3 headings in the skills section */
 #skills h3 {
-    background-color: #6885e4; /* Set background color for skill titles */
-    padding: 10px; /* Add padding */
-    margin-bottom: 10px; /* Add margin bottom */
-    border-radius: 5px; /* Add border radius */
-    width: 100%; /* Expand to full width */
-    cursor: pointer; /* Add cursor pointer */
-    text-decoration: none;
-    transition: background-color 0.3s ease; /* Animation for background */
-    font-size: 18px;
+    font-size: 20px; /* Font size for h3 headings */
+    color: #0e0d0d; /* Text color for h3 headings */
+    margin-bottom: 1.5rem; /* Space below the h3 heading */
+    text-align: center; /* Center text */
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation */
 }
 
-#skills h3:hover {
-    background-color: #6b8dff; /* Lighter shade on hover */
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start with opacity 0 */
+    }
+    to {
+        opacity: 1; /* End with opacity 1 */
+    }
 }
 
-#skills ul {
-    list-style: none; /* Remove default list style */
-    padding: 0; /* Remove default padding */
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 200px);
-    grid-gap: 10px; /* Adjust the gap between the boxes as needed */
-    justify-content: left; /* Center items horizontally */
-    text-decoration: none;
-    display: none; /* Hide by default */
-    opacity: 0; /* Start with opacity 0 for fade-in effect */
-    transition: opacity 0.3s ease; /* Animation for opacity */
+
+
+
+
+
+/* Background colors for specific sections */
+
+/* Programming Software Section */
+.programming-software {
+    background-color: #adbfce; /* Light blue background */
+    padding: 1rem; /* Padding inside the div */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Data Science and Analytics Section */
+.data-science-analytics {
+    background-color: #76917c; /* Light cyan background */
+    padding: 1rem; /* Padding inside the div */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Robotics and Machine Learning Section */
+.robotics-machine-learning {
+    background-color: #8495a0; /* Very light gray background */
+    padding: 1rem; /* Padding inside the div */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Academic Writing Section */
+.academic-writing {
+    background-color: #92afc9; /* Light peach background */
+    padding: 1rem; /* Padding inside the div */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Civil and Structural Engineering Section */
+.civil-structural {
+    background-color: #92c492; /* Light green background */
+    padding: 1rem; /* Padding inside the div */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Quantity Surveying Section */
+.quantity-surveying {
+    background-color: #9478a1; /* Light orange background */
+    padding: 1rem; /* Padding inside the div */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Land Surveying Section */
+.land-surveying {
+    background-color: #b0c5ca; /* Light gray background */
+    padding: 1rem; /* Padding inside the div */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Architecture Section */
+.architecture {
+    background-color: #8d9cac; /* Light gray-blue background */
+    padding: 1rem; /* Padding inside the div */
+    border-radius: 8px; /* Rounded corners */
+}
+
+
+
+
+
+
+
+
+/* Individual skill item styling */
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1 1 calc(20% - 20px); /* Adjust percentage as needed for responsiveness */
+    max-width: calc(20% - 20px);
+    padding: 0;
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: none;
     
 }
 
-#skills ul li {
-    background-color: #c1bfdf; /* Set background color for list items */
-    padding: 10px; /* Add padding to list items */
-    border-radius: 5px; /* Add border radius to list items */
-    margin: 5px; /* Add margin between list items */
-    text-decoration: none; /* Remove underline */
-    cursor: pointer; /* Add cursor pointer */
-    transition: background-color 0.3s ease; /* Animation for background */          
-}
-
-#skills ul li:hover {
-    background-color: #a57878; /* Change background color of list items on hover */
-}
-
-/* Remove underline and blue color for Academic Writing list */
-#skills .academic-writing li {
-    text-decoration: none;
-    color: inherit; /* Use the default color */
-    color: #0c0c0c;
+.skill-item i {
+    font-size: 3rem; /* Larger icons */
+    margin-bottom: 10px;
     
 }
+
+.skill-item span {
+    font-size: 1rem;
+    color: #555; /* Text color */
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Animation for skill items */
+/* Initial state of the skill items */
+.skill-item {
+    opacity: 1; /* Ensure items are visible */
+    transform: translateX(0); /* Default position */
+    transition: transform 0.6s ease;
+}
+
+/* Animation for skill items */
+@keyframes moveFromLeft {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(0); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes moveFromRight {
+    0% { transform: translateX(100%); }
+    50% { transform: translateX(0); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes moveFromTop {
+    0% { transform: translateY(-100%); }
+    50% { transform: translateY(0); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes moveFromBottom {
+    0% { transform: translateY(100%); }
+    50% { transform: translateY(0); }
+    100% { transform: translateY(0); }
+}
+
+/* Class to trigger the animation */
+.animate {
+    animation: none; /* Default no animation */
+}
+
+/* Specific animations for different sections */
+.programming-software .animate {
+    animation: moveFromLeft 1s ease-in-out;
+}
+
+.data-science-analytics .animate {
+    animation: moveFromRight 1s ease-in-out;
+}
+
+.robotics-machine-learning .animate {
+    animation: moveFromTop 1s ease-in-out;
+}
+
+.academic-writing .animate {
+    animation: moveFromBottom 1s ease-in-out;
+}
+
+.civil-structural .animate {
+    animation: moveFromLeft 1s ease-in-out;
+}
+
+.quantity-surveying .animate {
+    animation: moveFromRight 1s ease-in-out;
+}
+
+.land-surveying .animate {
+    animation: moveFromTop 1s ease-in-out;
+}
+
+.architecture .animate {
+    animation: moveFromBottom 1s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Programming and Data Analysis */
+.fa-html5 { color: #E34F26; } /* HTML */
+.fa-css3-alt { color: #1572B6; } /* CSS */
+.fa-js { color: #F7DF1E; } /* JavaScript */
+.fa-python { color: #306998; } /* Python */
+.fa-dart { color: #00B4AB; } /* Dart */
+.fa-flutter { color: #02569B; } /* Flutter */
+.fa-database { color: #003B57; } /* MySQL */
+.fa-java { color: #007396; } /* Java */
+.fa-c-plusplus { color: #00599C; } /* C++ */
+.fa-csharp { color: #178600; } /* C# */
+.fa-c { color: #A8B9CC; } /* C */
+.fa-ibm { color: #0F4C81; } /* IBM SPSS */
+.fa-r { color: #276DC0; } /* RStudio */
+.fa-sas { color: #F3D13A; } /* SAS */
+.fa-eviews { color: #0066CC; } /* Eviews */
+.fa-microsoft { color: #F25022; } /* Microsoft Excel */
+.fa-powerbi { color: #F2C300; } /* Power BI */
+.fa-knime { color: #7C8B8C; } /* KNIME */
+.fa-tableau { color: #E97627; } /* Tableau */
+.fa-stata { color: #4A9AC7; } /* Stata */
+.fa-jmp { color: #CE1126; } /* JMP */
+.fa-microsoft-access { color: #B7A4A2; } /* Microsoft Access */
+.fa-nvivo { color: #FF6F00; } /* Nvivo */
+.fa-dplyr { color: #4B5F5A; } /* Dplyr */
+.fa-rguroo { color: #1D72C8; } /* Rguroo */
+
+/* Robotics and Machine Learning */
+.fa-matlab { color: #E24A1B; } /* MatLab Robotics ToolBox */
+.fa-robot { color: #1F78C1; } /* Python Robotics */
+.fa-autodesk { color: #DAA520; } /* Autodesk Inventor */
+.fa-solidworks { color: #4C6EF5; } /* SolidWorks */
+.fa-fusion-360 { color: #5D2F91; } /* Autodesk Fusion 360 */
+.fa-catia { color: #E67C73; } /* CATIA */
+.fa-solid-edge { color: #2F4F4F; } /* Solid Edge */
+.fa-ptc-creo { color: #0067B1; } /* PTC Creo */
+.fa-autocad { color: #1D8BF1; } /* AutoCAD */
+.fa-uipath { color: #00B0F0; } /* UiPath */
+.fa-automation-anywhere { color: #FFD700; } /* Automation Anywhere */
+.fa-rocketbot { color: #8B4513; } /* Rocketbot */
+.fa-laiye { color: #1E90FF; } /* Laiye */
+.fa-ibm-robotic-process-automation { color: #002D72; } /* IBM’s Robotic Process Automation */
+.fa-aiwozo { color: #FF4500; } /* Aiwozo */
+.fa-blue-prism { color: #00539C; } /* SS&C’s Blue Prism */
+.fa-electroneek { color: #4B0082; } /* ElectroNeek */
+.fa-pega { color: #E30022; } /* Pega */
+.fa-akabot { color: #000080; } /* akaBot */
+
+/* Academic Writing */
+.fa-research { color: #8A2BE2; } /* Research Papers and Proposals */
+.fa-dissertation { color: #8B0000; } /* Dissertations */
+.fa-stem { color: #228B22; } /* STEM Assignments */
+.fa-essays { color: #FFD700; } /* Essays */
+.fa-theses { color: #FF6347; } /* Theses */
+.fa-journal { color: #DAA520; } /* Journal Articles */
+.fa-book-review { color: #00BFFF; } /* Book Reviews */
+.fa-conference { color: #8A2BE2; } /* Conference Papers */
+.fa-research-proposals { color: #FF4500; } /* Research and Proposals Papers */
+.fa-case-studies { color: #006400; } /* Case Studies */
+.fa-literature-reviews { color: #FF1493; } /* Literature Reviews */
+.fa-annotated-bibliographies { color: #00CED1; } /* Annotated Bibliographies */
+.fa-policy-briefs { color: #4682B4; } /* Policy Briefs */
+.fa-white-papers { color: #32CD32; } /* White Papers */
+.fa-technical-reports { color: #40E0D0; } /* Technical Reports */
+.fa-abstracts { color: #FF69B4; } /* Abstracts */
+.fa-grant-proposals { color: #2F4F4F; } /* Grant Proposals */
+.fa-cv { color: #B22222; } /* CV */
+.fa-letters-of-recommendation { color: #8B4513; } /* Letters of Recommendation */
+.fa-presentations { color: #A52A2A; } /* Presentations */
+.fa-business-plans { color: #2E8B57; } /* Business Plans */
+
+/* Civil/Structural Engineering */
+.fa-autocad { color: #0C6B8E; } /* AutoCAD */
+.fa-revit { color: #6D8F8C; } /* Revit */
+.fa-staad-pro { color: #009688; } /* STAAD Pro */
+.fa-sap2000 { color: #FF5722; } /* SAP2000 */
+.fa-etabs { color: #FF9800; } /* ETABS */
+.fa-safe { color: #4CAF50; } /* SAFE */
+.fa-civil-3d { color: #8BC34A; } /* Civil 3D */
+.fa-tekla-structures { color: #FFC107; } /* Tekla Structures */
+.fa-microstation { color: #795548; } /* MicroStation */
+.fa-hec-ras { color: #3F51B5; } /* HEC-RAS */
+.fa-hec-hms { color: #9C27B0; } /* HEC-HMS */
+.fa-aquaflow { color: #E91E63; } /* AquaFlow */
+.fa-bentley-systems { color: #00BCD4; } /* Bentley Systems */
+.fa-risa { color: #FFEB3B; } /* RISA */
+
+/* Quantity Surveying */
+.fa-costx { color: #009688; } /* CostX */
+.fa-bluebeam { color: #00BFFF; } /* Bluebeam */
+.fa-planswift { color: #F44336; } /* PlanSwift */
+.fa-quantity-takeoff { color: #E91E63; } /* Quantity Takeoff */
+.fa-buildsoft { color: #3F51B5; } /* Buildsoft */
+.fa-bqe-core { color: #9C27B0; } /* BQE Core */
+.fa-etakeoff { color: #8BC34A; } /* eTakeoff */
+.fa-winqs { color: #FF5722; } /* WinQS */
+.fa-cleardata { color: #FFC107; } /* Cleardata */
+
+/* Land Surveying */
+.fa-leica-geosystems { color: #FF5722; } /* Leica Geosystems */
+.fa-trimble { color: #FF9800; } /* Trimble */
+.fa-topcon { color: #009688; } /* Topcon */
+.fa-geomax { color: #FFEB3B; } /* GeoMax */
+.fa-sokkia { color: #4CAF50; } /* Sokkia */
+.fa-carlson-software { color: #00BCD4; } /* Carlson Software */
+.fa-survce { color: #F44336; } /* SurvCE */
+.fa-autocad-civil-3d { color: #FF5722; } /* AutoCAD Civil 3D */
+.fa-liscard { color: #3F51B5; } /* LISCAD */
+.fa-maptek { color: #9C27B0; } /* Maptek */
+.fa-microsoft-visio { color: #00BFFF; } /* Microsoft Visio */
+.fa-leica-captivate { color: #FF5722; } /* Leica Captivate */
+.fa-trimble-business-center { color: #FFC107; } /* Trimble Business Center */
+
+/* Architecture */
+.fa-archicad { color: #0073B1; } /* ArchiCAD */
+.fa-sketchup { color: #9C27B0; } /* SketchUp */
+.fa-rhino { color: #4CAF50; } /* Rhino */
+.fa-lumion { color: #FFEB3B; } /* Lumion */
+.fa-3ds-max { color: #FF5722; } /* 3ds Max */
+.fa-vray { color: #009688; } /* V-Ray */
+.fa-enscape { color: #00BCD4; } /* Enscape */
+.fa-twinmotion { color: #F44336; } /* Twinmotion */
+.fa-adobe-photoshop { color: #31A8FF; } /* Adobe Photoshop */
+.fa-adobe-illustrator { color: #FF9A00; } /* Adobe Illustrator */
+.fa-indesign { color: #FF6F00; } /* InDesign */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1174,12 +1484,17 @@ footer {
     .container * {
         font-size: 2vw; /* Responsive font size for smaller screens */
     }
-     .navigation-block ul li a {
+    .navigation-block ul li a {
         font-size: 2.2vw; /* Increase nav bar font size */
     }
 
     #skills h2 {
         font-size: 26px;        
+    }
+
+    .skill-item {
+        flex: 1 1 calc(33.333% - 20px);
+        max-width: calc(33.333% - 20px);
     }
 
     #skills > div {        
@@ -1654,55 +1969,93 @@ footer {
     
     #bio .profile-picture {
         position: absolute; /* Position the profile picture absolutely */
-        top: 20px; /* Distance from the top of the container */
+        top: 10px; /* Distance from the top of the container */
         left: 20px; /* Distance from the left of the container */        
         
     }
 
-    .text-box {    
-        padding-top: 300px; /* Adjust this value as needed */        
-        font-size: 25px; /* Adjust the font size as needed */    
-        margin-left: -7px;      
-    }   
+    .profile-picture img {
+        width: 180px;    
+        margin-left: 40px;
     }
 
-    #professions {   
-        margin-top: 10px; /* Adjust margin-top to start below the navigation bar */
-    }
+    .text-box {    
+        padding-top: 200px; /* Adjust this value as needed */        
+        font-size: 25px; /* Adjust the font size as needed */ 
+        margin-left: -7px;      
+    }   
     
-    #professions h2 {
-    text-align: center; /* Center align the heading */
-    margin-top: 0; /* Remove default margin from the top of h2 */
-    font-size: 15PX;
+
+
+
+    #professions h2 {        
+        font-size: 15px
     }
+
+    #professions {       
+        padding: 20px; /* Reduce padding for smaller screens */            
+        margin-top: 133px; /* Adjust margin-top to start below the navigation bar */
+    }
+
+    .professions-grid {        
+        grid-template-columns: repeat(2, 1fr); /* Set 2 boxes per row */        
+    } 
     
-    #professions li a {
-        font-size: 13px; /* Increase text size for links */
+    .profession-item p {
+        margin-top: 5px;
+        font-size: 13px; /* Adjust font size for smaller screens */        
     }
+
+
 
     #skills h2 {
         font-size: 20px;        
-    }
-
-    #skills h3 {
-        font-size: 15px;        
-        min-width: 300px;
-    }
-
-    #skills > div {        
-        min-width: 40px;
-        margin: 1px;
-
-        
-        
-    }
+    } 
+    
 
     #skills h3 {
         
         font-size: 13px;
-        min-width: 300px;
+        min-width: 200px;
+        text-align: center; /* Center-align the text */
+        
         
     }
+
+
+    .skill-item {
+        flex: 1 1 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+
+    .skill-item i {
+        font-size: 1.8rem; /* Larger icons */
+        margin-bottom: 10px;
+        
+    }
+
+
+
+    /* Individual skill item styling */
+    .skill-item {
+    
+        flex: 1 1 calc(20% - 20px); /* Adjust percentage as needed for responsiveness */
+        max-width: calc(20% - 20px);
+        min-width: 50px;
+        padding: 1px;
+        
+    }
+
+
+    .skill-item span {
+        font-size: 0.8rem;
+        color: #555; /* Text color */
+    }
+    
+
+
+
+
 
     #projects h2 {
         font-size: 20px;
@@ -1850,7 +2203,7 @@ footer {
         font-size: 3.5vw; /* Responsive font size for small phones */
     }
 
-        /* Header styles */
+    /* Header styles */
     header {        
         font-size: 12px;
     
@@ -1858,15 +2211,22 @@ footer {
     .navigation-block ul li a {
         font-size: 3.1vw; /* Increase nav bar font size */
     }
+    
+
     #bio .profile-picture {
         position: absolute; /* Position the profile picture absolutely */
-        top: 15px; /* Distance from the top of the container */
-        left: 25px; /* Distance from the left of the container */        
+        top: 10px; /* Distance from the top of the container */
+        left: 20px; /* Distance from the left of the container */        
         
     }
 
+    .profile-picture img {
+        width: 180px;    
+        margin-left: 40px;
+    }
+
     .text-box {    
-        padding-top: 280px; /* Adjust this value as needed */        
+        padding-top: 200px; /* Adjust this value as needed */        
         font-size: 15px; /* Adjust the font size as needed */ 
         margin-left: -12px;      
     }
@@ -1884,35 +2244,37 @@ footer {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    #professions {   
-        margin-top: 10px; /* Adjust margin-top to start below the navigation bar */
-    }
-    #professions h2 {
-        text-align: center; /* Center align the heading */
-        margin-top: 0; /* Remove default margin from the top of h2 */
-        font-size: 12PX;
+    #professions h2 {        
+        font-size: 14px
     }
 
-    #professions li a {
-        font-size: 10px; /* Increase text size for links */
+    #professions {       
+        padding: 20px; /* Reduce padding for smaller screens */            
+        margin-top: 133px; /* Adjust margin-top to start below the navigation bar */
     }
+
+    .professions-grid {        
+        grid-template-columns: repeat(2, 1fr); /* Set 2 boxes per row */        
+    } 
+    
+    .profession-item p {
+        margin-top: 5px;
+        font-size: 12px; /* Adjust font size for smaller screens */        
+    }
+    
+    
+    
+    
+    
+
+
 
 
     
+    
 
     #skills h2 {
-        font-size: 10px;        
+        font-size: 15px;        
     }
 
     #skills h3 {
@@ -1920,12 +2282,7 @@ footer {
         min-width: 200px;
     }
 
-    #skills > div {        
-        min-width: 30px;
-
-        
-        
-    }
+    
 
     #skills h3 {
         
@@ -1933,6 +2290,34 @@ footer {
         min-width: 200px;
         
     }
+
+    .skill-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .skill-item i {
+        font-size: 1.5rem; /* Larger icons */
+        margin-bottom: 5px;
+        
+    }
+
+        /* Individual skill item styling */
+    .skill-item {
+        
+        flex: 1 1 calc(20% - 20px); /* Adjust percentage as needed for responsiveness */
+        max-width: calc(20% - 20px);
+        min-width: 50px;
+        padding: 1px;
+        
+    }
+
+
+    .skill-item span {
+        font-size: 0.8rem;
+        color: #555; /* Text color */
+    }
+
 
     #projects h2 {
         font-size: 18px;
@@ -2054,3 +2439,14 @@ footer {
     border-radius: 5px; /* Example border radius for sections */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Example box shadow */
 }
+
+
+/* Responsive layout adjustments */
+@media (max-width: 1200px) {
+    .skill-item {
+        flex: 1 1 calc(25% - 20px);
+        max-width: calc(25% - 20px);
+    }
+}
+
+

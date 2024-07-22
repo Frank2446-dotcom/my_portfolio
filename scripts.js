@@ -239,38 +239,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-//SKILLS LI TOGGLE FUNCTIONALITY
-document.addEventListener("DOMContentLoaded", function() {
-    const skillSections = document.querySelectorAll("#skills > div > h3");
-
-    skillSections.forEach(section => {
-        section.addEventListener("click", function() {
-            const ul = section.nextElementSibling; // Get the <ul> following the <h3>
-            const isOpen = ul.style.display === "block";
-
-            // Toggle the visibility of the <ul> list
-            ul.style.display = isOpen ? "none" : "block";
-            ul.style.opacity = isOpen ? 0 : 1;
-
-            // Apply fade-in effect when opening the list
-            if (!isOpen) {
-                setTimeout(() => {
-                    ul.style.opacity = 1;
-                }, 50); // Adjust timing as needed
-            }
-
-            // Close other open lists
-            skillSections.forEach(otherSection => {
-                if (otherSection !== section) {
-                    const otherUl = otherSection.nextElementSibling;
-                    otherUl.style.display = "none";
-                    otherUl.style.opacity = 0;
-                }
-            });
-        });
-    });
-});
-
 
 
 
@@ -371,4 +339,39 @@ document.addEventListener('DOMContentLoaded', () => {
     menuList.addEventListener('click', () => {
         menuList.classList.remove('show');
     });
+});
+
+
+
+//SKILL SECTION SCROLL MOVEMENT OF DIV CLASS IN DIFF DIRECTIONS
+document.addEventListener('DOMContentLoaded', () => {
+    const skillItems = document.querySelectorAll('.skill-item');
+
+    // Function to check if an element is in the viewport
+    const isInViewport = (element) => {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top < window.innerHeight &&
+            rect.bottom >= 0 &&
+            rect.left < window.innerWidth &&
+            rect.right >= 0
+        );
+    };
+
+    // Function to handle adding/removing the animation class
+    const handleScroll = () => {
+        skillItems.forEach(item => {
+            if (isInViewport(item)) {
+                item.classList.add('animate');
+            } else {
+                item.classList.remove('animate');
+            }
+        });
+    };
+
+    // Check on page load
+    handleScroll();
+
+    // Check on scroll
+    window.addEventListener('scroll', handleScroll);
 });
