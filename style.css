@@ -263,7 +263,7 @@ h2 {
     padding: 20px;
     background-color: #436775;
     display: none; /* Hide by default */
-    transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out; 
 }
 
 
@@ -333,7 +333,6 @@ h2 {
 
 
 .text-box {
-    max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     background-color: #111010;
@@ -344,12 +343,9 @@ h2 {
     font-size: 20px;
     position: relative;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-
     line-height: 1.6; /* Adjust line height for readability */
     min-width: 300px; /* Ensure a minimum width */
     max-width: 800px; /* Ensure a maximum width */
-    line-height: 1.6; /* Adjust line height for readability */
     flex: 1 1 60%; /* Allow text-box to take up to 60% of the container */
     
 }
@@ -1136,7 +1132,7 @@ object {
 
 /* CONTACT INFORMATION */
 #contacts {
-    background-color: #352b24; /* Background color */
+    background-color: #618594; /* Background color */
     padding: 150px 210px; /* Adjust padding as needed */
     color: #fff; /* White text color */
     text-align: center; /* Center align text */
@@ -1200,44 +1196,152 @@ object {
     }
 }
 
-/* CONTACT INFORMATION */
 
+
+
+
+
+
+
+
+
+/* CONTACT INFORMATION */
+/* General Styling for Contacts Section */
 .contact-info {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Center items horizontally */
-    gap: 10px; /* Add spacing between items */
-    align-items: center; /* Align items vertically */
+    gap: 15px;
+    justify-content: center;
+    padding: 20px;
+    background-color: #d7e8eb; /* Single background color */
+    border-radius: 10px;
+}
+
+/* Styling for Contact Links */
+.contact-info p {
+    margin: 0;
+    flex: 1 1 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Styling for Contact Links */
+.icon-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px; /* Default text size */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Icon Sizes */
+.icon-link i, .icon-link svg {
+    font-size: 24px; /* Default icon size */
+}
+
+
+
+/* Text Sizes */
+.icon-link span {
+    font-size: 14px; /* Default text size */
+}
+
+
+
+
+/* Tooltip Styling */
+.icon-link[data-tooltip] {
+    position: relative;
+}
+
+.icon-link[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #278883;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    font-size: 14px;
+}
+
+.icon-link:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Pop-in Animation */
+@keyframes popIn {
+    0% {
+        transform: scale(1);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .contact-info p {
-    margin: 0;
+    animation: popIn 2s ease-out;
 }
 
-.contact-info a {
-    display: inline-block;
-    color: #fff; /* White link color */
-    text-decoration: none;
-    transition: color 0.3s ease; /* Animation for link color */
-    font-size: 40px; /* Increase icon size */
+/* Apply different animation delays for different icons for a staggered effect */
+
+
+
+
+/*X-Twitter Icon*/
+
+
+
+
+/* Specific colors for icons */
+.material-icons.email {
+    color: #D44638; /* Email (Gmail) color */
 }
 
-.contact-info a:hover {
-    color: #67cceb; /* Change color on hover */
-    text-decoration: none; /* Remove underline on hover */
+.fa-phone {
+    color: #34B7F1; /* Phone (assumed color for WhatsApp-like icon) */
 }
 
-/* Style for icons */
-.fa, .material-icons {
-    font-size: 50px; /* Increase icon size */
-    margin: 5px; /* Margin around each icon */
-    color: inherit; /* Use the color of the parent element */
-    display: flex; /* Ensure flex display */
-    align-items: center; /* Align items vertically */
-    justify-content: center; /* Center items horizontally */
-    width: 60px; /* Set width for consistent size */
-    height: 60px; /* Set height for consistent size */
+.fa-whatsapp {
+    color: #25D366; /* WhatsApp color */
 }
+
+.fa-twitter {
+    color: #1DA1F2; /* Twitter color */
+}
+
+.fa-instagram {
+    color: #E1306C; /* Instagram color */
+}
+
+.fa-linkedin {
+    color: #0077B5; /* LinkedIn color */
+}
+
+
+
+
+
 
 
 
@@ -1963,14 +2067,21 @@ footer {
 
 
     .navigation-block ul li a {
-        font-size: 3vw; /* Increase nav bar font size */
-    }    
+        font-size: 3.2vw; /* Increase nav bar font size */
+    }
+
+    
+        /* Bio section styles */
+    #bio {
+        margin-top: 130px; /* Adjust this value based on the height of your navigation bar */
+        
+    }
 
     
     #bio .profile-picture {
         position: absolute; /* Position the profile picture absolutely */
         top: 10px; /* Distance from the top of the container */
-        left: 20px; /* Distance from the left of the container */        
+        left: 30px; /* Distance from the left of the container */        
         
     }
 
@@ -1982,7 +2093,8 @@ footer {
     .text-box {    
         padding-top: 200px; /* Adjust this value as needed */        
         font-size: 25px; /* Adjust the font size as needed */ 
-        margin-left: -7px;      
+        margin-left: -1px;
+        max-width: 350px; /* Ensure a maximum width */      
     }   
     
 
@@ -2085,13 +2197,8 @@ footer {
     
 
 
-    .contact-info a {        
-        font-size: 25px; /* Increase icon size */
-    }
-
     /* Contacts Section */
-    #contacts {
-        
+    #contacts {        
         padding: 150px 20px; /* Adjust padding as needed */        
         height: auto; /* Auto height */
         width: 100%; /* Full width */
@@ -2099,15 +2206,41 @@ footer {
         
     }
 
+
+    .contact-info {
+        display: flex;
+        flex-wrap: wrap; /* Allow items to wrap to the next row */
+        justify-content: flex-start; /* Align items to the left */
+        gap: 1px; /* Reduced spacing between items */
+        padding: 5px; /* Adjusted padding for smaller screens */
+    }
+
+    .contact-info p {
+        margin: 0;
+        flex: 1 1 100%; /* Each item takes full width of the row */
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Align items to the left */
+    }
+    
+
+    /* Adjust icon sizes */
+    /* Adjust icon sizes */
+    .contact-info .icon-link i, 
+    .contact-info .icon-link svg {
+        font-size: 20px; /* Reduced icon size for smaller screens */
+    }
+
+
     .contact-info a {        
-        font-size: 30px; /* Increase icon size */
+        font-size: 14px; /* Increase icon size */
     }
 
     /* Form Container */
     #contactForm {
         max-width: 100%; /* Full width */
-        padding: 14px; /* Reduced padding */
-        border-radius: 0; /* No border radius */
+        padding: 18px; /* Reduced padding */
+        
     }
 
     /* Form Rows */
@@ -2115,6 +2248,9 @@ footer {
         display: flex;
         flex-direction: column; /* Stack items vertically */
         margin-bottom: 17px; /* Reduced margin */
+        max-width: 350px;
+        margin-left: -10px;
+    
     }
 
     /* Label Styles with Gradient Animation */
@@ -2133,33 +2269,41 @@ footer {
     select {
         width: 100%; /* Full width */
         margin-bottom: 14px; /* Spacing between inputs */
-        padding: 10px;
-        
+        padding: 10px;        
         border-radius: 5px;
         font-size: 16px;
         
     }
 
+    input[type="tel"] 
+
+    {
+        width: 270px; /* Full width */
+        margin-bottom: 14px; /* Spacing between inputs */
+        padding: 10px;    
+        font-size: 16px;
+        margin-left: -20px;
+        
+        
+        
+    }
+
         /* Textarea Styles */
     textarea {
-        height: 200px; /* Reduced height */
-        resize: vertical; /* Allow vertical resizing */
+        height: 150px; /* Reduced height */        
         width: calc(100% - 22px); /* Adjust width to fit container */
         padding: 10px; /* Padding around textarea */
-        border: 1px solid #ccc; /* Border style */
-        border-radius: 5px; /* Border radius */
-        font-size: 16px; /* Font size */
-        transition: border-color 0.3s ease; /* Transition for border color */
-        box-sizing: border-box; /* Include padding and border in element's total width and height */
+        font-size: 15px; /* Font size */
+        
     }
 
 
     /* Button Styles */
     button[type="submit"] {
         width: 100%; /* Full width */
-        padding: 14px; /* Reduced padding */
+        padding: 13px; /* Reduced padding */
         border-radius: 5px;
-        font-size: 14px;
+        font-size: 13px;
         
     }
 
@@ -2172,6 +2316,7 @@ footer {
         color: #ccc;
         font-size: 14px;
     }
+
 
 
 
@@ -2211,6 +2356,12 @@ footer {
     .navigation-block ul li a {
         font-size: 3.1vw; /* Increase nav bar font size */
     }
+
+       /* Bio section styles */
+    #bio {
+        margin-top: 125px; /* Adjust this value based on the height of your navigation bar */
+        
+    }
     
 
     #bio .profile-picture {
@@ -2226,9 +2377,13 @@ footer {
     }
 
     .text-box {    
-        padding-top: 200px; /* Adjust this value as needed */        
+        padding-top: 200px; /* Adjust this value as needed */ 
+        margin-top: -5px;       
         font-size: 15px; /* Adjust the font size as needed */ 
-        margin-left: -12px;      
+        margin-left: -1px;
+        max-width: 300px; /* Ensure a maximum width */
+        min-width: 200px;
+        
     }
 
 
@@ -2338,14 +2493,11 @@ footer {
     }
 
 
-    .contact-info a {        
-        font-size: 20px; /* Increase icon size */
-    }
+    
 
 
     /* Contacts Section */
-    #contacts {
-        
+    #contacts {        
         padding: 150px 20px; /* Adjust padding as needed */        
         height: auto; /* Auto height */
         width: 100%; /* Full width */
@@ -2353,15 +2505,41 @@ footer {
         
     }
 
+
+    .contact-info {
+        display: flex;
+        flex-wrap: wrap; /* Allow items to wrap to the next row */
+        justify-content: flex-start; /* Align items to the left */
+        gap: 1px; /* Reduced spacing between items */
+        padding: 5px; /* Adjusted padding for smaller screens */
+    }
+
+    .contact-info p {
+        margin: 0;
+        flex: 1 1 100%; /* Each item takes full width of the row */
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Align items to the left */
+    }
+    
+
+    /* Adjust icon sizes */
+    /* Adjust icon sizes */
+    .contact-info .icon-link i, 
+    .contact-info .icon-link svg {
+        font-size: 18px; /* Reduced icon size for smaller screens */
+    }
+
+
     .contact-info a {        
-        font-size: 30px; /* Increase icon size */
+        font-size: 12px; /* Increase icon size */
     }
 
     /* Form Container */
     #contactForm {
         max-width: 100%; /* Full width */
         padding: 14px; /* Reduced padding */
-        border-radius: 0; /* No border radius */
+        
     }
 
     /* Form Rows */
@@ -2369,6 +2547,8 @@ footer {
         display: flex;
         flex-direction: column; /* Stack items vertically */
         margin-bottom: 17px; /* Reduced margin */
+        max-width: 280px;
+        margin-left: -5px;
     }
 
     /* Label Styles with Gradient Animation */
@@ -2387,24 +2567,31 @@ footer {
     select {
         width: 100%; /* Full width */
         margin-bottom: 14px; /* Spacing between inputs */
-        padding: 10px;
-        
+        padding: 10px;        
         border-radius: 5px;
         font-size: 16px;
         
     }
 
+    input[type="tel"] 
+
+    {
+        width: 270px; /* Full width */
+        margin-bottom: 14px; /* Spacing between inputs */
+        padding: 10px;    
+        font-size: 16px;
+        
+        
+        
+    }
+
         /* Textarea Styles */
     textarea {
-        height: 150px; /* Reduced height */
-        resize: vertical; /* Allow vertical resizing */
+        height: 150px; /* Reduced height */        
         width: calc(100% - 22px); /* Adjust width to fit container */
         padding: 10px; /* Padding around textarea */
-        border: 1px solid #ccc; /* Border style */
-        border-radius: 5px; /* Border radius */
         font-size: 15px; /* Font size */
-        transition: border-color 0.3s ease; /* Transition for border color */
-        box-sizing: border-box; /* Include padding and border in element's total width and height */
+        
     }
 
 
@@ -2426,6 +2613,16 @@ footer {
         color: #ccc;
         font-size: 14px;
     }
+
+
+
+
+
+
+
+
+
+
 }
 
 
