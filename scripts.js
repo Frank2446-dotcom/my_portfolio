@@ -33,22 +33,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-//HAMBURGER MENU
+//HAMBURGER MENU TOGGLE TO THE RESPECTIVE SECTION
 document.addEventListener('DOMContentLoaded', function() {
-    var hamburgerMenu = document.getElementById('menu__toggle');
-    var menuBox = document.querySelector('.menu__box');
-
-    // Toggle menu box visibility on hamburger menu click
-    hamburgerMenu.addEventListener('click', function() {
-        menuBox.classList.toggle('open');
-    });
-});
-
-
-
-// Smooth scroll functionality for navigation links for menus items
-document.addEventListener('DOMContentLoaded', function() {
-    // Function to handle smooth scrolling
+    // Function to handle smooth scrolling and section activation
     function scrollToSection(sectionId) {
         var section = document.querySelector(sectionId);
         if (section) {
@@ -57,25 +44,70 @@ document.addEventListener('DOMContentLoaded', function() {
                 top: sectionTop,
                 behavior: 'smooth' // Smooth scrolling behavior
             });
+
+            // Activate the section
+            document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+            if (section) {
+                section.classList.add('active');
+            }
         }
     }
 
-    // Attach click event listeners to navigation links
-    var navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(function(navLink) {
-        navLink.addEventListener('click', function(e) {
+    // Handle click events on navigation links
+    document.querySelectorAll('.navigation-block ul li a').forEach(link => {
+        link.addEventListener('click', function(e) {
             e.preventDefault(); // Prevent default anchor behavior
-            var sectionId = navLink.getAttribute('href'); // Get the href attribute value
-            scrollToSection(sectionId); // Scroll to the section
+            scrollToSection(this.getAttribute('href')); // Scroll to the section
+            window.history.pushState(null, '', this.getAttribute('href')); // Update URL
         });
     });
 
-    // Check hash on page load and scroll to section if hash exists
-    var hash = window.location.hash;
-    if (hash) {
+    // Handle click events on hamburger menu items
+    document.querySelectorAll('.menu__box .menu__item').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default anchor behavior
+            scrollToSection(this.getAttribute('href')); // Scroll to the section
+            document.getElementById('menu__toggle').checked = false; // Close the menu
+            window.history.pushState(null, '', this.getAttribute('href')); // Update URL
+        });
+    });
+
+    // Handle back/forward navigation
+    window.addEventListener('popstate', function(event) {
+        const hash = window.location.hash || '#bio'; // Default to '#bio' if hash is empty
         scrollToSection(hash);
-    }
+    });
+
+    // Load initial section based on URL
+    const initialSectionId = window.location.hash || '#bio';
+    scrollToSection(initialSectionId);
 });
+
+
+
+// Hide Navigation Bar When Hamburger Menu Opens
+document.addEventListener('DOMContentLoaded', function() {
+    var hamburgerMenu = document.getElementById('menu__toggle');
+    var menuBox = document.querySelector('.menu__box');
+    var navigationBlock = document.getElementById('navigation-block');
+
+    // Toggle menu box visibility on hamburger menu click
+    hamburgerMenu.addEventListener('click', function() {
+        menuBox.classList.toggle('open');
+        // Hide or show the navigation block
+        if (menuBox.classList.contains('open')) {
+            navigationBlock.classList.add('hidden');
+        } else {
+            navigationBlock.classList.remove('hidden');
+        }
+    });
+});
+
+
+
+
+
+
 
 
 //PROJECT LIST  VIEWING
@@ -197,6 +229,14 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+
+
+
+
+
+
+
 
 
 
