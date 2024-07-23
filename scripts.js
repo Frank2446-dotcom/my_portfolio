@@ -264,9 +264,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-//JavaScript: Ensures the #bio section is shown by default when the page loads and when the logo is clicked.
+// #bio section is shown by default when the page loads and when the logo is clicked.
 
-//PHONE NUMBER JS
+//MY CONTACT SECTION PHONE NUMBER COUNTRY CODES
 
 const phoneInputField = document.querySelector("#phone");
 const phoneInput = window.intlTelInput(phoneInputField, {
@@ -276,27 +276,58 @@ const phoneInput = window.intlTelInput(phoneInputField, {
 
 
 
+
+
+
+
+//OPEN BIO BY DEFAULT WHEN LOADING THE WEBSITE FOR THE 
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Function to scroll to the bio section
-    function scrollToBio() {
-        var bioSection = document.getElementById('bio');
-        if (bioSection) {
-            bioSection.scrollIntoView({ behavior: 'smooth' });
+    // Function to handle section visibility
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => {
+            section.classList.remove('active');
+        });
+
+        const targetSection = document.getElementById(sectionId);
+        if (targetSection) {
+            targetSection.classList.add('active');
+            targetSection.scrollIntoView({ behavior: 'smooth' });
         }
     }
 
-    // Scroll to bio section when the page loads
-    scrollToBio();
+    // Initialize the view based on URL hash or default to 'bio'
+    const urlHash = window.location.hash.substring(1); // Get hash without '#'
+    const initialSectionId = urlHash || 'bio'; // Default to 'bio'
+    showSection(initialSectionId);
 
-    // Scroll to bio section when the bio link is clicked
-    var bioLink = document.getElementById('bioLink');
-    if (bioLink) {
-        bioLink.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent the default link behavior
-            scrollToBio();
+    // Handle navigation through hash changes
+    window.addEventListener('hashchange', function() {
+        const hash = window.location.hash.substring(1); // Get hash without '#'
+        showSection(hash);
+    });
+
+    // Add event listeners to navigation links
+    const navLinks = document.querySelectorAll('.navigation-block ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const sectionId = this.getAttribute('href').substring(1); // Get section ID from href
+            showSection(sectionId);
+            window.history.pushState({ sectionId }, '', `#${sectionId}`);
         });
-    }
+    });
+
+    // Handle back/forward navigation
+    window.addEventListener('popstate', function(event) {
+        if (event.state && event.state.sectionId) {
+            showSection(event.state.sectionId);
+        }
+    });
 });
+
+
 
 
 
@@ -375,3 +406,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check on scroll
     window.addEventListener('scroll', handleScroll);
 });
+
+
+
+
+//LEAVE A MESSAGE
+
+
+
+
+//LEAVE A MESSAGE OPTION 2-EMAILJS
