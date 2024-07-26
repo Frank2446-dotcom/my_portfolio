@@ -1,7 +1,7 @@
 
 
 body {
-    font-family: Arial, sans-serif;  
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
     padding-top: 130px; /* Adjust as needed to account for the combined height of title and navigation */
     color: rgb(236, 220, 230); /* Text color */
     background-image: url('https://media.licdn.com/dms/image/D4D12AQGmVEW9PRcsGw/article-cover_image-shrink_720_1280/0/1693874124818?e=2147483647&v=beta&t=pmvy7TiXaLcsMA0lUDWzxGkpMaooDI3wdMBxIGFHNCM');
@@ -25,6 +25,7 @@ body {
 /* Header styles */
 header {
     background-color: #1b382a;
+    background: radial-gradient(ellipse at left, #1e0d31 0%,   #223d30 50%, #27152c 75%, #36418a 100%);
     padding: 20px 0;
     color: #fff;
     position: fixed; /* Fixed position to stick to the top */
@@ -107,6 +108,7 @@ header {
     top: 8px;
 }
 
+/* Menu Box */
 .menu__box {
     display: block;
     position: fixed;
@@ -116,17 +118,46 @@ header {
     height: 100%;
     margin: 0;
     padding: 80px 0;
-    list-style: none;
-    background-color: #3670a7;
+    list-style: none;    
+    background: linear-gradient(45deg, #222121, #973d61, #8a7831, #338d7b, #452a6d, #2a533c);
+    background-size: 400% 400%; /* Ensures the gradient covers more space */
     box-shadow: 2px 2px 6px rgba(15, 15, 15, 0.4);
     transition-duration: .25s;
     color: #1fe984;
+    animation: gradientMove 15s linear infinite, slideDown 0.5s ease-in-out;
+    font-weight: bold;
 }
+
+/* Keyframes for moving gradient */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+/* Keyframes for sliding down effect */
+@keyframes slideDown {
+    from {
+        transform: translateY(-10%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 
 .menu__item {
     display: block;
     padding: 12px 24px;
-    color: #333;
+    color: #f7efef;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     font-weight: 600;
@@ -172,8 +203,10 @@ header {
 
 
 /* Navigation Bar */
+/* Navigation Bar */
 .navigation-block {
-    background-color: #73b2db;
+    background: linear-gradient(45deg, #636220, #30377a, #328373, #5e2569);
+    background-size: 400% 400%; /* Make the gradient cover more space */
     text-align: center;
     padding: 15px;
     display: flex;
@@ -184,20 +217,34 @@ header {
     top: 90px;
     width: 100%;
     z-index: 1000;
-    text-decoration: rgb(163, 106, 31);
-    animation: slideDown 0.5s ease-in-out;
+    text-decoration: none;
+    animation: gradientBlink 30s ease-in-out infinite, slideDown 0.5s ease-in-out;
     font-weight: bold;
 }
 
-/* Navigation Bar Animation */
-@keyframes slideDown {
+@keyframes gradientBlink {
     0% {
-        transform: translateY(-100%);
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
     }
     100% {
-        transform: translateY(0);
+        background-position: 0% 0%;
     }
 }
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-10%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 
 /* Navigation Menu */
 .navigation-block ul {
@@ -219,7 +266,7 @@ header {
 /* Smooth scrolling for navigation links */
 .navigation-block ul li a {
     text-decoration: none;
-    color: #333;
+    color: #fdf7f7;
     font-size: 1vw; /* Use vw units for responsive font size */
     transition: color 0.3s ease, margin-top 0.3s ease; /* Add transition for smooth color change and margin change */
 }
@@ -229,7 +276,7 @@ header {
 }
 
 .navigation-block ul li a:hover {
-    color: #555; /* Change color on hover */
+    color: #811616; /* Change color on hover */
     margin-top: -5px; /* Adjust as needed */
 }
 
@@ -275,16 +322,20 @@ h2 {
 
 
 
+
 /* Bio section styles */
 #bio {
-    margin-top: 140px; /* Adjust this value based on the height of your navigation bar */
-    padding: 20px;
+    margin-top: 100px; /* Adjust this value based on the height of your navigation bar */
+    
+    padding-top: 70px;
     background-color: #436775;
     display: none; /* Hide by default */
     transition: all 0.5s ease-in-out; 
     visibility: visible;
     opacity: 1;
     transition: opacity 0.5s ease, visibility 0.5s ease; /* Smooth transition */
+    margin-bottom: 0;
+    
 }
 
 
@@ -353,10 +404,13 @@ h2 {
 
 
 
+
+
+
 .text-box {
     margin: 0 auto;
     padding: 20px;
-    background-color: #111010;
+    overflow: hidden;
     margin-bottom: 20px;
     border-radius: 10px;
     overflow: hidden;
@@ -368,8 +422,374 @@ h2 {
     min-width: 300px; /* Ensure a minimum width */
     max-width: 800px; /* Ensure a maximum width */
     flex: 1 1 60%; /* Allow text-box to take up to 60% of the container */
+    background: radial-gradient(ellipse at bottom, #1e0d31 0%, #4d4423 25%,  #223d30 50%, #36418a 100%);
+}
+
+/* Shooting Star Background */
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-45deg);
     
 }
+
+.read-more {
+    position: relative;
+    z-index: 1; /* Ensure button is in front of stars */
+}
+
+
+.star {
+    --star-color: #1db8d4;
+    --star-tail-length: 6em;
+    --star-tail-height: 2px;
+    --star-width: calc(var(--star-tail-length) / 2);
+    --fall-duration: 9s;
+    --tail-fade-duration: var(--fall-duration);
+
+    position: absolute;
+    top: var(--top-offset);
+    left: 0;
+    width: var(--star-tail-length);
+    height: var(--star-tail-height);
+    color: var(--star-color);
+    background: linear-gradient(45deg, currentColor, transparent);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 6px currentColor);
+    transform: translate3d(104em, 0, 0);
+    animation: fall var(--fall-duration) var(--fall-delay) linear infinite, tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
+}
+
+
+
+/* Add specific properties for each star */
+.star:nth-child(1) {
+    --star-tail-length: 50em;
+    --top-offset: 10vh;
+    --fall-duration: 7s;
+    --fall-delay: 0.5s;
+}
+
+.star:nth-child(2) {
+    --star-tail-length: 60em;
+    --top-offset: 30vh;
+    --fall-duration: 8s;
+    --fall-delay: 0.5s;
+}
+
+.star:nth-child(3) {
+    --star-tail-length: 50em;
+    --top-offset: 50vh;
+    --fall-duration: 19s;
+    --fall-delay: 0.3s;
+}
+
+.star:nth-child(4) {
+    --star-tail-length: 70em;
+    --top-offset: 70vh;
+    --fall-duration: 10s;
+    --fall-delay: 0.3s;
+}
+
+.star:nth-child(5) {
+    --star-tail-length: 75em;
+    --top-offset: 20vh;
+    --fall-duration: 6s;
+    --fall-delay: 0.1s;
+}
+
+.star:nth-child(6) {
+    --star-tail-length: 60em;
+    --top-offset: 40vh;
+    --fall-duration: 11s;
+    --fall-delay: 0.3s;
+}
+
+.star:nth-child(7) {
+    --star-tail-length: 65em;
+    --top-offset: 60vh;
+    --fall-duration: 7s;
+    --fall-delay: 0.2s;
+}
+
+.star:nth-child(8) {
+    --star-tail-length: 50em;
+    --top-offset: 80vh;
+    --fall-duration: 8s;
+    --fall-delay: 0.4s;
+}
+
+.star:nth-child(9) {
+    --star-tail-length: 55em;
+    --top-offset: 25vh;
+    --fall-duration: 9s;
+    --fall-delay: 3s;
+}
+
+.star:nth-child(10) {
+    --star-tail-length: 70em;
+    --top-offset: 55vh;
+    --fall-duration: 6s;
+    --fall-delay: 0.2s;
+}
+
+/* Continue adding more rules as needed */
+
+.star:nth-child(11) {
+    --star-tail-length: 30em;
+    --top-offset: 15vh;
+    --fall-duration: 5s;
+    --fall-delay: 0.5s;
+}
+
+.star:nth-child(12) {
+    --star-tail-length: 35em;
+    --top-offset: 25vh;
+    --fall-duration: 26s;
+    --fall-delay: 1s;
+}
+
+.star:nth-child(13) {
+    --star-tail-length: 25em;
+    --top-offset: 35vh;
+    --fall-duration: 4s;
+    --fall-delay: 1.5s;
+}
+
+.star:nth-child(14) {
+    --star-tail-length: 40em;
+    --top-offset: 45vh;
+    --fall-duration: 5s;
+    --fall-delay: 0.2s;
+}
+
+.star:nth-child(15) {
+    --star-tail-length: 32em;
+    --top-offset: 55vh;
+    --fall-duration: 4.5s;
+    --fall-delay: 0.5s;
+}
+
+.star:nth-child(16) {
+    --star-tail-length: 37em;
+    --top-offset: 65vh;
+    --fall-duration: 6s;
+    --fall-delay: 0.3s;
+}
+
+.star:nth-child(17) {
+    --star-tail-length: 30em;
+    --top-offset: 75vh;
+    --fall-duration: 5s;
+    --fall-delay: 0.3s;
+}
+
+.star:nth-child(18) {
+    --star-tail-length: 35em;
+    --top-offset: 85vh;
+    --fall-duration: 4s;
+    --fall-delay: 0.4s;
+}
+
+.star:nth-child(19) {
+    --star-tail-length: 28em;
+    --top-offset: 95vh;
+    --fall-duration: 6s;
+    --fall-delay: 0.5s;
+}
+
+.star:nth-child(20) {
+    --star-tail-length: 33em;
+    --top-offset: 105vh;
+    --fall-duration: 5s;
+    --fall-delay: 0.5s;
+}
+
+.star:nth-child(21) {
+    --star-tail-length: 270em;
+    --top-offset: 115vh;
+    --fall-duration: 4s;
+    --fall-delay: 0.6s;
+}
+
+.star:nth-child(22) {
+    --star-tail-length: 290em;
+    --top-offset: 125vh;
+    --fall-duration: 5s;
+    --fall-delay: 0.8s;
+}
+
+.star:nth-child(23) {
+    --star-tail-length: 310em;
+    --top-offset: 135vh;
+    --fall-duration: 4.5s;
+    --fall-delay: 1s;
+}
+
+.star:nth-child(24) {
+    --star-tail-length: 280em;
+    --top-offset: 145vh;
+    --fall-duration: 6s;
+    --fall-delay: 1.2s;
+}
+
+.star:nth-child(25) {
+    --star-tail-length: 320em;
+    --top-offset: 155vh;
+    --fall-duration: 4s;
+    --fall-delay: 1.4s;
+}
+
+.star:nth-child(26) {
+    --star-tail-length: 290em;
+    --top-offset: 165vh;
+    --fall-duration: 5s;
+    --fall-delay: 1.6s;
+}
+
+.star:nth-child(27) {
+    --star-tail-length: 310em;
+    --top-offset: 175vh;
+    --fall-duration: 4.5s;
+    --fall-delay: 1.8s;
+}
+
+.star:nth-child(28) {
+    --star-tail-length: 270em;
+    --top-offset: 185vh;
+    --fall-duration: 6s;
+    --fall-delay: 2s;
+}
+
+.star:nth-child(29) {
+    --star-tail-length: 330em;
+    --top-offset: 195vh;
+    --fall-duration: 5s;
+    --fall-delay: 2.2s;
+}
+
+.star:nth-child(30) {
+    --star-tail-length: 300em;
+    --top-offset: 205vh;
+    --fall-duration: 4s;
+    --fall-delay: 2.4s;
+}
+
+.star:nth-child(31) {
+    --star-tail-length: 280em;
+    --top-offset: 215vh;
+    --fall-duration: 5s;
+    --fall-delay: 0.6s;
+}
+
+.star:nth-child(32) {
+    --star-tail-length: 310em;
+    --top-offset: 225vh;
+    --fall-duration: 4.5s;
+    --fall-delay: 0.8s;
+}
+
+.star:nth-child(33) {
+    --star-tail-length: 290em;
+    --top-offset: 235vh;
+    --fall-duration: 6s;
+    --fall-delay: 0.3s;
+}
+
+.star:nth-child(34) {
+    --star-tail-length: 320em;
+    --top-offset: 245vh;
+    --fall-duration: 5s;
+    --fall-delay: 0.2s;
+}
+
+.star:nth-child(35) {
+    --star-tail-length: 280em;
+    --top-offset: 255vh;
+    --fall-duration: 4s;
+    --fall-delay: 0.4s;
+}
+
+.star:nth-child(36) {
+    --star-tail-length: 330em;
+    --top-offset: 265vh;
+    --fall-duration: 5s;
+    --fall-delay: 0.6s;
+}
+
+.star:nth-child(37) {
+    --star-tail-length: 290em;
+    --top-offset: 275vh;
+    --fall-duration: 6s;
+    --fall-delay: 0.8s;
+}
+
+.star:nth-child(38) {
+    --star-tail-length: 310em;
+    --top-offset: 285vh;
+    --fall-duration: 5s;
+    --fall-delay: 0.7s;
+}
+
+.star:nth-child(39) {
+    --star-tail-length: 270em;
+    --top-offset: 295vh;
+    --fall-duration: 4.5s;
+    --fall-delay: 0.2s;
+}
+
+.star:nth-child(40) {
+    --star-tail-length: 320em;
+    --top-offset: 305vh;
+    --fall-duration: 6s;
+    --fall-delay: 0.4s;
+}
+
+
+/* Add more .star:nth-child() rules for additional stars with different properties */
+
+
+
+@keyframes fall {
+    to {
+        transform: translate3d(-30em, 0, 0);
+    }
+}
+
+@keyframes tail-fade {
+    0%, 25%, 50% {
+        width: var(--star-tail-length);
+        opacity: 1;
+    }
+
+    70%, 80% {
+        width: 0;
+        opacity: 0.4;
+    }
+
+    100% {
+        width: 0;
+        opacity: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* Bio container to manage layout */
@@ -572,14 +992,147 @@ animation-play-state: paused; /* Pauses animation on hover */
 
 /* My Profession Section */
 
+/* My Profession Section */
 #professions {
-    background-color: #201912; /* Set background color for the whole section */
+    position: relative; /* Ensure the animated background and circles are contained within the section */
+    background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8, #006400); /* Gradient background */
     padding: 150px; /* Add padding to create space inside the section */
     margin: 0 auto; /* Center the section horizontally */
     max-width: 1200px; /* Set a maximum width for the section */
     border-radius: 10px; /* Add border-radius for rounded corners */
     margin-top: 20px; /* Adjust margin-top to start below the navigation bar */
+    overflow: hidden; /* Hide overflow to contain the animated background */    
+    background: #4e54c8; /* Fallback color */    
+    z-index: 1; /* Ensure the animated background is behind the content */
+    
 }
+
+
+
+
+
+
+
+
+/* Circles for animation */
+#professions .circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0; /* Ensure circles are behind everything else */
+}
+
+#professions .circles li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+}
+
+#professions .circles li:nth-child(1) {
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+
+#professions .circles li:nth-child(2) {
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+#professions .circles li:nth-child(3) {
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+#professions .circles li:nth-child(4) {
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+#professions .circles li:nth-child(5) {
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+#professions .circles li:nth-child(6) {
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+}
+
+#professions .circles li:nth-child(7) {
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+}
+
+#professions .circles li:nth-child(8) {
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+
+#professions .circles li:nth-child(9) {
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+#professions .circles li:nth-child(10) {
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+
+
+
+
+
+
+
+
 
 #professions h2 {
     text-align: center; /* Center align the heading */
@@ -664,6 +1217,9 @@ animation-play-state: paused; /* Pauses animation on hover */
     padding: 2rem;
     margin-top: 130px;
     background-color: #e3eef1; /* Light background for the whole section */
+    margin-bottom: 0;
+    margin-top: 100px;
+    padding-top: 50px;
 }
 
 .skill-container {
@@ -685,7 +1241,7 @@ animation-play-state: paused; /* Pauses animation on hover */
 
 /* Style for h2 headings in the skills section */
 #skills h2 {
-    font-size: 15px; /* Font size for h2 headings */
+    font-size: 25px; /* Font size for h2 headings */
     color: #1a0f0f; /* Text color for h2 headings */
     margin-bottom: 1rem; /* Space below the h2 heading */
     text-align: center; /* Center text */
@@ -1054,106 +1610,130 @@ animation-play-state: paused; /* Pauses animation on hover */
 
 
 
-
-
-
-/* Styles for Projects section */
-/* Background Animation Styles */
-:root {
---s: 25vmin;
---p: calc(var(--s) / 2);
---c1: rgb(114, 96, 99);
---c2: rgb(74, 85, 95);
---c3: rgb(128, 126, 126);
---bg: var(--c3);
---d: 4000ms;
---e: cubic-bezier(0.76, 0, 0.24, 1);
-}
-
+/* Projects Section */
 #projects {
-padding: 150px;  
-margin: auto;
-max-width: 1200px; /* Limit maximum width of the projects section */
-background-color: var(--bg);
-background-image:
-    linear-gradient(45deg, var(--c1) 25%, transparent 25%),
-    linear-gradient(-45deg, var(--c1) 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, var(--c2) 75%),
-    linear-gradient(-45deg, transparent 75%, var(--c2) 75%);
-background-size: var(--s) var(--s);
-background-position: 
-    calc(var(--p) *  1) calc(var(--p) *  0), 
-    calc(var(--p) * -1) calc(var(--p) *  1), 
-    calc(var(--p) *  1) calc(var(--p) * -1), 
-    calc(var(--p) * -1) calc(var(--p) *  0);
-animation: 
-    color var(--d) var(--e) infinite,
-    position var(--d) var(--e) infinite;
+    padding: 150px;
+    margin: auto;
+    max-width: 1200px; /* Limit maximum width of the projects section */
+    position: relative; /* Allow for absolute positioning of background elements */
+    overflow: hidden; /* Hide overflow to contain the background */
+    background: linear-gradient(to right, #397192 0%, #553923 25%, #272747 50%, #1b3f1b 75%, #2d133b 100%); /* Linear gradient background */
+    color: #fff; /* Text color for better contrast */
 }
 
-/* Animation for the background */
-@keyframes color {
-0%, 25% {
-    --bg: var(--c3);
-}
-26%, 50% {
-    --bg: var(--c1);
-}
-51%, 75% {
-    --bg: var(--c3);
-}
-76%, 100% {
-    --bg: var(--c2);
-}
+
+/* Animated Background */
+#projects .leaf {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0; /* Place background behind content */
+    pointer-events: none; /* Prevent interaction with the background */
 }
 
-@keyframes position {
-0% {
-    background-position: 
-    calc(var(--p) *  1) calc(var(--p) *  0), 
-    calc(var(--p) * -1) calc(var(--p) *  1), 
-    calc(var(--p) *  1) calc(var(--p) * -1), 
-    calc(var(--p) * -1) calc(var(--p) *  0);
-}
-25% {
-    background-position: 
-    calc(var(--p) *  1) calc(var(--p) *  4), 
-    calc(var(--p) * -1) calc(var(--p) *  5), 
-    calc(var(--p) *  1) calc(var(--p) *  3), 
-    calc(var(--p) * -1) calc(var(--p) *  4);
-}
-50% {
-    background-position: 
-    calc(var(--p) *  3) calc(var(--p) * 8), 
-    calc(var(--p) * -3) calc(var(--p) * 9), 
-    calc(var(--p) *  2) calc(var(--p) * 7), 
-    calc(var(--p) * -2) calc(var(--p) * 8);
-}
-75% {
-    background-position: 
-    calc(var(--p) *  3) calc(var(--p) * 12), 
-    calc(var(--p) * -3) calc(var(--p) * 13), 
-    calc(var(--p) *  2) calc(var(--p) * 11), 
-    calc(var(--p) * -2) calc(var(--p) * 12);
-}
-100% {    
-    background-position: 
-    calc(var(--p) *  5) calc(var(--p) * 16), 
-    calc(var(--p) * -5) calc(var(--p) * 17), 
-    calc(var(--p) *  5) calc(var(--p) * 15), 
-    calc(var(--p) * -5) calc(var(--p) * 16);
-}
+#projects .leaf div {
+    position: absolute;
+    display: block;
+    width: 75px;
+    height: 75px;
 }
 
-@media (prefers-reduced-motion) {
-body {
-    animation: none;
-}
+#projects .leaf div:nth-child(1) {
+    left: 20%;
+    animation: leaf-fall 15s linear infinite;
+    animation-delay: -2s;
 }
 
+#projects .leaf div:nth-child(2) {
+    left: 70%;
+    animation: leaf-fall 15s linear infinite;
+    animation-delay: -4s;
+}
+
+#projects .leaf div:nth-child(3) {
+    left: 10%;
+    animation: leaf-fall 20s linear infinite;
+    animation-delay: -7s;
+}
+
+#projects .leaf div:nth-child(4) {
+    left: 50%;
+    animation: leaf-fall 18s linear infinite;
+    animation-delay: -5s;
+}
+
+#projects .leaf div:nth-child(5) {
+    left: 85%;
+    animation: leaf-fall 14s linear infinite;
+    animation-delay: -5s;
+}
+
+#projects .leaf div:nth-child(6) {
+    left: 15%;
+    animation: leaf-fall 16s linear infinite;
+    animation-delay: -10s;
+}
+
+#projects .leaf div:nth-child(7) {
+    left: 90%;
+    animation: leaf-fall 15s linear infinite;
+    animation-delay: -4s;
+}
+
+@keyframes leaf-fall {
+    0% {
+        opacity: 1;
+        top: -10%;
+        transform: translateX(20px) rotate(0deg);
+    }
+    20% {
+        opacity: 0.8;
+        transform: translateX(-20px) rotate(45deg);
+    }
+    40% {
+        transform: translateX(-20px) rotate(90deg);
+    }
+    60% {
+        transform: translateX(-20px) rotate(135deg);
+    }
+    80% {
+        transform: translateX(-20px) rotate(180deg);
+    }
+    100% {
+        top: 110%;
+        transform: translateX(-20px) rotate(225deg);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Ensure content is above background */
 #projects h2 {
-    font-size: 30px;
+    position: relative; /* Ensure the heading is above the animated background */
+    z-index: 1; /* Place text above the background */
+    font-family: "Courgette", cursive;
+    font-size: 4em;
+    text-align: center;
+    color: #fff;
 }
+
+
+
+
+
+
+
 
 .project-category {
     margin-bottom: 20px;
@@ -1231,15 +1811,17 @@ body {
 /* CONTACT INFORMATION */
 #contacts {
     background-color: #618594; /* Background color */
-    padding: 150px 210px; /* Adjust padding as needed */
-    color: #fff; /* White text color */
+    padding: 100px 100px; /* Adjust padding as needed */
+    color: #2b1212; /* White text color */
     text-align: center; /* Center align text */
     position: relative; /* Ensure positioning for pseudo-elements */
     overflow: hidden; /* Hide overflow for smooth animation */
     height: auto; /* Fixed height */
     bottom: 0; /* Attach to the bottom */
-    width: 1000px; /* Full width */
+    width: 100%; /* Full width */
+    height: 100%;
     box-sizing: border-box; /* Include padding in height and width */
+    margin-bottom: 0;
     
 }
 
@@ -1450,21 +2032,15 @@ body {
 
 
 
-
-
-
-
-
-
-/* LEAVE A MESSAGE*/
+/* LEAVE A MESSAGE */
 /* Form Container */
 #contactForm {
     max-width: 600px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: #d7e8eb;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px #d3cb9f1a;
 }
 
 /* Form Rows */
@@ -1474,14 +2050,22 @@ body {
     align-items: center;
 }
 
+.row.double {
+    justify-content: space-between;
+}
+
+.row.double .field {
+    width: 48%;
+}
+
 /* Label Styles with Gradient Animation */
 label {
     width: 150px; /* Fixed width for labels */
     font-size: 16px;
-    text-align: left; /* Align labels to the left */
-    margin-right: 20px; /* Spacing between labels */
+    text-align: right; /* Align labels to the right */
+    margin-right: 20px; /* Spacing between labels and inputs */
     color: transparent; /* Transparent color initially */
-    background: linear-gradient(45deg, #f10e21, #e98d0e, #1fe984, #1adfe6); /* Gradient background */
+    background: linear-gradient(45deg, #f10e21, #e98d0e, #02e775, #01edf5); /* Gradient background */
     -webkit-background-clip: text; /* Clip text to the background */
     background-clip: text;
     -webkit-text-fill-color: transparent; /* Make text transparent */
@@ -1495,12 +2079,6 @@ label {
     100% { background-position: 200% 0%; }
 }
 
-
-
-
-
-
-
 /* Input Styles */
 input[type="text"],
 input[type="email"],
@@ -1509,7 +2087,7 @@ textarea,
 select {
     flex: 1; /* Take remaining space */
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #d7e8eb;
     border-radius: 5px;
     font-size: 16px;
     transition: border-color 0.3s ease;
@@ -1517,9 +2095,9 @@ select {
 
 /* Textarea Styles */
 textarea {
-    height: 100px; /* Set a fixed height for textarea */
+    height: 200px; /* Set a fixed height for textarea */
     resize: vertical; /* Allow vertical resizing */
-    width: calc(100% - 10px); /* Adjust width to fit container */
+    width: calc(100% - 20px); /* Adjust width to fit container */
 }
 
 /* Select Styles */
@@ -1529,19 +2107,18 @@ select {
     border-radius: 5px;
     font-size: 16px;
     transition: border-color 0.3s ease;
-    width: calc(100% - 10px); /* Adjust width to fit container */
+    width: 100%; /* Adjust width to fit container */
 }
 
 /* Button Styles */
 button[type="submit"] {
     display: block;
-    width: 100%;
     padding: 12px 20px;
-    background-color: #67cceb;
+    background-color: #1a7d9b;
     color: white;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 18px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -1554,21 +2131,27 @@ button[type="submit"]:hover {
 input::placeholder,
 textarea::placeholder,
 select::placeholder {
-    color: #ccc;
+    color: #796565;
     font-size: 14px;
 }
 
-/* Animation Keyframes */
-@keyframes labelAnimation {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2182,9 +2765,11 @@ footer {
     
         /* Bio section styles */
     #bio {
-        margin-top: 130px; /* Adjust this value based on the height of your navigation bar */
-        
+        margin-top: 105px; /* Adjust this value based on the height of your navigation bar */
+        padding-top: 50px;
     }
+
+    
 
     
     #bio .profile-picture {
@@ -2225,6 +2810,14 @@ footer {
     .profession-item p {
         margin-top: 5px;
         font-size: 13px; /* Adjust font size for smaller screens */        
+    }
+
+
+
+
+
+    #skills {
+        padding-top: 30px;
     }
 
 
@@ -2345,87 +2938,107 @@ footer {
         font-size: 14px; /* Increase icon size */
     }
 
+    
+
+
+
     /* Form Container */
     #contactForm {
-        max-width: 100%; /* Full width */
-        padding: 18px; /* Reduced padding */
+        max-width: 600px;
+        margin: 0 auto;        
+        padding: 20px;
+        border-radius: 8px;
         
     }
 
     /* Form Rows */
     .row {
-        display: flex;
-        flex-direction: column; /* Stack items vertically */
-        margin-bottom: 17px; /* Reduced margin */
-        max-width: 350px;
-        margin-left: -10px;
-    
+        
+        display: grid;
+        margin-bottom: 5px;
+        align-items: center;
+    }
+
+    .row.double {
+        justify-content: space-between;
+        
+    }
+
+    .row.double .field {
+        width: 95%;
     }
 
     /* Label Styles with Gradient Animation */
     label {
-        width: auto; /* Auto width */
-        font-size: 18px; /* Smaller font size */
-        margin-right: 0; /* No margin between labels */
-        margin-bottom: 5px; /* Spacing below labels */
+        width: 100%x; /* Fixed width for labels */
+        font-size: 14px;
+        text-align: center; /* Align labels to the right */
+        margin-right: 10px; /* Spacing between labels and inputs */
+        
     }
 
+    
     /* Input Styles */
     input[type="text"],
     input[type="email"],
     input[type="tel"],
     textarea,
     select {
-        width: 100%; /* Full width */
-        margin-bottom: 14px; /* Spacing between inputs */
-        padding: 10px;        
+        flex: 1; /* Take remaining space */
+        padding: 10px;
+        border: 1px solid #d7e8eb;
+        border-radius: 5px;
+        font-size: 14px;
+        transition: border-color 0.3s ease;
+        width: 100%;
+    }
+
+    /* Input Styles */
+    
+    input[type="email"] {
+        flex: 1; /* Take remaining space */
+        padding: 10px;
+        border: 1px solid #d7e8eb;
+        border-radius: 5px;
+        font-size: 14px;
+        max-width: 95%;
+        transition: border-color 0.3s ease;
+        width: 100%;
+    }
+
+
+
+
+    /* Textarea Styles */
+    textarea {
+        height: 250px; /* Set a fixed height for textarea */
+        resize: vertical; /* Allow vertical resizing */
+        width: 100%; /* Adjust width to fit container */
+    }
+
+    /* Select Styles */
+    select {
+        padding: 10px;
+        border: 1px solid #ccc;
         border-radius: 5px;
         font-size: 16px;
         
+        width: 100%; /* Adjust width to fit container */
     }
-
-    input[type="tel"] 
-
-    {
-        width: 270px; /* Full width */
-        margin-bottom: 14px; /* Spacing between inputs */
-        padding: 10px;    
-        font-size: 16px;
-        margin-left: -20px;
-        
-        
-        
-    }
-
-        /* Textarea Styles */
-    textarea {
-        height: 150px; /* Reduced height */        
-        width: calc(100% - 22px); /* Adjust width to fit container */
-        padding: 10px; /* Padding around textarea */
-        font-size: 15px; /* Font size */
-        
-    }
-
 
     /* Button Styles */
     button[type="submit"] {
-        width: 100%; /* Full width */
-        padding: 13px; /* Reduced padding */
+        display: block;
+        padding: 8px 10px;
+        background-color: #1a7d9b;
+        color: white;
+        border: none;
         border-radius: 5px;
-        font-size: 13px;
-        
+        font-size: 18px;
+        max-width: 80px;
+        margin-left: auto; /* Pushes the button to the right */
+        margin-top: 10px; /* Optional: Add some space above the button */
     }
-
-    
-
-    /* Placeholder Styling */
-    input::placeholder,
-    textarea::placeholder,
-    select::placeholder {
-        color: #ccc;
-        font-size: 14px;
-    }
-
 
 
 
@@ -2468,9 +3081,11 @@ footer {
 
        /* Bio section styles */
     #bio {
-        margin-top: 125px; /* Adjust this value based on the height of your navigation bar */
-        
+        margin-top: 105px; /* Adjust this value based on the height of your navigation bar */
+        padding-top: 40px;
     }
+
+    
     
 
     #bio .profile-picture {
@@ -2534,7 +3149,9 @@ footer {
 
 
 
-    
+    #skills {
+        padding-top: 30px;
+    }
     
 
     #skills h2 {
@@ -2644,84 +3261,114 @@ footer {
         font-size: 12px; /* Increase icon size */
     }
 
+    
+
+
+
+        
     /* Form Container */
     #contactForm {
-        max-width: 100%; /* Full width */
-        padding: 14px; /* Reduced padding */
+        max-width: 600px;
+        margin: 0 auto;        
+        padding: 20px;
+        border-radius: 8px;
         
     }
 
     /* Form Rows */
     .row {
-        display: flex;
-        flex-direction: column; /* Stack items vertically */
-        margin-bottom: 17px; /* Reduced margin */
-        max-width: 280px;
-        margin-left: -5px;
+        
+        display: grid;
+        margin-bottom: 5px;
+        align-items: center;
+    }
+
+    .row.double {
+        justify-content: space-between;
+        
+    }
+
+    .row.double .field {
+        width: 95%;
     }
 
     /* Label Styles with Gradient Animation */
     label {
-        width: auto; /* Auto width */
-        font-size: 18px; /* Smaller font size */
-        margin-right: 0; /* No margin between labels */
-        margin-bottom: 5px; /* Spacing below labels */
+        width: 100%x; /* Fixed width for labels */
+        font-size: 14px;
+        text-align: center; /* Align labels to the right */
+        margin-right: 10px; /* Spacing between labels and inputs */
+        
     }
 
+    
     /* Input Styles */
     input[type="text"],
     input[type="email"],
     input[type="tel"],
     textarea,
     select {
-        width: 100%; /* Full width */
-        margin-bottom: 14px; /* Spacing between inputs */
-        padding: 10px;        
+        flex: 1; /* Take remaining space */
+        padding: 10px;
+        border: 1px solid #d7e8eb;
+        border-radius: 5px;
+        font-size: 14px;
+        transition: border-color 0.3s ease;
+        width: 100%;
+    }
+
+    /* Input Styles */
+    
+    input[type="email"] {
+        flex: 1; /* Take remaining space */
+        padding: 10px;
+        border: 1px solid #d7e8eb;
+        border-radius: 5px;
+        font-size: 14px;
+        max-width: 95%;
+        transition: border-color 0.3s ease;
+        width: 100%;
+    }
+
+
+
+
+    /* Textarea Styles */
+    textarea {
+        height: 250px; /* Set a fixed height for textarea */
+        resize: vertical; /* Allow vertical resizing */
+        width: 100%; /* Adjust width to fit container */
+    }
+
+    /* Select Styles */
+    select {
+        padding: 10px;
+        border: 1px solid #ccc;
         border-radius: 5px;
         font-size: 16px;
         
+        width: 100%; /* Adjust width to fit container */
     }
-
-    input[type="tel"] 
-
-    {
-        width: 270px; /* Full width */
-        margin-bottom: 14px; /* Spacing between inputs */
-        padding: 10px;    
-        font-size: 16px;
-        
-        
-        
-    }
-
-        /* Textarea Styles */
-    textarea {
-        height: 150px; /* Reduced height */        
-        width: calc(100% - 22px); /* Adjust width to fit container */
-        padding: 10px; /* Padding around textarea */
-        font-size: 15px; /* Font size */
-        
-    }
-
 
     /* Button Styles */
     button[type="submit"] {
-        width: 100%; /* Full width */
-        padding: 13px; /* Reduced padding */
+        display: block;
+        padding: 8px 10px;
+        background-color: #1a7d9b;
+        color: white;
+        border: none;
         border-radius: 5px;
-        font-size: 13px;
-        
+        font-size: 18px;
+        max-width: 80px;
+        margin-left: auto; /* Pushes the button to the right */
+        margin-top: 10px; /* Optional: Add some space above the button */
     }
+
 
     
 
-    /* Placeholder Styling */
-    input::placeholder,
-    textarea::placeholder,
-    select::placeholder {
-        color: #ccc;
-        font-size: 14px;
-    }
+
+    
 
 
 
@@ -2754,5 +3401,3 @@ footer {
         max-width: calc(25% - 20px);
     }
 }
-
-
