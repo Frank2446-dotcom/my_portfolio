@@ -2757,6 +2757,10 @@ footer {
         font-size: 12px;
     }
 
+    .navigation-block {
+        display: none;
+    }
+
 
     .navigation-block ul li a {
         font-size: 3.2vw; /* Increase nav bar font size */
@@ -2766,9 +2770,12 @@ footer {
         /* Bio section styles */
     #bio {
         margin-top: 105px; /* Adjust this value based on the height of your navigation bar */
-        padding-top: 50px;
+        padding-top: 10px;
     }
 
+    #bio h2 {
+        font-size: 30px;
+    }
     
 
     
@@ -2795,12 +2802,12 @@ footer {
 
 
     #professions h2 {        
-        font-size: 15px
+        font-size: 20px
     }
 
     #professions {       
         padding: 20px; /* Reduce padding for smaller screens */            
-        margin-top: 133px; /* Adjust margin-top to start below the navigation bar */
+        margin-top: 100px; /* Adjust margin-top to start below the navigation bar */
     }
 
     .professions-grid {        
@@ -2866,6 +2873,11 @@ footer {
         color: #555; /* Text color */
     }
     
+
+
+    #projects {
+        margin-top: -10px;
+    }
 
 
 
@@ -3075,13 +3087,19 @@ footer {
         font-size: 12px;
     
     }
+
+    .navigation-block {
+        display: none;
+    }
+
+
     .navigation-block ul li a {
         font-size: 3.1vw; /* Increase nav bar font size */
     }
 
        /* Bio section styles */
     #bio {
-        margin-top: 105px; /* Adjust this value based on the height of your navigation bar */
+        margin-top: 70px; /* Adjust this value based on the height of your navigation bar */
         padding-top: 40px;
     }
 
@@ -3129,7 +3147,7 @@ footer {
 
     #professions {       
         padding: 20px; /* Reduce padding for smaller screens */            
-        margin-top: 133px; /* Adjust margin-top to start below the navigation bar */
+        margin-top: 100px; /* Adjust margin-top to start below the navigation bar */
     }
 
     .professions-grid {        
@@ -3200,6 +3218,11 @@ footer {
     }
 
 
+    #projects {
+        margin-top: -20px;
+    }
+
+
     #projects h2 {
         font-size: 18px;
     }
@@ -3224,7 +3247,7 @@ footer {
 
     /* Contacts Section */
     #contacts {        
-        padding: 150px 20px; /* Adjust padding as needed */        
+        padding: 125px 20px; /* Adjust padding as needed */        
         height: auto; /* Auto height */
         width: 100%; /* Full width */
         overflow-y: auto; /* Enable vertical scroll if content overflows */
