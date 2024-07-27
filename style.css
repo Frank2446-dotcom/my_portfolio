@@ -25,7 +25,7 @@ body {
 /* Header styles */
 header {
     background-color: #1b382a;
-    background: radial-gradient(ellipse at left, #1e0d31 0%,   #223d30 50%, #27152c 75%, #36418a 100%);
+    background: radial-gradient(ellipse at left, #471d77 0%, #202075 25%, #4f5e25 50%, #6e1088 75%, #36418a 100%);
     padding: 20px 0;
     color: #fff;
     position: fixed; /* Fixed position to stick to the top */
@@ -33,6 +33,20 @@ header {
     top: 0; /* Align to the top of the viewport */
     z-index: 1000; /* Ensure it stays above other content */
     transition: background-color 0.3s ease; /* Smooth transition for background color */
+    animation: moveGradient 30s infinite alternate; /* Animation for moving gradient */
+    background-size: 200% 200%; /* Ensure the gradient covers the area when it moves */
+}
+
+@keyframes moveGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .title-block {
@@ -78,7 +92,7 @@ header {
 
 .menu__btn {
     position: fixed;
-    top: 20px;
+    top: 30px;
     right: 20px;
     width: 26px;
     height: 26px;
@@ -1722,7 +1736,7 @@ animation-play-state: paused; /* Pauses animation on hover */
 #projects h2 {
     position: relative; /* Ensure the heading is above the animated background */
     z-index: 1; /* Place text above the background */
-    font-family: "Courgette", cursive;
+    
     font-size: 4em;
     text-align: center;
     color: #fff;
