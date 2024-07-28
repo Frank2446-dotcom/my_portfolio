@@ -73,16 +73,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // PROJECT LIST VIEWING
-    const projectItems = document.querySelectorAll(".project-list li");
-    function displayProjectDetails(projectName) {
-        alert(`Viewing project: ${projectName}`);
-    }
-    projectItems.forEach(item => {
-        item.addEventListener("click", () => {
-            const projectName = item.innerText;
-            displayProjectDetails(projectName);
-        });
-    });
 
     // LOGO
     const logo = document.querySelector('.logo');
@@ -111,41 +101,58 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Project hidden by default
+
     const projectCategories = document.querySelectorAll(".project-category");
+
     projectCategories.forEach(category => {
         const categoryTitle = category.querySelector("h3");
         const projectList = category.querySelector(".project-list");
+        
+        // Initialize project list height to 0
+        projectList.style.maxHeight = "0";
+        projectList.style.overflow = "hidden";
+        projectList.style.transition = "max-height 0.8s ease-out";
+        
         categoryTitle.addEventListener("click", function() {
+            // Toggle the clicked category
+            const isOpen = category.classList.contains("open");
+            
+            // Close other categories
             projectCategories.forEach(cat => {
                 if (cat !== category && cat.classList.contains("open")) {
                     cat.classList.remove("open");
-                    cat.querySelector("h3").style.backgroundColor = "#f0f0f0";
-                    cat.querySelector(".project-list").style.maxHeight = "0";
+                    cat.querySelector("h3");
+                    const list = cat.querySelector(".project-list");
+                    list.style.maxHeight = "0";
                 }
             });
-            category.classList.toggle("open");
-            if (category.classList.contains("open")) {
-                categoryTitle.style.backgroundColor = "#dcdcdc";
-            } else {
-                categoryTitle.style.backgroundColor = "#f0f0f0";
-            }
-            if (category.classList.contains("open")) {
-                projectList.style.maxHeight = projectList.scrollHeight + "px";
-            } else {
+            
+            // Toggle the clicked category
+            if (isOpen) {
+                category.classList.remove("open");
+                categoryTitle;
                 projectList.style.maxHeight = "0";
+            } else {
+                category.classList.add("open");
+                categoryTitle;
+                projectList.style.maxHeight = projectList.scrollHeight + "px";
             }
         });
+        
         categoryTitle.addEventListener("mouseenter", function() {
             if (!category.classList.contains("open")) {
-                categoryTitle.style.backgroundColor = "#dcdcdc";
+                categoryTitle;
             }
         });
+        
         categoryTitle.addEventListener("mouseleave", function() {
             if (!category.classList.contains("open")) {
-                categoryTitle.style.backgroundColor = "#f0f0f0";
+                categoryTitle;
             }
         });
     });
+
+
 
     // SPA ARCHITECTURE
     function navigateTo(sectionId) {

@@ -290,7 +290,7 @@ header {
 }
 
 .navigation-block ul li a:hover {
-    color: #811616; /* Change color on hover */
+    color: #ecde59; /* Change color on hover */
     margin-top: -5px; /* Adjust as needed */
 }
 
@@ -1737,7 +1737,7 @@ animation-play-state: paused; /* Pauses animation on hover */
     position: relative; /* Ensure the heading is above the animated background */
     z-index: 1; /* Place text above the background */
     
-    font-size: 4em;
+    font-size: 2em;
     text-align: center;
     color: #fff;
 }
@@ -1785,7 +1785,7 @@ animation-play-state: paused; /* Pauses animation on hover */
 }
 
 .project-list li {
-    background-color: #214a52;
+    background-color: #42595e;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 5px;
@@ -1802,6 +1802,90 @@ animation-play-state: paused; /* Pauses animation on hover */
 
 
 
+/* PROJECT 1*/
+
+
+.project-1-details {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #3c413c;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 2s ease-in-out;
+}
+
+.project-1-details h4,
+.project-1-details h5,
+.project-1-details h6 {
+    margin-bottom: 15px;
+    color: #8eaa6e;
+}
+
+.project-1-details h4 {
+    font-size: 25px;
+    text-align: center;
+    animation: scaleIn 2s ease-in-out;
+}
+
+.project-1-details h5 {
+    font-size: 22px;
+    color: #edf4f7;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.project-1-details h6 {
+    font-size: 18px;
+    color: #f0c711;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.project-1-details p {
+    font-size: 16px;
+    color: #92bdda;
+    margin-bottom: 15px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.project-1-details img {
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 10px auto;
+    border-radius: 8px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 
 
 
@@ -1825,7 +1909,7 @@ animation-play-state: paused; /* Pauses animation on hover */
 /* CONTACT INFORMATION */
 #contacts {
     background-color: #618594; /* Background color */
-    padding: 100px 100px; /* Adjust padding as needed */
+    padding: 150px 100px; /* Adjust padding as needed */
     color: #2b1212; /* White text color */
     text-align: center; /* Center align text */
     position: relative; /* Ensure positioning for pseudo-elements */
@@ -3400,15 +3484,6 @@ footer {
         margin-left: auto; /* Pushes the button to the right */
         margin-top: 10px; /* Optional: Add some space above the button */
     }
-
-
-    
-
-
-    
-
-
-
 
 
 
