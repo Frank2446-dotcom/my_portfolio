@@ -154,6 +154,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+
+
+
+
+
+
+
+
+    
+
     // SPA ARCHITECTURE
     function navigateTo(sectionId) {
         const sections = document.querySelectorAll("section");

@@ -573,10 +573,12 @@
                                 <h4>Project Title: World Indicators Analysis: Demographics, Economy, Health, Tourism, and Tech</h4>
                                     <h5>Overview</h5> 
                                         <P>Project involved analyzing various world indicators using Tableau. <br> The exercises focused on demographic and economic metrics across different regions and countries. <br> The tasks included creating visualizations such as packed bubble graphs, text tables, treemaps, and horizontal bar graphs to present the data clearly and answer specific questions related to the metrics.</P>
+                                    
                                     <h5>Findings</h5>
+                                    
                                         <h6>1. Average Percentage of Population Ages 15-64 (Packed Bubble Graph)</h6>
-                                        <img src="Figure1.PNG" alt="Figure 1: Packed Bubble Graph">
-                                        <p>Highest Percentage: Asia, with 72.08%<br>Lowest Percentage: Africa, with 47.96%</p>
+                                            <img src="Figure1.PNG" alt="Figure 1: Packed Bubble Graph">
+                                            <p>Highest Percentage: Asia, with 72.08%<br>Lowest Percentage: Africa, with 47.96%</p>
 
                                         <h6>2. Decreases in GDP in France, Germany, and Italy (Text Table)</h6>
                                             <img src="Figure2.PNG" alt="Figure 2: Text Table">
@@ -596,6 +598,168 @@
                                     
                                     <h5>Conclusion</h5>
                                         <p>The analysis revealed Asia's high working-age population, Italy's GDP decline, Oceana's infant mortality rates, France's top tourism, and Macao's mobile usage dominance in 2012, showcasing diverse regional disparities.</p>
+                            </div>                        
+                        </li>
+
+                        <!-- Projects under Document Management -->
+                        <li>Project 2 
+                            <div class="project-2-details">
+                                <h4>Project Title: Seasonal Trends and Time Series Analysis of Monthly Airline Passenger Traffic (1949-1960)-RStudio</h4>
+                                    <h5>Overview</h5> 
+                                        <P>This report analyzes the Air Passengers dataset using various statistical tests and visualizations in RStudio. 
+                                            The dataset provides monthly totals of international airline passengers from 1949 to 1960. 
+                                            The analysis includes descriptive statistics, normality tests, hypothesis testing, regression analysis, and time series analysis, with detailed plots.</P>
+                                    
+                                        <h5>Objectives</h5> 
+                                            <P>To analyze monthly airline passenger data from 1949 to 1960, focusing on identifying trends and seasonal patterns, examining differences between periods, and evaluating overall changes in passenger traffic over time.</P>
+                                    
+                                    <h5>Literature Review</h5> 
+                                        <P>Time series analysis is essential for studying seasonal patterns in passenger traffic. 
+                                            Techniques like decomposition and regression help identify trends and seasonality. 
+                                            Hypothesis testing methods, such as t-tests and ANOVA, compare different periods or groups, while correlation tests assess variable relationships. 
+                                            Non-parametric tests address data not meeting parametric assumptions. 
+                                            This analysis utilizes these methods to explore the Air Passengers dataset, revealing trends, seasonality, and data relationships.</P>
+                                    
+                                        <h5>Hypothesis</h5> 
+                                        <P>1.	 The data exhibits significant seasonal variation. <br>
+                                            2.	 There is a significant difference in passenger numbers between the periods 1949-1954 and 1955-1960. <br>
+                                            3.	 There is a correlation between time and passenger numbers. <br>
+                                            4.	 The regression model accurately captures trends. <br>
+                                            </P>
+                                        
+                                            <h5>Gaps</h5> 
+                                            <P>The dataset lacks additional variables such as economic indicators or flight capacities, which could provide more insights into passenger trends. 
+                                                The reliability analysis, which is not suitable here, was omitted. 
+                                                Including more variables could enhance the depth of the analysis.</P>
+                                    
+
+                                    <h5>Methodology</h5> 
+                                    <P>Descriptive statistics summarize the dataset. 
+                                        Normality and hypothesis tests evaluate distributions and differences. 
+                                        Regression analysis assesses time trends. 
+                                        Time series decomposition identifies trend, seasonal, and random components. 
+                                        Plots include histograms, boxplots, scatter plots, and time series plots with enhanced details, including lines of best fit.</P>
+
+                                    <h5>Findings</h5>
+
+                                        <h6>1. Descriptive Statistics</h6>
+                                            <img src="proj2figure1.PNG" alt="Table 1: Descriptive Statistics">
+                                            <p>The analysis showed that passenger counts range from 112 to 622, with a median of 265.5 and a mean of 280.3.</p>
+
+                                        <h6>2. Normality Test</h6>
+                                            <img src="proj2figure2.PNG" alt="Table 2: Normality Test">
+                                            <p>The Shapiro-Wilk test revealed that the data is not normally distributed, with a p-value less than 0.05.</p>
+                                            
+                                        <h6>3. Independent T-Test</h6>
+                                            <img src="proj2figure3.PNG" alt="Table 3: Independent T-Test">
+                                            <p>A t-test indicated a significant difference in passenger numbers between the periods 1949-1954 and 1955-1960, with a p-value less than 0.05.</p>
+                                        
+                                        <h6>4. ANOVA</h6>
+                                            <img src="proj2figure4.PNG" alt="Table 4: ANOVA">
+                                            <p>ANOVA results showed significant variation in passenger numbers across different years, with a p-value less than 0.05.</p>
+                                        
+                                        <h6>5. Correlation Test</h6>
+                                            <img src="proj2figure5.PNG" alt="Table 5: Correlation Test">
+                                            <p>Pearson correlation analysis found a significant positive correlation between time and passenger numbers (r = 0.92, p < 0.05).</p>
+                                    
+                                        <h6>6. Regression Analysis</h6>
+                                            <img src="proj2figure6.PNG" alt="Table 6: Regression Analysis">
+                                            <p>The linear regression model confirmed a significant trend in passenger numbers over time, with a p-value less than 0.05 (p < 0.05).</p>
+
+                                        <h6>7. Non-Parametric Test</h6>
+                                            <img src="proj2figure7.PNG" alt="Table 7: Non-Parametric Test">
+                                            <p>The Wilcoxon rank-sum test confirmed significant differences between the periods, suitable for non-normal data.</p>
+
+                                        <h6>8. Time Series Analysis</h6>
+                                            <img src="proj2figure8.PNG" alt="Table 8: Time Series Analysis">
+                                            <p>Decomposition identified clear trend and seasonal components in the time series data.</p>
+
+                                        <h6>1. Time Series Plot Plot</h6>
+                                            <img src="proj2figure9.PNG" alt="Figure 1: Time Series Plot">
+                                            <p>The time series plot visualizes the monthly passenger counts over time, 
+                                                with overlaid trend and seasonal components from the time series decomposition to 
+                                                highlight underlying patterns and fluctuations.</p>
+                                        
+                                        <h6>2. ARIMA Model Forecast Plot</h6>
+                                            <img src="Rplot01.PNG" alt="Figure 2: ARIMA Model Forecast Plot">
+                                            <p> This plot shows the forecasted number of airline passengers for the next 12 months based on the ARIMA model fitted to historical data. 
+                                                The plot includes the observed monthly passenger counts (historical data) and the forecasted values, 
+                                                along with shaded confidence intervals that represent the uncertainty of the forecasts. 
+                                                The x-axis represents time, while the y-axis shows the number of passengers. 
+                                                The forecast helps visualize the predicted trends and potential future fluctuations in passenger traffic.</p>
+                                    
+
+                                        <h6>3. Histogram</h6>
+                                            <img src="proj2figure10.PNG" alt="Figure 3: Histogram">
+                                            <p>The histogram illustrates the distribution of monthly passenger numbers, 
+                                                showing frequency of passenger counts within 
+                                                specified bins and a density line to highlight overall distribution trends.</p>
+
+                                        <h6>4. Density Plot</h6>
+                                            
+                                            <p>The density plot, superimposed on the histogram, 
+                                                provides a smoothed estimate of the passenger count distribution, 
+                                                aiding in visualizing the data's overall distribution and density trends.</p>
+
+                                        <h6>5. Boxplot</h6>
+                                            <img src="proj2figure11.PNG" alt="Figure 4: Boxplot">
+                                            <p>The boxplot displays the range, median, and interquartile range of passenger 
+                                                numbers across different years, 
+                                                highlighting any outliers and showing variations within and between years.</p>
+
+                                        <h6>6. Scatterplot</h6>
+                                            <img src="proj2figure12.PNG" alt="Figure 5: Scatterplot">
+                                            <p>The scatter plot depicts the relationship between time and passenger numbers, 
+                                                including a regression line to visualize the trend and direction of the relationship.</p>
+                                        
+                                        <h6>7. Regression Line Plot</h6>
+                                            <img src="proj2figure13.PNG" alt="Figure 6: Regression Line Plot">
+                                            <p>The regression plot shows a scatter of monthly passenger numbers over time with a linear regression line, 
+                                                highlighting the overall trend and relationship between time and passenger counts.</p>
+
+                                    <h5>Hypothesis Testing</h5>
+                                        <p>1.	Seasonal Variation: Accepted. The time series decomposition shows clear seasonal patterns with significant variation. <br>
+                                            2.	Period Differences: Accepted. The t-test reveals a significant difference in passenger numbers between the periods 1949-1954 and 1955-1960. <br>
+                                            3.	Correlation with Time: Accepted. The Pearson correlation test indicates a strong positive correlation between time and passenger numbers (r = 0.82, p < 0.05). <br>
+                                            4.	Regression Model: Accepted. The regression model significantly captures the trend in passenger numbers over time (p < 0.05). <br>
+                                            </p>
+
+
+                                    
+                                    <h5>Discussion</h5>
+                                        <p>The analysis confirms significant seasonal patterns and trends in passenger traffic. 
+                                            The Shapiro-Wilk test suggests the data is non-normally distributed, indicating that non-parametric methods might be necessary. 
+                                            The t-test and ANOVA highlight significant differences in passenger numbers across periods and years. 
+                                            The correlation and regression analyses reveal a strong relationship between time and passenger numbers. 
+                                            Time series decomposition further validates these findings by identifying trends and seasonal effects. 
+                                            Enhanced plots provide additional insights, showing data distribution and relationships clearly. The results align with established patterns in passenger traffic, 
+                                            although incorporating more variables could provide a deeper understanding.
+                                            </p>
+
+
+                                    <h5>Hypothesis Testing</h5>
+                                        <p>1.	Seasonal Variation: Accepted. The time series decomposition shows clear seasonal patterns with significant variation. <br>
+                                            2.	Period Differences: Accepted. The t-test reveals a significant difference in passenger numbers between the periods 1949-1954 and 1955-1960. <br>
+                                            3.	Correlation with Time: Accepted. The Pearson correlation test indicates a strong positive correlation between time and passenger numbers (r = 0.82, p < 0.05). <br>
+                                            4.	Regression Model: Accepted. The regression model significantly captures the trend in passenger numbers over time (p < 0.05). <br>
+                                            </p>
+
+
+                                    <h5>Recommendations</h5>
+                                        <p>Include additional variables like economic indicators or flight capacities for a more comprehensive analysis. 
+                                            Further research should focus on understanding seasonal effects and their drivers, 
+                                            which could offer a more nuanced view of passenger traffic trends.</p>
+
+
+
+
+
+                                    <h5>Conclusion</h5>
+                                        <p>The Air Passengers dataset analysis reveals significant seasonal patterns and trends. 
+                                            Hypothesis tests confirm strong relationships between time and passenger numbers. 
+                                            The regression model accurately captures these trends. While the analysis is insightful, 
+                                            adding more data variables could enhance the depth of understanding.
+                                            </p>
                             </div>                        
                         </li>
                         
