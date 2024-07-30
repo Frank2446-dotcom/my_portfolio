@@ -1,0 +1,3616 @@
+
+
+body {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+    padding-top: 130px; /* Adjust as needed to account for the combined height of title and navigation */
+    color: rgb(236, 220, 230); /* Text color */
+    background-image: url('https://media.licdn.com/dms/image/D4D12AQGmVEW9PRcsGw/article-cover_image-shrink_720_1280/0/1693874124818?e=2147483647&v=beta&t=pmvy7TiXaLcsMA0lUDWzxGkpMaooDI3wdMBxIGFHNCM');
+    background-size: cover; /* This ensures that the entire image is visible without distortion */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    background-position: center; /* Center the background image */
+    background-attachment: fixed; /* Fix the background image in place */
+    animation: slide 60s infinite linear; /* Smooth animation with sliding effect */
+}
+
+@keyframes slide {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: 100% 0%;
+    }
+}
+
+
+/* Header styles */
+header {
+    background-color: #1b382a;
+    background: radial-gradient(ellipse at left, #471d77 0%, #202075 25%, #4f5e25 50%, #6e1088 75%, #36418a 100%);
+    padding: 20px 0;
+    color: #fff;
+    position: fixed; /* Fixed position to stick to the top */
+    width: 100%;
+    top: 0; /* Align to the top of the viewport */
+    z-index: 1000; /* Ensure it stays above other content */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    animation: moveGradient 30s infinite alternate; /* Animation for moving gradient */
+    background-size: 200% 200%; /* Ensure the gradient covers the area when it moves */
+}
+
+@keyframes moveGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.title-block {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 0;
+}
+
+.title-block img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px; /* Space between image and text */
+    margin-left: 10px; /* Space between image and left edge */
+    cursor: pointer;
+    align-self: center; /* Center align vertically within flex container */
+}
+
+
+
+/* Styles for hamburger icon */
+#menu__toggle {
+    opacity: 0;
+}
+
+#menu__toggle:checked+.menu__btn>span {
+    transform: rotate(45deg);
+}
+
+#menu__toggle:checked+.menu__btn>span::before {
+    top: 0;
+    transform: rotate(0deg);
+}
+
+#menu__toggle:checked+.menu__btn>span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+#menu__toggle:checked~.menu__box {
+    left: 0 !important;
+}
+
+.menu__btn {
+    position: fixed;
+    top: 30px;
+    right: 20px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.menu__btn>span,
+.menu__btn>span::before,
+.menu__btn>span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: hsl(216, 45%, 98%);
+    top: 20px;
+    transition-duration: .35s;
+}
+
+.menu__btn>span::before {
+    content: '';
+    top: -8px;
+}
+
+.menu__btn>span::after {
+    content: '';
+    top: 8px;
+}
+
+/* Menu Box */
+.menu__box {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 100%;
+    margin: 0;
+    padding: 80px 0;
+    list-style: none;    
+    background: linear-gradient(45deg, #222121, #973d61, #8a7831, #338d7b, #452a6d, #2a533c);
+    background-size: 400% 400%; /* Ensures the gradient covers more space */
+    box-shadow: 2px 2px 6px rgba(15, 15, 15, 0.4);
+    transition-duration: .25s;
+    color: #1fe984;
+    animation: gradientMove 15s linear infinite, slideDown 0.5s ease-in-out;
+    font-weight: bold;
+}
+
+/* Keyframes for moving gradient */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+/* Keyframes for sliding down effect */
+@keyframes slideDown {
+    from {
+        transform: translateY(-10%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+.menu__item {
+    display: block;
+    padding: 12px 24px;
+    color: #f7efef;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    transition-duration: .25s;
+}
+
+.menu__item:hover {
+    background-color: #CFD8DC;
+}
+
+
+
+
+
+
+/* Hide navigation bar when hamburger menu is opened */
+.navigation-block.hidden {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+/* Navigation block */
+.navigation-block {
+    display: none; /* Hidden by default */
+}
+
+.navigation-block.open {
+    display: block; /* Display navigation when open */
+}
+
+
+
+
+
+
+/* Navigation Bar */
+/* Navigation Bar */
+.navigation-block {
+    background: linear-gradient(45deg, #636220, #30377a, #328373, #5e2569);
+    background-size: 400% 400%; /* Make the gradient cover more space */
+    text-align: center;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Adjust height to fit content */
+    position: fixed;
+    top: 90px;
+    width: 100%;
+    z-index: 1000;
+    text-decoration: none;
+    animation: gradientBlink 30s ease-in-out infinite, slideDown 0.5s ease-in-out;
+    font-weight: bold;
+}
+
+@keyframes gradientBlink {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-10%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* Navigation Menu */
+.navigation-block ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Ensure ul spans the width of the navigation block */
+}
+
+.navigation-block ul li {
+    display: inline-flex; /* Ensure list items are inline and flex */
+    margin-right: 20px;
+    transition: margin-right 0.3s ease; /* Smooth transition for margin changes */
+}
+
+/* Smooth scrolling for navigation links */
+.navigation-block ul li a {
+    text-decoration: none;
+    color: #fdf7f7;
+    font-size: 1vw; /* Use vw units for responsive font size */
+    transition: color 0.3s ease, margin-top 0.3s ease; /* Add transition for smooth color change and margin change */
+}
+
+.navigation-block ul li:hover {
+    margin-right: 25px; /* Increase margin on hover */
+}
+
+.navigation-block ul li a:hover {
+    color: #ecde59; /* Change color on hover */
+    margin-top: -5px; /* Adjust as needed */
+}
+
+
+
+
+
+/*SPA ARCHITECTURE*/
+/* Initial state of sections */
+section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    padding: 100px 0px; /* Adjust padding as needed */
+}
+
+/* Active state of sections */
+section.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Hide all sections initially */
+section:not(.active) {
+    display: none;
+    opacity: 0;
+}
+
+
+section {
+    padding: 100px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 120px; /* Adjust as needed based on your navigation bar height */
+}
+
+h2 {
+    color: #f8ebeb;
+    font-size: 30px;
+    margin: 0 0 20px 0;
+}
+
+
+
+
+
+/* Bio section styles */
+#bio {
+    margin-top: 100px; /* Adjust this value based on the height of your navigation bar */
+    
+    padding-top: 70px;
+    background-color: #436775;
+    display: none; /* Hide by default */
+    transition: all 0.5s ease-in-out; 
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s ease, visibility 0.5s ease; /* Smooth transition */
+    margin-bottom: 0;
+    
+}
+
+
+#bio.active {
+    display: block; /* Show when active */
+}
+
+
+/* Base style for h3 */
+#bio .content h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: -20px;
+    position: relative;
+    display: inline-block;
+    color: transparent; /* Hide original text */
+}
+
+/* Pseudo-element for animation */
+#bio .content h3::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    color: black;
+    width: 100%;
+    
+}
+
+/* Keyframes for text reveal animation */
+@keyframes revealText {
+    from {
+        width: 0;
+    }
+    to {
+        width: 105%;
+    }
+}
+
+/* Keyframes for text color gradient animation */
+@keyframes gradientColors {
+    0% { color: #e74c3c; }
+    20% { color: #f39c12; }
+    40% { color: #2ecc71; }
+    60% { color: #3498db; }
+    80% { color: #9b59b6; }
+    100% { color: #e74c3c; }
+}
+
+/* Keyframes for blinking effect */
+@keyframes blinkText {
+    0%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+}
+
+/* Apply gradient color animation and blinking */
+#bio .content h3::before {
+    animation: revealText 5s steps(30, end) infinite, gradientColors 5s infinite;
+}
+
+
+
+
+
+
+
+.text-box {
+    margin: 0 auto;
+    padding: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: justify;
+    font-size: 20px;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    line-height: 1.6; /* Adjust line height for readability */
+    min-width: 300px; /* Ensure a minimum width */
+    max-width: 800px; /* Ensure a maximum width */
+    flex: 1 1 60%; /* Allow text-box to take up to 60% of the container */
+    background: radial-gradient(ellipse at bottom, #1e0d31 0%, #4d4423 25%,  #223d30 50%, #36418a 100%);
+}
+
+/* Shooting Star Background */
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-45deg);
+    
+}
+
+.read-more {
+    position: relative;
+    z-index: 1; /* Ensure button is in front of stars */
+}
+
+
+.star {
+    --star-color: #1db8d4;
+    --star-tail-length: 6em;
+    --star-tail-height: 2px;
+    --star-width: calc(var(--star-tail-length) / 2);
+    --fall-duration: 9s;
+    --tail-fade-duration: var(--fall-duration);
+
+    position: absolute;
+    top: var(--top-offset);
+    left: 0;
+    width: var(--star-tail-length);
+    height: var(--star-tail-height);
+    color: var(--star-color);
+    background: linear-gradient(45deg, currentColor, transparent);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 6px currentColor);
+    transform: translate3d(104em, 0, 0);
+    animation: fall var(--fall-duration) var(--fall-delay) linear infinite, tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
+}
+
+
+
+/* Add specific properties for each star */
+.star:nth-child(1) {
+    --star-tail-length: 50em;
+    --top-offset: 10vh;
+    --fall-duration: 7s;
+    --fall-delay: 0.5s;
+}
+
+.star:nth-child(2) {
+    --star-tail-length: 60em;
+    --top-offset: 30vh;
+    --fall-duration: 8s;
+    --fall-delay: 0.5s;
+}
+
+.star:nth-child(3) {
+    --star-tail-length: 50em;
+    --top-offset: 50vh;
+    --fall-duration: 19s;
+    --fall-delay: 0.3s;
+}
+
+.star:nth-child(4) {
+    --star-tail-length: 70em;
+    --top-offset: 70vh;
+    --fall-duration: 10s;
+    --fall-delay: 0.3s;
+}
+
+.star:nth-child(5) {
+    --star-tail-length: 75em;
+    --top-offset: 20vh;
+    --fall-duration: 6s;
+    --fall-delay: 0.1s;
+}
+
+.star:nth-child(6) {
+    --star-tail-length: 60em;
+    --top-offset: 40vh;
+    --fall-duration: 11s;
+    --fall-delay: 0.3s;
+}
+
+.star:nth-child(7) {
+    --star-tail-length: 65em;
+    --top-offset: 60vh;
+    --fall-duration: 7s;
+    --fall-delay: 0.2s;
+}
+
+.star:nth-child(8) {
+    --star-tail-length: 50em;
+    --top-offset: 80vh;
+    --fall-duration: 8s;
+    --fall-delay: 0.4s;
+}
+
+.star:nth-child(9) {
+    --star-tail-length: 55em;
+    --top-offset: 25vh;
+    --fall-duration: 9s;
+    --fall-delay: 3s;
+}
+
+.star:nth-child(10) {
+    --star-tail-length: 70em;
+    --top-offset: 55vh;
+    --fall-duration: 6s;
+    --fall-delay: 0.2s;
+}
+
+/* Continue adding more rules as needed */
+
+.star:nth-child(11) {
+    --star-tail-length: 30em;
+    --top-offset: 15vh;
+    --fall-duration: 5s;
+    --fall-delay: 0.5s;
+}
+
+.star:nth-child(12) {
+    --star-tail-length: 35em;
+    --top-offset: 25vh;
+    --fall-duration: 26s;
+    --fall-delay: 1s;
+}
+
+.star:nth-child(13) {
+    --star-tail-length: 25em;
+    --top-offset: 35vh;
+    --fall-duration: 4s;
+    --fall-delay: 1.5s;
+}
+
+.star:nth-child(14) {
+    --star-tail-length: 40em;
+    --top-offset: 45vh;
+    --fall-duration: 5s;
+    --fall-delay: 0.2s;
+}
+
+.star:nth-child(15) {
+    --star-tail-length: 32em;
+    --top-offset: 55vh;
+    --fall-duration: 4.5s;
+    --fall-delay: 0.5s;
+}
+
+.star:nth-child(16) {
+    --star-tail-length: 37em;
+    --top-offset: 65vh;
+    --fall-duration: 6s;
+    --fall-delay: 0.3s;
+}
+
+.star:nth-child(17) {
+    --star-tail-length: 30em;
+    --top-offset: 75vh;
+    --fall-duration: 5s;
+    --fall-delay: 0.3s;
+}
+
+.star:nth-child(18) {
+    --star-tail-length: 35em;
+    --top-offset: 85vh;
+    --fall-duration: 4s;
+    --fall-delay: 0.4s;
+}
+
+.star:nth-child(19) {
+    --star-tail-length: 28em;
+    --top-offset: 95vh;
+    --fall-duration: 6s;
+    --fall-delay: 0.5s;
+}
+
+.star:nth-child(20) {
+    --star-tail-length: 33em;
+    --top-offset: 105vh;
+    --fall-duration: 5s;
+    --fall-delay: 0.5s;
+}
+
+.star:nth-child(21) {
+    --star-tail-length: 270em;
+    --top-offset: 115vh;
+    --fall-duration: 4s;
+    --fall-delay: 0.6s;
+}
+
+.star:nth-child(22) {
+    --star-tail-length: 290em;
+    --top-offset: 125vh;
+    --fall-duration: 5s;
+    --fall-delay: 0.8s;
+}
+
+.star:nth-child(23) {
+    --star-tail-length: 310em;
+    --top-offset: 135vh;
+    --fall-duration: 4.5s;
+    --fall-delay: 1s;
+}
+
+.star:nth-child(24) {
+    --star-tail-length: 280em;
+    --top-offset: 145vh;
+    --fall-duration: 6s;
+    --fall-delay: 1.2s;
+}
+
+.star:nth-child(25) {
+    --star-tail-length: 320em;
+    --top-offset: 155vh;
+    --fall-duration: 4s;
+    --fall-delay: 1.4s;
+}
+
+.star:nth-child(26) {
+    --star-tail-length: 290em;
+    --top-offset: 165vh;
+    --fall-duration: 5s;
+    --fall-delay: 1.6s;
+}
+
+.star:nth-child(27) {
+    --star-tail-length: 310em;
+    --top-offset: 175vh;
+    --fall-duration: 4.5s;
+    --fall-delay: 1.8s;
+}
+
+.star:nth-child(28) {
+    --star-tail-length: 270em;
+    --top-offset: 185vh;
+    --fall-duration: 6s;
+    --fall-delay: 2s;
+}
+
+.star:nth-child(29) {
+    --star-tail-length: 330em;
+    --top-offset: 195vh;
+    --fall-duration: 5s;
+    --fall-delay: 2.2s;
+}
+
+.star:nth-child(30) {
+    --star-tail-length: 300em;
+    --top-offset: 205vh;
+    --fall-duration: 4s;
+    --fall-delay: 2.4s;
+}
+
+.star:nth-child(31) {
+    --star-tail-length: 280em;
+    --top-offset: 215vh;
+    --fall-duration: 5s;
+    --fall-delay: 0.6s;
+}
+
+.star:nth-child(32) {
+    --star-tail-length: 310em;
+    --top-offset: 225vh;
+    --fall-duration: 4.5s;
+    --fall-delay: 0.8s;
+}
+
+.star:nth-child(33) {
+    --star-tail-length: 290em;
+    --top-offset: 235vh;
+    --fall-duration: 6s;
+    --fall-delay: 0.3s;
+}
+
+.star:nth-child(34) {
+    --star-tail-length: 320em;
+    --top-offset: 245vh;
+    --fall-duration: 5s;
+    --fall-delay: 0.2s;
+}
+
+.star:nth-child(35) {
+    --star-tail-length: 280em;
+    --top-offset: 255vh;
+    --fall-duration: 4s;
+    --fall-delay: 0.4s;
+}
+
+.star:nth-child(36) {
+    --star-tail-length: 330em;
+    --top-offset: 265vh;
+    --fall-duration: 5s;
+    --fall-delay: 0.6s;
+}
+
+.star:nth-child(37) {
+    --star-tail-length: 290em;
+    --top-offset: 275vh;
+    --fall-duration: 6s;
+    --fall-delay: 0.8s;
+}
+
+.star:nth-child(38) {
+    --star-tail-length: 310em;
+    --top-offset: 285vh;
+    --fall-duration: 5s;
+    --fall-delay: 0.7s;
+}
+
+.star:nth-child(39) {
+    --star-tail-length: 270em;
+    --top-offset: 295vh;
+    --fall-duration: 4.5s;
+    --fall-delay: 0.2s;
+}
+
+.star:nth-child(40) {
+    --star-tail-length: 320em;
+    --top-offset: 305vh;
+    --fall-duration: 6s;
+    --fall-delay: 0.4s;
+}
+
+
+/* Add more .star:nth-child() rules for additional stars with different properties */
+
+
+
+@keyframes fall {
+    to {
+        transform: translate3d(-30em, 0, 0);
+    }
+}
+
+@keyframes tail-fade {
+    0%, 25%, 50% {
+        width: var(--star-tail-length);
+        opacity: 1;
+    }
+
+    70%, 80% {
+        width: 0;
+        opacity: 0.4;
+    }
+
+    100% {
+        width: 0;
+        opacity: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Bio container to manage layout */
+.bio-container {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* Bio-Profile Picture*/
+.profile-picture {
+    position: relative;
+    float: right;
+    margin-left: 20px; /* Adjust as needed */
+
+    flex: 0 1 30%; /* Allow profile picture to take up to 30% of the container */
+    max-width: 250px; /* Limit the maximum width */
+    margin-left: 20px; /* Adjust as needed */
+}
+
+.profile-picture img {
+    width: 250px;
+    
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+
+
+/*ABOUT ME*/
+.about-title {
+    display: inline-block; /* Ensures the background covers the entire text */
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.about-title h2,
+.about-title span {
+    margin: 0; /* Reset margin to remove any default spacing */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start with opacity 0 */
+    }
+    to {
+        opacity: 1; /* Fade in to full opacity */
+    }
+}
+
+.read-more {
+    display: inline-block;
+    text-align: right;
+    text-decoration: none;
+    color: rgb(29, 195, 224);
+    margin-top: 10px;
+}
+
+.read-more:hover {
+    color: rgb(39, 39, 163);
+    
+}
+
+/* Read more on about me, hidden content by default */
+.hidden-content {
+    display: none;
+    overflow: hidden; /* Hide any overflowing content */
+    transition: max-height 0.3s ease; /* Add smooth transition */
+}
+
+.hidden-content:before {
+    content: ''; /* Add pseudo-element for gradient overlay */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 100%); /* Gradient overlay */
+    filter: blur(10px); /* Apply blur effect */
+    transition: opacity 0.3s ease; /* Add smooth transition for opacity */
+    pointer-events: none; /* Allow clicks to pass through the overlay */
+    opacity: 0; /* Initially hide the overlay */
+}
+
+.show-content .hidden-content:before {
+    opacity: 1; /* Show the overlay when content is visible */
+}
+
+
+
+
+
+
+/*SKILLS PREVIEW IN THE BIO SECTION*/
+
+.skills-preview {
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    color: #6134ca;
+    font-weight: bold;
+    background-color: rgb(255, 255, 255);
+    padding: 10px 0; /* Padding around the scrolling area */
+}
+
+.skills-container {
+    display: flex;
+    animation: scroll-left 40s linear infinite;
+}
+
+.skill-category {
+    display: inline-block;
+    text-align: center;
+    margin-right: 50px; /* Spacing between categories */
+}
+
+.skill-name {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    white-space: nowrap;
+}
+
+.skill-icons i {
+    font-size: 36px; /* Adjust size as needed */
+    margin: 0 10px; /* Spacing between icons */
+    transition: transform 0.3s ease-in-out;
+    color: inherit; /* Ensures icons use default color */
+}
+
+.skill-icons .fa-r-project { color: #276DC3; } /* Example default color for R */
+.skill-icons .fa-python { color: #3572A5; } /* Example default color for Python */
+.skill-icons .fa-database { color: #F0DB4F; } /* Example default color for SQL/Database */
+.skill-icons .fa-chart-bar { color: #4CAF50; } /* Example default color for Analytics */
+.skill-icons .fa-file-excel { color: #217346; } /* Example default color for Excel */
+.skill-icons .fa-chart-line { color: #2E8B57; } /* Example default color for Line Chart */
+.skill-icons .fa-chart-pie { color: #FF6347; } /* Example default color for Pie Chart */
+.skill-icons .fa-tools { color: #FFA500; } /* Example default color for Tools */
+.skill-icons .fa-layer-group { color: #7B68EE; } /* Example default color for Layers */
+.skill-icons .fa-vials { color: #8A2BE2; } /* Example default color for Vials */
+
+.skill-icons .fa-cloud { color: #00BFFF; } /* Example default color for Cloud */
+.skill-icons .fa-css3-alt { color: #264DE4; } /* Example default color for CSS */
+.skill-icons .fa-html5 { color: #E34F26; } /* Example default color for HTML */
+.skill-icons .fa-js { color: #F0DB4F; } /* Example default color for JavaScript */
+
+.skill-icons .fa-code { color: #000000; } /* Example default color for Code */
+.skill-icons .fa-java { color: #007396; } /* Example default color for Java */
+.skill-icons .fa-d-and-d { color: #3A3845; } /* Example default color for Dart/Flutter */
+.skill-icons .fa-copyright { color: #FF4500; } /* Example default color for C */
+.skill-icons .fa-cuttlefish { color: #1E90FF; } /* Example default color for C++ */
+.skill-icons .fa-windows { color: #00BFFF; } /* Example default color for C# */
+
+.skill-icons i {
+    font-size: 36px; /* Adjust size as needed */
+    margin: 0 10px; /* Spacing between icons */
+    transition: transform 0.3s ease-in-out;
+}
+
+.skill-icons i:hover {
+    transform: scale(1.2); /* Slight zoom effect on hover */
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(20%);
+    }
+    
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+.skill-icons {
+animation: scroll 20s linear infinite;
+}
+
+.skill-icons:hover {
+animation-play-state: paused; /* Pauses animation on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+/* My Profession Section */
+
+/* My Profession Section */
+#professions {
+    position: relative; /* Ensure the animated background and circles are contained within the section */
+    background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8, #006400); /* Gradient background */
+    padding: 150px; /* Add padding to create space inside the section */
+    margin: 0 auto; /* Center the section horizontally */
+    max-width: 1200px; /* Set a maximum width for the section */
+    border-radius: 10px; /* Add border-radius for rounded corners */
+    margin-top: 20px; /* Adjust margin-top to start below the navigation bar */
+    overflow: hidden; /* Hide overflow to contain the animated background */    
+    background: #4e54c8; /* Fallback color */    
+    z-index: 1; /* Ensure the animated background is behind the content */
+    
+}
+
+
+
+
+
+
+
+
+/* Circles for animation */
+#professions .circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0; /* Ensure circles are behind everything else */
+}
+
+#professions .circles li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+}
+
+#professions .circles li:nth-child(1) {
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+
+#professions .circles li:nth-child(2) {
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+#professions .circles li:nth-child(3) {
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+#professions .circles li:nth-child(4) {
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+#professions .circles li:nth-child(5) {
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+#professions .circles li:nth-child(6) {
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+}
+
+#professions .circles li:nth-child(7) {
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+}
+
+#professions .circles li:nth-child(8) {
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+
+#professions .circles li:nth-child(9) {
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+#professions .circles li:nth-child(10) {
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+#professions h2 {
+    text-align: center; /* Center align the heading */
+    margin-top: 0; /* Remove default margin from the top of h2 */
+    font-size: 25px;
+    color: #fff;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.professions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px; /* Adjust the gap between the boxes as needed */
+    justify-content: center; /* Center align the items */
+}
+
+.profession-item {
+    background-color: #76a3d6; /* Set background color for the boxes */
+    padding: 10px; /* Add padding for spacing */
+    text-align: center; /* Center align the text */
+    border-radius: 10px; /* Add border-radius for rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.profession-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.profession-item p {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #f7f3f3;
+}
+
+/* Hover effect */
+.profession-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Skills Section */
+
+/* General styles for the skills section */
+#skills {
+    padding: 2rem;
+    margin-top: 130px;
+    background-color: #e3eef1; /* Light background for the whole section */
+    margin-bottom: 0;
+    margin-top: 100px;
+    padding-top: 50px;
+}
+
+.skill-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Skills Section Headings */
+
+/* Style for h2 headings in the skills section */
+#skills h2 {
+    font-size: 25px; /* Font size for h2 headings */
+    color: #1a0f0f; /* Text color for h2 headings */
+    margin-bottom: 1rem; /* Space below the h2 heading */
+    text-align: center; /* Center text */
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+}
+
+/* Style for h3 headings in the skills section */
+#skills h3 {
+    font-size: 20px; /* Font size for h3 headings */
+    color: #0e0d0d; /* Text color for h3 headings */
+    margin-bottom: 1.5rem; /* Space below the h3 heading */
+    text-align: center; /* Center text */
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start with opacity 0 */
+    }
+    to {
+        opacity: 1; /* End with opacity 1 */
+    }
+}
+
+
+
+
+
+
+/* Background colors for specific sections */
+
+/* Programming Software Section */
+.programming-software {
+    background-color: #adbfce; /* Light blue background */
+    padding: 1rem; /* Padding inside the div */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Data Science and Analytics Section */
+.data-science-analytics {
+    background-color: #76917c; /* Light cyan background */
+    padding: 1rem; /* Padding inside the div */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Robotics and Machine Learning Section */
+.robotics-machine-learning {
+    background-color: #8495a0; /* Very light gray background */
+    padding: 1rem; /* Padding inside the div */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Academic Writing Section */
+.academic-writing {
+    background-color: #92afc9; /* Light peach background */
+    padding: 1rem; /* Padding inside the div */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Civil and Structural Engineering Section */
+.civil-structural {
+    background-color: #92c492; /* Light green background */
+    padding: 1rem; /* Padding inside the div */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Quantity Surveying Section */
+.quantity-surveying {
+    background-color: #9478a1; /* Light orange background */
+    padding: 1rem; /* Padding inside the div */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Land Surveying Section */
+.land-surveying {
+    background-color: #b0c5ca; /* Light gray background */
+    padding: 1rem; /* Padding inside the div */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Architecture Section */
+.architecture {
+    background-color: #8d9cac; /* Light gray-blue background */
+    padding: 1rem; /* Padding inside the div */
+    border-radius: 8px; /* Rounded corners */
+}
+
+
+
+
+
+
+
+
+/* Individual skill item styling */
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1 1 calc(20% - 20px); /* Adjust percentage as needed for responsiveness */
+    max-width: calc(20% - 20px);
+    padding: 0;
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: none;
+    
+}
+
+.skill-item i {
+    font-size: 3rem; /* Larger icons */
+    margin-bottom: 10px;
+    
+}
+
+.skill-item span {
+    font-size: 1rem;
+    color: #555; /* Text color */
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Animation for skill items */
+/* Initial state of the skill items */
+.skill-item {
+    opacity: 1; /* Ensure items are visible */
+    transform: translateX(0); /* Default position */
+    transition: transform 0.6s ease;
+}
+
+/* Animation for skill items */
+@keyframes moveFromLeft {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(0); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes moveFromRight {
+    0% { transform: translateX(100%); }
+    50% { transform: translateX(0); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes moveFromTop {
+    0% { transform: translateY(-100%); }
+    50% { transform: translateY(0); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes moveFromBottom {
+    0% { transform: translateY(100%); }
+    50% { transform: translateY(0); }
+    100% { transform: translateY(0); }
+}
+
+/* Class to trigger the animation */
+.animate {
+    animation: none; /* Default no animation */
+}
+
+/* Specific animations for different sections */
+.programming-software .animate {
+    animation: moveFromLeft 1s ease-in-out;
+}
+
+.data-science-analytics .animate {
+    animation: moveFromRight 1s ease-in-out;
+}
+
+.robotics-machine-learning .animate {
+    animation: moveFromTop 1s ease-in-out;
+}
+
+.academic-writing .animate {
+    animation: moveFromBottom 1s ease-in-out;
+}
+
+.civil-structural .animate {
+    animation: moveFromLeft 1s ease-in-out;
+}
+
+.quantity-surveying .animate {
+    animation: moveFromRight 1s ease-in-out;
+}
+
+.land-surveying .animate {
+    animation: moveFromTop 1s ease-in-out;
+}
+
+.architecture .animate {
+    animation: moveFromBottom 1s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Programming and Data Analysis */
+.fa-html5 { color: #E34F26; } /* HTML */
+.fa-css3-alt { color: #1572B6; } /* CSS */
+.fa-js { color: #F7DF1E; } /* JavaScript */
+.fa-python { color: #306998; } /* Python */
+.fa-dart { color: #00B4AB; } /* Dart */
+.fa-flutter { color: #02569B; } /* Flutter */
+.fa-database { color: #003B57; } /* MySQL */
+.fa-java { color: #007396; } /* Java */
+.fa-c-plusplus { color: #00599C; } /* C++ */
+.fa-csharp { color: #178600; } /* C# */
+.fa-c { color: #A8B9CC; } /* C */
+.fa-ibm { color: #0F4C81; } /* IBM SPSS */
+.fa-r { color: #276DC0; } /* RStudio */
+.fa-sas { color: #F3D13A; } /* SAS */
+.fa-eviews { color: #0066CC; } /* Eviews */
+.fa-microsoft { color: #F25022; } /* Microsoft Excel */
+.fa-powerbi { color: #F2C300; } /* Power BI */
+.fa-knime { color: #7C8B8C; } /* KNIME */
+.fa-tableau { color: #E97627; } /* Tableau */
+.fa-stata { color: #4A9AC7; } /* Stata */
+.fa-jmp { color: #CE1126; } /* JMP */
+.fa-microsoft-access { color: #B7A4A2; } /* Microsoft Access */
+.fa-nvivo { color: #FF6F00; } /* Nvivo */
+.fa-dplyr { color: #4B5F5A; } /* Dplyr */
+.fa-rguroo { color: #1D72C8; } /* Rguroo */
+
+/* Robotics and Machine Learning */
+.fa-matlab { color: #E24A1B; } /* MatLab Robotics ToolBox */
+.fa-robot { color: #1F78C1; } /* Python Robotics */
+.fa-autodesk { color: #DAA520; } /* Autodesk Inventor */
+.fa-solidworks { color: #4C6EF5; } /* SolidWorks */
+.fa-fusion-360 { color: #5D2F91; } /* Autodesk Fusion 360 */
+.fa-catia { color: #E67C73; } /* CATIA */
+.fa-solid-edge { color: #2F4F4F; } /* Solid Edge */
+.fa-ptc-creo { color: #0067B1; } /* PTC Creo */
+.fa-autocad { color: #1D8BF1; } /* AutoCAD */
+.fa-uipath { color: #00B0F0; } /* UiPath */
+.fa-automation-anywhere { color: #FFD700; } /* Automation Anywhere */
+.fa-rocketbot { color: #8B4513; } /* Rocketbot */
+.fa-laiye { color: #1E90FF; } /* Laiye */
+.fa-ibm-robotic-process-automation { color: #002D72; } /* IBM’s Robotic Process Automation */
+.fa-aiwozo { color: #FF4500; } /* Aiwozo */
+.fa-blue-prism { color: #00539C; } /* SS&C’s Blue Prism */
+.fa-electroneek { color: #4B0082; } /* ElectroNeek */
+.fa-pega { color: #E30022; } /* Pega */
+.fa-akabot { color: #000080; } /* akaBot */
+
+/* Academic Writing */
+.fa-research { color: #8A2BE2; } /* Research Papers and Proposals */
+.fa-dissertation { color: #8B0000; } /* Dissertations */
+.fa-stem { color: #228B22; } /* STEM Assignments */
+.fa-essays { color: #FFD700; } /* Essays */
+.fa-theses { color: #FF6347; } /* Theses */
+.fa-journal { color: #DAA520; } /* Journal Articles */
+.fa-book-review { color: #00BFFF; } /* Book Reviews */
+.fa-conference { color: #8A2BE2; } /* Conference Papers */
+.fa-research-proposals { color: #FF4500; } /* Research and Proposals Papers */
+.fa-case-studies { color: #006400; } /* Case Studies */
+.fa-literature-reviews { color: #FF1493; } /* Literature Reviews */
+.fa-annotated-bibliographies { color: #00CED1; } /* Annotated Bibliographies */
+.fa-policy-briefs { color: #4682B4; } /* Policy Briefs */
+.fa-white-papers { color: #32CD32; } /* White Papers */
+.fa-technical-reports { color: #40E0D0; } /* Technical Reports */
+.fa-abstracts { color: #FF69B4; } /* Abstracts */
+.fa-grant-proposals { color: #2F4F4F; } /* Grant Proposals */
+.fa-cv { color: #B22222; } /* CV */
+.fa-letters-of-recommendation { color: #8B4513; } /* Letters of Recommendation */
+.fa-presentations { color: #A52A2A; } /* Presentations */
+.fa-business-plans { color: #2E8B57; } /* Business Plans */
+
+/* Civil/Structural Engineering */
+.fa-autocad { color: #0C6B8E; } /* AutoCAD */
+.fa-revit { color: #6D8F8C; } /* Revit */
+.fa-staad-pro { color: #009688; } /* STAAD Pro */
+.fa-sap2000 { color: #FF5722; } /* SAP2000 */
+.fa-etabs { color: #FF9800; } /* ETABS */
+.fa-safe { color: #4CAF50; } /* SAFE */
+.fa-civil-3d { color: #8BC34A; } /* Civil 3D */
+.fa-tekla-structures { color: #FFC107; } /* Tekla Structures */
+.fa-microstation { color: #795548; } /* MicroStation */
+.fa-hec-ras { color: #3F51B5; } /* HEC-RAS */
+.fa-hec-hms { color: #9C27B0; } /* HEC-HMS */
+.fa-aquaflow { color: #E91E63; } /* AquaFlow */
+.fa-bentley-systems { color: #00BCD4; } /* Bentley Systems */
+.fa-risa { color: #FFEB3B; } /* RISA */
+
+/* Quantity Surveying */
+.fa-costx { color: #009688; } /* CostX */
+.fa-bluebeam { color: #00BFFF; } /* Bluebeam */
+.fa-planswift { color: #F44336; } /* PlanSwift */
+.fa-quantity-takeoff { color: #E91E63; } /* Quantity Takeoff */
+.fa-buildsoft { color: #3F51B5; } /* Buildsoft */
+.fa-bqe-core { color: #9C27B0; } /* BQE Core */
+.fa-etakeoff { color: #8BC34A; } /* eTakeoff */
+.fa-winqs { color: #FF5722; } /* WinQS */
+.fa-cleardata { color: #FFC107; } /* Cleardata */
+
+/* Land Surveying */
+.fa-leica-geosystems { color: #FF5722; } /* Leica Geosystems */
+.fa-trimble { color: #FF9800; } /* Trimble */
+.fa-topcon { color: #009688; } /* Topcon */
+.fa-geomax { color: #FFEB3B; } /* GeoMax */
+.fa-sokkia { color: #4CAF50; } /* Sokkia */
+.fa-carlson-software { color: #00BCD4; } /* Carlson Software */
+.fa-survce { color: #F44336; } /* SurvCE */
+.fa-autocad-civil-3d { color: #FF5722; } /* AutoCAD Civil 3D */
+.fa-liscard { color: #3F51B5; } /* LISCAD */
+.fa-maptek { color: #9C27B0; } /* Maptek */
+.fa-microsoft-visio { color: #00BFFF; } /* Microsoft Visio */
+.fa-leica-captivate { color: #FF5722; } /* Leica Captivate */
+.fa-trimble-business-center { color: #FFC107; } /* Trimble Business Center */
+
+/* Architecture */
+.fa-archicad { color: #0073B1; } /* ArchiCAD */
+.fa-sketchup { color: #9C27B0; } /* SketchUp */
+.fa-rhino { color: #4CAF50; } /* Rhino */
+.fa-lumion { color: #FFEB3B; } /* Lumion */
+.fa-3ds-max { color: #FF5722; } /* 3ds Max */
+.fa-vray { color: #009688; } /* V-Ray */
+.fa-enscape { color: #00BCD4; } /* Enscape */
+.fa-twinmotion { color: #F44336; } /* Twinmotion */
+.fa-adobe-photoshop { color: #31A8FF; } /* Adobe Photoshop */
+.fa-adobe-illustrator { color: #FF9A00; } /* Adobe Illustrator */
+.fa-indesign { color: #FF6F00; } /* InDesign */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Projects Section */
+#projects {
+    padding: 150px;
+    margin: auto;
+    max-width: 1200px; /* Limit maximum width of the projects section */
+    position: relative; /* Allow for absolute positioning of background elements */
+    overflow: hidden; /* Hide overflow to contain the background */
+    background: linear-gradient(to right, #397192 0%, #553923 25%, #272747 50%, #1b3f1b 75%, #2d133b 100%); /* Linear gradient background */
+    color: #fff; /* Text color for better contrast */
+}
+
+
+/* Animated Background */
+#projects .leaf {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0; /* Place background behind content */
+    pointer-events: none; /* Prevent interaction with the background */
+}
+
+#projects .leaf div {
+    position: absolute;
+    display: block;
+    width: 75px;
+    height: 75px;
+}
+
+#projects .leaf div:nth-child(1) {
+    left: 20%;
+    animation: leaf-fall 15s linear infinite;
+    animation-delay: -2s;
+}
+
+#projects .leaf div:nth-child(2) {
+    left: 70%;
+    animation: leaf-fall 15s linear infinite;
+    animation-delay: -4s;
+}
+
+#projects .leaf div:nth-child(3) {
+    left: 10%;
+    animation: leaf-fall 20s linear infinite;
+    animation-delay: -7s;
+}
+
+#projects .leaf div:nth-child(4) {
+    left: 50%;
+    animation: leaf-fall 18s linear infinite;
+    animation-delay: -5s;
+}
+
+#projects .leaf div:nth-child(5) {
+    left: 85%;
+    animation: leaf-fall 14s linear infinite;
+    animation-delay: -5s;
+}
+
+#projects .leaf div:nth-child(6) {
+    left: 15%;
+    animation: leaf-fall 16s linear infinite;
+    animation-delay: -10s;
+}
+
+#projects .leaf div:nth-child(7) {
+    left: 90%;
+    animation: leaf-fall 15s linear infinite;
+    animation-delay: -4s;
+}
+
+@keyframes leaf-fall {
+    0% {
+        opacity: 1;
+        top: -10%;
+        transform: translateX(20px) rotate(0deg);
+    }
+    20% {
+        opacity: 0.8;
+        transform: translateX(-20px) rotate(45deg);
+    }
+    40% {
+        transform: translateX(-20px) rotate(90deg);
+    }
+    60% {
+        transform: translateX(-20px) rotate(135deg);
+    }
+    80% {
+        transform: translateX(-20px) rotate(180deg);
+    }
+    100% {
+        top: 110%;
+        transform: translateX(-20px) rotate(225deg);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Ensure content is above background */
+#projects h2 {
+    position: relative; /* Ensure the heading is above the animated background */
+    z-index: 1; /* Place text above the background */
+    
+    font-size: 2em;
+    text-align: center;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+.project-category {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.project-category h3 {
+    background-color: #4d99cc;
+    padding: 10px;
+    border-radius: 5px; /* Reduced border-radius for smoother appearance */
+    color: #0c0c0c;
+    cursor: pointer;
+    width: calc(100% - 20px); /* Set width relative to parent with padding */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    overflow: hidden; /* Hide overflow to prevent text clipping */
+    text-overflow: ellipsis; /* Add ellipsis for overflowed text */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.project-category h3:hover {
+    background-color: #5c2c2c; /* New background color on hover */
+}
+
+.project-list {
+    list-style: none;
+    padding: 0;
+    max-width: 100%; /* Limit the maximum width */
+    overflow: hidden; /* Hide the project list by default */
+    max-height: 0; /* Set max-height to 0 */
+    transition: max-height 0.3s ease; /* Add smooth transition */
+}
+
+.project-category.open .project-list {
+    max-height: 500px; /* Adjust the max-height to your preference */
+}
+
+.project-list li {
+    background-color: #42595e;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    color: #eee7e7;
+    max-width: 100%; /* Limit the maximum width */
+    overflow-wrap: break-word; /* Break words if they exceed container width */
+}
+
+.project-list li:hover {
+    background-color: #7e5656;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* PROJECT 1*/
+
+
+.project-1-details {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #3c413c;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 2s ease-in-out;
+}
+
+.project-1-details h4,
+.project-1-details h5,
+.project-1-details h6 {
+    margin-bottom: 15px;
+    color: #8eaa6e;
+}
+
+.project-1-details h4 {
+    font-size: 25px;
+    text-align: center;
+    animation: scaleIn 2s ease-in-out;
+}
+
+.project-1-details h5 {
+    font-size: 22px;
+    color: #edf4f7;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.project-1-details h6 {
+    font-size: 18px;
+    color: #f0c711;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.project-1-details p {
+    font-size: 16px;
+    color: #92bdda;
+    margin-bottom: 15px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.project-1-details img {
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 10px auto;
+    border-radius: 8px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* PROJECT 2*/
+/* Styles specific to Project 2 details */
+.project-2-details {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: linear-gradient(to right, #2d485f, #8d693a);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Headings styling */
+.project-2-details h4, .project-2-details h5, .project-2-details h6 {
+    color: #cc7c3b;
+    margin: 15px 0 10px;
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: scrollIn 1s forwards;
+}
+
+/* Paragraph styling */
+.project-2-details p {
+    color: #ddd1df;
+    line-height: 1.6;
+    margin: 10px 0;
+    opacity: 0;
+    transform: translateY(100%);
+    animation: scrollIn 1s forwards;
+}
+
+/* Image styling */
+.project-2-details img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    opacity: 0;
+    transform: translateY(100%);
+    animation: scrollIn 1s forwards;
+}
+
+/* Animation keyframes */
+@keyframes scrollIn {
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+/* Apply delay to each element for staggered effect */
+.project-2-details h4 {
+    animation-delay: 0.1s;
+}
+
+.project-2-details h5 {
+    animation-delay: 0.2s;
+}
+
+.project-2-details h6 {
+    animation-delay: 0.3s;
+}
+
+.project-2-details p {
+    animation-delay: 0.4s;
+}
+
+.project-2-details img {
+    animation-delay: 0.5s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CONTACT INFORMATION */
+#contacts {
+    background-color: #618594; /* Background color */
+    padding: 150px 100px; /* Adjust padding as needed */
+    color: #2b1212; /* White text color */
+    text-align: center; /* Center align text */
+    position: relative; /* Ensure positioning for pseudo-elements */
+    overflow: hidden; /* Hide overflow for smooth animation */
+    height: auto; /* Fixed height */
+    bottom: 0; /* Attach to the bottom */
+    width: 100%; /* Full width */
+    height: 100%;
+    box-sizing: border-box; /* Include padding in height and width */
+    margin-bottom: 0;
+    
+}
+
+/* Animation keyframes for background */
+@keyframes animateBackground {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 400% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Pseudo-element for circular gradient */
+#contacts::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0) 70%);
+    pointer-events: none; /* Prevent interaction with pseudo-element */
+}
+
+/* Pseudo-element for animated dots */
+#contacts::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    background-image: radial-gradient(circle, #fff 5%, transparent 5%);
+    background-size: 20px 20px; /* Size of dots */
+    opacity: 0.4; /* Adjust opacity of dots */
+    pointer-events: none; /* Prevent interaction with pseudo-element */
+    animation: animateDots 1s linear infinite; /* Animation for dots */
+}
+
+/* Animation keyframes for dots */
+@keyframes animateDots {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(20px, 20px);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* CONTACT INFORMATION */
+/* General Styling for Contacts Section */
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 20px;
+    background-color: #d7e8eb; /* Single background color */
+    border-radius: 10px;
+}
+
+/* Styling for Contact Links */
+.contact-info p {
+    margin: 0;
+    flex: 1 1 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Styling for Contact Links */
+.icon-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px; /* Default text size */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Icon Sizes */
+.icon-link i, .icon-link svg {
+    font-size: 24px; /* Default icon size */
+}
+
+
+
+/* Text Sizes */
+.icon-link span {
+    font-size: 14px; /* Default text size */
+}
+
+
+
+
+/* Tooltip Styling */
+.icon-link[data-tooltip] {
+    position: relative;
+}
+
+.icon-link[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #278883;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    font-size: 14px;
+}
+
+.icon-link:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Pop-in Animation */
+@keyframes popIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.contact-info p {
+    animation: popIn 2s ease-out;
+}
+
+/* Apply different animation delays for different icons for a staggered effect */
+
+
+
+
+/*X-Twitter Icon*/
+
+
+
+
+/* Specific colors for icons */
+.material-icons.email {
+    color: #D44638; /* Email (Gmail) color */
+}
+
+.fa-phone {
+    color: #34B7F1; /* Phone (assumed color for WhatsApp-like icon) */
+}
+
+.fa-whatsapp {
+    color: #25D366; /* WhatsApp color */
+}
+
+.fa-twitter {
+    color: #1DA1F2; /* Twitter color */
+}
+
+.fa-instagram {
+    color: #E1306C; /* Instagram color */
+}
+
+.fa-linkedin {
+    color: #0077B5; /* LinkedIn color */
+}
+
+
+
+
+/* LEAVE A MESSAGE */
+/* Form Container */
+#contactForm {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #d7e8eb;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #d3cb9f1a;
+}
+
+/* Form Rows */
+.row {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.row.double {
+    justify-content: space-between;
+}
+
+.row.double .field {
+    width: 48%;
+}
+
+/* Label Styles with Gradient Animation */
+label {
+    width: 150px; /* Fixed width for labels */
+    font-size: 16px;
+    text-align: right; /* Align labels to the right */
+    margin-right: 20px; /* Spacing between labels and inputs */
+    color: transparent; /* Transparent color initially */
+    background: linear-gradient(45deg, #f10e21, #e98d0e, #02e775, #01edf5); /* Gradient background */
+    -webkit-background-clip: text; /* Clip text to the background */
+    background-clip: text;
+    -webkit-text-fill-color: transparent; /* Make text transparent */
+    animation: labelAnimation 4s infinite linear; /* Animation settings */
+    font-weight: bold; /* Bold text */
+}
+
+/* Animation Keyframes */
+@keyframes labelAnimation {
+    0% { background-position: -200% 0%; }
+    100% { background-position: 200% 0%; }
+}
+
+/* Input Styles */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+    flex: 1; /* Take remaining space */
+    padding: 10px;
+    border: 1px solid #d7e8eb;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+/* Textarea Styles */
+textarea {
+    height: 200px; /* Set a fixed height for textarea */
+    resize: vertical; /* Allow vertical resizing */
+    width: calc(100% - 20px); /* Adjust width to fit container */
+}
+
+/* Select Styles */
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    width: 100%; /* Adjust width to fit container */
+}
+
+/* Button Styles */
+button[type="submit"] {
+    display: block;
+    padding: 12px 20px;
+    background-color: #1a7d9b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #5aaad1;
+}
+
+/* Placeholder Styling */
+input::placeholder,
+textarea::placeholder,
+select::placeholder {
+    color: #796565;
+    font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Keep footer at the bottom*/
+/* Ensure the body takes up at least 100% of the viewport height */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Flexbox container to push footer to the bottom */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure body takes full height of viewport */
+}
+
+/* Main content should take up all available space */
+main {
+    flex: 1;
+}
+
+/* Footer styles */
+footer {
+    background-color: #010405;
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+    margin-top: auto; /* Push footer to the bottom */
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Container styles */
+.container {
+    width: 100%;
+    max-width: 1536px;
+    margin: 0 auto;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    /*border: 1px solid red; /* Red border for the container */
+}
+
+
+
+/* LARGER SCREENS */
+@media (max-width: 1536px) {
+    .container {
+        padding: 0 20px;
+    }
+    .container * {
+        font-size: 1.2vw; /* Responsive font size for larger screens */
+    }
+    .navigation-block ul li a {
+        font-size: 1.6vw; /* Increase nav bar font size */
+    }
+
+    #skills h2 {
+        font-size: 28px;        
+    }
+    
+}
+
+
+/* MEDIUM SCREENS */
+@media (max-width: 1280px) {
+    .container {
+        max-width: 1280px;
+    }
+    .container * {
+        font-size: 1.4vw; /* Responsive font size for medium screens */
+    }
+    .navigation-block ul li a {
+        font-size: 1.8vw; /* Increase nav bar font size */
+    }
+
+    #skills h2 {
+        font-size: 27px;        
+    }
+
+    #contacts h2 {
+        font-size: 28px;
+    }
+
+    #contacts {
+    
+        padding: 150px 20px; /* Adjust padding as needed */
+        
+        height: auto; /* Auto height */
+        overflow-y: auto; /* Enable vertical scroll if content overflows */
+        width: 100%;
+        
+    }
+
+
+
+}
+
+
+
+/* SMALLER SCREENS */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 1024px;
+    }
+    .container * {
+        font-size: 2vw; /* Responsive font size for smaller screens */
+    }
+    .navigation-block ul li a {
+        font-size: 2.2vw; /* Increase nav bar font size */
+    }
+
+    #skills h2 {
+        font-size: 26px;        
+    }
+
+    .skill-item {
+        flex: 1 1 calc(33.333% - 20px);
+        max-width: calc(33.333% - 20px);
+    }
+
+    #skills > div {        
+        min-width: 100px;    
+    }
+
+    #projects h2 {
+        font-size: 28px;
+    }
+
+    #contacts h2 {
+        font-size: 27px;
+    }
+
+    #contacts {
+    
+        padding: 150px 20px; /* Adjust padding as needed */
+        
+        height: auto; /* Auto height */
+        overflow-y: auto; /* Enable vertical scroll if content overflows */
+        width: 100%;
+        
+    }
+
+
+
+/* TABLETS */    
+@media (max-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+    .container * {
+        font-size: 2vw; /* Responsive font size for tablets */
+    }
+    .navigation-block ul li a {
+        font-size: 2vw; /* Increase nav bar font size */
+    }
+    #professions h2 {
+        text-align: center; /* Center align the heading */
+        margin-top: 0; /* Remove default margin from the top of h2 */
+        font-size: 18PX;
+    }
+
+    #skills h2 {
+        font-size: 27px;        
+    }
+
+    #skills > div {        
+        min-width: 100px;    
+    }
+
+    #skills h2 {
+        font-size: 22px;        
+    }
+
+    #skills h3 {
+        font-size: 17px;        
+        min-width: 350px;
+    }
+
+    #skills > div {        
+        min-width: 60px;
+
+        
+        
+    }
+
+    #skills h3 {
+        
+        font-size: 15px;
+        min-width: 350px;
+        
+    }
+
+    #projects h2 {
+        font-size: 24px;
+    }
+
+    .project-category h3 {        
+        margin-left: -125px;
+    }
+    
+    .project-category h3 {        
+        
+        min-width: 375px;
+    }  
+
+    .project-list {
+        min-width: 375px;
+        margin-left: -115px;
+    }
+
+    #contacts h2 {
+        font-size: 25px;
+    }
+
+     /* Contacts Section */
+    #contacts {
+        background-color: #352b24; /* Background color */
+        padding: 150px 20px; /* Adjust padding as needed */
+        color: #fff; /* White text color */
+        height: auto; /* Auto height */
+        overflow-y: auto; /* Enable vertical scroll if content overflows */
+        width: auto;
+        max-height: 1000px; /* Maximum height based on viewport minus header padding */
+    }
+
+    .contact-info a {        
+        font-size: 30px; /* Increase icon size */
+    }
+
+    /* Form Container */
+    #contactForm {
+        max-width: 100%; /* Full width */
+        padding: 14px; /* Reduced padding */
+        border-radius: 0; /* No border radius */
+    }
+
+    /* Form Rows */
+    .row {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        margin-bottom: 17px; /* Reduced margin */
+    }
+
+    /* Label Styles with Gradient Animation */
+    label {
+        width: auto; /* Auto width */
+        font-size: 18px; /* Smaller font size */
+        margin-right: 0; /* No margin between labels */
+        margin-bottom: 5px; /* Spacing below labels */
+    }
+
+    /* Input Styles */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+        width: 100%; /* Full width */
+        margin-bottom: 14px; /* Spacing between inputs */
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: border-color 0.3s ease;
+    }
+
+    /* Textarea Styles */
+    textarea {
+        height: 200px; /* Reduced height */
+        resize: vertical; /* Allow vertical resizing */
+        width: calc(100% - 22px); /* Adjust width to fit container */
+        padding: 10px; /* Padding around textarea */
+        border: 1px solid #ccc; /* Border style */
+        border-radius: 5px; /* Border radius */
+        font-size: 16px; /* Font size */
+        transition: border-color 0.3s ease; /* Transition for border color */
+        box-sizing: border-box; /* Include padding and border in element's total width and height */
+    }
+
+
+    /* Button Styles */
+    button[type="submit"] {
+        width: 100%; /* Full width */
+        padding: 14px; /* Reduced padding */
+        background-color: #67cceb;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #5aaad1;
+    }
+
+    /* Placeholder Styling */
+    input::placeholder,
+    textarea::placeholder,
+    select::placeholder {
+        color: #ccc;
+        font-size: 14px;
+    }
+
+    /* Contacts Section */
+    #contacts {
+        
+        padding: 150px 20px; /* Adjust padding as needed */        
+        height: auto; /* Auto height */
+        width: 100%; /* Full width */
+        overflow-y: auto; /* Enable vertical scroll if content overflows */
+        
+    }
+
+    .contact-info a {        
+        font-size: 35px; /* Increase icon size */
+    }
+
+    /* Form Container */
+    #contactForm {
+        max-width: 100%; /* Full width */
+        padding: 15px; /* Reduced padding */
+        border-radius: 0; /* No border radius */
+    }
+
+    /* Form Rows */
+    .row {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        margin-bottom: 18px; /* Reduced margin */
+    }
+
+    /* Label Styles with Gradient Animation */
+    label {
+        width: auto; /* Auto width */
+        font-size: 19px; /* Smaller font size */
+        margin-right: 0; /* No margin between labels */
+        margin-bottom: 5px; /* Spacing below labels */
+    }
+
+    /* Input Styles */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+        width: 100%; /* Full width */
+        margin-bottom: 14px; /* Spacing between inputs */
+        padding: 10px;
+        
+        border-radius: 5px;
+        font-size: 17px;
+        
+    }
+
+        /* Textarea Styles */
+    textarea {
+        height: 250px; /* Reduced height */
+        resize: vertical; /* Allow vertical resizing */
+        width: calc(100% - 22px); /* Adjust width to fit container */
+        padding: 10px; /* Padding around textarea */
+        border: 1px solid #ccc; /* Border style */
+        border-radius: 5px; /* Border radius */
+        font-size: 17px; /* Font size */
+        transition: border-color 0.3s ease; /* Transition for border color */
+        box-sizing: border-box; /* Include padding and border in element's total width and height */
+    }
+
+
+    /* Button Styles */
+    button[type="submit"] {
+        width: 100%; /* Full width */
+        padding: 15px; /* Reduced padding */
+        border-radius: 5px;
+        font-size: 15px;
+        
+    }
+
+    
+
+    /* Placeholder Styling */
+    input::placeholder,
+    textarea::placeholder,
+    select::placeholder {
+        color: #ccc;
+        font-size: 15px;
+    }
+
+}
+
+
+
+
+}
+
+
+
+/* SMALLER TABLETS */
+@media (max-width: 640px) {
+    .container {
+        max-width: 640px;
+    }
+    .container * {
+        font-size: 2.5vw; /* Responsive font size for smaller tablets */
+    }
+    .navigation-block ul li a {
+        font-size: 2.5vw; /* Increase nav bar font size */
+    }
+    #professions h2 {
+        text-align: center; /* Center align the heading */
+        margin-top: 0; /* Remove default margin from the top of h2 */
+        font-size: 18PX;
+    }
+
+    #professions li a {
+        font-size: 15px; /* Increase text size for links */
+    }
+
+    #skills h2 {
+        font-size: 22px;        
+    }
+
+    #skills > div {        
+        min-width: 60px;    
+    }
+
+    #skills h2 {
+        font-size: 20px;        
+    }
+
+    #skills h3 {
+        font-size: 15px;        
+        min-width: 300px;
+    }
+
+    #skills > div {        
+        min-width: 40px;
+
+        
+        
+    }
+
+    #skills h3 {
+        
+        font-size: 13px;
+        min-width: 300px;
+        
+    }
+
+    #projects h2 {
+        font-size: 22px;
+    }
+
+    .project-category h3 {        
+        margin-left: -125px;
+    }
+    
+    .project-category h3 {        
+        
+        min-width: 350px;
+    }  
+
+    .project-list {
+        min-width: 350px;
+        margin-left: -115px;
+    }
+
+    #contacts h2 {
+        font-size: 22px;
+    }
+
+    
+
+    /* Contacts Section */
+    #contacts {
+        
+        padding: 150px 20px; /* Adjust padding as needed */        
+        height: auto; /* Auto height */
+        width: 100%; /* Full width */
+        overflow-y: auto; /* Enable vertical scroll if content overflows */
+        
+    }
+
+    .contact-info a {        
+        font-size: 30px; /* Increase icon size */
+    }
+
+    /* Form Container */
+    #contactForm {
+        max-width: 100%; /* Full width */
+        padding: 14px; /* Reduced padding */
+        border-radius: 0; /* No border radius */
+    }
+
+    /* Form Rows */
+    .row {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        margin-bottom: 17px; /* Reduced margin */
+    }
+
+    /* Label Styles with Gradient Animation */
+    label {
+        width: auto; /* Auto width */
+        font-size: 18px; /* Smaller font size */
+        margin-right: 0; /* No margin between labels */
+        margin-bottom: 5px; /* Spacing below labels */
+    }
+
+    /* Input Styles */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+        width: 100%; /* Full width */
+        margin-bottom: 14px; /* Spacing between inputs */
+        padding: 10px;
+        
+        border-radius: 5px;
+        font-size: 16px;
+        
+    }
+
+        /* Textarea Styles */
+    textarea {
+        height: 200px; /* Reduced height */
+        resize: vertical; /* Allow vertical resizing */
+        width: calc(100% - 22px); /* Adjust width to fit container */
+        padding: 10px; /* Padding around textarea */
+        border: 1px solid #ccc; /* Border style */
+        border-radius: 5px; /* Border radius */
+        font-size: 16px; /* Font size */
+        transition: border-color 0.3s ease; /* Transition for border color */
+        box-sizing: border-box; /* Include padding and border in element's total width and height */
+    }
+
+
+    /* Button Styles */
+    button[type="submit"] {
+        width: 100%; /* Full width */
+        padding: 14px; /* Reduced padding */
+        border-radius: 5px;
+        font-size: 14px;
+        
+    }
+
+    
+
+    /* Placeholder Styling */
+    input::placeholder,
+    textarea::placeholder,
+    select::placeholder {
+        color: #ccc;
+        font-size: 14px;
+    }
+
+
+
+    
+}
+
+
+
+
+
+
+
+/* LARGE PHONES */
+@media (max-width: 475px) {
+    .container {
+        max-width: 475px;
+    }
+    .container * {
+        font-size: 3vw; /* Responsive font size for large phones */
+    }
+    
+    
+    /* Header styles */
+    header {        
+        font-size: 12px;
+    }
+
+    .navigation-block {
+        display: none;
+    }
+
+
+    .navigation-block ul li a {
+        font-size: 3.2vw; /* Increase nav bar font size */
+    }
+
+    
+        /* Bio section styles */
+    #bio {
+        margin-top: 105px; /* Adjust this value based on the height of your navigation bar */
+        padding-top: 10px;
+    }
+
+    #bio h2 {
+        font-size: 30px;
+    }
+    
+
+    
+    #bio .profile-picture {
+        position: absolute; /* Position the profile picture absolutely */
+        top: 10px; /* Distance from the top of the container */
+        left: 30px; /* Distance from the left of the container */        
+        
+    }
+
+    .profile-picture img {
+        width: 180px;    
+        margin-left: 40px;
+    }
+
+    .text-box {    
+        padding-top: 200px; /* Adjust this value as needed */        
+        font-size: 25px; /* Adjust the font size as needed */ 
+        margin-left: -1px;
+        max-width: 350px; /* Ensure a maximum width */      
+    }   
+    
+
+
+
+    #professions h2 {        
+        font-size: 20px
+    }
+
+    #professions {       
+        padding: 20px; /* Reduce padding for smaller screens */            
+        margin-top: 100px; /* Adjust margin-top to start below the navigation bar */
+    }
+
+    .professions-grid {        
+        grid-template-columns: repeat(2, 1fr); /* Set 2 boxes per row */        
+    } 
+    
+    .profession-item p {
+        margin-top: 5px;
+        font-size: 13px; /* Adjust font size for smaller screens */        
+    }
+
+
+
+
+
+    #skills {
+        padding-top: 30px;
+    }
+
+
+
+    #skills h2 {
+        font-size: 20px;        
+    } 
+    
+
+    #skills h3 {
+        
+        font-size: 13px;
+        min-width: 200px;
+        text-align: center; /* Center-align the text */
+        
+        
+    }
+
+
+    .skill-item {
+        flex: 1 1 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+
+    .skill-item i {
+        font-size: 1.8rem; /* Larger icons */
+        margin-bottom: 10px;
+        
+    }
+
+
+
+    /* Individual skill item styling */
+    .skill-item {
+    
+        flex: 1 1 calc(20% - 20px); /* Adjust percentage as needed for responsiveness */
+        max-width: calc(20% - 20px);
+        min-width: 50px;
+        padding: 1px;
+        
+    }
+
+
+    .skill-item span {
+        font-size: 0.8rem;
+        color: #555; /* Text color */
+    }
+    
+
+
+    #projects {
+        margin-top: -10px;
+    }
+
+
+
+
+
+    #projects h2 {
+        font-size: 20px;
+    }
+
+    .project-category h3 {        
+        margin-left: -125px;
+    }
+    
+    .project-category h3 {        
+        
+        min-width: 300px;
+    }  
+
+    .project-list {
+        min-width: 300px;
+        margin-left: -115px;
+    }   
+
+
+    
+
+    #contacts h2 {
+        font-size: 20px;
+    }
+
+    
+
+
+    /* Contacts Section */
+    #contacts {        
+        padding: 150px 20px; /* Adjust padding as needed */        
+        height: auto; /* Auto height */
+        width: 100%; /* Full width */
+        overflow-y: auto; /* Enable vertical scroll if content overflows */
+        
+    }
+
+
+    .contact-info {
+        display: flex;
+        flex-wrap: wrap; /* Allow items to wrap to the next row */
+        justify-content: flex-start; /* Align items to the left */
+        gap: 1px; /* Reduced spacing between items */
+        padding: 5px; /* Adjusted padding for smaller screens */
+    }
+
+    .contact-info p {
+        margin: 0;
+        flex: 1 1 100%; /* Each item takes full width of the row */
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Align items to the left */
+    }
+    
+
+    /* Adjust icon sizes */
+    /* Adjust icon sizes */
+    .contact-info .icon-link i, 
+    .contact-info .icon-link svg {
+        font-size: 20px; /* Reduced icon size for smaller screens */
+    }
+
+
+    .contact-info a {        
+        font-size: 14px; /* Increase icon size */
+    }
+
+    
+
+
+
+    /* Form Container */
+    #contactForm {
+        max-width: 600px;
+        margin: 0 auto;        
+        padding: 20px;
+        border-radius: 8px;
+        
+    }
+
+    /* Form Rows */
+    .row {
+        
+        display: grid;
+        margin-bottom: 5px;
+        align-items: center;
+    }
+
+    .row.double {
+        justify-content: space-between;
+        
+    }
+
+    .row.double .field {
+        width: 95%;
+    }
+
+    /* Label Styles with Gradient Animation */
+    label {
+        width: 100%x; /* Fixed width for labels */
+        font-size: 14px;
+        text-align: center; /* Align labels to the right */
+        margin-right: 10px; /* Spacing between labels and inputs */
+        
+    }
+
+    
+    /* Input Styles */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+        flex: 1; /* Take remaining space */
+        padding: 10px;
+        border: 1px solid #d7e8eb;
+        border-radius: 5px;
+        font-size: 14px;
+        transition: border-color 0.3s ease;
+        width: 100%;
+    }
+
+    /* Input Styles */
+    
+    input[type="email"] {
+        flex: 1; /* Take remaining space */
+        padding: 10px;
+        border: 1px solid #d7e8eb;
+        border-radius: 5px;
+        font-size: 14px;
+        max-width: 95%;
+        transition: border-color 0.3s ease;
+        width: 100%;
+    }
+
+
+
+
+    /* Textarea Styles */
+    textarea {
+        height: 250px; /* Set a fixed height for textarea */
+        resize: vertical; /* Allow vertical resizing */
+        width: 100%; /* Adjust width to fit container */
+    }
+
+    /* Select Styles */
+    select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        
+        width: 100%; /* Adjust width to fit container */
+    }
+
+    /* Button Styles */
+    button[type="submit"] {
+        display: block;
+        padding: 8px 10px;
+        background-color: #1a7d9b;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        max-width: 80px;
+        margin-left: auto; /* Pushes the button to the right */
+        margin-top: 10px; /* Optional: Add some space above the button */
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* SMALL PHONES */
+@media (max-width: 360px) {
+    .container {
+        padding: 0 10px;
+    }
+    .container * {
+        font-size: 3.5vw; /* Responsive font size for small phones */
+    }
+
+    /* Header styles */
+    header {        
+        font-size: 12px;
+    
+    }
+
+    .navigation-block {
+        display: none;
+    }
+
+
+    .navigation-block ul li a {
+        font-size: 3.1vw; /* Increase nav bar font size */
+    }
+
+       /* Bio section styles */
+    #bio {
+        margin-top: 70px; /* Adjust this value based on the height of your navigation bar */
+        padding-top: 40px;
+    }
+
+    
+    
+
+    #bio .profile-picture {
+        position: absolute; /* Position the profile picture absolutely */
+        top: 10px; /* Distance from the top of the container */
+        left: 20px; /* Distance from the left of the container */        
+        
+    }
+
+    .profile-picture img {
+        width: 180px;    
+        margin-left: 40px;
+    }
+
+    .text-box {    
+        padding-top: 200px; /* Adjust this value as needed */ 
+        margin-top: -5px;       
+        font-size: 15px; /* Adjust the font size as needed */ 
+        margin-left: -1px;
+        max-width: 300px; /* Ensure a maximum width */
+        min-width: 200px;
+        
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #professions h2 {        
+        font-size: 14px
+    }
+
+    #professions {       
+        padding: 20px; /* Reduce padding for smaller screens */            
+        margin-top: 100px; /* Adjust margin-top to start below the navigation bar */
+    }
+
+    .professions-grid {        
+        grid-template-columns: repeat(2, 1fr); /* Set 2 boxes per row */        
+    } 
+    
+    .profession-item p {
+        margin-top: 5px;
+        font-size: 12px; /* Adjust font size for smaller screens */        
+    }
+    
+    
+    
+    
+    
+
+
+
+
+    #skills {
+        padding-top: 30px;
+    }
+    
+
+    #skills h2 {
+        font-size: 15px;        
+    }
+
+    #skills h3 {
+        font-size: 14px;        
+        min-width: 200px;
+    }
+
+    
+
+    #skills h3 {
+        
+        font-size: 12px;
+        min-width: 200px;
+        
+    }
+
+    .skill-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .skill-item i {
+        font-size: 1.5rem; /* Larger icons */
+        margin-bottom: 5px;
+        
+    }
+
+        /* Individual skill item styling */
+    .skill-item {
+        
+        flex: 1 1 calc(20% - 20px); /* Adjust percentage as needed for responsiveness */
+        max-width: calc(20% - 20px);
+        min-width: 50px;
+        padding: 1px;
+        
+    }
+
+
+    .skill-item span {
+        font-size: 0.8rem;
+        color: #555; /* Text color */
+    }
+
+
+    #projects {
+        margin-top: -20px;
+    }
+
+
+    #projects h2 {
+        font-size: 18px;
+    }
+
+    .project-category h3 {        
+        margin-left: -120px;
+    }
+    
+    .project-category h3 {        
+        
+        min-width: 250px;
+    }  
+
+    .project-list {
+        min-width: 250px;
+        margin-left: -105px;
+    }
+
+
+    
+
+
+    /* Contacts Section */
+    #contacts {        
+        padding: 125px 20px; /* Adjust padding as needed */        
+        height: auto; /* Auto height */
+        width: 100%; /* Full width */
+        overflow-y: auto; /* Enable vertical scroll if content overflows */
+        
+    }
+
+
+    .contact-info {
+        display: flex;
+        flex-wrap: wrap; /* Allow items to wrap to the next row */
+        justify-content: flex-start; /* Align items to the left */
+        gap: 1px; /* Reduced spacing between items */
+        padding: 5px; /* Adjusted padding for smaller screens */
+    }
+
+    .contact-info p {
+        margin: 0;
+        flex: 1 1 100%; /* Each item takes full width of the row */
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Align items to the left */
+    }
+    
+
+    /* Adjust icon sizes */
+    /* Adjust icon sizes */
+    .contact-info .icon-link i, 
+    .contact-info .icon-link svg {
+        font-size: 18px; /* Reduced icon size for smaller screens */
+    }
+
+
+    .contact-info a {        
+        font-size: 12px; /* Increase icon size */
+    }
+
+    
+
+
+
+        
+    /* Form Container */
+    #contactForm {
+        max-width: 600px;
+        margin: 0 auto;        
+        padding: 20px;
+        border-radius: 8px;
+        
+    }
+
+    /* Form Rows */
+    .row {
+        
+        display: grid;
+        margin-bottom: 5px;
+        align-items: center;
+    }
+
+    .row.double {
+        justify-content: space-between;
+        
+    }
+
+    .row.double .field {
+        width: 95%;
+    }
+
+    /* Label Styles with Gradient Animation */
+    label {
+        width: 100%x; /* Fixed width for labels */
+        font-size: 14px;
+        text-align: center; /* Align labels to the right */
+        margin-right: 10px; /* Spacing between labels and inputs */
+        
+    }
+
+    
+    /* Input Styles */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+        flex: 1; /* Take remaining space */
+        padding: 10px;
+        border: 1px solid #d7e8eb;
+        border-radius: 5px;
+        font-size: 14px;
+        transition: border-color 0.3s ease;
+        width: 100%;
+    }
+
+    /* Input Styles */
+    
+    input[type="email"] {
+        flex: 1; /* Take remaining space */
+        padding: 10px;
+        border: 1px solid #d7e8eb;
+        border-radius: 5px;
+        font-size: 14px;
+        max-width: 95%;
+        transition: border-color 0.3s ease;
+        width: 100%;
+    }
+
+
+
+
+    /* Textarea Styles */
+    textarea {
+        height: 250px; /* Set a fixed height for textarea */
+        resize: vertical; /* Allow vertical resizing */
+        width: 100%; /* Adjust width to fit container */
+    }
+
+    /* Select Styles */
+    select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        
+        width: 100%; /* Adjust width to fit container */
+    }
+
+    /* Button Styles */
+    button[type="submit"] {
+        display: block;
+        padding: 8px 10px;
+        background-color: #1a7d9b;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        max-width: 80px;
+        margin-left: auto; /* Pushes the button to the right */
+        margin-top: 10px; /* Optional: Add some space above the button */
+    }
+
+
+
+
+
+
+
+}
+
+
+
+
+/* Styles for sections inside .container */
+.container section {
+    padding: 20px; /* Example padding for sections */
+    background-color: #fff; /* Example background color for sections */
+    margin-bottom: 20px; /* Example margin between sections */
+    border-radius: 5px; /* Example border radius for sections */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Example box shadow */
+}
+
+
+/* Responsive layout adjustments */
+@media (max-width: 1200px) {
+    .skill-item {
+        flex: 1 1 calc(25% - 20px);
+        max-width: calc(25% - 20px);
+    }
+}
