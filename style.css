@@ -1637,66 +1637,139 @@ animation-play-state: paused; /* Pauses animation on hover */
 
 
 /* Animated Background */
+/* Leaf animations within the projects section */
 #projects .leaf {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 0; /* Place background behind content */
-    pointer-events: none; /* Prevent interaction with the background */
+    z-index: 0; /* Behind the content */
+    pointer-events: none; /* Ensure leaves don't block clicks */
 }
 
+/* Leaf divs within the projects section */
 #projects .leaf div {
     position: absolute;
     display: block;
-    width: 75px;
-    height: 75px;
 }
 
+/* Falling leaves within the projects section */
 #projects .leaf div:nth-child(1) {
     left: 20%;
-    animation: leaf-fall 15s linear infinite;
+    animation: projects-fall 15s linear infinite;
     animation-delay: -2s;
 }
 
 #projects .leaf div:nth-child(2) {
-    left: 70%;
-    animation: leaf-fall 15s linear infinite;
+    left: 50%;
+    animation: projects-fall 15s linear infinite;
     animation-delay: -4s;
 }
 
 #projects .leaf div:nth-child(3) {
-    left: 10%;
-    animation: leaf-fall 20s linear infinite;
+    left: 80%;
+    animation: projects-fall 20s linear infinite;
     animation-delay: -7s;
 }
 
+/* Rising leaves within the projects section */
 #projects .leaf div:nth-child(4) {
-    left: 50%;
-    animation: leaf-fall 18s linear infinite;
+    left: 30%;
+    animation: projects-rise 18s linear infinite;
     animation-delay: -5s;
 }
 
 #projects .leaf div:nth-child(5) {
-    left: 85%;
-    animation: leaf-fall 14s linear infinite;
+    left: 60%;
+    animation: projects-rise 14s linear infinite;
     animation-delay: -5s;
 }
 
 #projects .leaf div:nth-child(6) {
-    left: 15%;
-    animation: leaf-fall 16s linear infinite;
+    left: 90%;
+    animation: projects-rise 16s linear infinite;
     animation-delay: -10s;
 }
 
-#projects .leaf div:nth-child(7) {
-    left: 90%;
-    animation: leaf-fall 15s linear infinite;
+/* Falling leaves for leaf1 within the projects section */
+#projects .leaf1 div:nth-child(1) {
+    left: 15%;
+    animation: projects-fall 15s linear infinite;
     animation-delay: -4s;
 }
 
-@keyframes leaf-fall {
+#projects .leaf1 div:nth-child(2) {
+    left: 55%;
+    animation: projects-fall 20s linear infinite;
+    animation-delay: -6s;
+}
+
+#projects .leaf1 div:nth-child(3) {
+    left: 75%;
+    animation: projects-fall 16s linear infinite;
+    animation-delay: -3s;
+}
+
+/* Rising leaves for leaf1 within the projects section */
+#projects .leaf1 div:nth-child(4) {
+    left: 25%;
+    animation: projects-rise 15s linear infinite;
+    animation-delay: -5s;
+}
+
+#projects .leaf1 div:nth-child(5) {
+    left: 65%;
+    animation: projects-rise 19s linear infinite;
+    animation-delay: -7s;
+}
+
+#projects .leaf1 div:nth-child(6) {
+    left: 85%;
+    animation: projects-rise 17s linear infinite;
+    animation-delay: -8s;
+}
+
+/* Falling leaves for leaf2 within the projects section */
+#projects .leaf2 div:nth-child(1) {
+    left: 10%;
+    animation: projects-fall 17s linear infinite;
+    animation-delay: -3s;
+}
+
+#projects .leaf2 div:nth-child(2) {
+    left: 40%;
+    animation: projects-fall 15s linear infinite;
+    animation-delay: -5s;
+}
+
+#projects .leaf2 div:nth-child(3) {
+    left: 70%;
+    animation: projects-fall 18s linear infinite;
+    animation-delay: -6s;
+}
+
+/* Rising leaves for leaf2 within the projects section */
+#projects .leaf2 div:nth-child(4) {
+    left: 20%;
+    animation: projects-rise 14s linear infinite;
+    animation-delay: -4s;
+}
+
+#projects .leaf2 div:nth-child(5) {
+    left: 50%;
+    animation: projects-rise 16s linear infinite;
+    animation-delay: -7s;
+}
+
+#projects .leaf2 div:nth-child(6) {
+    left: 80%;
+    animation: projects-rise 15s linear infinite;
+    animation-delay: -9s;
+}
+
+/* Scoped keyframes for falling animation */
+@keyframes projects-fall {
     0% {
         opacity: 1;
         top: -10%;
@@ -1721,6 +1794,31 @@ animation-play-state: paused; /* Pauses animation on hover */
     }
 }
 
+/* Scoped keyframes for rising animation */
+@keyframes projects-rise {
+    0% {
+        opacity: 1;
+        top: 110%;
+        transform: translateX(20px) rotate(225deg);
+    }
+    20% {
+        opacity: 0.8;
+        transform: translateX(-20px) rotate(180deg);
+    }
+    40% {
+        transform: translateX(-20px) rotate(135deg);
+    }
+    60% {
+        transform: translateX(-20px) rotate(90deg);
+    }
+    80% {
+        transform: translateX(-20px) rotate(45deg);
+    }
+    100% {
+        top: -10%;
+        transform: translateX(-20px) rotate(0deg);
+    }
+}
 
 
 
@@ -1758,7 +1856,7 @@ animation-play-state: paused; /* Pauses animation on hover */
     background-color: #4d99cc;
     padding: 10px;
     border-radius: 5px; /* Reduced border-radius for smoother appearance */
-    color: #0c0c0c;
+    color: #0c1379;
     cursor: pointer;
     width: calc(100% - 20px); /* Set width relative to parent with padding */
     transition: background-color 0.3s ease; /* Smooth transition for background color */
@@ -1771,15 +1869,7 @@ animation-play-state: paused; /* Pauses animation on hover */
     background-color: #5c2c2c; /* New background color on hover */
 }
 
-.project-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    max-width: 100%; /* Limit the maximum width */
-    overflow: hidden; /* Hide the project list by default */
-    max-height: auto;
-    transition: max-height 0.3s ease; /* Add smooth transition */
-}
+
 
 
 
@@ -1809,30 +1899,25 @@ animation-play-state: paused; /* Pauses animation on hover */
 
 
 
-
-
-
-
+/* Container for the project list */
 .project-list {
     overflow: hidden;
-    transition: height 0.8s ease-out;
+    max-height: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.8s ease-out, max-height 0.8s ease-out;
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 100%; /* Limit the maximum width */
 }
 
+/* Expanded state of the project list */
 .project-list.open {
-    height: auto;
+    max-height: 1000000px; /* Adjust if needed */
+    transform: scaleY(1);
 }
-
-.project-list div {
-    overflow: hidden;
-    transition: height 0.3s ease-out;
-}
-
-.project-list div.open {
-    height: auto;
-}
-
-
-
 
 
 
@@ -2026,7 +2111,7 @@ animation-play-state: paused; /* Pauses animation on hover */
 
 
 
-/* PROJECT 2*/
+/* PROJECT 3*/
 /* Styles specific to Project 2 details */
 .project-3-details {
     font-family: Arial, sans-serif;
@@ -2150,12 +2235,6 @@ animation-play-state: paused; /* Pauses animation on hover */
         background-position: 0 0;
     }
 }
-
-
-
-
-
-
 
 
 

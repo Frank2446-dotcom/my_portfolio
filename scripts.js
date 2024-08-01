@@ -217,6 +217,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 //OPEN/CLOSE PROJECTS
+
+// OPEN/CLOSE PROJECTS
 document.addEventListener("DOMContentLoaded", () => {
     const projectCategories = document.querySelectorAll(".project-category");
 
@@ -225,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
         projectCategories.forEach(cat => {
             const list = cat.querySelector(".project-list");
             if (list) {
-                list.style.maxHeight = "0";
+                list.classList.remove("open");
                 list.querySelectorAll("li div").forEach(div => div.style.display = "none");
             }
         });
@@ -247,23 +249,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const projectList = category.querySelector(".project-list");
         const listItems = projectList.querySelectorAll("li");
 
-        // Initialize project list height to 0
-        projectList.style.maxHeight = "0";
-        projectList.style.overflow = "hidden";
-        projectList.style.transition = "max-height 0.8s ease-out";
-
         // Hide project details by default
         closeAllProjectDetails(projectList);
 
         // Function to toggle the project list visibility
         function toggleProjectList() {
-            const isOpen = projectList.style.maxHeight !== "0px";
+            const isOpen = projectList.classList.contains("open");
 
             // Close all other project lists
             closeAllProjectLists();
 
             // Toggle the current project list
-            projectList.style.maxHeight = isOpen ? "0" : "10000000px"; // Set max-height to a large value
+            projectList.classList.toggle("open", !isOpen);
         }
 
         // Function to toggle the visibility of the specific project details
@@ -292,3 +289,7 @@ document.addEventListener("DOMContentLoaded", () => {
         projectList.addEventListener("click", toggleProjectDetails);
     });
 });
+
+
+
+
