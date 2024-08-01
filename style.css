@@ -1774,21 +1774,21 @@ animation-play-state: paused; /* Pauses animation on hover */
 .project-list {
     list-style: none;
     padding: 0;
+    margin: 0;
     max-width: 100%; /* Limit the maximum width */
     overflow: hidden; /* Hide the project list by default */
-    max-height: 0; /* Set max-height to 0 */
+    max-height: auto;
     transition: max-height 0.3s ease; /* Add smooth transition */
 }
 
-.project-category.open .project-list {
-    max-height: 500px; /* Adjust the max-height to your preference */
-}
+
 
 .project-list li {
     background-color: #42595e;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 5px;
+    max-height: auto;
     cursor: pointer;
     color: #eee7e7;
     max-width: 100%; /* Limit the maximum width */
@@ -1798,6 +1798,40 @@ animation-play-state: paused; /* Pauses animation on hover */
 .project-list li:hover {
     background-color: #7e5656;
 }
+
+.project-details {
+    transition: max-height 0.3s ease-out;
+    overflow: hidden;
+    margin-bottom: 20px; /* Space below each detail */
+}
+
+
+
+
+
+
+
+
+
+.project-list {
+    overflow: hidden;
+    transition: height 0.8s ease-out;
+}
+
+.project-list.open {
+    height: auto;
+}
+
+.project-list div {
+    overflow: hidden;
+    transition: height 0.3s ease-out;
+}
+
+.project-list div.open {
+    height: auto;
+}
+
+
 
 
 
@@ -1986,6 +2020,86 @@ animation-play-state: paused; /* Pauses animation on hover */
 .project-2-details img {
     animation-delay: 0.5s;
 }
+
+
+
+
+
+
+/* PROJECT 2*/
+/* Styles specific to Project 2 details */
+.project-3-details {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: linear-gradient(to right, #460d61, #74460b);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Headings styling */
+.project-3-details h4, .project-3-details h5, .project-3-details h6 {
+    color: #cc7c3b;
+    margin: 15px 0 10px;
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: scrollIn 1s forwards;
+}
+
+/* Paragraph styling */
+.project-3-details p {
+    color: #ddd1df;
+    line-height: 1.6;
+    margin: 10px 0;
+    opacity: 0;
+    transform: translateY(100%);
+    animation: scrollIn 1s forwards;
+}
+
+/* Image styling */
+.project-3-details img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    opacity: 0;
+    transform: translateY(100%);
+    animation: scrollIn 1s forwards;
+}
+
+/* Animation keyframes */
+@keyframes scrollIn {
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+/* Apply delay to each element for staggered effect */
+.project-3-details h4 {
+    animation-delay: 0.1s;
+}
+
+.project-3-details h5 {
+    animation-delay: 0.2s;
+}
+
+.project-3-details h6 {
+    animation-delay: 0.3s;
+}
+
+.project-3-details p {
+    animation-delay: 0.4s;
+}
+
+.project-3-details img {
+    animation-delay: 0.5s;
+}
+
 
 
 

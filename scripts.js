@@ -102,56 +102,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Project hidden by default
 
-    const projectCategories = document.querySelectorAll(".project-category");
-
-    projectCategories.forEach(category => {
-        const categoryTitle = category.querySelector("h3");
-        const projectList = category.querySelector(".project-list");
-        
-        // Initialize project list height to 0
-        projectList.style.maxHeight = "0";
-        projectList.style.overflow = "hidden";
-        projectList.style.transition = "max-height 0.8s ease-out";
-        
-        categoryTitle.addEventListener("click", function() {
-            // Toggle the clicked category
-            const isOpen = category.classList.contains("open");
-            
-            // Close other categories
-            projectCategories.forEach(cat => {
-                if (cat !== category && cat.classList.contains("open")) {
-                    cat.classList.remove("open");
-                    cat.querySelector("h3");
-                    const list = cat.querySelector(".project-list");
-                    list.style.maxHeight = "0";
-                }
-            });
-            
-            // Toggle the clicked category
-            if (isOpen) {
-                category.classList.remove("open");
-                categoryTitle;
-                projectList.style.maxHeight = "0";
-            } else {
-                category.classList.add("open");
-                categoryTitle;
-                projectList.style.maxHeight = projectList.scrollHeight + "px";
-            }
-        });
-        
-        categoryTitle.addEventListener("mouseenter", function() {
-            if (!category.classList.contains("open")) {
-                categoryTitle;
-            }
-        });
-        
-        categoryTitle.addEventListener("mouseleave", function() {
-            if (!category.classList.contains("open")) {
-                categoryTitle;
-            }
-        });
-    });
-
 
 
 
@@ -266,4 +216,79 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-//MESSAGE CONSOLE OUTPUT
+//OPEN/CLOSE PROJECTS
+document.addEventListener("DOMContentLoaded", () => {
+    const projectCategories = document.querySelectorAll(".project-category");
+
+    // Function to close all project lists
+    function closeAllProjectLists() {
+        projectCategories.forEach(cat => {
+            const list = cat.querySelector(".project-list");
+            if (list) {
+                list.style.maxHeight = "0";
+                list.querySelectorAll("li div").forEach(div => div.style.display = "none");
+            }
+        });
+    }
+
+    // Function to close all project details within a specific project list
+    function closeAllProjectDetails(projectList) {
+        const listItems = projectList.querySelectorAll("li");
+        listItems.forEach(item => {
+            const details = item.querySelector("div");
+            if (details) {
+                details.style.display = "none";
+            }
+        });
+    }
+
+    projectCategories.forEach(category => {
+        const categoryTitle = category.querySelector("h3");
+        const projectList = category.querySelector(".project-list");
+        const listItems = projectList.querySelectorAll("li");
+
+        // Initialize project list height to 0
+        projectList.style.maxHeight = "0";
+        projectList.style.overflow = "hidden";
+        projectList.style.transition = "max-height 0.8s ease-out";
+
+        // Hide project details by default
+        closeAllProjectDetails(projectList);
+
+        // Function to toggle the project list visibility
+        function toggleProjectList() {
+            const isOpen = projectList.style.maxHeight !== "0px";
+
+            // Close all other project lists
+            closeAllProjectLists();
+
+            // Toggle the current project list
+            projectList.style.maxHeight = isOpen ? "0" : "10000000px"; // Set max-height to a large value
+        }
+
+        // Function to toggle the visibility of the specific project details
+        function toggleProjectDetails(event) {
+            if (event.target.tagName === "LI") {
+                const details = event.target.querySelector("div");
+                if (details) {
+                    const isVisible = details.style.display === "block";
+                    closeAllProjectDetails(projectList); // Close all other project details in the current list
+                    details.style.display = isVisible ? "none" : "block";
+                }
+
+                // Scroll the clicked item to the top of the viewport minus the offset
+                const offsetTop = event.target.offsetTop - 200;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Attach click event to the category title
+        categoryTitle.addEventListener("click", toggleProjectList);
+
+        // Attach click event to each list item
+        projectList.addEventListener("click", toggleProjectDetails);
+    });
+});
