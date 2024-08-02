@@ -436,8 +436,14 @@ h2 {
     min-width: 300px; /* Ensure a minimum width */
     max-width: 800px; /* Ensure a maximum width */
     flex: 1 1 60%; /* Allow text-box to take up to 60% of the container */
-    background: radial-gradient(ellipse at bottom, #1e0d31 0%, #4d4423 25%,  #223d30 50%, #36418a 100%);
+    
+    background-image: url('https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/img/demo-1-bg.jpg');
 }
+
+
+
+
+
 
 /* Shooting Star Background */
 .stars {
