@@ -1,7 +1,11 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
 
 body {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+    font-family: poppin;
     padding-top: 130px; /* Adjust as needed to account for the combined height of title and navigation */
     color: rgb(236, 220, 230); /* Text color */
     background-image: url('https://media.licdn.com/dms/image/D4D12AQGmVEW9PRcsGw/article-cover_image-shrink_720_1280/0/1693874124818?e=2147483647&v=beta&t=pmvy7TiXaLcsMA0lUDWzxGkpMaooDI3wdMBxIGFHNCM');
@@ -342,7 +346,7 @@ h2 {
     margin-top: 100px; /* Adjust this value based on the height of your navigation bar */
     
     padding-top: 70px;
-    background-color: #436775;
+    background-color: #164e64;
     display: none; /* Hide by default */
     transition: all 0.5s ease-in-out; 
     visibility: visible;
@@ -870,12 +874,12 @@ h2 {
     display: inline-block;
     text-align: right;
     text-decoration: none;
-    color: rgb(29, 195, 224);
+    color: rgb(0, 217, 255);
     margin-top: 10px;
 }
 
 .read-more:hover {
-    color: rgb(39, 39, 163);
+    color: rgb(207, 193, 66);
     
 }
 
@@ -1239,7 +1243,9 @@ animation-play-state: paused; /* Pauses animation on hover */
     background-color: #e3eef1; /* Light background for the whole section */
     margin-bottom: 0;
     margin-top: 100px;
-    padding-top: 50px;
+    padding-top: 150px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .skill-container {
@@ -1639,6 +1645,8 @@ animation-play-state: paused; /* Pauses animation on hover */
     overflow: hidden; /* Hide overflow to contain the background */
     background: linear-gradient(to right, #397192 0%, #553923 25%, #272747 50%, #1b3f1b 75%, #2d133b 100%); /* Linear gradient background */
     color: #fff; /* Text color for better contrast */
+    
+    
 }
 
 
@@ -2222,8 +2230,9 @@ animation-play-state: paused; /* Pauses animation on hover */
     overflow: hidden; /* Hide overflow for smooth animation */
     height: auto; /* Fixed height */
     bottom: 0; /* Attach to the bottom */
-    width: 100%; /* Full width */
-    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    
     box-sizing: border-box; /* Include padding in height and width */
     margin-bottom: 0;
     
@@ -2304,6 +2313,9 @@ animation-play-state: paused; /* Pauses animation on hover */
     padding: 20px;
     background-color: #d7e8eb; /* Single background color */
     border-radius: 10px;
+    max-width: 800px;    
+    margin: 0 auto;  
+    box-shadow: 0 0 10px #d3cb9f1a;
 }
 
 /* Styling for Contact Links */
@@ -2314,6 +2326,7 @@ animation-play-state: paused; /* Pauses animation on hover */
     align-items: center;
     justify-content: center;
     position: relative;
+    
 }
 
 /* Styling for Contact Links */
@@ -2433,12 +2446,13 @@ animation-play-state: paused; /* Pauses animation on hover */
 /* LEAVE A MESSAGE */
 /* Form Container */
 #contactForm {
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
     background-color: #d7e8eb;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px #d3cb9f1a;
+    margin-bottom: 20px;
 }
 
 /* Form Rows */
@@ -2545,6 +2559,536 @@ select::placeholder {
 
 
 
+/* General styles for the hire section */
+#hire {
+    background-image: linear-gradient(rgba(35, 35, 99, 0.226), rgba(112, 112, 50, 0.253)),
+    url("hireme.jpg");
+    
+    justify-content: center;    
+    margin-left: 20px;
+    margin-right: 20px;
+    
+    
+    
+    
+    flex-direction: column; /* Arrange children in a column */
+    
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    padding-top: 150px; /* Adjust padding-top to match reduced overall padding */
+    max-width: 1200px;
+    
+    margin: 0 auto;
+    background-color: #d7e8eb;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #d3cb9f1a;
+    margin-bottom: 0; /* Remove margin-bottom to reduce space */
+}
+
+#hire h2 {
+    text-align: center;
+    margin-bottom: 10px; /* Reduce margin-bottom for the heading */
+    color: #f0f7f0;
+    font-size: 30px;
+}
+
+/* Form container */
+.hire {
+    margin: 0 auto; /* Center horizontally */
+    max-width: 700px; /* Width of the background color */
+    background-color: hwb(197 11% 61% / 0.685); /* Semi-transparent background color */
+    padding: 20px; /* Padding for internal spacing */
+    box-shadow: 0 4px 8px rgba(34, 32, 32, 0.1); /* Shadow for visual depth */
+    border-radius: 8px; /* Rounded corners */
+    display: flex; /* Enable flexbox for internal content alignment */
+    flex-direction: column; /* Arrange children in a column */
+    align-items: center; /* Center items horizontally within the element */
+    justify-content: center; /* Center items vertically within the element */
+    text-align: center; /* Center text within the container */
+}
+
+
+
+
+/* Form styles */
+#hire-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Style for form groups */
+#hire-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Label styling */
+#hire-form label {
+    text-align: left;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #d2d9e0;
+    margin-left: 20px;
+}
+
+/* Input, select, and textarea styling */
+#hire-form input[type="text"],
+#hire-form input[type="datetime-local"],
+#hire-form textarea,
+#hire-form select {
+    padding: 10px;
+    border: 1px solid #42899e17;
+    border-radius: 4px;
+    font-size: 16px;
+    
+    box-sizing: border-box;
+    background-color: #003b57c5;
+}
+
+/* Specific adjustments for select */
+#hire-form select {
+    appearance: none;
+    border: none; /* Remove border */    
+    background-image: linear-gradient(45deg, transparent 50%, #46c514 50%), linear-gradient(135deg, #49ce2f 50%, transparent 50%);
+    background-position: calc(100% - 20px) center, calc(100% - 15px) center;
+    background-repeat: no-repeat;
+    background-size: 12px 12px, 12px 12px;
+    color: hsl(191, 11%, 81%);
+    cursor: pointer;
+}
+
+/* Textarea styling */
+
+
+/* Layout for two dropdowns per row */
+#duration-container,
+#job-title-container {
+    display: flex;
+    gap: 20px;
+}
+
+#duration-container .form-group,
+#job-title-container .form-group {
+    flex: 1;
+}
+
+/* Button styles */
+button {
+    padding: 10px 15px;
+    background-color: #771f8d;
+    color: #ffffff62;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    align-self: center;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Hidden class */
+.hidden {
+    display: none;
+}
+
+/* Animation for showing/hiding sections */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.form-group.hidden {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+.form-group:not(.hidden) {
+    opacity: 1;
+    animation: fadeIn 0.5s forwards;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Style for the Sources & Style container */
+#sources-style-container {
+    border: 1px solid #e7dede7a; /* Border around the container */
+    padding: 20px; /* Spacing inside the container */
+    border-radius: 8px; /* Rounded corners for the border */   
+    margin: 0 auto; /* Center horizontally */
+}
+
+/* Style for the row inside the container */
+#sources-style-container .row {
+    display: flex; /* Enable flexbox */
+    gap: 20px; /* Spacing between items */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+}
+
+/* Style for each item in the row */
+#sources-style-container .dropdown-container {
+    flex: 1; /* Allow items to grow and shrink */
+    min-width: 200px; /* Minimum width of each item */
+    max-width: 300px; /* Maximum width of each item */
+}
+
+
+
+
+
+
+/* Style for the service-writing-container */
+#service-writing-container {
+    padding: 20px; /* Padding around the container */
+    border: 1px solid #e7dede7a; /* Border around the container */
+    border-radius: 8px; /* Rounded corners for the container */
+    
+}
+
+/* Style for the row inside the service-writing-container */
+#service-writing-container .row {
+    display: flex; /* Align children in a row */
+    gap: 20px; /* Space between the containers */
+    flex-wrap: nowrap; /* Prevent wrapping to ensure all items stay in a row */
+    align-items: center; /* Vertically center items */
+}
+
+/* Style for each dropdown container */
+#service-writing-container .dropdown-container {
+    flex: 1; /* Allow each container to grow and shrink */
+    min-width: 200px; /* Minimum width for each container */
+    max-width: 300px; /* Maximum width for each container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Style for the academic-language container */
+#academic-level-container {
+    padding: 20px; /* Padding around the container */
+    border: 1px solid #e7dede7a; /* Border around the container */
+    border-radius: 8px; /* Rounded corners for the container */
+}
+
+/* Style for each dropdown container */
+#academic-level-container > div {
+    flex: 1; /* Allow items to grow and shrink */
+    min-width: 200px; /* Minimum width of each item */
+    max-width: 300px; /* Maximum width of each item */
+    margin: 10px; /* Space around each item */
+}
+
+/* Ensure the language input is initially hidden */
+#lan-other.hidden {
+    display: none; /* Hide the input field */
+}
+
+
+
+
+
+
+.form-group {
+    padding: 20px; /* Padding around the container */
+    border: 1px solid #e7dede7a; /* Border around the container */
+    border-radius: 8px; /* Rounded corners for the container */
+}
+
+
+
+
+
+
+
+/* Style the duration container */
+/* Style the duration container */
+#duration-container {
+    margin-bottom: 20px; /* Spacing below the container */
+    border: 1px solid #e7dede7a; /* Border around the container */
+    padding: 20px; /* Spacing inside the container */
+    border-radius: 8px; /* Rounded corners for the border */  
+}
+
+/* Style the wrapper for the deadline input and remaining time */
+.deadline-wrapper {
+    display: flex; /* Align items in a row */
+    align-items: center; /* Vertically center items */
+    justify-content: space-between; /* Space between input and remaining time */
+    
+}
+
+
+
+/* Style for the deadline input */
+#deadline {
+    flex: 1; /* Allows the input to take up available space */
+    margin-right: 20px; /* Space between the input and the remaining time */
+    max-width: 250px;
+    background-color: #2e768046;
+    color: #e2aa10;
+    border: 1px solid #e7dede7a; /* Optional: border for better visibility */
+    padding: 5px; /* Optional: padding inside the input */
+    cursor: pointer;
+}
+
+/* Style for the remaining time section */
+.remaining-time {
+    display: flex; /* Align time items vertically */
+    flex-direction: column; /* Stack time items vertically */
+    text-align: right; /* Align text to the right */
+    color: #ecf5f1;
+    width: 150px;
+}
+
+/* Style for each remaining time paragraph */
+.remaining-time p {
+    margin: 0; /* Remove default margin */
+    font-size: 16px; /* Adjust font size */
+    color: hsl(54, 87%, 42%); /* Text color */
+    background-color: #2e768048;
+    padding: 5px; /* Optional: padding for readability */
+    box-sizing: border-box;
+}
+
+
+
+
+
+/* Style for the text input field */
+input[type="text"] {
+    color: #f3ebeb; /* Change this to your desired text color */
+    font-size: 16px; /* Optional: adjust font size */
+    padding: 8px; /* Optional: add padding for better spacing */
+    border: 1px solid #e7dede7a; /* Optional: define border color */
+    border-radius: 4px; /* Optional: rounded corners for the input field */
+}
+
+/* Style for the placeholder text color */
+input[type="text"]::placeholder {
+    color: #999; /* Change this to your desired placeholder color */
+    font-style: italic; /* Optional: make placeholder text italic */
+}
+
+
+
+
+
+/* Style for the Instructions label */
+label[for="instructions"] {
+    display: block; /* Ensures the label takes up the full width */
+    margin-bottom: 8px; /* Space between the label and textarea */
+    font-size: 16px; /* Font size for the label */
+    color: #333; /* Text color for the label */
+}
+
+/* Style for the Instructions textarea */
+textarea#instructions {
+    width: 100%; /* Full width of the container */
+    min-height: 250px; /* Minimum height for the textarea */
+    padding: 10px; /* Padding inside the textarea */
+    border: 1px solid #e7dede7a; /* Border around the textarea */
+    border-radius: 4px; /* Rounded corners for the textarea */
+    resize: vertical; /* Allow vertical resizing only */
+    font-size: 16px; /* Font size for the text inside the textarea */
+    color: #d6c9c9; /* Text color inside the textarea */
+    
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+/* Optional: Add focus styles for better accessibility */
+textarea#instructions:focus {
+    border-color: #007bff; /* Highlight border color when focused */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); /* Optional: subtle shadow effect */
+    
+}
+
+
+
+
+
+
+/*Adins*/
+/* Container for add-ons */
+#addons-container {
+    
+    border: 1px solid #e7dede7a;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Style for each add-on item */
+.addon-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #e7dede7a;
+    
+}
+
+/* Style for the switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 56px;
+    height: 30px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 30px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Optional: Style for the free add-ons */
+.addon-item span {
+    color: #a0af87;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*UPLOAD FILES*/
+/* Style for the file upload container */
+#file-upload-container {
+    margin-bottom: 20px;
+    border: 1px solid #e7dede7a;
+    border-radius: 4px;
+    box-sizing: border-box;
+    
+}
+
+#file-upload {
+    width: 100%;
+    padding: 8px;
+    
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    background-color: #1a527c;
+}
+
+#file-list {
+    margin-top: 10px;
+}
+
+.file-list {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #364950;
+}
+
+.file-item {
+    display: flex;
+    justify-content: space-between; /* Space out items with space between them */
+    align-items: flex-start; /* Align items to the start (top) of the container */
+    padding: 8px;
+    border-bottom: 1px solid #7e3737; /* Add a bottom border */
+}
+
+.file-item:last-child {
+    border-bottom: none;
+}
+
+.remove-button {
+    background-color: #ff4d4d;
+    color: rgb(245, 240, 240);
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+.remove-button:hover {
+    background-color: #e60000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2566,22 +3110,30 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Ensure body takes full height of viewport */
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
 }
 
 /* Main content should take up all available space */
 main {
     flex: 1;
+    margin-bottom: 0; /* Ensure there's no extra space below main content */
 }
 
 /* Footer styles */
 footer {
-    background-color: #010405;
+    background-color: #161947;
     text-align: center;
-    padding: 10px;
+    padding: 20px; /* Adjust padding as needed */
+    height: 100px; /* Adjust height as needed */
+    margin-top: 0; /* Remove margin to ensure it directly follows the content */
     color: #fff;
     margin-top: auto; /* Push footer to the bottom */
     width: 100%;
 }
+
+
+
 
 
 
@@ -2712,6 +3264,9 @@ footer {
         width: 100%;
         
     }
+
+
+}
 
 
 
@@ -2965,7 +3520,8 @@ footer {
 
 
 
-}
+
+
 
 
 
@@ -3456,6 +4012,7 @@ footer {
 
 
 
+}
 
 
 
@@ -3465,13 +4022,7 @@ footer {
 
 
 
-
-
-
-
-
-
-    /* SMALL PHONES */
+/* SMALL PHONES */
 @media (max-width: 360px) {
     .container {
         padding: 0 10px;
@@ -3618,6 +4169,7 @@ footer {
 
     #projects {
         margin-top: -20px;
+        
     }
 
 
@@ -3626,7 +4178,7 @@ footer {
     }
 
     .project-category h3 {        
-        margin-left: -120px;
+        margin-left: -100px;
     }
     
     .project-category h3 {        
@@ -3791,25 +4343,130 @@ footer {
 
 
 
+
+
+    /* General styles for the hire section */
+    #hire {
+        padding-top: 120px; /* Reduced padding-top */
+        margin-left: 10px; /* Reduced margin-left */
+        margin-right: 10px; /* Reduced margin-right */
+        max-width: 340px; /* Adjusted max-width */
+        padding-left: 20px;
+    }
+    
+    /* Heading styles */
+    #hire h2 {
+        font-size: 24px; /* Reduced font-size */
+        margin-bottom: 5px; /* Reduced margin-bottom */
+    }
+    
+    /* Form container */
+    .hire {
+        max-width: 300px; /* Adjusted max-width */
+        padding: 15px; /* Reduced padding */
+        padding-left: 100px;
+    }
+    
+    /* Form styles */
+    #hire-form {
+        gap: 15px; /* Reduced gap between form elements */
+    }
+    
+    /* Form group styles */
+    #hire-form .form-group {
+        gap: 8px; /* Reduced gap within form groups */
+    }
+    
+    /* Label styling */
+    #hire-form label {
+        font-size: 14px; /* Reduced font-size */
+        margin-left: 10px; /* Reduced margin-left */
+    }
+    
+    /* Input, select, and textarea styling */
+    #hire-form input[type="text"],
+    #hire-form input[type="datetime-local"],
+    #hire-form textarea,
+    #hire-form select {
+        padding: 8px; /* Reduced padding */
+        font-size: 14px; /* Reduced font-size */
+        max-width: 300px;
+    }
+    
+
+
+
+    
+
+    
+    /* Specific adjustments for select */
+    #hire-form select {
+        background-size: 10px 10px, 10px 10px; /* Reduced background size */
+    }
+    
+    /* Duration and job title container styles */
+    #duration-container,
+    #job-title-container {
+        gap: 10px; /* Reduced gap */
+    }
+    
+    /* Button styles */
+    button {
+        padding: 8px 12px; /* Reduced padding */
+        font-size: 14px; /* Reduced font-size */
+    }
+    
+    /* Textarea styling */
+    textarea#instructions {
+        min-height: 200px; /* Reduced min-height */
+        font-size: 14px; /* Reduced font-size */
+    }
+    
+    /* File upload container */
+    #file-upload-container {
+        margin-bottom: 10px; /* Reduced margin-bottom */
+    }
+    
+    /* File upload input */
+    #file-upload {
+        padding: 6px; /* Reduced padding */
+    }
+    
+    /* File list and file item styling */
+    .file-list {
+        padding: 8px; /* Reduced padding */
+    }
+    
+    .file-item {
+        padding: 6px; /* Reduced padding */
+        font-size: 14px; /* Reduced font-size */
+    }
+    
+    .remove-button {
+        font-size: 12px; /* Increased font-size */
+        padding: 4px 6px; /* Reduced padding */
+    }
+
+
 }
 
 
 
 
-/* Styles for sections inside .container */
+
+
+
+
+
+
+
+
 .container section {
     padding: 20px; /* Example padding for sections */
     background-color: #fff; /* Example background color for sections */
-    margin-bottom: 20px; /* Example margin between sections */
+    margin-bottom: 0; /* Example margin between sections */
     border-radius: 5px; /* Example border radius for sections */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Example box shadow */
 }
 
 
-/* Responsive layout adjustments */
-@media (max-width: 1200px) {
-    .skill-item {
-        flex: 1 1 calc(25% - 20px);
-        max-width: calc(25% - 20px);
-    }
-}

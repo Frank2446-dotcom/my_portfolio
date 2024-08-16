@@ -293,3 +293,201 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+//HIRE ME SPECIFY TEXT AREA
+document.addEventListener('DOMContentLoaded', () => {
+    const clientTypeSelect = document.getElementById('client-type');
+    const clientOtherInput = document.getElementById('client-other');
+    const jobTypeSelect = document.getElementById('job-type');
+    const jobTypeOtherInput = document.getElementById('job-type-other');
+    const jobTitleSelect = document.getElementById('job-title');
+    const jobTitleOtherInput = document.getElementById('job-title-other');
+    const serviceSelect = document.getElementById('service');
+    const serviceOtherInput = document.getElementById('service-other');
+    const writingTypeSelect = document.getElementById('writing-type');
+    const writingTypeOtherInput = document.getElementById('writing-type-other');
+    const numSourcesSelect = document.getElementById('num-sources');
+    const numSourcesOtherInput = document.getElementById('num-sources-type');
+    const citationStyleSelect = document.getElementById('citation-style');
+    const citationStyleOtherInput = document.getElementById('citation-style-other');
+    const languageSelect = document.getElementById('language');
+    const languageOtherInput = document.getElementById('lan-other');
+
+     // Get elements by ID
+    const techTypeSelect = document.getElementById('tech-type');
+    const techTypeOtherInput = document.getElementById('tech-type-other');
+    const nonTechTypeSelect = document.getElementById('non-tech-type');
+    const nonTechTypeOtherInput = document.getElementById('non-tech-other');
+    
+
+    // Helper function to toggle visibility
+    function toggleVisibility(select, input, value) {
+        input.classList.toggle('hidden', select.value !== value);
+    }
+
+    // Event listeners for dropdowns
+    clientTypeSelect.addEventListener('change', () => {
+        toggleVisibility(clientTypeSelect, clientOtherInput, 'others');
+    });
+    
+    jobTypeSelect.addEventListener('change', () => {
+        toggleVisibility(jobTypeSelect, jobTypeOtherInput, 'others');
+    });
+
+    jobTitleSelect.addEventListener('change', () => {
+        toggleVisibility(jobTitleSelect, jobTitleOtherInput, 'others');
+    });
+
+    
+    // Add event listeners
+    techTypeSelect.addEventListener('change', () => {
+        toggleVisibility(techTypeSelect, techTypeOtherInput, 'other-tech');
+    });
+    
+    nonTechTypeSelect.addEventListener('change', () => {
+        toggleVisibility(nonTechTypeSelect, nonTechTypeOtherInput, 'other-non-tech');
+    });
+
+    serviceSelect.addEventListener('change', () => {
+        toggleVisibility(serviceSelect, serviceOtherInput, 'others');
+    });
+
+    writingTypeSelect.addEventListener('change', () => {
+        toggleVisibility(writingTypeSelect, writingTypeOtherInput, 'others');
+    });
+
+    numSourcesSelect.addEventListener('change', () => {
+        toggleVisibility(numSourcesSelect, numSourcesOtherInput, 'type');
+    });
+
+    citationStyleSelect.addEventListener('change', () => {
+        toggleVisibility(citationStyleSelect, citationStyleOtherInput, 'other');
+    });
+
+    languageSelect.addEventListener('change', () => {
+        toggleVisibility(languageSelect, languageOtherInput, 'others');
+    });
+});
+
+
+
+//HIRE ME DEADLINE
+document.addEventListener('DOMContentLoaded', () => {
+    const deadlineInput = document.getElementById('deadline');
+    const remainingDaysEl = document.getElementById('remaining-days');
+    const remainingHoursEl = document.getElementById('remaining-hours');
+    const remainingMinutesEl = document.getElementById('remaining-minutes');
+    const remainingSecondsEl = document.getElementById('remaining-seconds');
+
+    function updateRemainingTime() {
+        const deadlineValue = new Date(deadlineInput.value);
+        const now = new Date();
+        
+        if (isNaN(deadlineValue.getTime())) {
+            remainingDaysEl.textContent = 'Days: N/A';
+            remainingHoursEl.textContent = 'Hours: N/A';
+            remainingMinutesEl.textContent = 'Minutes: N/A';
+            remainingSecondsEl.textContent = 'Seconds: N/A';
+            return;
+        }
+        
+        const timeDiff = deadlineValue - now;
+
+        if (timeDiff <= 0) {
+            remainingDaysEl.textContent = 'Days: 0';
+            remainingHoursEl.textContent = 'Hours: 0';
+            remainingMinutesEl.textContent = 'Minutes: 0';
+            remainingSecondsEl.textContent = 'Seconds: 0';
+            return;
+        }
+        
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+        
+        remainingDaysEl.textContent = `Days: ${days}`;
+        remainingHoursEl.textContent = `Hours: ${hours}`;
+        remainingMinutesEl.textContent = `Minutes: ${minutes}`;
+        remainingSecondsEl.textContent = `Seconds: ${seconds}`;
+    }
+    
+    // Update remaining time when the deadline input changes
+    deadlineInput.addEventListener('change', updateRemainingTime);
+    
+    // Initial call to set up remaining time display
+    updateRemainingTime();
+    
+    // Update the remaining time every second
+    setInterval(updateRemainingTime, 1000);
+});
+
+
+//SPECIFY REMAINS SELECTED
+
+
+
+//sources text area
+function toggleOtherStyle() {
+    const citationStyleSelect = document.getElementById('citation-style');
+    const otherStyleContainer = document.getElementById('other-style-container');
+
+    if (citationStyleSelect.value === 'other') {
+        otherStyleContainer.classList.remove('hidden');
+    } else {
+        otherStyleContainer.classList.add('hidden');
+    }
+}
+
+
+//Hire me upload files
+
+let fileArray = []; // Array to keep track of selected files
+
+function displayFiles() {
+    const fileInput = document.getElementById('file-upload');
+    const fileList = document.getElementById('file-list');
+    fileList.innerHTML = ''; // Clear previous file list
+
+    const files = fileInput.files;
+    fileArray = Array.from(files); // Update fileArray with selected files
+
+    if (fileArray.length > 0) {
+        fileArray.forEach((file, index) => {
+            const fileItem = document.createElement('div');
+            fileItem.classList.add('file-item');
+
+            const fileName = document.createElement('span');
+            fileName.textContent = file.name;
+
+            const removeButton = document.createElement('button');
+            removeButton.textContent = 'Remove';
+            removeButton.classList.add('remove-button');
+            removeButton.onclick = () => removeFile(index);
+
+            fileItem.appendChild(fileName);
+            fileItem.appendChild(removeButton);
+            fileList.appendChild(fileItem);
+        });
+    }
+}
+
+function removeFile(index) {
+    fileArray.splice(index, 1); // Remove file from array
+    const dataTransfer = new DataTransfer();
+    fileArray.forEach(file => dataTransfer.items.add(file));
+    document.getElementById('file-upload').files = dataTransfer.files;
+    displayFiles(); // Refresh file list display
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
