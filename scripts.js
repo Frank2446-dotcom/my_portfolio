@@ -293,6 +293,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+//CONTACT FORM - LEAVE A MESSAGE
+// Contact Form Submission
+const form = document.querySelector("#contactForm");
+const statusTxt = form.querySelector(".button-area span");
+
+form.onsubmit = (e) => {
+    e.preventDefault(); // Prevent form from submitting the traditional way
+    statusTxt.style.color = "#0D6EFD";
+    statusTxt.style.display = "block";
+
+    // Create a new AJAX request
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "message.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    
+    xhr.onload = () => {
+        if (xhr.status === 200) {
+            let response = xhr.responseText;
+            if (response.includes("Sorry") || response.includes("Enter a valid")) {
+                statusTxt.style.color = "red";
+            } else {
+                form.reset();
+                setTimeout(() => statusTxt.style.display = "none", 3000);
+            }
+            statusTxt.innerText = response;
+        }
+    };
+
+    // Prepare form data
+    let formData = new FormData(form);
+    let encodedData = new URLSearchParams(formData).toString(); // Encode data
+
+    // Send the form data
+    xhr.send(encodedData);
+};
+
+
+
+
+
+
+
 //HIRE ME SPECIFY TEXT AREA
 document.addEventListener('DOMContentLoaded', () => {
     const clientTypeSelect = document.getElementById('client-type');
@@ -484,10 +527,85 @@ function removeFile(index) {
 
 
 
+//REVIEW SECTION
+document.addEventListener("DOMContentLoaded", () => {
+    const loadMoreBtn = document.querySelector(".load-more-btn");
+    const filters = document.querySelectorAll(".filter-btn");
+    const reviewCategories = document.querySelectorAll(".review-category");
+    let visibleReviews = {}; // Track how many reviews are visible per category
 
+    // Initialize the visible reviews count for all categories
+    reviewCategories.forEach(category => {
+    const reviews = category.querySelectorAll(".review");
+    reviews.forEach((review, index) => {
+        review.classList.add("hidden"); // Initially hide all
+    });
+    visibleReviews[category.classList[1]] = 0; // Start with 0 visible
+    });
 
+    // Show 5 reviews for the "All" category by default
+    showReviewsInBatches('all', 5);
 
+    // Filter reviews based on category button click
+    filters.forEach(filter => {
+    filter.addEventListener("click", (e) => {
+        const category = e.target.dataset.category;
+        handleFilter(category);
+    });
+    });
 
+    function handleFilter(category) {
+    reviewCategories.forEach(cat => {
+        if (category === "all") {
+        cat.classList.remove("hidden"); // Show all categories
+        showReviewsInBatches(category, 5); // Show first 5 reviews
+        } else if (cat.classList.contains(category)) {
+        cat.classList.remove("hidden"); // Show the selected category
+        showReviewsInBatches(category, 5); // Show first 5 reviews for the category
+        } else {
+        cat.classList.add("hidden"); // Hide other categories
+        }
+    });
+    }
 
+    // Show reviews in batches of 5 for the selected category
+    function showReviewsInBatches(category, count) {
+    if (category === 'all') {
+        reviewCategories.forEach(category => {
+        const reviews = category.querySelectorAll(".review");
+        reviews.forEach((review, index) => {
+            if (index < count) {
+            review.classList.remove("hidden"); // Show review
+            } else {
+            review.classList.add("hidden"); // Hide review
+            }
+        });
+        });
+    } else {
+        const selectedCategory = document.querySelector(`.review-category.${category}`);
+        const reviews = selectedCategory.querySelectorAll(".review");
+        reviews.forEach((review, index) => {
+        if (index < count) {
+            review.classList.remove("hidden"); // Show review
+        } else {
+            review.classList.add("hidden"); // Hide review
+        }
+        });
+    }
+    }
 
+    // Load more reviews when clicking the "Load More" button
+    loadMoreBtn.addEventListener("click", () => {
+    reviewCategories.forEach(category => {
+        if (!category.classList.contains("hidden")) {
+        const reviews = category.querySelectorAll(".review");
+        const currentVisible = visibleReviews[category.classList[1]] || 0;
 
+        // Show 5 more reviews or all remaining reviews
+        const newVisible = Math.min(currentVisible + 5, reviews.length);
+        visibleReviews[category.classList[1]] = newVisible;
+        showReviewsInBatches(category.classList[1], newVisible);
+        }
+    });
+    });
+});

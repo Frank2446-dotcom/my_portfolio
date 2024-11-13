@@ -4,8 +4,7 @@
 
 
 body {
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
-    font-family: poppin;
+    font-family: 'Segoe UI', sans-serif;    
     padding-top: 130px; /* Adjust as needed to account for the combined height of title and navigation */
     color: rgb(236, 220, 230); /* Text color */
     background-image: url('https://media.licdn.com/dms/image/D4D12AQGmVEW9PRcsGw/article-cover_image-shrink_720_1280/0/1693874124818?e=2147483647&v=beta&t=pmvy7TiXaLcsMA0lUDWzxGkpMaooDI3wdMBxIGFHNCM');
@@ -39,6 +38,7 @@ header {
     transition: background-color 0.3s ease; /* Smooth transition for background color */
     animation: moveGradient 30s infinite alternate; /* Animation for moving gradient */
     background-size: 200% 200%; /* Ensure the gradient covers the area when it moves */
+    
 }
 
 @keyframes moveGradient {
@@ -58,6 +58,7 @@ header {
     justify-content: left;
     align-items: center;
     margin: 0;
+    font-weight: 400;
 }
 
 .title-block img {
@@ -192,32 +193,6 @@ header {
 
 
 
-/* Hide navigation bar when hamburger menu is opened */
-.navigation-block.hidden {
-    display: none;
-}
-
-
-
-
-
-
-
-
-
-
-/* Navigation block */
-.navigation-block {
-    display: none; /* Hidden by default */
-}
-
-.navigation-block.open {
-    display: block; /* Display navigation when open */
-}
-
-
-
-
 
 
 /* Navigation Bar */
@@ -264,6 +239,12 @@ header {
 }
 
 
+
+
+
+
+
+
 /* Navigation Menu */
 .navigation-block ul {
     list-style-type: none;
@@ -278,25 +259,64 @@ header {
 .navigation-block ul li {
     display: inline-flex; /* Ensure list items are inline and flex */
     margin-right: 20px;
-    transition: margin-right 0.3s ease; /* Smooth transition for margin changes */
+    position: relative; /* Required for pseudo-elements */
 }
 
-/* Smooth scrolling for navigation links */
+/* Link styles */
 .navigation-block ul li a {
     text-decoration: none;
-    color: #fdf7f7;
+    color: #fdf7f7; /* Default text color */
     font-size: 1vw; /* Use vw units for responsive font size */
-    transition: color 0.3s ease, margin-top 0.3s ease; /* Add transition for smooth color change and margin change */
+    font-weight: 300; /* Optional: increase font weight */
+    padding: 10px 20px; /* Add padding for better click area */
+    transition: color 0.3s ease; /* Smooth transition for color change */
 }
 
-.navigation-block ul li:hover {
-    margin-right: 25px; /* Increase margin on hover */
+/* Pseudo-elements for hover effect */
+.navigation-block ul li a:before,
+.navigation-block ul li a:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid #fdf7f7; /* Top border color */
+    border-bottom: 2px solid #fdf7f7; /* Bottom border color */
+    transform: scaleY(2);
+    opacity: 0;
+    transition: .3s;
+    z-index: 0; /* Make sure it appears behind the text */
 }
 
+.navigation-block ul li a:after {
+    background-color: #1b1919; /* Background color for the hover effect */
+    top: 2px; /* Adjust for the desired visual effect */
+    transform: scale(0);
+    opacity: 0;
+    z-index: -1; /* Make sure it appears behind the text */
+}
+
+/* Hover effects */
 .navigation-block ul li a:hover {
-    color: #ecde59; /* Change color on hover */
-    margin-top: -5px; /* Adjust as needed */
+    color: #ecde59; /* Change text color on hover */
 }
+
+.navigation-block ul li a:hover:before {
+    transform: scaleY(1);
+    opacity: 1; /* Show the border on hover */
+}
+
+.navigation-block ul li a:hover:after {
+    transform: scaleY(1);
+    opacity: 1; /* Show background color on hover */
+}
+
+/* Optional: Add spacing for the last item */
+.navigation-block ul li:last-child {
+    margin-right: 0; /* No margin on the last item */
+}
+
 
 
 
@@ -324,6 +344,9 @@ section:not(.active) {
 }
 
 
+
+
+
 section {
     padding: 100px 0;
     text-align: center;
@@ -333,8 +356,27 @@ section {
 
 h2 {
     color: #f8ebeb;
-    font-size: 30px;
+    font-size: 25px;
     margin: 0 0 20px 0;
+    font-weight: 400;
+}
+
+
+
+
+
+
+
+
+
+/* Bio container to manage layout */
+.bio-container {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 
@@ -343,16 +385,45 @@ h2 {
 
 /* Bio section styles */
 #bio {
-    margin-top: 100px; /* Adjust this value based on the height of your navigation bar */
+    margin-top: 70px; /* Adjust this value based on the height of your navigation bar */
     
-    padding-top: 70px;
-    background-color: #164e64;
+    padding-top: 100px;
+    background-image: url('https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/img/demo-1-bg.jpg');
     display: none; /* Hide by default */
     transition: all 0.5s ease-in-out; 
     visibility: visible;
     opacity: 1;
     transition: opacity 0.5s ease, visibility 0.5s ease; /* Smooth transition */
     margin-bottom: 0;
+    
+}
+
+
+
+.hello-title {
+    display: block;
+    font-size: 1.2rem; /* Adjust font size as needed */
+    text-align: center; /* Center-align text */
+    color: #d12727; /* Customize the color */
+    font-weight: bold; /* Make the title bold */
+    padding: 10px 0; /* Add padding for spacing around the title */
+    border-bottom: 2px solid #ccc; /* Optional: underline style */
+
+} 
+
+/* Center and style the about-title */
+.about-title {
+    display: block;
+    font-size: 1.2rem; /* Adjust font size as needed */
+    text-align: center; /* Center-align text */
+    margin: 0 0; /* Center the title with space above and below */
+    color: #d12727; /* Customize the color */
+    font-weight: bold; /* Make the title bold */
+    padding: 10px 0; /* Add padding for spacing around the title */
+    border-bottom: 2px solid #ccc; /* Optional: underline style */
+    margin-bottom: 0;
+    margin-top: 20px;
+    padding-top: 0;
     
 }
 
@@ -364,7 +435,7 @@ h2 {
 
 /* Base style for h3 */
 #bio .content h3 {
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: bold;
     text-align: center;
     overflow: hidden;
@@ -373,55 +444,8 @@ h2 {
     position: relative;
     display: inline-block;
     color: transparent; /* Hide original text */
-}
-
-/* Pseudo-element for animation */
-#bio .content h3::before {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    color: black;
-    width: 100%;
     
 }
-
-/* Keyframes for text reveal animation */
-@keyframes revealText {
-    from {
-        width: 0;
-    }
-    to {
-        width: 105%;
-    }
-}
-
-/* Keyframes for text color gradient animation */
-@keyframes gradientColors {
-    0% { color: #e74c3c; }
-    20% { color: #f39c12; }
-    40% { color: #2ecc71; }
-    60% { color: #3498db; }
-    80% { color: #9b59b6; }
-    100% { color: #e74c3c; }
-}
-
-/* Keyframes for blinking effect */
-@keyframes blinkText {
-    0%, 100% { opacity: 1; }
-    25%, 75% { opacity: 0; }
-}
-
-/* Apply gradient color animation and blinking */
-#bio .content h3::before {
-    animation: revealText 5s steps(30, end) infinite, gradientColors 5s infinite;
-}
-
-
-
-
 
 
 
@@ -436,13 +460,236 @@ h2 {
     font-size: 20px;
     position: relative;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    line-height: 1.6; /* Adjust line height for readability */
-    min-width: 300px; /* Ensure a minimum width */
-    max-width: 800px; /* Ensure a maximum width */
+    line-height: 1.2; /* Adjust line height for readability */
     flex: 1 1 60%; /* Allow text-box to take up to 60% of the container */
     
-    background-image: url('https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/img/demo-1-bg.jpg');
 }
+
+
+
+
+
+
+.service-description {
+    margin: 20px auto; /* Center horizontally */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgb(243, 240, 240);
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.2;
+    font-size: 1rem;
+    max-width: 1000px; /* Control the width */
+    text-align: justify; /* Optional: Justify text for a cleaner layout */
+}
+
+
+.service-description h3 {
+    margin-top: 5px; /* Increased space above h3 */
+    margin-bottom: 5px; /* Increased space below h3 */
+    color: #d6e410;
+    font-size: 1.2em;
+    font-weight: lighter;
+    
+}
+
+.service-description p {
+    margin-bottom: 20px;
+    color: #c7bdbd;
+    font-size: 1em;
+    margin-top: 5px; /* Increased space above h3 */
+    margin-bottom: 5px; /* Increased space below h3 */
+
+    
+    
+}
+
+
+
+/* General styles for all service items */
+.service-item {
+    margin: 0; /* Set to 0 to eliminate spacing between service items */
+    padding: 10px; /* Reduced padding for a tighter fit */
+    border-bottom: 1px solid #107de4; /* Bottom line as separator */
+    max-width: 600px; /* Maximum width for each service item */
+}
+
+/* Styles for h3 elements */
+.service-item h3 {
+    margin-bottom: 1px; /* Space between h3 and border */
+    color: #d6e410; /* Title color */
+    font-size: 1.1em; /* Font size for h3 */
+    font-weight: lighter; /* Font weight for h3 */
+}
+
+/* Styles for p elements (optional adjustment) */
+.service-item p {
+    margin-top: 5px; /* Optional: Adjust spacing above the paragraph */
+    margin-bottom: 0; /* Eliminate bottom margin for tighter fit */
+    color: #c7bdbd; /* Text color for paragraphs */
+    font-size: 0.9em; /* Font size for paragraphs */
+}
+
+
+
+
+/* Bio-Profile Picture*/
+/* Bio-Profile Picture */ 
+.profile-picture {
+    position: relative;    
+    margin-left: 50px; /* Adjust as needed */
+    flex: 0 1 30%; /* Allow profile picture to take up to 30% of the container */
+    max-width: 200px; /* Limit the maximum width */
+    
+    
+    overflow: hidden; /* Hide overflow */
+    border-radius: 15px; /* Slightly rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+    padding: 5px; /* Optional padding for added spacing */
+    background-color: #f7f3f36b; /* Optional background color for better contrast */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.profile-picture img {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 0; /* Centering not needed since width is 100% */
+    transition: transform 0.3s ease; /* Smooth transition for image scaling */
+}
+
+/* Hover effects */
+.profile-picture:hover {
+    transform: scale(1.05); /* Scale the profile picture slightly */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+}
+
+.profile-picture:hover img {
+    transform: scale(1.1); /* Scale the image slightly more */
+}
+
+
+
+
+/* General content styling */
+.content {
+    columns: 3; /* Set up 3 columns */
+    column-gap: 20px; /* Space between columns */
+    margin: 0 auto; /* Center the content on the page */
+    padding: 20px;
+    border: 1px solid #107de4; /* Blue border around content */
+    border-radius: 10px; /* Rounded corners */
+    max-width: 1000px; /* Limit width to avoid overflow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* h3 Styling */
+.content h3 {
+    column-span: all; /* Make the heading span across all columns */
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Styling for paragraphs */
+.content p {
+    text-align: justify;
+    line-height: 1.5;
+    font-size: 1rem;
+    margin: 5px 0; /* Small top and bottom spacing between paragraphs */
+    break-inside: avoid; /* Prevents paragraphs from breaking across columns */
+
+    margin-top: 20px;
+    margin-bottom: 20px; /* Adds spacing below each paragraph */
+    font-size: 1rem; /* You can adjust the font size as needed */
+    color: #a8a0a0; /* Text color */
+}
+
+
+
+
+
+
+
+
+
+/* Pseudo-element for animation */
+#bio .content h3::before {
+    
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    color: black;
+    font-weight: bold;
+    clip-path: inset(0 100% 0 0); /* Initially hide the text */
+    transition: clip-path 2s ease-out; /* Smooth transition for reveal */
+}
+
+/* Keyframes for text reveal animation */
+@keyframes revealText {
+    0% {
+        clip-path: inset(0 100% 0 0); /* Hide the text at the start */
+    }
+    100% {
+        clip-path: inset(0 0 0 0); /* Show the full text */
+    }
+}
+
+/* Keyframes for text color gradient animation */
+@keyframes gradientColors {
+    0% { color: #e74c3c; }
+    20% { color: #f39c12; }
+    40% { color: #2ecc71; }
+    60% { color: #3498db; }
+    80% { color: #9b59b6; }
+    100% { color: #e74c3c; }
+}
+
+/* Apply gradient color animation and make the text reveal loop */
+#bio .content h3::before {
+    animation: revealText 5s ease-out infinite, gradientColors 5s infinite alternate;
+    animation-fill-mode: forwards; /* Ensures the animation stays at the end of each cycle */
+}
+
+/* Ensure smooth animation for text reveal */
+#bio .content h3 {
+    position: relative;
+    display: inline-block;
+    font-size: 1.5rem; /* Adjust font size as needed */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -460,10 +707,6 @@ h2 {
     
 }
 
-.read-more {
-    position: relative;
-    z-index: 1; /* Ensure button is in front of stars */
-}
 
 
 .star {
@@ -491,287 +734,76 @@ h2 {
 
 /* Add specific properties for each star */
 .star:nth-child(1) {
-    --star-tail-length: 50em;
+    --star-tail-length: 10em;
     --top-offset: 10vh;
-    --fall-duration: 7s;
-    --fall-delay: 0.5s;
+    --fall-duration: 17s;
+    --fall-delay: 0.1s;
 }
 
 .star:nth-child(2) {
-    --star-tail-length: 60em;
+    --star-tail-length: 10em;
     --top-offset: 30vh;
-    --fall-duration: 8s;
-    --fall-delay: 0.5s;
+    --fall-duration: 18s;
+    --fall-delay: 0.1s;
 }
 
 .star:nth-child(3) {
-    --star-tail-length: 50em;
+    --star-tail-length: 10em;
     --top-offset: 50vh;
     --fall-duration: 19s;
     --fall-delay: 0.3s;
 }
 
 .star:nth-child(4) {
-    --star-tail-length: 70em;
+    --star-tail-length: 10em;
     --top-offset: 70vh;
     --fall-duration: 10s;
     --fall-delay: 0.3s;
 }
 
 .star:nth-child(5) {
-    --star-tail-length: 75em;
+    --star-tail-length: 10em;
     --top-offset: 20vh;
-    --fall-duration: 6s;
-    --fall-delay: 0.1s;
+    --fall-duration: 16s;
+    --fall-delay: 0.2s;
 }
 
 .star:nth-child(6) {
-    --star-tail-length: 60em;
+    --star-tail-length: 10em;
     --top-offset: 40vh;
     --fall-duration: 11s;
     --fall-delay: 0.3s;
 }
 
 .star:nth-child(7) {
-    --star-tail-length: 65em;
+    --star-tail-length: 10em;
     --top-offset: 60vh;
-    --fall-duration: 7s;
-    --fall-delay: 0.2s;
-}
-
-.star:nth-child(8) {
-    --star-tail-length: 50em;
-    --top-offset: 80vh;
-    --fall-duration: 8s;
+    --fall-duration: 17s;
     --fall-delay: 0.4s;
 }
 
+.star:nth-child(8) {
+    --star-tail-length: 10em;
+    --top-offset: 80vh;
+    --fall-duration: 18s;
+    --fall-delay: 0.5s;
+}
+
 .star:nth-child(9) {
-    --star-tail-length: 55em;
+    --star-tail-length: 10em;
     --top-offset: 25vh;
-    --fall-duration: 9s;
+    --fall-duration: 19s;
     --fall-delay: 3s;
 }
 
 .star:nth-child(10) {
-    --star-tail-length: 70em;
+    --star-tail-length: 10em;
     --top-offset: 55vh;
-    --fall-duration: 6s;
-    --fall-delay: 0.2s;
+    --fall-duration: 16s;
+    --fall-delay: 5s;
 }
 
 /* Continue adding more rules as needed */
-
-.star:nth-child(11) {
-    --star-tail-length: 30em;
-    --top-offset: 15vh;
-    --fall-duration: 5s;
-    --fall-delay: 0.5s;
-}
-
-.star:nth-child(12) {
-    --star-tail-length: 35em;
-    --top-offset: 25vh;
-    --fall-duration: 26s;
-    --fall-delay: 1s;
-}
-
-.star:nth-child(13) {
-    --star-tail-length: 25em;
-    --top-offset: 35vh;
-    --fall-duration: 4s;
-    --fall-delay: 1.5s;
-}
-
-.star:nth-child(14) {
-    --star-tail-length: 40em;
-    --top-offset: 45vh;
-    --fall-duration: 5s;
-    --fall-delay: 0.2s;
-}
-
-.star:nth-child(15) {
-    --star-tail-length: 32em;
-    --top-offset: 55vh;
-    --fall-duration: 4.5s;
-    --fall-delay: 0.5s;
-}
-
-.star:nth-child(16) {
-    --star-tail-length: 37em;
-    --top-offset: 65vh;
-    --fall-duration: 6s;
-    --fall-delay: 0.3s;
-}
-
-.star:nth-child(17) {
-    --star-tail-length: 30em;
-    --top-offset: 75vh;
-    --fall-duration: 5s;
-    --fall-delay: 0.3s;
-}
-
-.star:nth-child(18) {
-    --star-tail-length: 35em;
-    --top-offset: 85vh;
-    --fall-duration: 4s;
-    --fall-delay: 0.4s;
-}
-
-.star:nth-child(19) {
-    --star-tail-length: 28em;
-    --top-offset: 95vh;
-    --fall-duration: 6s;
-    --fall-delay: 0.5s;
-}
-
-.star:nth-child(20) {
-    --star-tail-length: 33em;
-    --top-offset: 105vh;
-    --fall-duration: 5s;
-    --fall-delay: 0.5s;
-}
-
-.star:nth-child(21) {
-    --star-tail-length: 270em;
-    --top-offset: 115vh;
-    --fall-duration: 4s;
-    --fall-delay: 0.6s;
-}
-
-.star:nth-child(22) {
-    --star-tail-length: 290em;
-    --top-offset: 125vh;
-    --fall-duration: 5s;
-    --fall-delay: 0.8s;
-}
-
-.star:nth-child(23) {
-    --star-tail-length: 310em;
-    --top-offset: 135vh;
-    --fall-duration: 4.5s;
-    --fall-delay: 1s;
-}
-
-.star:nth-child(24) {
-    --star-tail-length: 280em;
-    --top-offset: 145vh;
-    --fall-duration: 6s;
-    --fall-delay: 1.2s;
-}
-
-.star:nth-child(25) {
-    --star-tail-length: 320em;
-    --top-offset: 155vh;
-    --fall-duration: 4s;
-    --fall-delay: 1.4s;
-}
-
-.star:nth-child(26) {
-    --star-tail-length: 290em;
-    --top-offset: 165vh;
-    --fall-duration: 5s;
-    --fall-delay: 1.6s;
-}
-
-.star:nth-child(27) {
-    --star-tail-length: 310em;
-    --top-offset: 175vh;
-    --fall-duration: 4.5s;
-    --fall-delay: 1.8s;
-}
-
-.star:nth-child(28) {
-    --star-tail-length: 270em;
-    --top-offset: 185vh;
-    --fall-duration: 6s;
-    --fall-delay: 2s;
-}
-
-.star:nth-child(29) {
-    --star-tail-length: 330em;
-    --top-offset: 195vh;
-    --fall-duration: 5s;
-    --fall-delay: 2.2s;
-}
-
-.star:nth-child(30) {
-    --star-tail-length: 300em;
-    --top-offset: 205vh;
-    --fall-duration: 4s;
-    --fall-delay: 2.4s;
-}
-
-.star:nth-child(31) {
-    --star-tail-length: 280em;
-    --top-offset: 215vh;
-    --fall-duration: 5s;
-    --fall-delay: 0.6s;
-}
-
-.star:nth-child(32) {
-    --star-tail-length: 310em;
-    --top-offset: 225vh;
-    --fall-duration: 4.5s;
-    --fall-delay: 0.8s;
-}
-
-.star:nth-child(33) {
-    --star-tail-length: 290em;
-    --top-offset: 235vh;
-    --fall-duration: 6s;
-    --fall-delay: 0.3s;
-}
-
-.star:nth-child(34) {
-    --star-tail-length: 320em;
-    --top-offset: 245vh;
-    --fall-duration: 5s;
-    --fall-delay: 0.2s;
-}
-
-.star:nth-child(35) {
-    --star-tail-length: 280em;
-    --top-offset: 255vh;
-    --fall-duration: 4s;
-    --fall-delay: 0.4s;
-}
-
-.star:nth-child(36) {
-    --star-tail-length: 330em;
-    --top-offset: 265vh;
-    --fall-duration: 5s;
-    --fall-delay: 0.6s;
-}
-
-.star:nth-child(37) {
-    --star-tail-length: 290em;
-    --top-offset: 275vh;
-    --fall-duration: 6s;
-    --fall-delay: 0.8s;
-}
-
-.star:nth-child(38) {
-    --star-tail-length: 310em;
-    --top-offset: 285vh;
-    --fall-duration: 5s;
-    --fall-delay: 0.7s;
-}
-
-.star:nth-child(39) {
-    --star-tail-length: 270em;
-    --top-offset: 295vh;
-    --fall-duration: 4.5s;
-    --fall-delay: 0.2s;
-}
-
-.star:nth-child(40) {
-    --star-tail-length: 320em;
-    --top-offset: 305vh;
-    --fall-duration: 6s;
-    --fall-delay: 0.4s;
-}
-
 
 /* Add more .star:nth-child() rules for additional stars with different properties */
 
@@ -816,97 +848,7 @@ h2 {
 
 
 
-/* Bio container to manage layout */
-.bio-container {
-    display: flex;
-    flex-wrap: nowrap; /* Prevent wrapping */
-    justify-content: space-between;
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: 0 auto;
-}
 
-
-/* Bio-Profile Picture*/
-.profile-picture {
-    position: relative;
-    float: right;
-    margin-left: 20px; /* Adjust as needed */
-
-    flex: 0 1 30%; /* Allow profile picture to take up to 30% of the container */
-    max-width: 250px; /* Limit the maximum width */
-    margin-left: 20px; /* Adjust as needed */
-}
-
-.profile-picture img {
-    width: 250px;
-    
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 50%;
-    display: block;
-    margin: 0 auto 20px;
-}
-
-
-
-/*ABOUT ME*/
-.about-title {
-    display: inline-block; /* Ensures the background covers the entire text */
-    padding: 5px 10px;
-    border-radius: 10px;
-}
-
-.about-title h2,
-.about-title span {
-    margin: 0; /* Reset margin to remove any default spacing */
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0; /* Start with opacity 0 */
-    }
-    to {
-        opacity: 1; /* Fade in to full opacity */
-    }
-}
-
-.read-more {
-    display: inline-block;
-    text-align: right;
-    text-decoration: none;
-    color: rgb(0, 217, 255);
-    margin-top: 10px;
-}
-
-.read-more:hover {
-    color: rgb(207, 193, 66);
-    
-}
-
-/* Read more on about me, hidden content by default */
-.hidden-content {
-    display: none;
-    overflow: hidden; /* Hide any overflowing content */
-    transition: max-height 0.3s ease; /* Add smooth transition */
-}
-
-.hidden-content:before {
-    content: ''; /* Add pseudo-element for gradient overlay */
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 100%); /* Gradient overlay */
-    filter: blur(10px); /* Apply blur effect */
-    transition: opacity 0.3s ease; /* Add smooth transition for opacity */
-    pointer-events: none; /* Allow clicks to pass through the overlay */
-    opacity: 0; /* Initially hide the overlay */
-}
-
-.show-content .hidden-content:before {
-    opacity: 1; /* Show the overlay when content is visible */
-}
 
 
 
@@ -1164,6 +1106,7 @@ animation-play-state: paused; /* Pauses animation on hover */
     font-size: 25px;
     color: #fff;
     animation: fadeIn 1s ease-in-out;
+    font-weight: 400;
 }
 
 .professions-grid {
@@ -1240,27 +1183,32 @@ animation-play-state: paused; /* Pauses animation on hover */
 #skills {
     padding: 2rem;
     margin-top: 130px;
-    background-color: #e3eef1; /* Light background for the whole section */
+    
     margin-bottom: 0;
     margin-top: 100px;
-    padding-top: 150px;
+    padding-top: 170px;
     max-width: 1200px;
     margin: 0 auto;
+
+    
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1s ease-out;
+    background: linear-gradient(135deg, #121113, #080614); /* Dark background */
 }
 
 .skill-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    gap: 10px;
+    justify-content: left;
 }
 
 
 .skills-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    gap: 10px;
+    justify-content: left;
 }
 
 /* Skills Section Headings */
@@ -1268,19 +1216,21 @@ animation-play-state: paused; /* Pauses animation on hover */
 /* Style for h2 headings in the skills section */
 #skills h2 {
     font-size: 25px; /* Font size for h2 headings */
-    color: #1a0f0f; /* Text color for h2 headings */
+    color: #f8f1f1; /* Text color for h2 headings */
     margin-bottom: 1rem; /* Space below the h2 heading */
     text-align: center; /* Center text */
     animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+    font-weight: 400;
 }
 
 /* Style for h3 headings in the skills section */
 #skills h3 {
     font-size: 20px; /* Font size for h3 headings */
-    color: #0e0d0d; /* Text color for h3 headings */
+    color: #a59e9e; /* Text color for h3 headings */
     margin-bottom: 1.5rem; /* Space below the h3 heading */
     text-align: center; /* Center text */
     animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+    font-weight: 500;
 }
 
 /* Keyframes for fade-in animation */
@@ -1302,58 +1252,93 @@ animation-play-state: paused; /* Pauses animation on hover */
 
 /* Programming Software Section */
 .programming-software {
-    background-color: #adbfce; /* Light blue background */
+    
     padding: 1rem; /* Padding inside the div */
     border-radius: 8px; /* Rounded corners */
+
+    border: 1px solid #184c77; /* Defined border */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1s ease-out;
+    margin-bottom: 10px;
+    
+    
 }
 
 /* Data Science and Analytics Section */
 .data-science-analytics {
-    background-color: #76917c; /* Light cyan background */
     padding: 1rem; /* Padding inside the div */
     border-radius: 8px; /* Rounded corners */
+
+    border: 1px solid #184c77; /* Defined border */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1s ease-out;
+    margin-bottom: 10px;
 }
 
 /* Robotics and Machine Learning Section */
 .robotics-machine-learning {
-    background-color: #8495a0; /* Very light gray background */
     padding: 1rem; /* Padding inside the div */
     border-radius: 8px; /* Rounded corners */
+
+    border: 1px solid #184c77; /* Defined border */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1s ease-out;
+    margin-bottom: 10px;
 }
 
 /* Academic Writing Section */
 .academic-writing {
-    background-color: #92afc9; /* Light peach background */
     padding: 1rem; /* Padding inside the div */
     border-radius: 8px; /* Rounded corners */
+
+    border: 1px solid #184c77; /* Defined border */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1s ease-out;
+    margin-bottom: 10px;
 }
 
 /* Civil and Structural Engineering Section */
 .civil-structural {
-    background-color: #92c492; /* Light green background */
     padding: 1rem; /* Padding inside the div */
     border-radius: 8px; /* Rounded corners */
+
+    border: 1px solid #184c77; /* Defined border */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1s ease-out;
+    margin-bottom: 10px;
 }
 
 /* Quantity Surveying Section */
 .quantity-surveying {
-    background-color: #9478a1; /* Light orange background */
     padding: 1rem; /* Padding inside the div */
     border-radius: 8px; /* Rounded corners */
+
+    border: 1px solid #184c77; /* Defined border */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1s ease-out;
+    margin-bottom: 10px;
 }
 
 /* Land Surveying Section */
 .land-surveying {
-    background-color: #b0c5ca; /* Light gray background */
     padding: 1rem; /* Padding inside the div */
     border-radius: 8px; /* Rounded corners */
+
+    border: 1px solid #184c77; /* Defined border */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1s ease-out;
+    margin-bottom: 10px;
 }
 
 /* Architecture Section */
 .architecture {
-    background-color: #8d9cac; /* Light gray-blue background */
     padding: 1rem; /* Padding inside the div */
     border-radius: 8px; /* Rounded corners */
+
+    border: 1px solid #184c77; /* Defined border */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1s ease-out;
+    margin-bottom: 10px;
 }
 
 
@@ -1375,18 +1360,18 @@ animation-play-state: paused; /* Pauses animation on hover */
     border-radius: 0;
     background-color: transparent;
     box-shadow: none;
-    
+    margin: 0 5px; /* Horizontal spacing between icons */
 }
 
 .skill-item i {
-    font-size: 3rem; /* Larger icons */
+    font-size: 2rem; /* Larger icons */
     margin-bottom: 10px;
     
 }
 
 .skill-item span {
     font-size: 1rem;
-    color: #555; /* Text color */
+    color: #918888; /* Text color */
 }
 
 
@@ -1638,7 +1623,7 @@ animation-play-state: paused; /* Pauses animation on hover */
 
 /* Projects Section */
 #projects {
-    padding: 150px;
+    padding: 170px;
     margin: auto;
     max-width: 1200px; /* Limit maximum width of the projects section */
     position: relative; /* Allow for absolute positioning of background elements */
@@ -1651,196 +1636,6 @@ animation-play-state: paused; /* Pauses animation on hover */
 
 
 /* Animated Background */
-/* Leaf animations within the projects section */
-#projects .leaf {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 0; /* Behind the content */
-    pointer-events: none; /* Ensure leaves don't block clicks */
-}
-
-/* Leaf divs within the projects section */
-#projects .leaf div {
-    position: absolute;
-    display: block;
-}
-
-/* Falling leaves within the projects section */
-#projects .leaf div:nth-child(1) {
-    left: 20%;
-    animation: projects-fall 15s linear infinite;
-    animation-delay: -2s;
-}
-
-#projects .leaf div:nth-child(2) {
-    left: 50%;
-    animation: projects-fall 15s linear infinite;
-    animation-delay: -4s;
-}
-
-#projects .leaf div:nth-child(3) {
-    left: 80%;
-    animation: projects-fall 20s linear infinite;
-    animation-delay: -7s;
-}
-
-/* Rising leaves within the projects section */
-#projects .leaf div:nth-child(4) {
-    left: 30%;
-    animation: projects-rise 18s linear infinite;
-    animation-delay: -5s;
-}
-
-#projects .leaf div:nth-child(5) {
-    left: 60%;
-    animation: projects-rise 14s linear infinite;
-    animation-delay: -5s;
-}
-
-#projects .leaf div:nth-child(6) {
-    left: 90%;
-    animation: projects-rise 16s linear infinite;
-    animation-delay: -10s;
-}
-
-/* Falling leaves for leaf1 within the projects section */
-#projects .leaf1 div:nth-child(1) {
-    left: 15%;
-    animation: projects-fall 15s linear infinite;
-    animation-delay: -4s;
-}
-
-#projects .leaf1 div:nth-child(2) {
-    left: 55%;
-    animation: projects-fall 20s linear infinite;
-    animation-delay: -6s;
-}
-
-#projects .leaf1 div:nth-child(3) {
-    left: 75%;
-    animation: projects-fall 16s linear infinite;
-    animation-delay: -3s;
-}
-
-/* Rising leaves for leaf1 within the projects section */
-#projects .leaf1 div:nth-child(4) {
-    left: 25%;
-    animation: projects-rise 15s linear infinite;
-    animation-delay: -5s;
-}
-
-#projects .leaf1 div:nth-child(5) {
-    left: 65%;
-    animation: projects-rise 19s linear infinite;
-    animation-delay: -7s;
-}
-
-#projects .leaf1 div:nth-child(6) {
-    left: 85%;
-    animation: projects-rise 17s linear infinite;
-    animation-delay: -8s;
-}
-
-/* Falling leaves for leaf2 within the projects section */
-#projects .leaf2 div:nth-child(1) {
-    left: 10%;
-    animation: projects-fall 17s linear infinite;
-    animation-delay: -3s;
-}
-
-#projects .leaf2 div:nth-child(2) {
-    left: 40%;
-    animation: projects-fall 15s linear infinite;
-    animation-delay: -5s;
-}
-
-#projects .leaf2 div:nth-child(3) {
-    left: 70%;
-    animation: projects-fall 18s linear infinite;
-    animation-delay: -6s;
-}
-
-/* Rising leaves for leaf2 within the projects section */
-#projects .leaf2 div:nth-child(4) {
-    left: 20%;
-    animation: projects-rise 14s linear infinite;
-    animation-delay: -4s;
-}
-
-#projects .leaf2 div:nth-child(5) {
-    left: 50%;
-    animation: projects-rise 16s linear infinite;
-    animation-delay: -7s;
-}
-
-#projects .leaf2 div:nth-child(6) {
-    left: 80%;
-    animation: projects-rise 15s linear infinite;
-    animation-delay: -9s;
-}
-
-/* Scoped keyframes for falling animation */
-@keyframes projects-fall {
-    0% {
-        opacity: 1;
-        top: -10%;
-        transform: translateX(20px) rotate(0deg);
-    }
-    20% {
-        opacity: 0.8;
-        transform: translateX(-20px) rotate(45deg);
-    }
-    40% {
-        transform: translateX(-20px) rotate(90deg);
-    }
-    60% {
-        transform: translateX(-20px) rotate(135deg);
-    }
-    80% {
-        transform: translateX(-20px) rotate(180deg);
-    }
-    100% {
-        top: 110%;
-        transform: translateX(-20px) rotate(225deg);
-    }
-}
-
-/* Scoped keyframes for rising animation */
-@keyframes projects-rise {
-    0% {
-        opacity: 1;
-        top: 110%;
-        transform: translateX(20px) rotate(225deg);
-    }
-    20% {
-        opacity: 0.8;
-        transform: translateX(-20px) rotate(180deg);
-    }
-    40% {
-        transform: translateX(-20px) rotate(135deg);
-    }
-    60% {
-        transform: translateX(-20px) rotate(90deg);
-    }
-    80% {
-        transform: translateX(-20px) rotate(45deg);
-    }
-    100% {
-        top: -10%;
-        transform: translateX(-20px) rotate(0deg);
-    }
-}
-
-
-
-
-
-
-
-
 
 
 
@@ -1848,16 +1643,11 @@ animation-play-state: paused; /* Pauses animation on hover */
 #projects h2 {
     position: relative; /* Ensure the heading is above the animated background */
     z-index: 1; /* Place text above the background */
-    
-    font-size: 2em;
+    font-weight: 400px;
+    font-size: 25px;
     text-align: center;
     color: #fff;
 }
-
-
-
-
-
 
 
 
@@ -1867,20 +1657,26 @@ animation-play-state: paused; /* Pauses animation on hover */
 }
 
 .project-category h3 {
-    background-color: #4d99cc;
+    
     padding: 10px;
+    font-weight: 400;
     border-radius: 5px; /* Reduced border-radius for smoother appearance */
-    color: #0c1379;
+    color: #f0f0f7;
     cursor: pointer;
     width: calc(100% - 20px); /* Set width relative to parent with padding */
     transition: background-color 0.3s ease; /* Smooth transition for background color */
     overflow: hidden; /* Hide overflow to prevent text clipping */
     text-overflow: ellipsis; /* Add ellipsis for overflowed text */
     white-space: nowrap; /* Prevent text from wrapping */
+    font-size: 1rem;
+    border: 1px solid #9276c0; /* Defined border */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1s ease-out;
+    
 }
 
 .project-category h3:hover {
-    background-color: #5c2c2c; /* New background color on hover */
+    background-color: #5c2c2c9d; /* New background color on hover */
 }
 
 
@@ -1894,9 +1690,10 @@ animation-play-state: paused; /* Pauses animation on hover */
     margin-bottom: 5px;
     max-height: auto;
     cursor: pointer;
-    color: #eee7e7;
+    color: #eff5f4;
     max-width: 100%; /* Limit the maximum width */
     overflow-wrap: break-word; /* Break words if they exceed container width */
+    font-weight: 300;
 }
 
 .project-list li:hover {
@@ -1920,7 +1717,7 @@ animation-play-state: paused; /* Pauses animation on hover */
     transform: scaleY(0);
     transform-origin: top;
     transition: transform 0.8s ease-out, max-height 0.8s ease-out;
-
+    
     list-style: none;
     padding: 0;
     margin: 0;
@@ -1962,6 +1759,7 @@ animation-play-state: paused; /* Pauses animation on hover */
     background-color: #3c413c;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     animation: fadeIn 2s ease-in-out;
+    
 }
 
 .project-1-details h4,
@@ -1969,6 +1767,7 @@ animation-play-state: paused; /* Pauses animation on hover */
 .project-1-details h6 {
     margin-bottom: 15px;
     color: #8eaa6e;
+    font-weight: 300;
 }
 
 .project-1-details h4 {
@@ -1994,6 +1793,7 @@ animation-play-state: paused; /* Pauses animation on hover */
     color: #92bdda;
     margin-bottom: 15px;
     animation: fadeIn 2s ease-in-out;
+    font-weight: 300;
 }
 
 .project-1-details img {
@@ -2057,6 +1857,7 @@ animation-play-state: paused; /* Pauses animation on hover */
     margin: 10px 0;
     overflow: hidden;
     position: relative;
+    
 }
 
 /* Headings styling */
@@ -2066,6 +1867,7 @@ animation-play-state: paused; /* Pauses animation on hover */
     opacity: 0;
     transform: translateX(-100%);
     animation: scrollIn 1s forwards;
+    font-weight: 300;
 }
 
 /* Paragraph styling */
@@ -2076,6 +1878,7 @@ animation-play-state: paused; /* Pauses animation on hover */
     opacity: 0;
     transform: translateY(100%);
     animation: scrollIn 1s forwards;
+    font-weight: 300;
 }
 
 /* Image styling */
@@ -2145,6 +1948,7 @@ animation-play-state: paused; /* Pauses animation on hover */
     opacity: 0;
     transform: translateX(-100%);
     animation: scrollIn 1s forwards;
+    font-weight: 300;
 }
 
 /* Paragraph styling */
@@ -2155,6 +1959,7 @@ animation-play-state: paused; /* Pauses animation on hover */
     opacity: 0;
     transform: translateY(100%);
     animation: scrollIn 1s forwards;
+    font-weight: 300;
 }
 
 /* Image styling */
@@ -2222,8 +2027,8 @@ animation-play-state: paused; /* Pauses animation on hover */
 
 /* CONTACT INFORMATION */
 #contacts {
-    background-color: #618594; /* Background color */
-    padding: 150px 100px; /* Adjust padding as needed */
+    background-color: #0e0f0f; /* Background color */
+    padding: 170px 100px; /* Adjust padding as needed */
     color: #2b1212; /* White text color */
     text-align: center; /* Center align text */
     position: relative; /* Ensure positioning for pseudo-elements */
@@ -2308,14 +2113,17 @@ animation-play-state: paused; /* Pauses animation on hover */
 .contact-info {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 12px;
     justify-content: center;
     padding: 20px;
-    background-color: #d7e8eb; /* Single background color */
     border-radius: 10px;
     max-width: 800px;    
     margin: 0 auto;  
-    box-shadow: 0 0 10px #d3cb9f1a;
+    border: 1px solid #184c77; /* Defined border */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1s ease-out;
+    background: linear-gradient(135deg, #1f1b247c, #2c2b3496); /* Dark background */
+    
 }
 
 /* Styling for Contact Links */
@@ -2332,7 +2140,7 @@ animation-play-state: paused; /* Pauses animation on hover */
 /* Styling for Contact Links */
 .icon-link {
     text-decoration: none;
-    color: #333;
+    color: #f1eeee;
     font-size: 16px; /* Default text size */
     display: flex;
     align-items: center;
@@ -2352,7 +2160,7 @@ animation-play-state: paused; /* Pauses animation on hover */
 
 /* Text Sizes */
 .icon-link span {
-    font-size: 14px; /* Default text size */
+    font-size: 12px; /* Default text size */
 }
 
 
@@ -2444,109 +2252,182 @@ animation-play-state: paused; /* Pauses animation on hover */
 
 
 /* LEAVE A MESSAGE */
-/* Form Container */
+/* LEAVE A MESSAGE */
+
+/* General Styling for the Form Container */
 #contactForm {
+    width: 100%;
     max-width: 800px;
-    margin: 0 auto;
-    background-color: #d7e8eb;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px #d3cb9f1a;
-    margin-bottom: 20px;
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #184c77; /* Defined border */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1s ease-out;
+    background: linear-gradient(135deg, #1f1b247c, #2c2b3496); /* Dark background */
 }
 
-/* Form Rows */
-.row {
+
+
+/* Top Border for H2 */
+/* H2 Styling */
+#contactFormh2 {
+    color: #fff; /* Text color */
+    font-weight: lighter;
+    font-size: 1.2rem; /* Adjust font size */
+    text-align: center; /* Center align the text */
+    border-top: 1px solid #1f5c96; /* Top border */
+    padding-top: 10px; /* Increased space between the border and text */
+    margin-top: 30px; /* Increased space above the border line */
+}
+
+
+
+
+/* Slide-in Animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Double Field Styling */
+.dbl-field {
     display: flex;
-    margin-bottom: 20px;
-    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
 }
 
-.row.double {
+/* Field Styling */
+.field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    animation: floatUp 1.5s ease-out;
+}
+
+@keyframes floatUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.field label {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #c2baba;
+    transition: color 0.3s ease;
+}
+
+/* Input, Select, and Textarea Styling */
+.field input, 
+.field select, 
+.field textarea {
+    width: 100%; /* Ensure full width */
+    padding: 12px;
+    border: 1px solid #1f5c96;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #161414;
+    color: white; /* Text color changed to white */
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    resize: none;
+    box-sizing: border-box; /* Prevent overflow issues */
+}
+
+.field textarea {
+    min-height: 120px; /* Adjusted height */
+}
+
+/* Focus Styling */
+.field input:focus, 
+.field select:focus, 
+.field textarea:focus {
+    border-color: #0d6efd;
+    background: #202020;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Area Styling */
+.button-area {
+    display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
 }
 
-.row.double .field {
-    width: 48%;
-}
-
-/* Label Styles with Gradient Animation */
-label {
-    width: 150px; /* Fixed width for labels */
-    font-size: 16px;
-    text-align: right; /* Align labels to the right */
-    margin-right: 20px; /* Spacing between labels and inputs */
-    color: transparent; /* Transparent color initially */
-    background: linear-gradient(45deg, #f10e21, #e98d0e, #02e775, #01edf5); /* Gradient background */
-    -webkit-background-clip: text; /* Clip text to the background */
-    background-clip: text;
-    -webkit-text-fill-color: transparent; /* Make text transparent */
-    animation: labelAnimation 4s infinite linear; /* Animation settings */
-    font-weight: bold; /* Bold text */
-}
-
-/* Animation Keyframes */
-@keyframes labelAnimation {
-    0% { background-position: -200% 0%; }
-    100% { background-position: 200% 0%; }
-}
-
-/* Input Styles */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-textarea,
-select {
-    flex: 1; /* Take remaining space */
-    padding: 10px;
-    border: 1px solid #d7e8eb;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
-}
-
-/* Textarea Styles */
-textarea {
-    height: 200px; /* Set a fixed height for textarea */
-    resize: vertical; /* Allow vertical resizing */
-    width: calc(100% - 20px); /* Adjust width to fit container */
-}
-
-/* Select Styles */
-select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
-    width: 100%; /* Adjust width to fit container */
-}
-
-/* Button Styles */
-button[type="submit"] {
-    display: block;
-    padding: 12px 20px;
-    background-color: #1a7d9b;
-    color: white;
+/* Submit Button Styling */
+.button-area button {
+    background: linear-gradient(135deg, #4caf50, #8bc34a);
     border: none;
-    border-radius: 5px;
-    font-size: 18px;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s, transform 0.2s;
+    animation: bounce 2s infinite alternate;
 }
 
-button[type="submit"]:hover {
-    background-color: #5aaad1;
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-8px);
+    }
 }
 
-/* Placeholder Styling */
-input::placeholder,
-textarea::placeholder,
-select::placeholder {
-    color: #796565;
-    font-size: 14px;
+.button-area button:hover {
+    background: linear-gradient(135deg, #388e3c, #689f38);
+    transform: scale(1.05);
 }
 
+/* Message Span Styling */
+.button-area span {
+    display: none;
+    font-size: 0.9rem;
+    color: #bdb3b3;
+}
+
+/* Select Dropdown Styling */
+.field select {
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .dbl-field {
+        flex-direction: column;
+    }
+
+    .button-area {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .button-area button {
+        width: 100%;
+    }
+
+    .field input, 
+    .field select, 
+    .field textarea {
+        font-size: 0.9rem; /* Slightly smaller for smaller screens */
+    }
+}
 
 
 
@@ -2575,7 +2456,7 @@ select::placeholder {
     
     align-items: center; /* Center items horizontally */
     justify-content: center; /* Center items vertically */
-    padding-top: 150px; /* Adjust padding-top to match reduced overall padding */
+    padding-top: 170px; /* Adjust padding-top to match reduced overall padding */
     max-width: 1200px;
     
     margin: 0 auto;
@@ -3081,6 +2962,243 @@ input:checked + .slider:before {
 
 
 
+/*REVIEW section*/
+.reviews-section {
+    margin: 150px;
+    
+    padding: 20px;
+    background: radial-gradient(circle, #0f0f0f, #0d0e0d);
+    border-radius: 10px;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the heading in the reviews section */
+.reviews-section h2 {
+    font-size: 24px; /* Define your desired font size */
+    color: rgb(241, 243, 245); /* Define your desired font color */
+    margin-bottom: 20px; /* Optional: add space below the heading */
+}
+
+
+
+
+/* Center the section and align horizontally */
+.project-counts {
+    display: table;
+    margin: 0 auto;  /* Center horizontally */
+    width: 80%;  /* Control width */
+    margin-bottom: 30px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-spacing: 0 1px; /* Space between rows */
+}
+
+#projects-title {
+    text-align: left; /* Center the h3 element */
+    padding: 0 125px;
+    margin-bottom: 20px; /* Optional: Add spacing below the title */
+    color: #c015e2;
+}
+
+
+/* Each row aligned horizontally */
+.project-row {
+    display: table-row;
+}
+
+/* Align all content to the left in each row */
+.project-row span.icon,
+.project-row p,
+.project-row strong {
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap; /* Prevents wrapping */
+    padding: 10px;  /* Consistent padding */
+}
+
+/* Icon styling */
+.project-row span.icon {
+    width: 50px;  /* Fixed width for alignment */
+    font-size: 16px;
+}
+
+/* Text (p) styling */
+.project-row p {
+    font-size: 14px;
+    color: #89878d;
+    margin: 0;
+    padding-right: 200px; /* Space between text and count */
+}
+
+/* Strong styling */
+.project-row strong {
+    font-weight: lighter;
+    color: #ceaf4a;
+    padding-left: 10px; /* Add space between the count and the text */
+}
+
+/* Specific styling for the number count */
+.project-row .count {
+    color: #df0707e8;
+    margin-right: 100px; /* Add space after the number */
+    font-size: 16px;
+}
+
+
+
+
+
+
+
+
+/* Filter container layout */
+.review-filters {    
+    justify-content: space-between; /* Use space-between for tighter spacing */
+    margin-bottom: 20px; /* Space below the filter section */
+    justify-items:left;
+}
+
+/* Individual filter button styling */
+.filter-btn {
+    background-color: transparent; /* Make the background transparent */
+    color: rgb(241, 243, 245); /* Text color */    
+    padding: 11px 20px; /* Padding for buttons */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 12px; /* Font size */
+    margin: 0 5px; /* Reduced horizontal spacing between buttons */
+    position: relative; /* Required for pseudo-elements */
+    overflow: hidden; /* Prevents pseudo-elements from spilling out */
+    transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition (slower) */
+}
+
+/* Pseudo-elements for hover effect */
+.filter-btn:after,
+.filter-btn:before {
+    content: " ";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    border: 0px solid #fff; /* Border color */
+    transition: all 0.5s ease; /* Smooth transition */
+}
+
+.filter-btn:after {
+    top: -1px;
+    left: -1px;
+    border-top: 2px solid rgb(252, 246, 246); /* Thinner border */
+    border-left: 2px solid rgb(250, 244, 244); /* Thinner border */
+}
+
+.filter-btn:before {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 2px solid rgb(250, 247, 247); /* Thinner border */
+    border-right: 2px solid rgb(243, 237, 237); /* Thinner border */
+}
+
+/* Hover effect for filter buttons */
+.filter-btn:hover {
+    background-color: transparent; /* Change background color on hover */
+    color: white; /* Change text color on hover */
+    border-radius: 0; /* Make corners square on hover */
+}
+
+.filter-btn:hover:before,
+.filter-btn:hover:after {
+    width: 100%;
+    height: 100%;
+    border-color: white; /* Change border color on hover if needed */
+}
+
+/* Optional: Add spacing for the last button */
+.filter-btn:last-child {
+    margin-right: 0; /* No margin on the last button */
+}
+
+
+
+
+
+
+/* Review container layout */
+.reviews-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Single review styling */
+.review {
+    padding: 15px;
+    background-color: transparent; /* Make the background transparent */
+    border: 1px solid rgba(8, 69, 238, 0.418); /* Border color and thickness */
+    align-items: center;
+    margin-bottom: 10px;  
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(250, 3, 3, 0.1);
+}
+
+/* Header row with image, name, and star rating */
+.review-header {
+    display: flex;
+    align-items: center;
+}
+
+/* Reviewer picture */
+.reviewer-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px; /* Small space between image and name */
+}
+
+/* Name and position */
+.review-header p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #8d92a1;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Push star rating to the far right */
+.star-rating {
+    margin-left: auto; /* Push to the right */
+    font-size: 0.8rem;
+    color: gold;
+}
+
+/* Review text on a new row */
+.review-text {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    text-align: left;
+    margin-left: 60px;
+}
+
+
+.load-more-btn {
+background-color: green;
+color: white;
+border: none;
+padding: 10px 15px;
+border-radius: 5px;
+cursor: pointer;
+display: block;
+margin: 20px auto 0;
+transition: background-color 0.3s ease;
+}
+
+.load-more-btn:hover {
+background-color: darkgreen;
+}
 
 
 
@@ -3154,7 +3272,6 @@ footer {
 
 
 
-
 /* Container styles */
 .container {
     width: 100%;
@@ -3167,6 +3284,48 @@ footer {
 
 
 
+
+
+/* 12 to 14 inch Laptops (1366x768 or similar) */
+@media (max-width: 1440px) {
+    .hamburger-menu {
+        display: none;
+    }
+}
+
+/* 15 to 17 inch Laptops (1920x1080 or Full HD) */
+@media (min-width: 1441px) and (max-width: 1920px) {
+    .hamburger-menu {
+        display: none;
+    }
+}
+
+/* 20 to 24 inch Monitors (1920x1080 and 2560x1440) */
+@media (min-width: 1921px) and (max-width: 2560px) {
+    .hamburger-menu {
+        display: none; /* Hide on larger monitors */
+    }
+}
+
+/* 27 to 32 inch Monitors (4K Resolution) */
+@media (min-width: 2561px) and (max-width: 3840px) {
+    .hamburger-menu {
+        display: none; /* Hide on high-resolution monitors */
+    }
+}
+
+/* 50 to 85 inch Screens or Projectors (4K to 8K) */
+@media (min-width: 3841px) {
+    .hamburger-menu {
+        display: none; /* Hide on ultra-large screens */
+    }
+}
+
+
+
+
+
+
 /* LARGER SCREENS */
 @media (max-width: 1536px) {
     .container {
@@ -3175,6 +3334,11 @@ footer {
     .container * {
         font-size: 1.2vw; /* Responsive font size for larger screens */
     }
+    
+    .hamburger-menu {
+        display: none;
+    }
+
     .navigation-block ul li a {
         font-size: 1.6vw; /* Increase nav bar font size */
     }
@@ -3194,6 +3358,11 @@ footer {
     .container * {
         font-size: 1.4vw; /* Responsive font size for medium screens */
     }
+
+    .hamburger-menu {
+        display: none;
+    }
+
     .navigation-block ul li a {
         font-size: 1.8vw; /* Increase nav bar font size */
     }
@@ -3230,6 +3399,11 @@ footer {
     .container * {
         font-size: 2vw; /* Responsive font size for smaller screens */
     }
+
+    .hamburger-menu {
+        display: none;
+    }
+
     .navigation-block ul li a {
         font-size: 2.2vw; /* Increase nav bar font size */
     }
@@ -3278,9 +3452,129 @@ footer {
     .container * {
         font-size: 2vw; /* Responsive font size for tablets */
     }
-    .navigation-block ul li a {
-        font-size: 2vw; /* Increase nav bar font size */
+    
+
+    .navigation-block {
+        display: none;
     }
+
+    .hamburger-menu {
+        display: block; /* Show the hamburger menu on small screens */
+    }
+
+
+    /*ABOUT ME SECTION*/
+    .text-box {    
+        padding-top: 200px; /* Adjust this value as needed */        
+        font-size: 28px; /* Adjust the font size as needed */ 
+        margin-left: 10px;
+            
+    }   
+    
+    .hello-title {
+        display: block;
+        font-size: 1.2rem; /* Adjust font size as needed */
+        text-align: center; /* Center-align text */
+        color: #d12727; /* Customize the color */
+        font-weight: bold; /* Make the title bold */
+        padding: 10px 0; /* Add padding for spacing around the title */
+        border-bottom: 2px solid #ccc; /* Optional: underline style */
+    
+    } 
+
+    /* Center and style the about-title */
+    .about-title {
+        display: block;
+        font-size: 1.2rem; /* Adjust font size as needed */
+        text-align: center; /* Center-align text */
+        margin: 0 0; /* Center the title with space above and below */
+        color: #d12727; /* Customize the color */
+        font-weight: bold; /* Make the title bold */
+        padding: 10px 0; /* Add padding for spacing around the title */
+        border-bottom: 2px solid #ccc; /* Optional: underline style */
+        margin-bottom: 0;
+        margin-top: 20px;
+        padding-top: 0;
+        
+    }
+
+    /* Adjust the layout for service description */
+    .service-description {
+        display: block; /* Stack the service items vertically */
+        padding: 10px;
+        margin-top: -190px; /* Reduced top margin */
+    }
+
+    /* Modify service item styling for smaller screens */
+    .service-item {
+        margin-bottom: 10px; /* Reduced space between items */
+        max-width: none; /* Remove the max-width to take full width */
+    }
+
+    .service-description h3 {
+        font-size: 1em; /* Adjust heading size for smaller screens */
+        margin-top: 5px; /* Reduced top margin */
+        margin-bottom: 5px; /* Reduced bottom margin */
+    }
+
+    .service-description p {
+        font-size: 0.9em; /* Adjust paragraph font size */
+        line-height: 1.5; /* Adjust line height for readability */
+        margin-bottom: 10px; /* Reduced bottom margin */
+    }
+
+    /* Adjust content to a single column layout */
+    .content {
+        columns: 1; /* Use a single column for content */
+        column-gap: 0; /* Remove column gap */
+        padding-top: 170px; /* Adjusted padding to reduce spacing */
+    }
+
+    /* Profile picture styling */
+    
+
+    .profile-picture img {
+        width: 100%;
+        height: auto;
+        margin-left: 1.5px;
+    }
+
+    .profile-picture {
+        order: 1; /* Move the profile picture after the service description */
+        margin-top: -230px; /* Adjusted top margin for a more compact layout */
+        max-width: 150px;
+        flex: 0 1 100%;
+        display: flex; /* Use flex layout */
+        justify-content: center; /* Center the image horizontally */
+        position: absolute; /* Position the profile picture absolutely */
+        
+    }
+
+    /* Adjust the text box */
+    .text-box {
+        font-size: 1.1em;
+        margin-bottom: 15px; /* Reduced spacing between text box and other elements */
+        flex: 0 1 100%;
+    }
+
+    /* Adjust content heading */
+    .content h3 {
+        font-size: 1.2em;
+        margin-bottom: 5px; /* Reduced bottom margin */
+    }
+
+    /* Ensure paragraphs are readable */
+    .content p {
+        font-size: 0.9em;
+        margin-bottom: 5px; /* Reduced bottom margin */
+    }
+
+    /* Adjust data-text size */
+    #bio .content h3::before {
+        font-size: 1rem;
+    }
+
+
     #professions h2 {
         text-align: center; /* Center align the heading */
         margin-top: 0; /* Remove default margin from the top of h2 */
@@ -3515,6 +3809,122 @@ footer {
         font-size: 15px;
     }
 
+
+
+    /*REVIEW section*/
+    .reviews-section {
+        padding: 20px;
+        margin-top: 20px;
+        margin: 5px;
+        padding: 10px;
+        font-weight: lighter;
+        font-size: 0.8em; /* Smaller text */
+        margin-top: 105px; /* Ensure spacing from the top */
+    }
+
+    #projects-title {
+        text-align: left; /* Center the h3 element */
+        padding: 0 15px;
+        font-size: 15px;
+        margin-bottom: 12px; /* Optional: Add spacing below the title */      
+    }
+
+    
+    /* Center the section and align horizontally */
+    .project-counts {        
+        border-spacing: 0 2px; /* Space between rows */
+        width: 100%;
+        margin-bottom: 18px;
+        padding: 3px; /* Add padding */
+    }
+
+    /* Each row aligned horizontally */
+    .project-row {
+        display: block; /* Stack rows */
+    }
+
+    /* Align all content to the left in each row */
+    .project-row span.icon,
+    .project-row p,
+    .project-row strong {
+        text-align: left;
+        white-space: nowrap; /* Prevents wrapping */
+        padding: 7px;  /* Consistent padding */        
+    }
+
+    /* Icon styling */
+    .project-row span.icon {
+        width: 12px;  /* Fixed width for alignment */
+        font-size: 14px;
+    }
+
+    /* Text (p) styling */
+    .project-row p {
+        font-size: 1em;
+        margin: 0;
+        padding-right: 50px; /* Space between text and count */
+    }
+
+    
+    /* Specific styling for the number count */
+    .project-row .count {        
+        margin-right: 55px; /* Add space after the number */
+        font-size: 15px;
+    }
+
+    /* Select only <p> elements that do not contain <strong> */
+    .review p:not(:has(strong)) {
+        text-align: left;         /* Align text to the left */
+        margin-left: 55px;        /* Indent from the left */
+        word-wrap: break-word;    /* Ensure long words break properly */
+        line-height: 1.6;         /* Improve readability */
+    }
+
+    .review-filters {
+    margin-bottom: 17px;
+    }
+
+    .filter-btn {
+    padding: 5px 5px; /* Padding */
+    border-radius: 5px; /* Rounded corners */    
+    font-size: 12px;    
+    }
+
+    .reviews-container {
+    display: block;
+    }
+
+    .review-category {
+    margin-bottom: 12px;    
+    }
+
+    .review {
+    flex-wrap: wrap;
+    align-items: left;
+    margin-bottom: 7px;
+    padding: 6px;
+    font-size: 12px;    
+    }
+
+    .reviewer-pic {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 12px;    
+    }
+
+    .star-rating {
+    font-size: 0.7em;
+    color: gold;
+    }
+
+    .load-more-btn {
+    padding: 12px 17px;    
+    margin: 12px auto 0;
+    
+    }
+
+
 }
 
 
@@ -3536,6 +3946,128 @@ footer {
     .navigation-block ul li a {
         font-size: 2.5vw; /* Increase nav bar font size */
     }
+    .navigation-block {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: block; /* Show the hamburger menu on small screens */
+    }
+
+
+
+    /*ABOUT ME SECTION*/
+    .text-box {    
+        padding-top: 200px; /* Adjust this value as needed */        
+        font-size: 25px; /* Adjust the font size as needed */ 
+        margin-left: -1px;
+        max-width: 350px; /* Ensure a maximum width */      
+    }   
+    
+    .hello-title {
+        display: block;
+        font-size: 1rem; /* Adjust font size as needed */
+        text-align: center; /* Center-align text */
+        color: #d12727; /* Customize the color */
+        font-weight: bold; /* Make the title bold */
+        padding: 10px 0; /* Add padding for spacing around the title */
+        border-bottom: 2px solid #ccc; /* Optional: underline style */
+    
+    } 
+
+    /* Center and style the about-title */
+    .about-title {
+        display: block;
+        font-size: 1rem; /* Adjust font size as needed */
+        text-align: center; /* Center-align text */
+        margin: 0 0; /* Center the title with space above and below */
+        color: #d12727; /* Customize the color */
+        font-weight: bold; /* Make the title bold */
+        padding: 10px 0; /* Add padding for spacing around the title */
+        border-bottom: 2px solid #ccc; /* Optional: underline style */
+        margin-bottom: 0;
+        margin-top: 20px;
+        padding-top: 0;
+        
+    }
+
+    /* Adjust the layout for service description */
+    .service-description {
+        display: block; /* Stack the service items vertically */
+        padding: 5px;
+        margin-top: -190px; /* Reduced top margin */
+    }
+
+    /* Modify service item styling for smaller screens */
+    .service-item {
+        margin-bottom: 10px; /* Reduced space between items */
+        max-width: none; /* Remove the max-width to take full width */
+    }
+
+    .service-description h3 {
+        font-size: 1em; /* Adjust heading size for smaller screens */
+        margin-top: 5px; /* Reduced top margin */
+        margin-bottom: 5px; /* Reduced bottom margin */
+    }
+
+    .service-description p {
+        font-size: 0.9em; /* Adjust paragraph font size */
+        line-height: 1.4; /* Adjust line height for readability */
+        margin-bottom: 5px; /* Reduced bottom margin */
+    }
+
+    /* Adjust content to a single column layout */
+    .content {
+        columns: 1; /* Use a single column for content */
+        column-gap: 0; /* Remove column gap */
+        padding-top: 170px; /* Adjusted padding to reduce spacing */
+    }
+
+    /* Profile picture styling */
+    
+
+    .profile-picture img {
+        width: 100%;
+        height: auto;
+        margin-left: 1.5px;
+    }
+
+    .profile-picture {
+        order: 1; /* Move the profile picture after the service description */
+        margin-top: -230px; /* Adjusted top margin for a more compact layout */
+        max-width: 150px;
+        flex: 0 1 100%;
+        display: flex; /* Use flex layout */
+        justify-content: center; /* Center the image horizontally */
+        position: absolute; /* Position the profile picture absolutely */
+        
+    }
+
+    /* Adjust the text box */
+    .text-box {
+        font-size: 1.1em;
+        margin-bottom: 15px; /* Reduced spacing between text box and other elements */
+        flex: 0 1 100%;
+    }
+
+    /* Adjust content heading */
+    .content h3 {
+        font-size: 1.2em;
+        margin-bottom: 5px; /* Reduced bottom margin */
+    }
+
+    /* Ensure paragraphs are readable */
+    .content p {
+        font-size: 0.9em;
+        margin-bottom: 5px; /* Reduced bottom margin */
+    }
+
+    /* Adjust data-text size */
+    #bio .content h3::before {
+        font-size: 1rem;
+    }
+
+
     #professions h2 {
         text-align: center; /* Center align the heading */
         margin-top: 0; /* Remove default margin from the top of h2 */
@@ -3687,6 +4219,121 @@ footer {
 
 
 
+    /*REVIEW section*/
+    .reviews-section {
+        padding: 20px;
+        margin-top: 20px;
+        margin: 5px;
+        padding: 10px;
+        font-weight: lighter;
+        font-size: 0.8em; /* Smaller text */
+        margin-top: 105px; /* Ensure spacing from the top */
+    }
+
+    #projects-title {
+        text-align: left; /* Center the h3 element */
+        padding: 0 15px;
+        font-size: 15px;
+        margin-bottom: 12px; /* Optional: Add spacing below the title */      
+    }
+
+    
+    /* Center the section and align horizontally */
+    .project-counts {        
+        border-spacing: 0 2px; /* Space between rows */
+        width: 100%;
+        margin-bottom: 18px;
+        padding: 3px; /* Add padding */
+    }
+
+    /* Each row aligned horizontally */
+    .project-row {
+        display: block; /* Stack rows */
+    }
+
+    /* Align all content to the left in each row */
+    .project-row span.icon,
+    .project-row p,
+    .project-row strong {
+        text-align: left;
+        white-space: nowrap; /* Prevents wrapping */
+        padding: 7px;  /* Consistent padding */        
+    }
+
+    /* Icon styling */
+    .project-row span.icon {
+        width: 12px;  /* Fixed width for alignment */
+        font-size: 14px;
+    }
+
+    /* Text (p) styling */
+    .project-row p {
+        font-size: 1em;
+        margin: 0;
+        padding-right: 50px; /* Space between text and count */
+    }
+
+    
+    /* Specific styling for the number count */
+    .project-row .count {        
+        margin-right: 55px; /* Add space after the number */
+        font-size: 15px;
+    }
+
+    /* Select only <p> elements that do not contain <strong> */
+    .review p:not(:has(strong)) {
+        text-align: left;         /* Align text to the left */
+        margin-left: 55px;        /* Indent from the left */
+        word-wrap: break-word;    /* Ensure long words break properly */
+        line-height: 1.6;         /* Improve readability */
+    }
+
+    .review-filters {
+    margin-bottom: 17px;
+    }
+
+    .filter-btn {
+    padding: 5px 5px; /* Padding */
+    border-radius: 5px; /* Rounded corners */    
+    font-size: 12px;    
+    }
+
+    .reviews-container {
+    display: block;
+    }
+
+    .review-category {
+    margin-bottom: 12px;    
+    }
+
+    .review {
+    flex-wrap: wrap;
+    align-items: left;
+    margin-bottom: 7px;
+    padding: 6px;
+    font-size: 12px;    
+    }
+
+    .reviewer-pic {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 12px;    
+    }
+
+    .star-rating {
+    font-size: 0.7em;
+    color: gold;
+    }
+
+    .load-more-btn {
+    padding: 12px 17px;    
+    margin: 12px auto 0;
+    
+    }
+
+
+
     
 }
 
@@ -3715,7 +4362,10 @@ footer {
         display: none;
     }
 
-
+    .hamburger-menu {
+        display: block; /* Show the hamburger menu on small screens */
+    }
+    
     .navigation-block ul li a {
         font-size: 3.2vw; /* Increase nav bar font size */
     }
@@ -3733,24 +4383,146 @@ footer {
     
 
     
-    #bio .profile-picture {
-        position: absolute; /* Position the profile picture absolutely */
-        top: 10px; /* Distance from the top of the container */
-        left: 30px; /* Distance from the left of the container */        
-        
-    }
+    
 
-    .profile-picture img {
-        width: 180px;    
-        margin-left: 40px;
-    }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*ABOUT ME SECTION*/
     .text-box {    
         padding-top: 200px; /* Adjust this value as needed */        
         font-size: 25px; /* Adjust the font size as needed */ 
         margin-left: -1px;
         max-width: 350px; /* Ensure a maximum width */      
     }   
+    
+    .hello-title {
+        display: block;
+        font-size: 1rem; /* Adjust font size as needed */
+        text-align: center; /* Center-align text */
+        color: #d12727; /* Customize the color */
+        font-weight: bold; /* Make the title bold */
+        padding: 10px 0; /* Add padding for spacing around the title */
+        border-bottom: 2px solid #ccc; /* Optional: underline style */
+    
+    } 
+
+    /* Center and style the about-title */
+    .about-title {
+        display: block;
+        font-size: 1rem; /* Adjust font size as needed */
+        text-align: center; /* Center-align text */
+        margin: 0 0; /* Center the title with space above and below */
+        color: #d12727; /* Customize the color */
+        font-weight: bold; /* Make the title bold */
+        padding: 10px 0; /* Add padding for spacing around the title */
+        border-bottom: 2px solid #ccc; /* Optional: underline style */
+        margin-bottom: 0;
+        margin-top: 20px;
+        padding-top: 0;
+        
+    }
+
+    /* Adjust the layout for service description */
+    .service-description {
+        display: block; /* Stack the service items vertically */
+        padding: 5px;
+        margin-top: -190px; /* Reduced top margin */
+    }
+
+    /* Modify service item styling for smaller screens */
+    .service-item {
+        margin-bottom: 10px; /* Reduced space between items */
+        max-width: none; /* Remove the max-width to take full width */
+    }
+
+    .service-description h3 {
+        font-size: 1em; /* Adjust heading size for smaller screens */
+        margin-top: 5px; /* Reduced top margin */
+        margin-bottom: 5px; /* Reduced bottom margin */
+    }
+
+    .service-description p {
+        font-size: 0.9em; /* Adjust paragraph font size */
+        line-height: 1.4; /* Adjust line height for readability */
+        margin-bottom: 5px; /* Reduced bottom margin */
+    }
+
+    /* Adjust content to a single column layout */
+    .content {
+        columns: 1; /* Use a single column for content */
+        column-gap: 0; /* Remove column gap */
+        padding-top: 170px; /* Adjusted padding to reduce spacing */
+    }
+
+    /* Profile picture styling */
+    
+
+    .profile-picture img {
+        width: 100%;
+        height: auto;
+        margin-left: 1.5px;
+    }
+
+    .profile-picture {
+        order: 1; /* Move the profile picture after the service description */
+        margin-top: -230px; /* Adjusted top margin for a more compact layout */
+        max-width: 150px;
+        flex: 0 1 100%;
+        display: flex; /* Use flex layout */
+        justify-content: center; /* Center the image horizontally */
+        position: absolute; /* Position the profile picture absolutely */
+        
+    }
+
+    /* Adjust the text box */
+    .text-box {
+        font-size: 1.1em;
+        margin-bottom: 15px; /* Reduced spacing between text box and other elements */
+        flex: 0 1 100%;
+    }
+
+    /* Adjust content heading */
+    .content h3 {
+        font-size: 1.2em;
+        margin-bottom: 5px; /* Reduced bottom margin */
+    }
+
+    /* Ensure paragraphs are readable */
+    .content p {
+        font-size: 0.9em;
+        margin-bottom: 5px; /* Reduced bottom margin */
+    }
+
+    /* Adjust data-text size */
+    #bio .content h3::before {
+        font-size: 1rem;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
     
 
 
@@ -4011,6 +4783,125 @@ footer {
 
 
 
+    /*REVIEW section*/
+    .reviews-section {
+        padding: 20px;
+        margin-top: 20px;
+        margin: 5px;
+        padding: 10px;
+        font-weight: lighter;
+        font-size: 0.8em; /* Smaller text */
+        margin-top: 100px; /* Ensure spacing from the top */
+    }
+
+    #projects-title {
+        text-align: left; /* Center the h3 element */
+        padding: 0 15px;
+        font-size: 12px;
+        margin-bottom: 10px; /* Optional: Add spacing below the title */      
+    }
+
+    
+    /* Center the section and align horizontally */
+    .project-counts {        
+        border-spacing: 0 1px; /* Space between rows */
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 1px; /* Add padding */
+    }
+
+    /* Each row aligned horizontally */
+    .project-row {
+        display: block; /* Stack rows */
+    }
+
+    /* Align all content to the left in each row */
+    .project-row span.icon,
+    .project-row p,
+    .project-row strong {
+        text-align: left;
+        white-space: nowrap; /* Prevents wrapping */
+        padding: 5px;  /* Consistent padding */        
+    }
+
+    /* Icon styling */
+    .project-row span.icon {
+        width: 10px;  /* Fixed width for alignment */
+        font-size: 12px;
+    }
+
+    /* Text (p) styling */
+    .project-row p {
+        font-size: 0.8em;
+        margin: 0;
+        padding-right: 50px; /* Space between text and count */
+    }
+
+    
+    /* Specific styling for the number count */
+    .project-row .count {        
+        margin-right: 50px; /* Add space after the number */
+        font-size: 13px;
+    }
+
+    /* Select only <p> elements that do not contain <strong> */
+    .review p:not(:has(strong)) {
+        text-align: left;         /* Align text to the left */
+        margin-left: 50px;        /* Indent from the left */
+        word-wrap: break-word;    /* Ensure long words break properly */
+        line-height: 1.5;         /* Improve readability */
+    }
+
+    .review-filters {
+    margin-bottom: 15px;
+    }
+
+    .filter-btn {
+    padding: 5px 5px; /* Padding */
+    border-radius: 5px; /* Rounded corners */    
+    font-size: 10px;    
+    }
+
+    .reviews-container {
+    display: block;
+    }
+
+    .review-category {
+    margin-bottom: 10px;    
+    }
+
+    .review {
+    flex-wrap: wrap;
+    align-items: left;
+    margin-bottom: 5px;
+    padding: 5px;
+    font-size: 10px;    
+    }
+
+    .reviewer-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;    
+    }
+
+    .star-rating {
+    font-size: 0.5em;
+    color: gold;
+    }
+
+    .load-more-btn {
+    padding: 10px 15px;    
+    margin: 10px auto 0;
+    
+    }
+
+
+
+
+
+
+
 
 }
 
@@ -4037,6 +4928,10 @@ footer {
     
     }
 
+    .hamburger-menu {
+        display: block; /* Show the hamburger menu on small screens */
+    }
+
     .navigation-block {
         display: none;
     }
@@ -4055,27 +4950,127 @@ footer {
     
     
 
-    #bio .profile-picture {
-        position: absolute; /* Position the profile picture absolutely */
-        top: 10px; /* Distance from the top of the container */
-        left: 20px; /* Distance from the left of the container */        
+    .hello-title {
+        display: block;
+        font-size: 1rem; /* Adjust font size as needed */
+        text-align: center; /* Center-align text */
+        
+        color: #d12727; /* Customize the color */
+        font-weight: bold; /* Make the title bold */
+        padding: 10px 0; /* Add padding for spacing around the title */
+        border-bottom: 2px solid #ccc; /* Optional: underline style */
+        
+        
         
     }
+
+    
+
+
+
+    /* Center and style the about-title */
+    .about-title {
+        display: block;
+        font-size: 1rem; /* Adjust font size as needed */
+        text-align: center; /* Center-align text */
+        margin: 0 0; /* Center the title with space above and below */
+        color: #d12727; /* Customize the color */
+        font-weight: bold; /* Make the title bold */
+        padding: 10px 0; /* Add padding for spacing around the title */
+        border-bottom: 2px solid #ccc; /* Optional: underline style */
+        margin-bottom: 0;
+        margin-top: 20px;
+        padding-top: 0;
+        
+    }
+
+
+    
+
+
+
+
+
+
+    /* Adjust the layout for service description */
+    .service-description {
+        display: block; /* Stack the service items vertically */
+        padding: 5px;
+        margin-top: -190px; /* Reduced top margin */
+    }
+
+    /* Modify service item styling for smaller screens */
+    .service-item {
+        margin-bottom: 10px; /* Reduced space between items */
+        max-width: none; /* Remove the max-width to take full width */
+    }
+
+    .service-description h3 {
+        font-size: 1em; /* Adjust heading size for smaller screens */
+        margin-top: 5px; /* Reduced top margin */
+        margin-bottom: 5px; /* Reduced bottom margin */
+    }
+
+    .service-description p {
+        font-size: 0.9em; /* Adjust paragraph font size */
+        line-height: 1.4; /* Adjust line height for readability */
+        margin-bottom: 5px; /* Reduced bottom margin */
+    }
+
+    /* Adjust content to a single column layout */
+    .content {
+        columns: 1; /* Use a single column for content */
+        column-gap: 0; /* Remove column gap */
+        padding-top: 170px; /* Adjusted padding to reduce spacing */
+    }
+
+    /* Profile picture styling */
+    
 
     .profile-picture img {
-        width: 180px;    
-        margin-left: 40px;
+        width: 100%;
+        height: auto;
+        margin-left: 1.5px;
     }
 
-    .text-box {    
-        padding-top: 200px; /* Adjust this value as needed */ 
-        margin-top: -5px;       
-        font-size: 15px; /* Adjust the font size as needed */ 
-        margin-left: -1px;
-        max-width: 300px; /* Ensure a maximum width */
-        min-width: 200px;
-        
+
+    .profile-picture {
+        order: 1; /* Move the profile picture after the service description */
+        margin-top: 790px; /* Adjusted top margin for a more compact layout */
+        max-width: 150px;
+        flex: 0 1 100%;
+        display: flex; /* Use flex layout */
+        justify-content: center; /* Center the image horizontally */
     }
+    
+    
+    
+
+    /* Adjust the text box */
+    .text-box {
+        font-size: 1.1em;
+        margin-bottom: 15px; /* Reduced spacing between text box and other elements */
+        flex: 0 1 100%;
+    }
+
+    /* Adjust content heading */
+    .content h3 {
+        font-size: 1.2em;
+        margin-bottom: 5px; /* Reduced bottom margin */
+    }
+
+    /* Ensure paragraphs are readable */
+    .content p {
+        font-size: 0.9em;
+        margin-bottom: 5px; /* Reduced bottom margin */
+    }
+
+    /* Adjust data-text size */
+    #bio .content h3::before {
+        font-size: 0.8em;
+    }
+
+
 
 
 
@@ -4446,6 +5441,123 @@ footer {
         font-size: 12px; /* Increased font-size */
         padding: 4px 6px; /* Reduced padding */
     }
+
+
+
+    /*REVIEW section*/
+    .reviews-section {
+        padding: 20px;
+        margin-top: 20px;
+        margin: 5px;
+        padding: 10px;
+        font-weight: lighter;
+        font-size: 0.8em; /* Smaller text */
+        margin-top: 100px; /* Ensure spacing from the top */
+    }
+
+    #projects-title {
+        text-align: left; /* Center the h3 element */
+        padding: 0 15px;
+        font-size: 12px;
+        margin-bottom: 10px; /* Optional: Add spacing below the title */      
+    }
+
+    
+    /* Center the section and align horizontally */
+    .project-counts {        
+        border-spacing: 0 1px; /* Space between rows */
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 1px; /* Add padding */
+    }
+
+    /* Each row aligned horizontally */
+    .project-row {
+        display: block; /* Stack rows */
+    }
+
+    /* Align all content to the left in each row */
+    .project-row span.icon,
+    .project-row p,
+    .project-row strong {
+        text-align: left;
+        white-space: nowrap; /* Prevents wrapping */
+        padding: 5px;  /* Consistent padding */        
+    }
+
+    /* Icon styling */
+    .project-row span.icon {
+        width: 10px;  /* Fixed width for alignment */
+        font-size: 12px;
+    }
+
+    /* Text (p) styling */
+    .project-row p {
+        font-size: 0.8em;
+        margin: 0;
+        padding-right: 50px; /* Space between text and count */
+    }
+
+    
+    /* Specific styling for the number count */
+    .project-row .count {        
+        margin-right: 50px; /* Add space after the number */
+        font-size: 13px;
+    }
+
+    /* Select only <p> elements that do not contain <strong> */
+    .review p:not(:has(strong)) {
+        text-align: left;         /* Align text to the left */
+        margin-left: 50px;        /* Indent from the left */
+        word-wrap: break-word;    /* Ensure long words break properly */
+        line-height: 1.5;         /* Improve readability */
+    }
+
+    .review-filters {
+    margin-bottom: 15px;
+    }
+
+    .filter-btn {
+    padding: 5px 5px; /* Padding */
+    border-radius: 5px; /* Rounded corners */    
+    font-size: 10px;    
+    }
+
+    .reviews-container {
+    display: block;
+    }
+
+    .review-category {
+    margin-bottom: 10px;    
+    }
+
+    .review {
+    flex-wrap: wrap;
+    align-items: left;
+    margin-bottom: 5px;
+    padding: 5px;
+    font-size: 10px;    
+    }
+
+    .reviewer-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;    
+    }
+
+    .star-rating {
+    font-size: 0.5em;
+    color: gold;
+    }
+
+    .load-more-btn {
+    padding: 10px 15px;    
+    margin: 10px auto 0;
+    
+    }
+
+
 
 
 }
