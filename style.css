@@ -7,7 +7,7 @@ body {
     font-family: 'Segoe UI', sans-serif;    
     padding-top: 130px; /* Adjust as needed to account for the combined height of title and navigation */
     color: rgb(236, 220, 230); /* Text color */
-    background-image: url('https://media.licdn.com/dms/image/D4D12AQGmVEW9PRcsGw/article-cover_image-shrink_720_1280/0/1693874124818?e=2147483647&v=beta&t=pmvy7TiXaLcsMA0lUDWzxGkpMaooDI3wdMBxIGFHNCM');
+    background-color: #01080a;
     background-size: cover; /* This ensures that the entire image is visible without distortion */
     background-repeat: no-repeat; /* Prevent the background image from repeating */
     background-position: center; /* Center the background image */
@@ -4344,7 +4344,7 @@ footer {
 
 
 /* LARGE PHONES */
-@media (max-width: 475px) {
+@media (min-width: 400px) and (max-width: 480px) {
     .container {
         max-width: 475px;
     }
@@ -4914,9 +4914,10 @@ footer {
 
 
 /* SMALL PHONES */
-@media (max-width: 360px) {
+@media (min-width: 250px) and (max-width: 400px) {
     .container {
-        padding: 0 10px;
+        padding: 0 0;
+        width: 100%;
     }
     .container * {
         font-size: 3.5vw; /* Responsive font size for small phones */
@@ -4954,13 +4955,10 @@ footer {
         display: block;
         font-size: 1rem; /* Adjust font size as needed */
         text-align: center; /* Center-align text */
-        
         color: #d12727; /* Customize the color */
         font-weight: bold; /* Make the title bold */
-        padding: 10px 0; /* Add padding for spacing around the title */
+        padding: 5px 0; /* Add padding for spacing around the title */
         border-bottom: 2px solid #ccc; /* Optional: underline style */
-        
-        
         
     }
 
@@ -5036,7 +5034,7 @@ footer {
 
     .profile-picture {
         order: 1; /* Move the profile picture after the service description */
-        margin-top: 790px; /* Adjusted top margin for a more compact layout */
+        margin-top: -230px; /* Adjusted top margin for a more compact layout */
         max-width: 150px;
         flex: 0 1 100%;
         display: flex; /* Use flex layout */
