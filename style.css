@@ -4337,7 +4337,7 @@ footer {
 
 
 /* LARGE PHONES */
-@media (min-width: 400px) and (max-width: 480px) {
+@media (min-width: 361px) and (max-width: 475px) {
     /* General Container */
     .container {
         padding: 0;
