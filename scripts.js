@@ -162,6 +162,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    
+
 
 
 
@@ -608,4 +610,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
     });
+});
+
+
+
+//Responsive Design
+
+window.addEventListener("resize", function() {
+    const screenWidth = window.innerWidth;
+    const serviceDescription = document.querySelector(".service-description");
+
+    if (screenWidth >= 250 && screenWidth <= 400) {
+        serviceDescription.style.width = `${screenWidth * 0.8}px`; // 80% of screen width
+    }
 });

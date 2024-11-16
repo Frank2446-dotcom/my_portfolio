@@ -1623,15 +1623,15 @@ animation-play-state: paused; /* Pauses animation on hover */
 
 /* Projects Section */
 #projects {
-    padding: 170px;
+    padding: 0 30px;
+    margin: auto;    
+    padding-top: 180px;
     margin: auto;
-    max-width: 1200px; /* Limit maximum width of the projects section */
-    position: relative; /* Allow for absolute positioning of background elements */
-    overflow: hidden; /* Hide overflow to contain the background */
-    background: linear-gradient(to right, #397192 0%, #553923 25%, #272747 50%, #1b3f1b 75%, #2d133b 100%); /* Linear gradient background */
-    color: #fff; /* Text color for better contrast */
-    
-    
+    max-width: 1200px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to right, #397192 0%, #553923 25%, #272747 50%, #1b3f1b 75%, #2d133b 100%);
+    color: #fff;
 }
 
 
@@ -1641,9 +1641,9 @@ animation-play-state: paused; /* Pauses animation on hover */
 
 /* Ensure content is above background */
 #projects h2 {
-    position: relative; /* Ensure the heading is above the animated background */
-    z-index: 1; /* Place text above the background */
-    font-weight: 400px;
+    position: relative;
+    z-index: 1;
+    font-weight: 400;
     font-size: 25px;
     text-align: center;
     color: #fff;
@@ -1654,29 +1654,28 @@ animation-play-state: paused; /* Pauses animation on hover */
 .project-category {
     margin-bottom: 20px;
     text-align: left;
+
+    padding: 10px;
 }
 
 .project-category h3 {
     
-    padding: 10px;
     font-weight: 400;
-    border-radius: 5px; /* Reduced border-radius for smoother appearance */
+    padding: 10px;
+    border-radius: 5px;
     color: #f0f0f7;
     cursor: pointer;
-    width: calc(100% - 20px); /* Set width relative to parent with padding */
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
-    overflow: hidden; /* Hide overflow to prevent text clipping */
-    text-overflow: ellipsis; /* Add ellipsis for overflowed text */
-    white-space: nowrap; /* Prevent text from wrapping */
+    width: 100%;
+    transition: background-color 0.3s ease;
     font-size: 1rem;
-    border: 1px solid #9276c0; /* Defined border */
+    border: 1px solid #9276c0;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     animation: slideIn 1s ease-out;
     
 }
 
 .project-category h3:hover {
-    background-color: #5c2c2c9d; /* New background color on hover */
+    background-color: #4f1a689d; /* New background color on hover */
 }
 
 
@@ -1684,7 +1683,8 @@ animation-play-state: paused; /* Pauses animation on hover */
 
 
 .project-list li {
-    background-color: #42595e;
+    
+    border: 1px solid #289687;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 5px;
@@ -1694,16 +1694,12 @@ animation-play-state: paused; /* Pauses animation on hover */
     max-width: 100%; /* Limit the maximum width */
     overflow-wrap: break-word; /* Break words if they exceed container width */
     font-weight: 300;
+
+    
 }
 
 .project-list li:hover {
     background-color: #7e5656;
-}
-
-.project-details {
-    transition: max-height 0.3s ease-out;
-    overflow: hidden;
-    margin-bottom: 20px; /* Space below each detail */
 }
 
 
@@ -1717,11 +1713,11 @@ animation-play-state: paused; /* Pauses animation on hover */
     transform: scaleY(0);
     transform-origin: top;
     transition: transform 0.8s ease-out, max-height 0.8s ease-out;
-    
     list-style: none;
     padding: 0;
     margin: 0;
     max-width: 100%; /* Limit the maximum width */
+
 }
 
 /* Expanded state of the project list */
@@ -2360,6 +2356,8 @@ animation-play-state: paused; /* Pauses animation on hover */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+
+
 /* Button Area Styling */
 .button-area {
     display: flex;
@@ -2407,29 +2405,6 @@ animation-play-state: paused; /* Pauses animation on hover */
     cursor: pointer;
 }
 
-/* Responsive Design */
-@media (max-width: 480px) {
-    .dbl-field {
-        flex-direction: column;
-    }
-
-    .button-area {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .button-area button {
-        width: 100%;
-    }
-
-    .field input, 
-    .field select, 
-    .field textarea {
-        font-size: 0.9rem; /* Slightly smaller for smaller screens */
-    }
-}
-
-
 
 
 
@@ -2444,21 +2419,14 @@ animation-play-state: paused; /* Pauses animation on hover */
 #hire {
     background-image: linear-gradient(rgba(35, 35, 99, 0.226), rgba(112, 112, 50, 0.253)),
     url("hireme.jpg");
-    
     justify-content: center;    
     margin-left: 20px;
     margin-right: 20px;
-    
-    
-    
-    
     flex-direction: column; /* Arrange children in a column */
-    
     align-items: center; /* Center items horizontally */
     justify-content: center; /* Center items vertically */
     padding-top: 170px; /* Adjust padding-top to match reduced overall padding */
     max-width: 1200px;
-    
     margin: 0 auto;
     background-color: #d7e8eb;
     border-radius: 8px;
@@ -2505,32 +2473,35 @@ animation-play-state: paused; /* Pauses animation on hover */
     gap: 10px;
 }
 
+
 /* Label styling */
 #hire-form label {
     text-align: left;
     font-size: 16px;
     margin-bottom: 5px;
-    color: #d2d9e0;
+    color: #34d10c;
     margin-left: 20px;
 }
+
 
 /* Input, select, and textarea styling */
 #hire-form input[type="text"],
 #hire-form input[type="datetime-local"],
 #hire-form textarea,
 #hire-form select {
-    padding: 10px;
+    background-color: #086b99a6;
+    width: 100%; /* Full width for all fields */
+    padding: 10px; /* Comfortable padding for inputs */
+    font-size: 0.9rem;
+    margin-bottom: 15px; /* Space between fields */
     border: 1px solid #42899e17;
-    border-radius: 4px;
-    font-size: 16px;
-    
-    box-sizing: border-box;
-    background-color: #003b57c5;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure proper spacing calculations */
 }
+
 
 /* Specific adjustments for select */
 #hire-form select {
-    appearance: none;
     border: none; /* Remove border */    
     background-image: linear-gradient(45deg, transparent 50%, #46c514 50%), linear-gradient(135deg, #49ce2f 50%, transparent 50%);
     background-position: calc(100% - 20px) center, calc(100% - 15px) center;
@@ -2554,6 +2525,9 @@ animation-play-state: paused; /* Pauses animation on hover */
 #job-title-container .form-group {
     flex: 1;
 }
+
+
+
 
 /* Button styles */
 button {
@@ -2592,11 +2566,6 @@ button:hover {
     opacity: 1;
     animation: fadeIn 0.5s forwards;
 }
-
-
-
-
-
 
 
 
@@ -2954,6 +2923,30 @@ input:checked + .slider:before {
 }
 
 
+
+
+
+
+/* Success/Error Messages */
+#hire-form .form-message {
+    font-size: 0.9rem;
+    margin-top: 15px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#hire-form .form-message.success {
+    color: #28a745;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+#hire-form .form-message.error {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
 
 
 
@@ -4345,474 +4338,266 @@ footer {
 
 /* LARGE PHONES */
 @media (min-width: 400px) and (max-width: 480px) {
+    /* General Container */
     .container {
-        max-width: 475px;
+        padding: 0;
+        margin: 0;
+        width: 100%;
     }
+
     .container * {
-        font-size: 3vw; /* Responsive font size for large phones */
+        font-size: 3.5vw; /* Responsive font size for larger phones */
     }
-    
-    
+
     /* Header styles */
-    header {        
-        font-size: 12px;
+    header {
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .hamburger-menu {
+        display: block;
     }
 
     .navigation-block {
         display: none;
     }
 
-    .hamburger-menu {
-        display: block; /* Show the hamburger menu on small screens */
-    }
-    
     .navigation-block ul li a {
-        font-size: 3.2vw; /* Increase nav bar font size */
+        font-size: 2.8vw; /* Slightly larger font size */
     }
 
-    
-        /* Bio section styles */
+    /* Bio section styles */
     #bio {
-        margin-top: 105px; /* Adjust this value based on the height of your navigation bar */
-        padding-top: 10px;
+        margin-top: 20px; /* Adjusted for a better layout */
     }
 
-    #bio h2 {
-        font-size: 30px;
-    }
-    
-
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*ABOUT ME SECTION*/
-    .text-box {    
-        padding-top: 200px; /* Adjust this value as needed */        
-        font-size: 25px; /* Adjust the font size as needed */ 
-        margin-left: -1px;
-        max-width: 350px; /* Ensure a maximum width */      
-    }   
-    
-    .hello-title {
-        display: block;
-        font-size: 1rem; /* Adjust font size as needed */
-        text-align: center; /* Center-align text */
-        color: #d12727; /* Customize the color */
-        font-weight: bold; /* Make the title bold */
-        padding: 10px 0; /* Add padding for spacing around the title */
-        border-bottom: 2px solid #ccc; /* Optional: underline style */
-    
-    } 
-
-    /* Center and style the about-title */
-    .about-title {
-        display: block;
-        font-size: 1rem; /* Adjust font size as needed */
-        text-align: center; /* Center-align text */
-        margin: 0 0; /* Center the title with space above and below */
-        color: #d12727; /* Customize the color */
-        font-weight: bold; /* Make the title bold */
-        padding: 10px 0; /* Add padding for spacing around the title */
-        border-bottom: 2px solid #ccc; /* Optional: underline style */
-        margin-bottom: 0;
-        margin-top: 20px;
-        padding-top: 0;
-        
+    .hello-title, .about-title {
+        font-size: 1.2rem;
+        text-align: center;
+        color: #d12727;
+        font-weight: bold;
+        margin: 10px 0;
+        border-bottom: 2px solid #ccc;
+        padding: 10px 5px;
     }
 
-    /* Adjust the layout for service description */
+    /* Service Description */
     .service-description {
-        display: block; /* Stack the service items vertically */
-        padding: 5px;
-        margin-top: -190px; /* Reduced top margin */
+        padding: 0 20px; 
+        margin-left: auto; 
+        margin-right: auto; 
+        width: 100%;
+        max-width: 380px; /* Increased max width for large phones */
     }
 
-    /* Modify service item styling for smaller screens */
+    /* Modify service item styling for larger screens */
     .service-item {
-        margin-bottom: 10px; /* Reduced space between items */
-        max-width: none; /* Remove the max-width to take full width */
+        margin-bottom: 12px;
     }
 
     .service-description h3 {
-        font-size: 1em; /* Adjust heading size for smaller screens */
-        margin-top: 5px; /* Reduced top margin */
-        margin-bottom: 5px; /* Reduced bottom margin */
+        margin-bottom: 10px;
+        font-size: 1.1rem; 
     }
 
-    .service-description p {
-        font-size: 0.9em; /* Adjust paragraph font size */
-        line-height: 1.4; /* Adjust line height for readability */
-        margin-bottom: 5px; /* Reduced bottom margin */
-    }
-
-    /* Adjust content to a single column layout */
-    .content {
-        columns: 1; /* Use a single column for content */
-        column-gap: 0; /* Remove column gap */
-        padding-top: 170px; /* Adjusted padding to reduce spacing */
-    }
-
-    /* Profile picture styling */
-    
-
+    /* Profile Picture */
     .profile-picture img {
         width: 100%;
         height: auto;
-        margin-left: 1.5px;
     }
 
     .profile-picture {
-        order: 1; /* Move the profile picture after the service description */
-        margin-top: -230px; /* Adjusted top margin for a more compact layout */
-        max-width: 150px;
-        flex: 0 1 100%;
-        display: flex; /* Use flex layout */
-        justify-content: center; /* Center the image horizontally */
-        position: absolute; /* Position the profile picture absolutely */
-        
+        margin: 0 auto;
+        max-width: 180px;
+        margin-top: -180px; /* Adjusted top margin */
     }
 
-    /* Adjust the text box */
-    .text-box {
-        font-size: 1.1em;
-        margin-bottom: 15px; /* Reduced spacing between text box and other elements */
-        flex: 0 1 100%;
+    /* Professions Section */
+    #professions {
+        padding: 20px 10px;
+        margin-top: 120px;
     }
 
-    /* Adjust content heading */
-    .content h3 {
-        font-size: 1.2em;
-        margin-bottom: 5px; /* Reduced bottom margin */
+    .professions-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two columns */
+        gap: 15px;
     }
 
-    /* Ensure paragraphs are readable */
-    .content p {
-        font-size: 0.9em;
-        margin-bottom: 5px; /* Reduced bottom margin */
-    }
-
-    /* Adjust data-text size */
-    #bio .content h3::before {
-        font-size: 1rem;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-    
-
-
-
-    #professions h2 {        
-        font-size: 20px
-    }
-
-    #professions {       
-        padding: 20px; /* Reduce padding for smaller screens */            
-        margin-top: 100px; /* Adjust margin-top to start below the navigation bar */
-    }
-
-    .professions-grid {        
-        grid-template-columns: repeat(2, 1fr); /* Set 2 boxes per row */        
-    } 
-    
     .profession-item p {
-        margin-top: 5px;
-        font-size: 13px; /* Adjust font size for smaller screens */        
+        font-size: 14px;
     }
 
-
-
-
-
+    /* Skills Section */
     #skills {
-        padding-top: 30px;
+        padding: 20px;
+        padding-top: 140px;
     }
-
-
-
-    #skills h2 {
-        font-size: 20px;        
-    } 
-    
-
-    #skills h3 {
-        
-        font-size: 13px;
-        min-width: 200px;
-        text-align: center; /* Center-align the text */
-        
-        
-    }
-
 
     .skill-item {
-        flex: 1 1 calc(50% - 20px);
-        max-width: calc(50% - 20px);
+        flex: 1 1 calc(20% - 20px);
+        max-width: 48%;
+        margin-bottom: 12px;
+        text-align: center;
     }
 
     .skill-item i {
-        font-size: 1.8rem; /* Larger icons */
-        margin-bottom: 10px;
-        
+        font-size: 1.7rem;
     }
-
-
-
-    /* Individual skill item styling */
-    .skill-item {
-    
-        flex: 1 1 calc(20% - 20px); /* Adjust percentage as needed for responsiveness */
-        max-width: calc(20% - 20px);
-        min-width: 50px;
-        padding: 1px;
-        
-    }
-
 
     .skill-item span {
-        font-size: 0.8rem;
-        color: #555; /* Text color */
+        font-size: 1rem;
     }
-    
 
-
+    /* Projects Section */
     #projects {
-        margin-top: -10px;
+        padding: 20px;
+        padding-top: 140px;
     }
-
-
-
-
 
     #projects h2 {
-        font-size: 20px;
+        font-size: 24px;
     }
 
-    .project-category h3 {        
-        margin-left: -125px;
-    }
-    
-    .project-category h3 {        
-        
-        min-width: 300px;
-    }  
-
-    .project-list {
-        min-width: 300px;
-        margin-left: -115px;
-    }   
-
-
-    
-
-    #contacts h2 {
-        font-size: 20px;
+    .project-category h3 {
+        font-size: 16px;
+        padding: 5px;
+        margin-left: 0;
+        width: 100%;
     }
 
-    
+    .project-list li {
+        font-size: 16px;
+    }
 
+    .project-1-details, .project-2-details, .project-3-details {
+        margin-top: 15px;
+        padding: 18px;
+    }
+
+    .project-1-details img,
+    .project-2-details img,
+    .project-3-details img {
+        max-width: 100%;
+    }
 
     /* Contacts Section */
-    #contacts {        
-        padding: 150px 20px; /* Adjust padding as needed */        
-        height: auto; /* Auto height */
-        width: 100%; /* Full width */
-        overflow-y: auto; /* Enable vertical scroll if content overflows */
-        
+    #contacts {
+        padding: 140px 20px;
     }
-
 
     .contact-info {
         display: flex;
-        flex-wrap: wrap; /* Allow items to wrap to the next row */
-        justify-content: flex-start; /* Align items to the left */
-        gap: 1px; /* Reduced spacing between items */
-        padding: 5px; /* Adjusted padding for smaller screens */
+        flex-wrap: wrap;
+        gap: 15px;
     }
 
     .contact-info p {
         margin: 0;
-        flex: 1 1 100%; /* Each item takes full width of the row */
         display: flex;
-        align-items: center;
-        justify-content: flex-start; /* Align items to the left */
-    }
-    
-
-    /* Adjust icon sizes */
-    /* Adjust icon sizes */
-    .contact-info .icon-link i, 
-    .contact-info .icon-link svg {
-        font-size: 20px; /* Reduced icon size for smaller screens */
+        justify-content: flex-start;
+        flex: 1 1 100%;
+        font-size: 14px;
+        text-align: left;
     }
 
-
-    .contact-info a {        
-        font-size: 14px; /* Increase icon size */
+    .contact-info .icon-link i {
+        font-size: 18px;
     }
 
-    
-
-
+    .contact-info a {
+        font-size: 14px;
+    }
 
     /* Form Container */
     #contactForm {
-        max-width: 600px;
-        margin: 0 auto;        
-        padding: 20px;
+        padding: 25px;
         border-radius: 8px;
-        
-    }
-
-    /* Form Rows */
-    .row {
-        
-        display: grid;
-        margin-bottom: 5px;
-        align-items: center;
-    }
-
-    .row.double {
-        justify-content: space-between;
-        
-    }
-
-    .row.double .field {
-        width: 95%;
-    }
-
-    /* Label Styles with Gradient Animation */
-    label {
-        width: 100%x; /* Fixed width for labels */
-        font-size: 14px;
-        text-align: center; /* Align labels to the right */
-        margin-right: 10px; /* Spacing between labels and inputs */
-        
-    }
-
-    
-    /* Input Styles */
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    textarea,
-    select {
-        flex: 1; /* Take remaining space */
-        padding: 10px;
-        border: 1px solid #d7e8eb;
-        border-radius: 5px;
-        font-size: 14px;
-        transition: border-color 0.3s ease;
+        box-shadow: none;
         width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
-    /* Input Styles */
-    
-    input[type="email"] {
-        flex: 1; /* Take remaining space */
-        padding: 10px;
-        border: 1px solid #d7e8eb;
-        border-radius: 5px;
-        font-size: 14px;
-        max-width: 95%;
-        transition: border-color 0.3s ease;
-        width: 100%;
+    #contactForm h2 {
+        font-size: 1.1rem;
+        margin-top: 20px;
     }
 
-
-
-
-    /* Textarea Styles */
-    textarea {
-        height: 250px; /* Set a fixed height for textarea */
-        resize: vertical; /* Allow vertical resizing */
-        width: 100%; /* Adjust width to fit container */
-    }
-
-    /* Select Styles */
-    select {
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 16px;
-        
-        width: 100%; /* Adjust width to fit container */
-    }
-
-    /* Button Styles */
-    button[type="submit"] {
+    .dbl-field {
         display: block;
-        padding: 8px 10px;
-        background-color: #1a7d9b;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        font-size: 18px;
-        max-width: 80px;
-        margin-left: auto; /* Pushes the button to the right */
-        margin-top: 10px; /* Optional: Add some space above the button */
+        gap: 12px;
     }
 
+    .field {
+        flex: 1;
+        margin-bottom: 15px;
+    }
 
+    .field input,
+    .field select,
+    .field textarea {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
 
+    .field textarea {
+        min-height: 120px;
+        resize: vertical;
+    }
 
+    .button-area {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 18px;
+    }
+
+    .button-area button {
+        width: 100%;
+        padding: 16px;
+        font-size: 1rem;
+        border-radius: 22px;
+        margin-bottom: 12px;
+    }
+
+    .button-area span {
+        font-size: 0.9rem;
+        color: #bdb3b3;
+        margin-top: 12px;
+    }
 
 
     /*REVIEW section*/
     .reviews-section {
-        padding: 20px;
-        margin-top: 20px;
+        padding: 8px;
         margin: 5px;
-        padding: 10px;
         font-weight: lighter;
-        font-size: 0.8em; /* Smaller text */
-        margin-top: 100px; /* Ensure spacing from the top */
+        font-size: 0.85em; /* Slightly larger text for readability */
+        margin-top: 60px; /* Reduced top margin */
     }
 
     #projects-title {
-        text-align: left; /* Center the h3 element */
-        padding: 0 15px;
-        font-size: 12px;
-        margin-bottom: 10px; /* Optional: Add spacing below the title */      
+        text-align: left; /* Keep title left-aligned */        
+        font-size: 14px; /* Slightly larger font size for readability */
+        margin-bottom: 8px; /* Adjusted bottom margin */
     }
 
-    
     /* Center the section and align horizontally */
-    .project-counts {        
-        border-spacing: 0 1px; /* Space between rows */
+    .project-counts {    
         width: 100%;
-        margin-bottom: 10px;
-        padding: 1px; /* Add padding */
+        margin-bottom: 8px;
+        padding: 1px;
     }
 
     /* Each row aligned horizontally */
     .project-row {
-        display: block; /* Stack rows */
+        display: flex;
+        flex-wrap: wrap; /* Allow wrapping */
+        justify-content: space-between;
     }
 
     /* Align all content to the left in each row */
@@ -4820,86 +4605,114 @@ footer {
     .project-row p,
     .project-row strong {
         text-align: left;
-        white-space: nowrap; /* Prevents wrapping */
-        padding: 5px;  /* Consistent padding */        
+        padding: 4px; /* Slightly reduced padding */
     }
 
     /* Icon styling */
     .project-row span.icon {
-        width: 10px;  /* Fixed width for alignment */
-        font-size: 12px;
+        font-size: 16px; /* Increased icon size for better visibility */
+        margin-right: 5px;
     }
 
-    /* Text (p) styling */
     .project-row p {
-        font-size: 0.8em;
+        font-size: 1em; /* Increased font size */
         margin: 0;
-        padding-right: 50px; /* Space between text and count */
+        padding-right: 25px; /* Adjusted padding */
     }
 
-    
-    /* Specific styling for the number count */
-    .project-row .count {        
-        margin-right: 50px; /* Add space after the number */
-        font-size: 13px;
+    /* Styling for the number count */
+    .project-row .count {
+        font-size: 14px; /* Slightly larger font size */
     }
 
-    /* Select only <p> elements that do not contain <strong> */
+    /* Review text (p) styling */
     .review p:not(:has(strong)) {
-        text-align: left;         /* Align text to the left */
-        margin-left: 50px;        /* Indent from the left */
-        word-wrap: break-word;    /* Ensure long words break properly */
-        line-height: 1.5;         /* Improve readability */
+        text-align: left;
+        margin-left: 10px;
+        word-wrap: break-word;
+        line-height: 1.5;
     }
 
+    /* Review filter styles */
     .review-filters {
-    margin-bottom: 15px;
+        margin-bottom: 8px; /* Reduced margin */
     }
 
     .filter-btn {
-    padding: 5px 5px; /* Padding */
-    border-radius: 5px; /* Rounded corners */    
-    font-size: 10px;    
+        padding: 4px 6px;
+        font-size: 13px; /* Slightly larger button text */
+        border-radius: 5px;
+        text-align: left;
+        align-self: flex-start;
+        margin: 0;
     }
 
     .reviews-container {
-    display: block;
+        display: block;
     }
 
     .review-category {
-    margin-bottom: 10px;    
+        margin-bottom: 8px;    
     }
 
     .review {
-    flex-wrap: wrap;
-    align-items: left;
-    margin-bottom: 5px;
-    padding: 5px;
-    font-size: 10px;    
+        flex-wrap: wrap;
+        align-items: flex-start;
+        margin-bottom: 8px; /* Reduced margin */
+        padding: 6px; /* Slightly increased padding */
+        font-size: 13px; /* Slightly larger font size */
+        display: flex;
+        align-items: center;
     }
 
-    .reviewer-pic {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;    
+    /* Review Header */
+    .review-header {
+        display: grid;
+        grid-template-columns: auto 1fr auto; /* Reviewer pic, name, and star rating */
+        align-items: start; 
+        gap: 5px;
     }
 
+    /* Reviewer Name */
+    .review-header p {
+        grid-column: 2 / 3;
+        white-space: normal;
+        word-break: break-word;
+        margin: 0;
+        line-height: 1.2;
+        text-align: left;
+        font-weight: 100;
+    }
+
+    /* Star Rating */
     .star-rating {
-    font-size: 0.5em;
-    color: gold;
+        grid-column: 3 / 4;
+        justify-self: end;
+        font-size: 0.6em; /* Adjusted font size */
+        margin-top: 0;
+        align-self: flex-start;
+    }
+
+    /* Reviewer Picture */
+    .reviewer-pic {
+        grid-column: 1 / 2;
+        width: 30px; /* Adjusted image size */
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 8px; /* Adjusted margin */
+    }
+
+    /* Review Text */
+    .review-text p {
+        font-size: 11px; /* Slightly increased text size */
+        line-height: 1.4;
+        word-wrap: break-word;
     }
 
     .load-more-btn {
-    padding: 10px 15px;    
-    margin: 10px auto 0;
-    
+        padding: 8px 12px;    
+        margin: 8px auto 0;
     }
-
-
-
-
-
 
 
 
@@ -4914,11 +4727,14 @@ footer {
 
 
 /* SMALL PHONES */
-@media (min-width: 250px) and (max-width: 400px) {
+@media (max-width: 360px) {
+    /* General Container */
     .container {
-        padding: 0 0;
+        padding: 0;
+        margin: 0;
         width: 100%;
     }
+
     .container * {
         font-size: 3.5vw; /* Responsive font size for small phones */
     }
@@ -4926,7 +4742,7 @@ footer {
     /* Header styles */
     header {        
         font-size: 12px;
-    
+        text-align: left;    
     }
 
     .hamburger-menu {
@@ -4944,244 +4760,156 @@ footer {
 
        /* Bio section styles */
     #bio {
-        margin-top: 70px; /* Adjust this value based on the height of your navigation bar */
-        padding-top: 40px;
-    }
-
-    
-    
-
-    .hello-title {
-        display: block;
-        font-size: 1rem; /* Adjust font size as needed */
-        text-align: center; /* Center-align text */
-        color: #d12727; /* Customize the color */
-        font-weight: bold; /* Make the title bold */
-        padding: 5px 0; /* Add padding for spacing around the title */
-        border-bottom: 2px solid #ccc; /* Optional: underline style */
-        
-    }
-
-    
-
-
-
-    /* Center and style the about-title */
-    .about-title {
-        display: block;
-        font-size: 1rem; /* Adjust font size as needed */
-        text-align: center; /* Center-align text */
-        margin: 0 0; /* Center the title with space above and below */
-        color: #d12727; /* Customize the color */
-        font-weight: bold; /* Make the title bold */
-        padding: 10px 0; /* Add padding for spacing around the title */
-        border-bottom: 2px solid #ccc; /* Optional: underline style */
-        margin-bottom: 0;
-        margin-top: 20px;
-        padding-top: 0;
+        margin-top: 10px; /* Adjust this value based on the height of your navigation bar */
         
     }
 
 
-    
-
-
-
-
+    .hello-title, .about-title {
+        font-size: 1rem;
+        text-align: center;
+        color: #d12727;
+        font-weight: bold;
+        margin: 10px 0;
+        border-bottom: 2px solid #ccc;
+        padding: 10px 5px;
+    }
 
 
     /* Adjust the layout for service description */
     .service-description {
-        display: block; /* Stack the service items vertically */
-        padding: 5px;
-        margin-top: -190px; /* Reduced top margin */
+        padding: 0 15px;  /* Reduce padding to prevent too much space on the sides */
+        margin-left: auto; /* Center content horizontally */
+        margin-right: auto; /* Center content horizontally */
+        width: 100%; /* Ensure it takes up full width */
+        max-width: 320px; /* Max width to avoid it getting too wide */
     }
 
     /* Modify service item styling for smaller screens */
     .service-item {
-        margin-bottom: 10px; /* Reduced space between items */
-        max-width: none; /* Remove the max-width to take full width */
+        margin-bottom: 8px; /* Reduced space between items */
+        padding: 0;  /* No extra padding on the service item */
     }
 
     .service-description h3 {
-        font-size: 1em; /* Adjust heading size for smaller screens */
-        margin-top: 5px; /* Reduced top margin */
-        margin-bottom: 5px; /* Reduced bottom margin */
+        margin-bottom: 8px; /* Reduced bottom margin */
+        font-weight: bold;
+        font-size: 1rem; /* Slightly larger font for readability */
+        margin-top: 0; /* Remove margin-top to avoid extra space above the heading */
     }
 
-    .service-description p {
-        font-size: 0.9em; /* Adjust paragraph font size */
-        line-height: 1.4; /* Adjust line height for readability */
-        margin-bottom: 5px; /* Reduced bottom margin */
-    }
-
-    /* Adjust content to a single column layout */
-    .content {
-        columns: 1; /* Use a single column for content */
-        column-gap: 0; /* Remove column gap */
-        padding-top: 170px; /* Adjusted padding to reduce spacing */
-    }
-
-    /* Profile picture styling */
-    
-
+    /* Profile Picture */
     .profile-picture img {
         width: 100%;
         height: auto;
-        margin-left: 1.5px;
+        
     }
-
-
+    
     .profile-picture {
-        order: 1; /* Move the profile picture after the service description */
-        margin-top: -230px; /* Adjusted top margin for a more compact layout */
+        margin: 0 auto;
         max-width: 150px;
-        flex: 0 1 100%;
-        display: flex; /* Use flex layout */
-        justify-content: center; /* Center the image horizontally */
+        margin-top: -230px; /* Adjusted top margin for a more compact layout */
     }
+
+    .content h3, .content p {
+        font-size: 1em;
+        margin-bottom: 5px;
+    }
+
+
     
-    
-    
 
-    /* Adjust the text box */
-    .text-box {
-        font-size: 1.1em;
-        margin-bottom: 15px; /* Reduced spacing between text box and other elements */
-        flex: 0 1 100%;
+    /* Professions Section */
+    #professions {
+        padding: 20px 10px;
+        margin-top: 100px;
     }
-
-    /* Adjust content heading */
-    .content h3 {
-        font-size: 1.2em;
-        margin-bottom: 5px; /* Reduced bottom margin */
+    .professions-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two columns */
+        gap: 10px;
     }
-
-    /* Ensure paragraphs are readable */
-    .content p {
-        font-size: 0.9em;
-        margin-bottom: 5px; /* Reduced bottom margin */
-    }
-
-    /* Adjust data-text size */
-    #bio .content h3::before {
-        font-size: 0.8em;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    #professions h2 {        
-        font-size: 14px
-    }
-
-    #professions {       
-        padding: 20px; /* Reduce padding for smaller screens */            
-        margin-top: 100px; /* Adjust margin-top to start below the navigation bar */
-    }
-
-    .professions-grid {        
-        grid-template-columns: repeat(2, 1fr); /* Set 2 boxes per row */        
-    } 
-    
     .profession-item p {
-        margin-top: 5px;
-        font-size: 12px; /* Adjust font size for smaller screens */        
+        font-size: 12px;
     }
-    
-    
-    
-    
-    
 
 
-
+    /* Skills Section */
+    #skills {
+        padding: 20px;
+    }
 
     #skills {
-        padding-top: 30px;
+        padding-top: 120px;
     }
     
-
-    #skills h2 {
-        font-size: 15px;        
-    }
-
-    #skills h3 {
-        font-size: 14px;        
-        min-width: 200px;
-    }
-
-    
-
-    #skills h3 {
-        
-        font-size: 12px;
-        min-width: 200px;
-        
-    }
-
     .skill-item {
-        flex: 1 1 100%;
-        max-width: 100%;
+        flex: 1 1 calc(20% - 20px); /* Adjust percentage as needed for responsiveness */
+        max-width: 48%;
+        margin-bottom: 10px;
+        text-align: left;
     }
+
 
     .skill-item i {
-        font-size: 1.5rem; /* Larger icons */
-        margin-bottom: 5px;
+        font-size: 1.5rem;
         
     }
-
-        /* Individual skill item styling */
-    .skill-item {
-        
-        flex: 1 1 calc(20% - 20px); /* Adjust percentage as needed for responsiveness */
-        max-width: calc(20% - 20px);
-        min-width: 50px;
-        padding: 1px;
-        
-    }
-
 
     .skill-item span {
         font-size: 0.8rem;
-        color: #555; /* Text color */
-    }
-
-
-    #projects {
-        margin-top: -20px;
         
     }
 
+
+    
+
+    /* Projects Section */
+    #projects {
+        
+        padding: 10px;
+        padding-top: 120px;
+    }
 
     #projects h2 {
-        font-size: 18px;
+        font-size: 20px;
+        
     }
 
-    .project-category h3 {        
-        margin-left: -100px;
-    }
-    
-    .project-category h3 {        
+    .project-category h3 {
+        font-size: 14px;
+        margin-left: 0;
+        padding: 5px;
         
-        min-width: 250px;
-    }  
+        margin-left: 0; /* Reset the left margin */
+        margin-right: 0;
+        width: 100%; /* Ensure it takes full width */        
+        white-space: normal; /* Allow the text to wrap */
+    }
+
+    /* Center the project category titles */
+    
 
     .project-list {
-        min-width: 250px;
-        margin-left: -105px;
+        margin-left: 0; /* Remove margin */
+        padding-left: 0; /* Ensure padding is removed */
+    }
+
+    .project-list li {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+
+     /* Optional: Adjust the margin of project details for smaller screens */
+    .project-1-details, .project-2-details, .project-3-details {
+        margin-top: 10px;
+        padding: 15px;
+    }
+    
+    /* Adjust the image width for better responsiveness */
+    .project-1-details img,
+    .project-2-details img,
+    .project-3-details img {
+        max-width: 100%; /* Ensure images fit within the container */
     }
 
 
@@ -5192,39 +4920,34 @@ footer {
     #contacts {        
         padding: 125px 20px; /* Adjust padding as needed */        
         height: auto; /* Auto height */
-        width: 100%; /* Full width */
-        overflow-y: auto; /* Enable vertical scroll if content overflows */
         
     }
 
 
     .contact-info {
         display: flex;
-        flex-wrap: wrap; /* Allow items to wrap to the next row */
-        justify-content: flex-start; /* Align items to the left */
-        gap: 1px; /* Reduced spacing between items */
-        padding: 5px; /* Adjusted padding for smaller screens */
+        flex-wrap: wrap;
+        gap: 10px;
     }
 
     .contact-info p {
         margin: 0;
-        flex: 1 1 100%; /* Each item takes full width of the row */
         display: flex;
-        align-items: center;
         justify-content: flex-start; /* Align items to the left */
+        
+
+        flex: 1 1 100%; /* Full-width rows */
+        font-size: 14px;
+        text-align: left;
     }
     
 
     /* Adjust icon sizes */
-    /* Adjust icon sizes */
-    .contact-info .icon-link i, 
-    .contact-info .icon-link svg {
-        font-size: 18px; /* Reduced icon size for smaller screens */
+    .contact-info .icon-link i {
+        font-size: 16px;
     }
-
-
-    .contact-info a {        
-        font-size: 12px; /* Increase icon size */
+    .contact-info a {
+        font-size: 12px;
     }
 
     
@@ -5233,147 +4956,115 @@ footer {
 
         
     /* Form Container */
+     /* Form Container Styling */
     #contactForm {
-        max-width: 600px;
-        margin: 0 auto;        
         padding: 20px;
         border-radius: 8px;
-        
-    }
-
-    /* Form Rows */
-    .row {
-        
-        display: grid;
-        margin-bottom: 5px;
-        align-items: center;
-    }
-
-    .row.double {
-        justify-content: space-between;
-        
-    }
-
-    .row.double .field {
-        width: 95%;
-    }
-
-    /* Label Styles with Gradient Animation */
-    label {
-        width: 100%x; /* Fixed width for labels */
-        font-size: 14px;
-        text-align: center; /* Align labels to the right */
-        margin-right: 10px; /* Spacing between labels and inputs */
-        
-    }
-
-    
-    /* Input Styles */
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    textarea,
-    select {
-        flex: 1; /* Take remaining space */
-        padding: 10px;
-        border: 1px solid #d7e8eb;
-        border-radius: 5px;
-        font-size: 14px;
-        transition: border-color 0.3s ease;
+        box-shadow: none;
         width: 100%;
+        max-width: 100%;
+        box-sizing: border-box; /* Ensure padding/border doesn't cause overflow */
     }
 
-    /* Input Styles */
+    /* Header Styling */
+    #contactFormh2 {
+        font-size: 1rem; /* Slightly smaller font for narrow screens */
+        margin-top: 20px; /* Reduced space above */
+        padding-top: 8px;
+    }
+
+    /* Double Field Layout */
+    .dbl-field {
+        display: block; /* Stack fields vertically */
+        gap: 10px; /* Reduced gap */
+    }
+
+    /* Field Styling */
+    .field {
+        flex: 1;
+        margin-bottom: 12px; /* Reduced margin between fields */
+    }
+
+    /* Input, Select, and Textarea Styling */
+    .field input,
+    .field select,
+    .field textarea {
+        width: 100%; /* Ensure full width */
+        padding: 10px;
+        font-size: 0.9rem; /* Slightly smaller font */
+        border-radius: 6px; /* Slightly smaller border radius */
+        box-sizing: border-box; /* Include padding/border within width */
+    }
+
+    .field textarea {
+        min-height: 100px; /* Reduced height for smaller screens */
+        resize: vertical; /* Allow vertical resizing only */
+    }
+
+    /* Button Area Styling */
+    .button-area {
+        flex-direction: column; /* Stack the button and message vertically */
+        align-items: center; /* Center align */
+        margin-top: 15px;
+    }
+
+    /* Submit Button Styling */
+    .button-area button {
+        width: 100%; /* Make the button full-width */
+        padding: 14px;
+        font-size: 0.9rem; /* Slightly smaller font size */
+        border-radius: 20px; /* Slightly more rounded */
+        margin-bottom: 10px; /* Spacing between button and message */
+    }
+
+    /* Message Span Styling */
+    .button-area span {
+        font-size: 0.8rem; /* Smaller font size */
+        color: #bdb3b3;
+        margin-top: 10px;
+    }
     
-    input[type="email"] {
-        flex: 1; /* Take remaining space */
-        padding: 10px;
-        border: 1px solid #d7e8eb;
-        border-radius: 5px;
-        font-size: 14px;
-        max-width: 95%;
-        transition: border-color 0.3s ease;
-        width: 100%;
-    }
 
+    /* GENERAL STYLES FOR THE HIRE SECTION */
 
-
-
-    /* Textarea Styles */
-    textarea {
-        height: 250px; /* Set a fixed height for textarea */
-        resize: vertical; /* Allow vertical resizing */
-        width: 100%; /* Adjust width to fit container */
-    }
-
-    /* Select Styles */
-    select {
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 16px;
-        
-        width: 100%; /* Adjust width to fit container */
-    }
-
-    /* Button Styles */
-    button[type="submit"] {
-        display: block;
-        padding: 8px 10px;
-        background-color: #1a7d9b;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        font-size: 18px;
-        max-width: 80px;
-        margin-left: auto; /* Pushes the button to the right */
-        margin-top: 10px; /* Optional: Add some space above the button */
-    }
-
-
-
-
-
-
-
-
-
-    /* General styles for the hire section */
     #hire {
-        padding-top: 120px; /* Reduced padding-top */
-        margin-left: 10px; /* Reduced margin-left */
-        margin-right: 10px; /* Reduced margin-right */
-        max-width: 340px; /* Adjusted max-width */
-        padding-left: 20px;
+        padding: 20px 10px; /* Adequate padding for readability */
+        padding-top: 120px; /* Reduced padding-top */       
+        text-align: left;        
+        
     }
     
     /* Heading styles */
     #hire h2 {
-        font-size: 24px; /* Reduced font-size */
-        margin-bottom: 5px; /* Reduced margin-bottom */
+        font-size: 1.2rem; /* Headline with readable size */
+        margin-bottom: 15px; /* Proper spacing below the title */        
     }
-    
-    /* Form container */
-    .hire {
-        max-width: 300px; /* Adjusted max-width */
-        padding: 15px; /* Reduced padding */
-        padding-left: 100px;
+
+    #hire p {
+        font-size: 0.9rem; /* Supporting text slightly smaller */
+        margin-bottom: 20px; /* Spacing before form starts */
+        color: #555; /* Softer text for paragraph */
     }
     
     /* Form styles */
     #hire-form {
         gap: 15px; /* Reduced gap between form elements */
+        max-width: 100%; /* Ensure full width on small screens */
+        margin: 0 auto;                
     }
     
     /* Form group styles */
     #hire-form .form-group {
-        gap: 8px; /* Reduced gap within form groups */
+        gap: 0; /* Reduced gap within form groups */
     }
     
     /* Label styling */
     #hire-form label {
-        font-size: 14px; /* Reduced font-size */
-        margin-left: 10px; /* Reduced margin-left */
+        margin-left: 0;
+        font-size: 0.9rem; /* Small but readable labels */
+        color: #34d10c;
+        margin-bottom: 5px;
+        
     }
     
     /* Input, select, and textarea styling */
@@ -5381,39 +5072,64 @@ footer {
     #hire-form input[type="datetime-local"],
     #hire-form textarea,
     #hire-form select {
-        padding: 8px; /* Reduced padding */
-        font-size: 14px; /* Reduced font-size */
-        max-width: 300px;
+        width: 100%; /* Full width for all fields */
+        padding: 10px; /* Comfortable padding for inputs */
+        font-size: 0.9rem;
+        margin-bottom: 0; /* Space between fields */        
+        
     }
-    
-
-
-
-    
-
     
     /* Specific adjustments for select */
     #hire-form select {
         background-size: 10px 10px, 10px 10px; /* Reduced background size */
     }
     
-    /* Duration and job title container styles */
-    #duration-container,
-    #job-title-container {
-        gap: 10px; /* Reduced gap */
-    }
     
-    /* Button styles */
-    button {
-        padding: 8px 12px; /* Reduced padding */
-        font-size: 14px; /* Reduced font-size */
-    }
     
     /* Textarea styling */
     textarea#instructions {
         min-height: 200px; /* Reduced min-height */
         font-size: 14px; /* Reduced font-size */
     }
+
+
+    /* Duration Container */
+    #duration-container {
+        margin-bottom: 15px;
+        padding: 15px;        
+        
+    }
+
+    /* Deadline Wrapper */
+    .deadline-wrapper {
+        display: flex;
+        flex-wrap: wrap;        
+        gap: 10px;
+    }
+
+    /* Deadline Input */
+    #deadline {
+        flex: 1;
+        padding: 8px;
+        max-width: 100%;
+    }
+
+    /* Remaining Time Section */
+    .remaining-time {
+        flex: 1;
+        display: flex; /* Align items in one row */
+        justify-content: space-between; /* Space between each item */
+        align-items:flex-start;
+        gap: 5px;    
+    }
+
+    /* Remaining Time Items */
+    .remaining-time p {
+        margin: 0;
+        padding: 6px 8px;   
+    }
+
+
     
     /* File upload container */
     #file-upload-container {
@@ -5442,36 +5158,78 @@ footer {
 
 
 
+
+    /* Adjust the switch size */
+    .switch {
+        width: 50px; /* Smaller width */
+        height: 25px; /* Smaller height */
+    }
+
+    .slider {
+        height: 25px; /* Adjust slider height */
+    }
+
+    .slider:before {
+        height: 18px; /* Smaller circle */
+        width: 18px; /* Smaller circle */
+    }
+
+    /* Adjust the text font size */
+    .addon-item span {
+        font-size: 14px; /* Smaller font size */
+    }
+
+
+    /* Button Styles */
+    button[type="submit"] {
+        padding: 8px 10px;
+        font-size: 14px;
+        max-width: 120px;
+        display: block; /* Ensures it's treated as a block element */
+        margin: 0 auto; /* Center the button horizontally */
+        text-align: center; /* Align text inside the button */
+        color: rgb(10, 6, 207);
+        background-color: #0ae9e9;
+        font-weight: bold;
+    }
+
+    /* Ensure the parent container of the button is a flex container */
+    .button-container {
+        display: flex;
+        justify-content: center; /* Center the button */
+        align-items: center; /* Center vertically, if needed */
+    }
+
+
+
     /*REVIEW section*/
     .reviews-section {
-        padding: 20px;
-        margin-top: 20px;
-        margin: 5px;
         padding: 10px;
+        margin: 5px;
         font-weight: lighter;
         font-size: 0.8em; /* Smaller text */
-        margin-top: 100px; /* Ensure spacing from the top */
+        margin-top: 50px; /* Spacing from the top */
     }
 
     #projects-title {
-        text-align: left; /* Center the h3 element */
-        padding: 0 15px;
+        text-align: left; /* Center the h3 element */        
         font-size: 12px;
-        margin-bottom: 10px; /* Optional: Add spacing below the title */      
+        margin-bottom: 10px; /* Optional: Add spacing below the title */     
     }
 
     
     /* Center the section and align horizontally */
-    .project-counts {        
-        border-spacing: 0 1px; /* Space between rows */
+    .project-counts {    
         width: 100%;
         margin-bottom: 10px;
-        padding: 1px; /* Add padding */
+        padding: 1px;
     }
 
     /* Each row aligned horizontally */
     .project-row {
-        display: block; /* Stack rows */
+        display: flex;
+        flex-wrap: wrap; /* Allow wrapping */
+        justify-content: space-between;
     }
 
     /* Align all content to the left in each row */
@@ -5479,85 +5237,127 @@ footer {
     .project-row p,
     .project-row strong {
         text-align: left;
-        white-space: nowrap; /* Prevents wrapping */
-        padding: 5px;  /* Consistent padding */        
+        padding: 5px;
     }
 
-    /* Icon styling */
+     /* Icon styling */
     .project-row span.icon {
-        width: 10px;  /* Fixed width for alignment */
-        font-size: 12px;
+        font-size: 14px;
+        margin-right: 5px;
     }
 
-    /* Text (p) styling */
     .project-row p {
-        font-size: 0.8em;
+        font-size: 0.9em;
         margin: 0;
-        padding-right: 50px; /* Space between text and count */
+        padding-right: 30px;
     }
 
     
-    /* Specific styling for the number count */
-    .project-row .count {        
-        margin-right: 50px; /* Add space after the number */
+    /* Styling for the number count */
+    .project-row .count {
         font-size: 13px;
     }
 
-    /* Select only <p> elements that do not contain <strong> */
+    /* Review text (p) styling */
     .review p:not(:has(strong)) {
-        text-align: left;         /* Align text to the left */
-        margin-left: 50px;        /* Indent from the left */
-        word-wrap: break-word;    /* Ensure long words break properly */
-        line-height: 1.5;         /* Improve readability */
+        text-align: left;
+        margin-left: 10px;
+        word-wrap: break-word;
+        line-height: 1.5;
     }
 
+     /* Review filter styles */
     .review-filters {
-    margin-bottom: 15px;
+        margin-bottom: 10px;
     }
 
     .filter-btn {
-    padding: 5px 5px; /* Padding */
-    border-radius: 5px; /* Rounded corners */    
-    font-size: 10px;    
+        padding: 4px 6px;
+        font-size: 12px;
+        border-radius: 5px;
+        text-align: left;
+        align-self: flex-start; /* Aligns the button to the start of the container */
+        margin: 0; /* Reset default margins */
     }
 
     .reviews-container {
-    display: block;
+        display: block;
     }
 
     .review-category {
-    margin-bottom: 10px;    
+        margin-bottom: 8px;    
     }
 
     .review {
-    flex-wrap: wrap;
-    align-items: left;
-    margin-bottom: 5px;
-    padding: 5px;
-    font-size: 10px;    
+        flex-wrap: wrap;
+        align-items: flex-start;
+        margin-bottom: 10px;
+        padding: 5px;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
     }
 
-    .reviewer-pic {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;    
+    /* Review Header */
+    .review-header {
+        display: grid;
+        grid-template-columns: auto 1fr auto; /* Reviewer pic, name, and star rating */
+        align-items: start; /* Align items to the top to keep star rating and name in separate rows */
+        gap: 5px;
     }
 
+    /* Reviewer Name */
+    .review-header p {
+        grid-column: 2 / 3; /* Place the name in the second column */
+        white-space: normal; /* Allow the name to wrap */
+        word-break: break-word; /* Break long words */
+        margin: 0;
+        line-height: 1.2; /* Adjust line height to avoid overcrowding */
+        text-align: left; /* Align the name to the left */
+        font-weight: 100;
+    }
+
+    /* Star Rating */
     .star-rating {
-    font-size: 0.5em;
-    color: gold;
+        grid-column: 3 / 4; /* Place the star rating in the third column */
+        justify-self: end; /* Align the star rating to the right */
+        font-size: 0.5em; /* Adjust the font size for small screens */
+        margin-top: 0; /* Remove extra space between star rating and name */
+        align-self: flex-start; /* Keep the star rating in the first row */
     }
 
-    .load-more-btn {
-    padding: 10px 15px;    
-    margin: 10px auto 0;
+    /* Reviewer Picture */
+    .reviewer-pic {
+        grid-column: 1 / 2; /* Place the picture in the first column */
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    /* Review Text */
+    .review-text p {
+        font-size: 10px;
+        line-height: 1.4;
+        word-wrap: break-word;
+    }
+
+
     
+    .load-more-btn {
+        padding: 10px 15px;    
+        margin: 10px auto 0;    
     }
 
 
 
 
+
+    
+
+
+
+
 }
 
 
@@ -5571,12 +5371,5 @@ footer {
 
 
 
-.container section {
-    padding: 20px; /* Example padding for sections */
-    background-color: #fff; /* Example background color for sections */
-    margin-bottom: 0; /* Example margin between sections */
-    border-radius: 5px; /* Example border radius for sections */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Example box shadow */
-}
 
 

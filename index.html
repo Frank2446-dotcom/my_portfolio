@@ -534,8 +534,6 @@
             </div>
         </section>
         
-        
-        
 
         <section id="projects" class="container">        
             
@@ -612,8 +610,7 @@
                                         <P>The dataset lacks additional variables such as economic indicators or flight capacities, which could provide more insights into passenger trends. 
                                             The reliability analysis, which is not suitable here, was omitted. 
                                             Including more variables could enhance the depth of the analysis.</P>
-                                
-
+                            
                                 <h5>Methodology</h5> 
                                 <P>Descriptive statistics summarize the dataset. 
                                     Normality and hypothesis tests evaluate distributions and differences. 
@@ -705,8 +702,6 @@
                                         4.	Regression Model: Accepted. The regression model significantly captures the trend in passenger numbers over time (p < 0.05). <br>
                                         </p>
 
-
-                                
                                 <h5>Discussion</h5>
                                     <p>The analysis confirms significant seasonal patterns and trends in passenger traffic. 
                                         The Shapiro-Wilk test suggests the data is non-normally distributed, indicating that non-parametric methods might be necessary. 
@@ -864,9 +859,7 @@
                                             Values: Each component is plotted against time, providing a clear view of how each influences the overall temperature data. <br>
                                             Significance: Decomposing the time series helps isolate the underlying components affecting temperature changes, making it easier to model and predict future temperatures accurately. 
                                             Recognizing these components aids in enhancing model performance by focusing on significant patterns.</P>
-                                        
-                                            
-
+                                
                                     <h6>7. Time Series Decomposition Plot</h6>
                                         <img src="images/pythonportfolioproject3figure9.png" alt="Figure 7: Time Series Decomposition Plot">
                                         <p> Decomposes temperature data into trend, seasonality, and residuals.</p>
@@ -959,10 +952,7 @@
                                             Values: The first few components explain the majority of the variance. <br>
                                             Significance: PCA helps reduce dimensionality by identifying the most important features. 
                                             The significant components should be included in the model to capture the most variance and improve predictive performance.</p>
-                                    
-
-                                    
-                                    
+                    
                                     <h6>7. Rolling Mean and Standard Deviation Plot:</h6>
                                         <img src="images/pythonportfolioproject3figure8.png" alt="Figure 7: Rolling Mean and Standard Deviation Plot:">
                                         <p> Shows changes in mean and variability over time..</p>
@@ -1048,8 +1038,6 @@
 
                                     <p>Plot 2: Validation Loss</p>
 
-
-
                                     <img src="images/pythonportfolioproject3table19.png" alt="Figure 7: Plot 2: Validation Loss">
                                     <p>
 
@@ -1061,18 +1049,11 @@
                                         Conclusion: The neural network model generalizes well to new data, as indicated by the stable or decreasing validation loss. 
                                         If validation loss increases, it may signal overfitting, requiring adjustments to the model.</p>
 
-
-
-
                                 <h5>Recommendations</h5>
                                     <p>Model Refinement: Enhance mid-range temperature predictions by fine-tuning the Decision Tree model and exploring ensemble methods. <br>
                                         Feature Engineering: Investigate additional environmental variables and consider non-linear relationships to improve model performance. <br>
                                         Data Collection: Expand the dataset and collect data over longer periods to capture more variability and strengthen time series analysis. <br>
                                         Advanced Techniques: Experiment with sophisticated machine learning models and apply hyperparameter optimization for better accuracy and robustness.</p>
-
-
-
-
 
                                 <h5>Conclusion</h5>
                                     <p>This research effectively demonstrates that depth and other selected features significantly predict temperature variations. 
@@ -1101,6 +1082,7 @@
                         <!-- Add more projects if needed -->
                     </ul>
                 </div>
+
                 <div class="project-category">
                     <h3>Robotics and Machine Learning</h3>
                     <ul class="project-list">
@@ -1110,6 +1092,8 @@
                         <li>Project 3</li>
                         <!-- Add more projects if needed -->
                     </ul>
+                </div>
+
                 <div class="project-category">
                     <h3>Academic Writing</h3>
                     <ul class="project-list">
@@ -1143,6 +1127,8 @@
                         <li>Project 3</li>
                         <!-- Add more projects if needed -->
                     </ul>
+                </div>
+
                 <div class="project-category">
                     <h3>Land Surveying</h3>
                     <ul class="project-list">
@@ -1152,6 +1138,8 @@
                         <li>Project 3</li>
                         <!-- Add more projects if needed -->
                     </ul>
+                </div>
+
                 <div class="project-category">
                     <h3>Quantity Surveying</h3>
                     <ul class="project-list">
@@ -1161,6 +1149,8 @@
                         <li>Project 3</li>
                         <!-- Add more projects if needed -->
                     </ul>
+                </div>
+
                 <div class="project-category">
                     <h3>Civil/Structural Engineering</h3>
                     <ul class="project-list">
@@ -1425,38 +1415,35 @@
                         <label for="subject">Subject</label>
                         <input type="text" id="subject" name="subject" placeholder="Enter the subject of the assignment">
                     </div>
-                    
-                    <div id="service-writing-container" class="form-group">
-                        <div class="row">
-                            <div id="service-container" class="dropdown-container">
-                                <label for="service">Service</label>
-                                <select id="service" name="service" onchange="toggleOtherService()">
-                                    <option value="" disabled selected>--Choose service--</option>
-                                    <option value="writing">Writing</option>
-                                    <option value="rewriting">Rewriting</option>
-                                    <option value="editing">Editing</option>
-                                    <option value="proofreading">Proofreading</option>
-                                    <option value="problem-solving">Problem Solving</option>
-                                    <option value="calculations">Calculations</option>
-                                    <option value="others">Others (Specify)</option>
-                                </select>
-                                <input type="text" id="service-other" name="service-other" placeholder="Specify" class="hidden">
-                            </div>
-                    
-                            <div id="writing-type-container" class="dropdown-container">
-                                <label for="writing-type">Writing Type</label>
-                                <select id="writing-type" name="writing-type">
-                                    <option value="" disabled selected>--Select Writing type--</option>
-                                    <option value="research-papers">Research Papers</option>
-                                    <option value="essays">Essays</option>
-                                    <option value="dissertation">Dissertation</option>
-                                    <option value="others">Others (Specify)</option>
-                                </select>
-                                <input type="text" id="writing-type-other" name="writing-type-other" placeholder="Specify" class="hidden">
-                            </div>
-                        </div>
+
+                    <div id="service-container" class="form-group hidden">
+                        <label for="service">Service</label>
+                        <select id="service" name="service" onchange="toggleOtherService()">
+                            <option value="" disabled selected>--Choose service--</option>
+                            <option value="writing">Writing</option>
+                            <option value="rewriting">Rewriting</option>
+                            <option value="editing">Editing</option>
+                            <option value="proofreading">Proofreading</option>
+                            <option value="problem-solving">Problem Solving</option>
+                            <option value="calculations">Calculations</option>
+                            <option value="others">Others (Specify)</option>
+                        </select>
+                        <input type="text" id="service-other" name="service-other" placeholder="Specify" class="hidden">
                     </div>
-                        
+
+                    <div id="writing-type-container" class="form-group hidden">
+                        <label for="writing-type">Writing Type</label>
+                        <select id="writing-type" name="writing-type">
+                            <option value="" disabled selected>--Select Writing type--</option>
+                            <option value="research-papers">Research Papers</option>
+                            <option value="essays">Essays</option>
+                            <option value="dissertation">Dissertation</option>
+                            <option value="others">Others (Specify)</option>
+                        </select>
+                        <input type="text" id="writing-type-other" name="writing-type-other" placeholder="Specify" class="hidden">
+                    </div>
+                    
+                    
                         
                     <div id="number-of-pages-container" class="form-group">
                         <label for="subject">Number of Pages</label>
@@ -1474,92 +1461,95 @@
     
                         
         
-                    <div id="academic-level-container" class="row">
-                        <div class="dropdown-container">
-                            <label for="academic-level">Academic Level</label>
-                            <select id="academic-level" name="academic-level">
-                                <option value="" disabled selected>--Select Academic Level--</option>
-                                <option value="school">School</option>
-                                <option value="college">College</option>
-                                <option value="bachelor">Bachelor</option>
-                                <option value="masters">Masters</option>
-                                <option value="phd">PhD</option>
-                            </select>
-                        </div>
-                        <div class="dropdown-container">
-                            <label for="language">Language</label>
-                            <select id="language" name="language" onchange="toggleOtherLanguage()">
-                                <option value="" disabled selected>--Select Language--</option>
-                                <option value="english-us">English (US)</option>
-                                <option value="english-uk">English (UK)</option>
-                                <option value="spanish">Spanish (ES)</option>
-                                <option value="french">French (FR)</option>
-                                <option value="others">Others (Specify)</option>
-                            </select>
-                            <input type="text" id="lan-other" name="lan-other" placeholder="Specify" class="hidden">
-                        </div>
-                    </div>
-                        
-                        
-
-
-                    <div id="sources-style-container" class="form-group">
-                        
-                        <div class="row">
-                            <!-- Number of Sources Dropdown -->
-                            <div class="dropdown-container">
-                                <label for="num-sources">No. of Sources</label>
-                                <select id="num-sources" name="num-sources">
-                                    <option value="" disabled selected>--Select of sources--</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
-                                    <option value="16">16</option>
-                                    <option value="17">17</option>
-                                    <option value="18">18</option>
-                                    <option value="19">19</option>
-                                    <option value="20">20</option>
-                                    <option value="21">21</option>
-                                    <option value="22">22</option>
-                                    <option value="23">23</option>
-                                    <!-- Continue up to 200 -->
-                                    <option value="200">200</option>
-                                    <option value="type">Type</option>
-                                </select>
-                                <input type="text" id="num-sources-type" name="num-sources-type" placeholder="Specify" class="hidden">
-                            </div>
                     
-                            <!-- Citation Style Dropdown -->
-                            <div class="dropdown-container">
-                                <label for="citation-style">Citation Style</label>
-                                <select id="citation-style" name="citation-style" onchange="toggleOtherStyle()">
-                                    <option value="" disabled selected>--Select Citation Style--</option>
-                                    <option value="apa">APA</option>
-                                    <option value="mla">MLA</option>
-                                    <option value="chicago">Chicago</option>
-                                    <option value="Turabian">Turabian</option>
-                                    <option value="harvard">Harvard</option>
-                                    <option value="IEEE">IEEE</option>
-                                    <option value="OSCOLA">OSCOLA</option>
-                                    <option value="None">None</option>
-                                    <option value="other">Others (Specify)</option>
-                                </select>
-                                <input type="text" id="citation-style-other" name="citation-style-other" placeholder="Specify" class="hidden">
-                            </div>
-                        </div>
+                    <div id = "academic-level" class="form-group hidden">
+                        <label for="academic-level">Academic Level</label>
+                        <select id="academic-level" name="academic-level">
+                            <option value="" disabled selected>--Select Academic Level--</option>
+                            <option value="school">School</option>
+                            <option value="college">College</option>
+                            <option value="bachelor">Bachelor</option>
+                            <option value="masters">Masters</option>
+                            <option value="phd">PhD</option>
+                        </select>
                     </div>
+                    
+
+                    
+                    <div id = "language" class="form-group hidden">                        
+                        <label for="language">Language</label>
+                        <select id="language" name="language" onchange="toggleOtherLanguage()">
+                            <option value="" disabled selected>--Select Language--</option>
+                            <option value="english-us">English (US)</option>
+                            <option value="english-uk">English (UK)</option>
+                            <option value="spanish">Spanish (ES)</option>
+                            <option value="french">French (FR)</option>
+                            <option value="others">Others (Specify)</option>
+                        </select>
+                        <input type="text" id="lan-other" name="lan-other" placeholder="Specify" class="hidden">
+                    </div>
+                
+                        
+                        
+
+
+                    
+                        
+                        
+                    <div id = "num-sources" class="form-group hidden">                                            
+                        <label for="num-sources">No. of Sources</label>
+                        <select id="num-sources" name="num-sources">
+                            <option value="" disabled selected>--Select of sources--</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <!-- Continue up to 200 -->
+                            <option value="200">200</option>
+                            <option value="type">Type</option>
+                        </select>
+                        <input type="text" id="num-sources-type" name="num-sources-type" placeholder="Specify" class="hidden">
+                    </div>
+                    
+                    <!-- Citation Style Dropdown -->
+                    
+                    <div id = "citation-style" class="form-group hidden">
+                        <label for="citation-style">Citation Style</label>
+                        <select id="citation-style" name="citation-style" onchange="toggleOtherStyle()">
+                            <option value="" disabled selected>--Select Citation Style--</option>
+                            <option value="apa">APA</option>
+                            <option value="mla">MLA</option>
+                            <option value="chicago">Chicago</option>
+                            <option value="Turabian">Turabian</option>
+                            <option value="harvard">Harvard</option>
+                            <option value="IEEE">IEEE</option>
+                            <option value="OSCOLA">OSCOLA</option>
+                            <option value="None">None</option>
+                            <option value="other">Others (Specify)</option>
+                        </select>
+                        <input type="text" id="citation-style-other" name="citation-style-other" placeholder="Specify" class="hidden">
+                    </div>
+                        
+                    
 
                     <div id="duration-container" class="form-group">
                         <label for="deadline">Deadline</label>
@@ -1659,22 +1649,22 @@
                 <div class="project-row">
                     <span class="icon">📊</span>
                     <p>Data Analysis:</p>
-                    <strong><span class="count">25</span> </strong>
+                    <strong><span class="count">25+</span> </strong>
                 </div>
                 <div class="project-row">
                     <span class="icon">💻</span>
                     <p>Software & Web Development:</p>
-                    <strong><span class="count">30</span></strong>
+                    <strong><span class="count">30+</span></strong>
                 </div>
                 <div class="project-row">
                     <span class="icon">🏗️</span>
                     <p>Engineering Services:</p>
-                    <strong><span class="count">20</span></strong>
+                    <strong><span class="count">20+</span></strong>
                 </div>
                 <div class="project-row">
                     <span class="icon">🤝</span>
                     <p>Customer Care Solutions:</p>
-                    <strong><span class="count">15</span></strong>
+                    <strong><span class="count">15+</span></strong>
                 </div>
                 <div class="project-row">
                     <span class="icon">📝</span>
@@ -1688,7 +1678,7 @@
 
 
 
-
+            <h3 id="projects-title">Reviews</h3>
             <!-- Filter Section with Count -->
             <div class="review-filters">
                 <button class="filter-btn" data-category="all">All (100)</button>
@@ -1709,7 +1699,7 @@
                     <div class="review">                    
                         <div class="review-header">
                             <img src="reviews/rev1.jpeg" alt="Jane Doe" class="reviewer-pic" />
-                            <p><strong>Jane Doe, Marketing Manager</strong></p>
+                            <p><strong>Jane Doe, Marketing Manager of Notion AI</strong></p>
                             <div class="star-rating">⭐⭐⭐⭐⭐</div>
                         </div>
                         <div class="review-text">
