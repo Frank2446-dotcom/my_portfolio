@@ -1,8 +1,4 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-
-
 body {
     font-family: 'Segoe UI', sans-serif;    
     padding-top: 130px; /* Adjust as needed to account for the combined height of title and navigation */
@@ -24,12 +20,10 @@ body {
     }
 }
 
-
 /* Header styles */
 header {
     background-color: #1b382a;
     background: radial-gradient(ellipse at left, #471d77 0%, #202075 25%, #4f5e25 50%, #6e1088 75%, #36418a 100%);
-    padding: 20px 0;
     color: #fff;
     position: fixed; /* Fixed position to stick to the top */
     width: 100%;
@@ -38,7 +32,11 @@ header {
     transition: background-color 0.3s ease; /* Smooth transition for background color */
     animation: moveGradient 30s infinite alternate; /* Animation for moving gradient */
     background-size: 200% 200%; /* Ensure the gradient covers the area when it moves */
-    
+    height: 80px; /* Fixed height for consistent alignment */
+    display: flex; /* Flexbox for alignment */
+    justify-content: space-between; /* Space out title/logo and navigation */
+    align-items: center; /* Center items vertically */
+    padding: 0 20px; /* Add horizontal padding */
 }
 
 @keyframes moveGradient {
@@ -53,21 +51,108 @@ header {
     }
 }
 
+/* Title Block */
 .title-block {
     display: flex;
-    justify-content: left;
-    align-items: center;
-    margin: 0;
-    font-weight: 400;
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start; /* Align items to the far left */
+    flex: 0; /* Prevent it from growing */
 }
 
 .title-block img {
     width: 50px;
     height: 50px;
     margin-right: 10px; /* Space between image and text */
-    margin-left: 10px; /* Space between image and left edge */
     cursor: pointer;
-    align-self: center; /* Center align vertically within flex container */
+}
+
+.title-block h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: left; /* Ensure the title aligns left */
+}
+
+
+/* Navigation Block */
+.navigation-block {
+    display: flex;
+    align-items: center;    
+    margin: auto; /* Adjust margin as needed */
+}
+
+
+
+.navigation-block ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.navigation-block ul li {
+    margin-right: 5px;
+    position: relative; /* Required for pseudo-elements */
+}
+
+.navigation-block ul li:last-child {
+    margin-right: 0; /* No margin on the last item */
+}
+
+.navigation-block ul li a {
+    text-decoration: none;
+    color: #fdf7f7; /* Default text color */
+    font-size: 1rem; /* Responsive font size */
+    font-weight: 300;
+    padding: 10px 15px; /* Increase clickable area */
+    transition: color 0.3s ease;
+    font-size: 18px;
+}
+
+/* Hover Effects */
+.navigation-block ul li a:hover {
+    color: #ecde59;
+}
+
+/* Optional Pseudo-Element Hover Effects */
+.navigation-block ul li a:before,
+.navigation-block ul li a:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid #fdf7f7; /* Top border color */
+    border-bottom: 2px solid #fdf7f7; /* Bottom border color */
+    transform: scaleY(2);
+    opacity: 0;
+    transition: 0.3s;
+    z-index: 0;
+}
+
+.navigation-block ul li a:after {
+    background-color: #1b1919;
+    top: 2px;
+    transform: scale(0);
+    opacity: 0;
+    z-index: -1;
+}
+
+.navigation-block ul li a:hover:before {
+    transform: scaleY(1);
+    opacity: 1; /* Show border */
+}
+
+.navigation-block ul li a:hover:after {
+    transform: scaleY(1);
+    opacity: 1; /* Show background */
+}
+
+/* Hamburger Menu for Mobile */
+.hamburger-menu {
+    display: none;
 }
 
 
@@ -189,148 +274,14 @@ header {
 }
 
 
-
-
-
-
-
-
-/* Navigation Bar */
-/* Navigation Bar */
-.navigation-block {
-    background: linear-gradient(45deg, #636220, #30377a, #328373, #5e2569);
-    background-size: 400% 400%; /* Make the gradient cover more space */
-    text-align: center;
-    padding: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto; /* Adjust height to fit content */
-    position: fixed;
-    top: 90px;
-    width: 100%;
-    z-index: 1000;
-    text-decoration: none;
-    animation: gradientBlink 30s ease-in-out infinite, slideDown 0.5s ease-in-out;
-    font-weight: bold;
-}
-
-@keyframes gradientBlink {
-    0% {
-        background-position: 0% 0%;
-    }
-    50% {
-        background-position: 100% 100%;
-    }
-    100% {
-        background-position: 0% 0%;
-    }
-}
-
-@keyframes slideDown {
-    from {
-        transform: translateY(-10%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-
-
-
-
-
-
-
-/* Navigation Menu */
-.navigation-block ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    width: 100%; /* Ensure ul spans the width of the navigation block */
-}
-
-.navigation-block ul li {
-    display: inline-flex; /* Ensure list items are inline and flex */
-    margin-right: 20px;
-    position: relative; /* Required for pseudo-elements */
-}
-
-/* Link styles */
-.navigation-block ul li a {
-    text-decoration: none;
-    color: #fdf7f7; /* Default text color */
-    font-size: 1vw; /* Use vw units for responsive font size */
-    font-weight: 300; /* Optional: increase font weight */
-    padding: 10px 20px; /* Add padding for better click area */
-    transition: color 0.3s ease; /* Smooth transition for color change */
-}
-
-/* Pseudo-elements for hover effect */
-.navigation-block ul li a:before,
-.navigation-block ul li a:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-top: 2px solid #fdf7f7; /* Top border color */
-    border-bottom: 2px solid #fdf7f7; /* Bottom border color */
-    transform: scaleY(2);
-    opacity: 0;
-    transition: .3s;
-    z-index: 0; /* Make sure it appears behind the text */
-}
-
-.navigation-block ul li a:after {
-    background-color: #1b1919; /* Background color for the hover effect */
-    top: 2px; /* Adjust for the desired visual effect */
-    transform: scale(0);
-    opacity: 0;
-    z-index: -1; /* Make sure it appears behind the text */
-}
-
-/* Hover effects */
-.navigation-block ul li a:hover {
-    color: #ecde59; /* Change text color on hover */
-}
-
-.navigation-block ul li a:hover:before {
-    transform: scaleY(1);
-    opacity: 1; /* Show the border on hover */
-}
-
-.navigation-block ul li a:hover:after {
-    transform: scaleY(1);
-    opacity: 1; /* Show background color on hover */
-}
-
-/* Optional: Add spacing for the last item */
-.navigation-block ul li:last-child {
-    margin-right: 0; /* No margin on the last item */
-}
-
-
-
-
-
-
 /*SPA ARCHITECTURE*/
 /* Initial state of sections */
 section {
     display: none;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-    padding: 100px 0px; /* Adjust padding as needed */
+    
 }
-
 /* Active state of sections */
 section.active {
     display: block;
@@ -344,71 +295,37 @@ section:not(.active) {
 }
 
 
-
-
-
-section {
-    padding: 100px 0;
-    text-align: center;
-    margin-bottom: 20px;
-    padding-top: 120px; /* Adjust as needed based on your navigation bar height */
-}
-
-h2 {
-    color: #f8ebeb;
-    font-size: 25px;
-    margin: 0 0 20px 0;
-    font-weight: 400;
-}
-
-
-
-
-
-
-
-
-
+/* Show active section */
 /* Bio container to manage layout */
 .bio-container {
     display: flex;
     flex-wrap: nowrap; /* Prevent wrapping */
     justify-content: space-between;
     align-items: flex-start;
-    max-width: 1200px;
+    max-width: 100%; /* Limit the width of the container */
     margin: 0 auto;
 }
 
-
-
-
-
 /* Bio section styles */
-#bio {
-    margin-top: 70px; /* Adjust this value based on the height of your navigation bar */
-    
-    padding-top: 100px;
+#bio {   
+    padding-top: 20px;
     background-image: url('https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/img/demo-1-bg.jpg');
     display: none; /* Hide by default */
     transition: all 0.5s ease-in-out; 
     visibility: visible;
     opacity: 1;
-    transition: opacity 0.5s ease, visibility 0.5s ease; /* Smooth transition */
-    margin-bottom: 0;
-    
+    width: 100%;
+    transition: opacity 0.5s ease, visibility 0.5s ease; /* Smooth transition */        
 }
-
-
 
 .hello-title {
     display: block;
     font-size: 1.2rem; /* Adjust font size as needed */
     text-align: center; /* Center-align text */
-    color: #d12727; /* Customize the color */
+    color: #f1ee07; /* Customize the color */
     font-weight: bold; /* Make the title bold */
     padding: 10px 0; /* Add padding for spacing around the title */
-    border-bottom: 2px solid #ccc; /* Optional: underline style */
-
+    border-bottom: 2px solid #107de4; /* Optional: underline style */
 } 
 
 /* Center and style the about-title */
@@ -417,14 +334,11 @@ h2 {
     font-size: 1.2rem; /* Adjust font size as needed */
     text-align: center; /* Center-align text */
     margin: 0 0; /* Center the title with space above and below */
-    color: #d12727; /* Customize the color */
+    color: #f1ee07; /* Customize the color */
     font-weight: bold; /* Make the title bold */
     padding: 10px 0; /* Add padding for spacing around the title */
-    border-bottom: 2px solid #ccc; /* Optional: underline style */
-    margin-bottom: 0;
-    margin-top: 20px;
-    padding-top: 0;
-    
+    border-bottom: 20px solid #107de4; /* Optional: underline style */
+    padding-top: 0;    
 }
 
 
@@ -447,11 +361,9 @@ h2 {
     
 }
 
-
-
 .text-box {
     margin: 0 auto;
-    padding: 20px;
+    margin-top: 20px;
     overflow: hidden;
     margin-bottom: 20px;
     border-radius: 10px;
@@ -465,16 +377,11 @@ h2 {
     
 }
 
-
-
-
-
-
 .service-description {
     margin: 20px auto; /* Center horizontally */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgb(243, 240, 240);
+    
     font-family: 'Segoe UI', sans-serif;
     line-height: 1.2;
     font-size: 1rem;
@@ -497,10 +404,7 @@ h2 {
     color: #c7bdbd;
     font-size: 1em;
     margin-top: 5px; /* Increased space above h3 */
-    margin-bottom: 5px; /* Increased space below h3 */
-
-    
-    
+    margin-bottom: 5px; /* Increased space below h3 */   
 }
 
 
@@ -509,7 +413,7 @@ h2 {
 .service-item {
     margin: 0; /* Set to 0 to eliminate spacing between service items */
     padding: 10px; /* Reduced padding for a tighter fit */
-    border-bottom: 1px solid #107de4; /* Bottom line as separator */
+    border-bottom: 1px solid #107de459; /* Bottom line as separator */
     max-width: 600px; /* Maximum width for each service item */
 }
 
@@ -532,15 +436,243 @@ h2 {
 
 
 
+
+
+
+/* Insights section container */
+.insights-container {
+    width: 100%; /* Ensure it takes up full width */
+    background-color: #ffffff; /* Background color for the insights section */
+    padding: 0; /* Remove padding from the section */
+    margin: 0; /* Remove margin */
+    display: grid; /* Use grid layout to center the content */
+    place-items: center; /* Center the content both horizontally and vertically */
+    justify-content: center;
+    height: auto; /* Allow the container to adjust its height dynamically */
+    min-height: 100vh; /* Prevent collapsing, ensure full viewport height */
+    
+}
+
+/* Title styling */
+.insights-container h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #181817;
+    margin-bottom: 30px; /* Space below the title */
+    text-align: center; /* Center the title */
+}
+
+/* Insights section styling using CSS Grid */
+#bio .insights-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Each item has a minimum width of 300px */
+    gap: 20px; /* Space between items */
+    justify-items: center; /* Center items within grid cells */
+    justify-self: unset;
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
+    width: 100%; /* Ensure the grid container is the full width */
+    max-width: 100%; /* Prevent any overflow */
+    box-sizing: border-box; /* Ensure content fits properly within the grid */
+}
+
+/* Individual insight item */
+#bio .insight-item {
+    display: flex;
+    flex-direction: column; /* Stack icon, title, and description */
+    align-items: center; /* Center content inside each item */
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    padding: 25px; /* Padding for items */
+    text-align: center; /* Center text */
+    box-shadow: none; /* Remove box-shadow */
+    width: 100%; /* Ensure items are responsive */
+    box-sizing: border-box; /* Ensure padding does not overflow */
+    min-height: 200px; /* Set a minimum height for insight items */
+}
+
+/* Tenor GIF styling */
+#bio .insight-item .tenor-gif-embed {
+    width: 100%; /* Set the GIF to fill 100% of the parent container */
+    max-width: 100%; /* Prevent GIF from overflowing */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 200px; /* Restrict the height of the GIF to prevent it from being too large */
+    margin: 0; /* Space below the GIF */
+}
+
+/* Icon styling */
+#bio .insight-item .icon {
+    font-size: 40px;
+    color: #007acc; /* Icon color */
+    margin-bottom: 10px;
+}
+
+/* Title styling */
+#bio .insight-item h3 {
+    font-size: 20px;
+    color: #333;
+    margin: 10px 0 5px;
+}
+
+/* Paragraph styling */
+#bio .insight-item p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+    text-align: left;
+}
+
+/* Style for unordered list */
+#bio .insight-item ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding-left: 0; /* Remove any default padding */
+    margin: 0; /* Remove any default margin */
+}
+
+/* Style for list items */
+#bio .insight-item ul li {
+    font-size: 16px; /* Set font size */
+    text-align: left;
+    color: #0b17c9; /* Set text color */
+    line-height: 1.6; /* Improve line spacing for readability */
+    margin-bottom: 10px; /* Space between list items */
+    position: relative; /* For possible customization with icons or bullets */
+    padding-left: 20px; /* Add padding to the left for indentation */
+}
+
+/* Optional: Add custom bullet points for list items */
+#bio .insight-item ul li::before {
+    content: "•"; /* Use a custom bullet point */
+    color: #007acc; /* Set the bullet color */
+    font-size: 18px; /* Customize bullet size */
+    position: absolute; /* Position the bullet before the text */
+    left: 0; /* Align the bullet to the left */
+    top: 0; /* Align the bullet to the top */
+    font-weight: bold; /* Make the bullet bold */
+}
+
+/* Media query to handle smaller screens */
+@media (max-width: 768px) {
+    .insights-container {
+        height: auto; /* Allow the container to adjust height on smaller screens */
+    }
+
+    #bio .insights-section {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Reduce the column size on smaller screens */
+    }
+
+    #bio .insight-item {
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+}
+
+
+
+
+
+/* Ensure the body and parent elements have no margins or padding */
+
+/* Computer Science Insights container */
+#bio .computer-science-insights {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next row */
+    justify-content: center; /* Center items horizontally */
+    align-items: flex-start; /* Align items to the top */
+    gap: 20px; /* Space between items */
+    padding: 40px 0; /* Only vertical padding */
+    background-color: #f3f4f6; /* Light gray background */
+    border: solid 2px #107de4; /* Optional border */
+    box-sizing: border-box; /* Ensure padding and border don't affect size */
+    width: 100%; /* Full width */
+    margin: 0; /* Remove all margins */
+}
+
+/* Title of the Computer Science Insights */
+#bio .computer-science-insights h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1d1d1c; /* Title color */
+    text-align: center; /* Center-align the title */
+    width: 100%; /* Full width */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+/* Section titles (h3) */
+#bio .computer-science-insights h3 {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    color: #e2119c; /* Section title color */
+    margin-bottom: 20px;
+    width: 100%;
+    margin-left: 0; /* Align section title with container */
+}
+
+/* Individual insight item */
+#bio .computer-science-insights .insight-item {
+    display: flex;
+    flex-direction: column; /* Stack icon, title, and description vertically */
+    align-items: center; /* Center content horizontally inside each item */
+    background: #ffffff; /* White background */
+    border: 1px solid #ddd; /* Light border */
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    flex: 1 1 300px; /* Flex-grow, shrink, and basis */
+    max-width: 300px; /* Prevent items from becoming too wide */
+    min-width: 250px; /* Ensure items don't get too small */
+}
+
+/* Title inside each insight item */
+#bio .computer-science-insights .insight-item h4 {
+    font-size: 18px;
+    margin-top: 15px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Styling for insights paragraphs */
+#bio .computer-science-insights .insight-item p {
+    font-size: 0.85em;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    max-width: 280px; /* Prevent paragraphs from stretching */
+}
+
+/* Image styling */
+#bio .computer-science-insights img {
+    display: block;
+    max-width: 100%;
+    max-height: 120px; /* Limit image height */
+    margin: 0 auto; /* Center the image */
+    object-fit: contain; /* Maintain aspect ratio */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #bio .computer-science-insights {
+        gap: 15px; /* Reduce gap for smaller screens */
+    }
+
+    #bio .computer-science-insights .insight-item {
+        flex: 1 1 100%; /* Items take full width on small screens */
+    }
+}
+
+
+
+
+
+
 /* Bio-Profile Picture*/
 /* Bio-Profile Picture */ 
 .profile-picture {
     position: relative;    
     margin-left: 50px; /* Adjust as needed */
     flex: 0 1 30%; /* Allow profile picture to take up to 30% of the container */
-    max-width: 200px; /* Limit the maximum width */
-    
-    
+    max-width: 200px; /* Limit the maximum width */  
     overflow: hidden; /* Hide overflow */
     border-radius: 15px; /* Slightly rounded corners */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
@@ -568,19 +700,15 @@ h2 {
 }
 
 
-
-
 /* General content styling */
 .content {
     columns: 3; /* Set up 3 columns */
     column-gap: 20px; /* Space between columns */
     margin: 0 auto; /* Center the content on the page */
     padding: 20px;
-    border: 1px solid #107de4; /* Blue border around content */
-    border-radius: 10px; /* Rounded corners */
+    border-top: 2px solid #107de4; /* Optional: underline style */
+    border-bottom: 2px solid #107de4; /* Optional: underline style */
     max-width: 1000px; /* Limit width to avoid overflow */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
-    font-family: 'Segoe UI', sans-serif;
 }
 
 /* h3 Styling */
@@ -599,7 +727,6 @@ h2 {
     font-size: 1rem;
     margin: 5px 0; /* Small top and bottom spacing between paragraphs */
     break-inside: avoid; /* Prevents paragraphs from breaking across columns */
-
     margin-top: 20px;
     margin-bottom: 20px; /* Adds spacing below each paragraph */
     font-size: 1rem; /* You can adjust the font size as needed */
@@ -616,7 +743,6 @@ h2 {
 
 /* Pseudo-element for animation */
 #bio .content h3::before {
-    
     content: attr(data-text);
     position: absolute;
     top: 0;
@@ -663,39 +789,6 @@ h2 {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Shooting Star Background */
 .stars {
     position: absolute;
@@ -707,8 +800,6 @@ h2 {
     
 }
 
-
-
 .star {
     --star-color: #1db8d4;
     --star-tail-length: 6em;
@@ -716,7 +807,6 @@ h2 {
     --star-width: calc(var(--star-tail-length) / 2);
     --fall-duration: 9s;
     --tail-fade-duration: var(--fall-duration);
-
     position: absolute;
     top: var(--top-offset);
     left: 0;
@@ -803,11 +893,6 @@ h2 {
     --fall-delay: 5s;
 }
 
-/* Continue adding more rules as needed */
-
-/* Add more .star:nth-child() rules for additional stars with different properties */
-
-
 
 @keyframes fall {
     to {
@@ -833,30 +918,7 @@ h2 {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*SKILLS PREVIEW IN THE BIO SECTION*/
-
 .skills-preview {
     overflow: hidden;
     white-space: nowrap;
@@ -904,12 +966,10 @@ h2 {
 .skill-icons .fa-tools { color: #FFA500; } /* Example default color for Tools */
 .skill-icons .fa-layer-group { color: #7B68EE; } /* Example default color for Layers */
 .skill-icons .fa-vials { color: #8A2BE2; } /* Example default color for Vials */
-
 .skill-icons .fa-cloud { color: #00BFFF; } /* Example default color for Cloud */
 .skill-icons .fa-css3-alt { color: #264DE4; } /* Example default color for CSS */
 .skill-icons .fa-html5 { color: #E34F26; } /* Example default color for HTML */
 .skill-icons .fa-js { color: #F0DB4F; } /* Example default color for JavaScript */
-
 .skill-icons .fa-code { color: #000000; } /* Example default color for Code */
 .skill-icons .fa-java { color: #007396; } /* Example default color for Java */
 .skill-icons .fa-d-and-d { color: #3A3845; } /* Example default color for Dart/Flutter */
@@ -937,7 +997,6 @@ h2 {
     }
 }
 
-
 .skill-icons {
 animation: scroll 20s linear infinite;
 }
@@ -947,37 +1006,18 @@ animation-play-state: paused; /* Pauses animation on hover */
 }
 
 
-
-
-
-
-
-
-
-
-
-/* My Profession Section */
-
 /* My Profession Section */
 #professions {
     position: relative; /* Ensure the animated background and circles are contained within the section */
-    background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8, #006400); /* Gradient background */
-    padding: 150px; /* Add padding to create space inside the section */
+    padding: 80px; /* Add padding to create space inside the section */
     margin: 0 auto; /* Center the section horizontally */
     max-width: 1200px; /* Set a maximum width for the section */
-    border-radius: 10px; /* Add border-radius for rounded corners */
-    margin-top: 20px; /* Adjust margin-top to start below the navigation bar */
+    border-radius: 10px; /* Add border-radius for rounded corners */    
     overflow: hidden; /* Hide overflow to contain the animated background */    
     background: #4e54c8; /* Fallback color */    
     z-index: 1; /* Ensure the animated background is behind the content */
     
 }
-
-
-
-
-
-
 
 
 /* Circles for animation */
@@ -1181,16 +1221,10 @@ animation-play-state: paused; /* Pauses animation on hover */
 
 /* General styles for the skills section */
 #skills {
-    padding: 2rem;
-    margin-top: 130px;
-    
-    margin-bottom: 0;
-    margin-top: 100px;
-    padding-top: 170px;
+    padding: 2rem;  
+    padding-top: 80px;
     max-width: 1200px;
     margin: 0 auto;
-
-    
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     animation: slideIn 1s ease-out;
     background: linear-gradient(135deg, #121113, #080614); /* Dark background */
@@ -1456,19 +1490,6 @@ animation-play-state: paused; /* Pauses animation on hover */
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Programming and Data Analysis */
 .fa-html5 { color: #E34F26; } /* HTML */
 .fa-css3-alt { color: #1572B6; } /* CSS */
@@ -1596,123 +1617,61 @@ animation-play-state: paused; /* Pauses animation on hover */
 .fa-indesign { color: #FF6F00; } /* InDesign */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Projects Section */
 #projects {
-    padding: 0 30px;
+    padding: 0 20px;
     margin: auto;    
-    padding-top: 180px;
-    margin: auto;
-    max-width: 1200px;
-    position: relative;
-    overflow: hidden;
+    padding-top: 80px;
+    margin: 0 auto;
+    max-width: 1200px;  
     background: linear-gradient(to right, #397192 0%, #553923 25%, #272747 50%, #1b3f1b 75%, #2d133b 100%);
     color: #fff;
 }
 
-
-/* Animated Background */
-
-
-
 /* Ensure content is above background */
-#projects h2 {
-    position: relative;
-    z-index: 1;
+#projects h2 {  
     font-weight: 400;
     font-size: 25px;
     text-align: center;
-    color: #fff;
-}
-
-
-
-.project-category {
-    margin-bottom: 20px;
-    text-align: left;
-
-    padding: 10px;
+    color: #fff;    
 }
 
 .project-category h3 {
-    
-    font-weight: 400;
-    padding: 10px;
-    border-radius: 5px;
-    color: #f0f0f7;
+    font-weight: 600;
+    padding: 10px 0;    
+    color: #e77408;
     cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s ease;
-    font-size: 1rem;
-    border: 1px solid #9276c0;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;    
+    font-size: 1.4rem; 
     animation: slideIn 1s ease-out;
+    text-align: center;
+    border-bottom: 3px solid #9276c0;    
     
 }
-
-.project-category h3:hover {
-    background-color: #4f1a689d; /* New background color on hover */
-}
-
-
 
 
 
 .project-list li {
-    
     border: 1px solid #289687;
     padding: 10px;
     border-radius: 5px;
-    margin-bottom: 5px;
+    margin: 0 auto 5px auto; /* Center horizontally and keep bottom margin */
     max-height: auto;
     cursor: pointer;
     color: #eff5f4;
-    max-width: 100%; /* Limit the maximum width */
+    max-width: 90%; /* Limit the maximum width */
     overflow-wrap: break-word; /* Break words if they exceed container width */
     font-weight: 300;
-
-    
+    text-align: left; /* Center the text content */
 }
 
 .project-list li:hover {
     background-color: #7e5656;
 }
 
-
-
-
-
 /* Container for the project list */
 .project-list {
-    overflow: hidden;
-    max-height: 0;
-    transform: scaleY(0);
-    transform-origin: top;
-    transition: transform 0.8s ease-out, max-height 0.8s ease-out;
+    overflow: hidden;    
     list-style: none;
     padding: 0;
     margin: 0;
@@ -1728,27 +1687,84 @@ animation-play-state: paused; /* Pauses animation on hover */
 
 
 
+/* General Styles */
+/* General Styles */
+.project-category {
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+h3 {
+    cursor: pointer;
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.project-list h4 {
+    margin: 10px 0;
+    color: #a8afdb;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: inline-block; /* Ensure h4 stays inline with close button */
+}
+
+/* Close Button */
+.project-header {
+    display: flex;
+    justify-content: space-between; /* Space between title and button */
+    align-items: center;
+    width: 100%; /* Ensure it spans the full width */
+    padding: 5px 0;
+}
+
+.close-button {
+    background: #ff4d4d;
+    border: none;
+    color: white;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+}
+
+.close-button.visible {
+    display: block; /* Ensure it's always visible when a PDF is open */
+}
+
+.close-button:hover {
+    background: #ff1a1a;
+}
+
+/* PDF Container */
+.pdf-container {
+    display: none; /* Hidden initially */
+    width: 100%;
+    max-width: 800px;
+    height: 70vh; /* Take up 70% of the screen height */
+    overflow-y: auto; /* Enable scrolling for PDF content */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+    margin-top: 10px;
+}
+
+/* PDF Content Canvas */
+.pdf-container canvas {
+    display: block;
+    margin: 10px auto;
+    max-width: 100%;
+    height: auto;
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* PROJECT 1*/
-
-
-.project-1-details {
+/* PROJECT LISTS*/
+.project-details {
     margin-top: 20px;
     padding: 20px;
     border-radius: 8px;
@@ -1758,33 +1774,33 @@ animation-play-state: paused; /* Pauses animation on hover */
     
 }
 
-.project-1-details h4,
-.project-1-details h5,
-.project-1-details h6 {
+.project-details h4,
+.project-details h5,
+.project-details h6 {
     margin-bottom: 15px;
     color: #8eaa6e;
     font-weight: 300;
 }
 
-.project-1-details h4 {
+.project-details h4 {
     font-size: 25px;
     text-align: center;
     animation: scaleIn 2s ease-in-out;
 }
 
-.project-1-details h5 {
+.project-details h5 {
     font-size: 22px;
     color: #edf4f7;
     animation: fadeIn 2s ease-in-out;
 }
 
-.project-1-details h6 {
+.project-details h6 {
     font-size: 18px;
     color: #f0c711;
     animation: fadeIn 2s ease-in-out;
 }
 
-.project-1-details p {
+.project-details p {
     font-size: 16px;
     color: #92bdda;
     margin-bottom: 15px;
@@ -1792,7 +1808,7 @@ animation-play-state: paused; /* Pauses animation on hover */
     font-weight: 300;
 }
 
-.project-1-details img {
+.project-details img {
     width: 100%;
     max-width: 600px;
     display: block;
@@ -1842,173 +1858,6 @@ animation-play-state: paused; /* Pauses animation on hover */
 
 
 
-/* PROJECT 2*/
-/* Styles specific to Project 2 details */
-.project-2-details {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    background: linear-gradient(to right, #2d485f, #8d693a);
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin: 10px 0;
-    overflow: hidden;
-    position: relative;
-    
-}
-
-/* Headings styling */
-.project-2-details h4, .project-2-details h5, .project-2-details h6 {
-    color: #cc7c3b;
-    margin: 15px 0 10px;
-    opacity: 0;
-    transform: translateX(-100%);
-    animation: scrollIn 1s forwards;
-    font-weight: 300;
-}
-
-/* Paragraph styling */
-.project-2-details p {
-    color: #ddd1df;
-    line-height: 1.6;
-    margin: 10px 0;
-    opacity: 0;
-    transform: translateY(100%);
-    animation: scrollIn 1s forwards;
-    font-weight: 300;
-}
-
-/* Image styling */
-.project-2-details img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    opacity: 0;
-    transform: translateY(100%);
-    animation: scrollIn 1s forwards;
-}
-
-/* Animation keyframes */
-@keyframes scrollIn {
-    to {
-        opacity: 1;
-        transform: translate(0, 0);
-    }
-}
-
-/* Apply delay to each element for staggered effect */
-.project-2-details h4 {
-    animation-delay: 0.1s;
-}
-
-.project-2-details h5 {
-    animation-delay: 0.2s;
-}
-
-.project-2-details h6 {
-    animation-delay: 0.3s;
-}
-
-.project-2-details p {
-    animation-delay: 0.4s;
-}
-
-.project-2-details img {
-    animation-delay: 0.5s;
-}
-
-
-
-
-
-
-/* PROJECT 3*/
-/* Styles specific to Project 2 details */
-.project-3-details {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    background: linear-gradient(to right, #460d61, #74460b);
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin: 10px 0;
-    overflow: hidden;
-    position: relative;
-}
-
-/* Headings styling */
-.project-3-details h4, .project-3-details h5, .project-3-details h6 {
-    color: #cc7c3b;
-    margin: 15px 0 10px;
-    opacity: 0;
-    transform: translateX(-100%);
-    animation: scrollIn 1s forwards;
-    font-weight: 300;
-}
-
-/* Paragraph styling */
-.project-3-details p {
-    color: #ddd1df;
-    line-height: 1.6;
-    margin: 10px 0;
-    opacity: 0;
-    transform: translateY(100%);
-    animation: scrollIn 1s forwards;
-    font-weight: 300;
-}
-
-/* Image styling */
-.project-3-details img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    opacity: 0;
-    transform: translateY(100%);
-    animation: scrollIn 1s forwards;
-}
-
-/* Animation keyframes */
-@keyframes scrollIn {
-    to {
-        opacity: 1;
-        transform: translate(0, 0);
-    }
-}
-
-/* Apply delay to each element for staggered effect */
-.project-3-details h4 {
-    animation-delay: 0.1s;
-}
-
-.project-3-details h5 {
-    animation-delay: 0.2s;
-}
-
-.project-3-details h6 {
-    animation-delay: 0.3s;
-}
-
-.project-3-details p {
-    animation-delay: 0.4s;
-}
-
-.project-3-details img {
-    animation-delay: 0.5s;
-}
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -2024,7 +1873,7 @@ animation-play-state: paused; /* Pauses animation on hover */
 /* CONTACT INFORMATION */
 #contacts {
     background-color: #0e0f0f; /* Background color */
-    padding: 170px 100px; /* Adjust padding as needed */
+    padding: 80px; /* Adjust padding as needed */
     color: #2b1212; /* White text color */
     text-align: center; /* Center align text */
     position: relative; /* Ensure positioning for pseudo-elements */
@@ -2033,8 +1882,7 @@ animation-play-state: paused; /* Pauses animation on hover */
     bottom: 0; /* Attach to the bottom */
     max-width: 1200px;
     margin: 0 auto;
-    
-    box-sizing: border-box; /* Include padding in height and width */
+        box-sizing: border-box; /* Include padding in height and width */
     margin-bottom: 0;
     
 }
@@ -2245,11 +2093,7 @@ animation-play-state: paused; /* Pauses animation on hover */
 }
 
 
-
-
 /* LEAVE A MESSAGE */
-/* LEAVE A MESSAGE */
-
 /* General Styling for the Form Container */
 #contactForm {
     width: 100%;
@@ -2262,8 +2106,6 @@ animation-play-state: paused; /* Pauses animation on hover */
     animation: slideIn 1s ease-out;
     background: linear-gradient(135deg, #1f1b247c, #2c2b3496); /* Dark background */
 }
-
-
 
 /* Top Border for H2 */
 /* H2 Styling */
@@ -2415,539 +2257,6 @@ animation-play-state: paused; /* Pauses animation on hover */
 
 
 
-/* General styles for the hire section */
-#hire {
-    background-image: linear-gradient(rgba(35, 35, 99, 0.226), rgba(112, 112, 50, 0.253)),
-    url("hireme.jpg");
-    justify-content: center;    
-    margin-left: 20px;
-    margin-right: 20px;
-    flex-direction: column; /* Arrange children in a column */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-    padding-top: 170px; /* Adjust padding-top to match reduced overall padding */
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: #d7e8eb;
-    border-radius: 8px;
-    box-shadow: 0 0 10px #d3cb9f1a;
-    margin-bottom: 0; /* Remove margin-bottom to reduce space */
-}
-
-#hire h2 {
-    text-align: center;
-    margin-bottom: 10px; /* Reduce margin-bottom for the heading */
-    color: #f0f7f0;
-    font-size: 30px;
-}
-
-/* Form container */
-.hire {
-    margin: 0 auto; /* Center horizontally */
-    max-width: 700px; /* Width of the background color */
-    background-color: hwb(197 11% 61% / 0.685); /* Semi-transparent background color */
-    padding: 20px; /* Padding for internal spacing */
-    box-shadow: 0 4px 8px rgba(34, 32, 32, 0.1); /* Shadow for visual depth */
-    border-radius: 8px; /* Rounded corners */
-    display: flex; /* Enable flexbox for internal content alignment */
-    flex-direction: column; /* Arrange children in a column */
-    align-items: center; /* Center items horizontally within the element */
-    justify-content: center; /* Center items vertically within the element */
-    text-align: center; /* Center text within the container */
-}
-
-
-
-
-/* Form styles */
-#hire-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* Style for form groups */
-#hire-form .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-
-/* Label styling */
-#hire-form label {
-    text-align: left;
-    font-size: 16px;
-    margin-bottom: 5px;
-    color: #34d10c;
-    margin-left: 20px;
-}
-
-
-/* Input, select, and textarea styling */
-#hire-form input[type="text"],
-#hire-form input[type="datetime-local"],
-#hire-form textarea,
-#hire-form select {
-    background-color: #086b99a6;
-    width: 100%; /* Full width for all fields */
-    padding: 10px; /* Comfortable padding for inputs */
-    font-size: 0.9rem;
-    margin-bottom: 15px; /* Space between fields */
-    border: 1px solid #42899e17;
-    border-radius: 5px;
-    box-sizing: border-box; /* Ensure proper spacing calculations */
-}
-
-
-/* Specific adjustments for select */
-#hire-form select {
-    border: none; /* Remove border */    
-    background-image: linear-gradient(45deg, transparent 50%, #46c514 50%), linear-gradient(135deg, #49ce2f 50%, transparent 50%);
-    background-position: calc(100% - 20px) center, calc(100% - 15px) center;
-    background-repeat: no-repeat;
-    background-size: 12px 12px, 12px 12px;
-    color: hsl(191, 11%, 81%);
-    cursor: pointer;
-}
-
-/* Textarea styling */
-
-
-/* Layout for two dropdowns per row */
-#duration-container,
-#job-title-container {
-    display: flex;
-    gap: 20px;
-}
-
-#duration-container .form-group,
-#job-title-container .form-group {
-    flex: 1;
-}
-
-
-
-
-/* Button styles */
-button {
-    padding: 10px 15px;
-    background-color: #771f8d;
-    color: #ffffff62;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    align-self: center;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-/* Hidden class */
-.hidden {
-    display: none;
-}
-
-/* Animation for showing/hiding sections */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.form-group.hidden {
-    opacity: 0;
-    animation: fadeIn 0.5s forwards;
-}
-
-.form-group:not(.hidden) {
-    opacity: 1;
-    animation: fadeIn 0.5s forwards;
-}
-
-
-
-
-
-
-/* Style for the Sources & Style container */
-#sources-style-container {
-    border: 1px solid #e7dede7a; /* Border around the container */
-    padding: 20px; /* Spacing inside the container */
-    border-radius: 8px; /* Rounded corners for the border */   
-    margin: 0 auto; /* Center horizontally */
-}
-
-/* Style for the row inside the container */
-#sources-style-container .row {
-    display: flex; /* Enable flexbox */
-    gap: 20px; /* Spacing between items */
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
-}
-
-/* Style for each item in the row */
-#sources-style-container .dropdown-container {
-    flex: 1; /* Allow items to grow and shrink */
-    min-width: 200px; /* Minimum width of each item */
-    max-width: 300px; /* Maximum width of each item */
-}
-
-
-
-
-
-
-/* Style for the service-writing-container */
-#service-writing-container {
-    padding: 20px; /* Padding around the container */
-    border: 1px solid #e7dede7a; /* Border around the container */
-    border-radius: 8px; /* Rounded corners for the container */
-    
-}
-
-/* Style for the row inside the service-writing-container */
-#service-writing-container .row {
-    display: flex; /* Align children in a row */
-    gap: 20px; /* Space between the containers */
-    flex-wrap: nowrap; /* Prevent wrapping to ensure all items stay in a row */
-    align-items: center; /* Vertically center items */
-}
-
-/* Style for each dropdown container */
-#service-writing-container .dropdown-container {
-    flex: 1; /* Allow each container to grow and shrink */
-    min-width: 200px; /* Minimum width for each container */
-    max-width: 300px; /* Maximum width for each container */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Style for the academic-language container */
-#academic-level-container {
-    padding: 20px; /* Padding around the container */
-    border: 1px solid #e7dede7a; /* Border around the container */
-    border-radius: 8px; /* Rounded corners for the container */
-}
-
-/* Style for each dropdown container */
-#academic-level-container > div {
-    flex: 1; /* Allow items to grow and shrink */
-    min-width: 200px; /* Minimum width of each item */
-    max-width: 300px; /* Maximum width of each item */
-    margin: 10px; /* Space around each item */
-}
-
-/* Ensure the language input is initially hidden */
-#lan-other.hidden {
-    display: none; /* Hide the input field */
-}
-
-
-
-
-
-
-.form-group {
-    padding: 20px; /* Padding around the container */
-    border: 1px solid #e7dede7a; /* Border around the container */
-    border-radius: 8px; /* Rounded corners for the container */
-}
-
-
-
-
-
-
-
-/* Style the duration container */
-/* Style the duration container */
-#duration-container {
-    margin-bottom: 20px; /* Spacing below the container */
-    border: 1px solid #e7dede7a; /* Border around the container */
-    padding: 20px; /* Spacing inside the container */
-    border-radius: 8px; /* Rounded corners for the border */  
-}
-
-/* Style the wrapper for the deadline input and remaining time */
-.deadline-wrapper {
-    display: flex; /* Align items in a row */
-    align-items: center; /* Vertically center items */
-    justify-content: space-between; /* Space between input and remaining time */
-    
-}
-
-
-
-/* Style for the deadline input */
-#deadline {
-    flex: 1; /* Allows the input to take up available space */
-    margin-right: 20px; /* Space between the input and the remaining time */
-    max-width: 250px;
-    background-color: #2e768046;
-    color: #e2aa10;
-    border: 1px solid #e7dede7a; /* Optional: border for better visibility */
-    padding: 5px; /* Optional: padding inside the input */
-    cursor: pointer;
-}
-
-/* Style for the remaining time section */
-.remaining-time {
-    display: flex; /* Align time items vertically */
-    flex-direction: column; /* Stack time items vertically */
-    text-align: right; /* Align text to the right */
-    color: #ecf5f1;
-    width: 150px;
-}
-
-/* Style for each remaining time paragraph */
-.remaining-time p {
-    margin: 0; /* Remove default margin */
-    font-size: 16px; /* Adjust font size */
-    color: hsl(54, 87%, 42%); /* Text color */
-    background-color: #2e768048;
-    padding: 5px; /* Optional: padding for readability */
-    box-sizing: border-box;
-}
-
-
-
-
-
-/* Style for the text input field */
-input[type="text"] {
-    color: #f3ebeb; /* Change this to your desired text color */
-    font-size: 16px; /* Optional: adjust font size */
-    padding: 8px; /* Optional: add padding for better spacing */
-    border: 1px solid #e7dede7a; /* Optional: define border color */
-    border-radius: 4px; /* Optional: rounded corners for the input field */
-}
-
-/* Style for the placeholder text color */
-input[type="text"]::placeholder {
-    color: #999; /* Change this to your desired placeholder color */
-    font-style: italic; /* Optional: make placeholder text italic */
-}
-
-
-
-
-
-/* Style for the Instructions label */
-label[for="instructions"] {
-    display: block; /* Ensures the label takes up the full width */
-    margin-bottom: 8px; /* Space between the label and textarea */
-    font-size: 16px; /* Font size for the label */
-    color: #333; /* Text color for the label */
-}
-
-/* Style for the Instructions textarea */
-textarea#instructions {
-    width: 100%; /* Full width of the container */
-    min-height: 250px; /* Minimum height for the textarea */
-    padding: 10px; /* Padding inside the textarea */
-    border: 1px solid #e7dede7a; /* Border around the textarea */
-    border-radius: 4px; /* Rounded corners for the textarea */
-    resize: vertical; /* Allow vertical resizing only */
-    font-size: 16px; /* Font size for the text inside the textarea */
-    color: #d6c9c9; /* Text color inside the textarea */
-    
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
-}
-
-/* Optional: Add focus styles for better accessibility */
-textarea#instructions:focus {
-    border-color: #007bff; /* Highlight border color when focused */
-    outline: none; /* Remove default outline */
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); /* Optional: subtle shadow effect */
-    
-}
-
-
-
-
-
-
-/*Adins*/
-/* Container for add-ons */
-#addons-container {
-    
-    border: 1px solid #e7dede7a;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-/* Style for each add-on item */
-.addon-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    padding: 10px 0;
-    border-bottom: 1px solid #e7dede7a;
-    
-}
-
-/* Style for the switch */
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 56px;
-    height: 30px;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: .4s;
-    border-radius: 30px;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 22px;
-    width: 22px;
-    border-radius: 50%;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: .4s;
-}
-
-input:checked + .slider {
-    background-color: #2196F3;
-}
-
-input:checked + .slider:before {
-    transform: translateX(26px);
-}
-
-/* Optional: Style for the free add-ons */
-.addon-item span {
-    color: #a0af87;
-    font-size: 16px;
-    font-weight: normal;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-/*UPLOAD FILES*/
-/* Style for the file upload container */
-#file-upload-container {
-    margin-bottom: 20px;
-    border: 1px solid #e7dede7a;
-    border-radius: 4px;
-    box-sizing: border-box;
-    
-}
-
-#file-upload {
-    width: 100%;
-    padding: 8px;
-    
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-bottom: 10px;
-    background-color: #1a527c;
-}
-
-#file-list {
-    margin-top: 10px;
-}
-
-.file-list {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 10px;
-    background-color: #364950;
-}
-
-.file-item {
-    display: flex;
-    justify-content: space-between; /* Space out items with space between them */
-    align-items: flex-start; /* Align items to the start (top) of the container */
-    padding: 8px;
-    border-bottom: 1px solid #7e3737; /* Add a bottom border */
-}
-
-.file-item:last-child {
-    border-bottom: none;
-}
-
-.remove-button {
-    background-color: #ff4d4d;
-    color: rgb(245, 240, 240);
-    border: none;
-    padding: 4px 8px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 10px;
-}
-
-.remove-button:hover {
-    background-color: #e60000;
-}
-
-
-
-
-
-
-/* Success/Error Messages */
-#hire-form .form-message {
-    font-size: 0.9rem;
-    margin-top: 15px;
-    text-align: center;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-#hire-form .form-message.success {
-    color: #28a745;
-    background-color: #d4edda;
-    border: 1px solid #c3e6cb;
-}
-
-#hire-form .form-message.error {
-    color: #dc3545;
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-}
-
 
 
 
@@ -2957,9 +2266,7 @@ input:checked + .slider:before {
 
 /*REVIEW section*/
 .reviews-section {
-    margin: 150px;
-    
-    padding: 20px;
+    padding: 80px;
     background: radial-gradient(circle, #0f0f0f, #0d0e0d);
     border-radius: 10px;
     font-family: 'Arial', sans-serif;
@@ -2971,6 +2278,7 @@ input:checked + .slider:before {
     font-size: 24px; /* Define your desired font size */
     color: rgb(241, 243, 245); /* Define your desired font color */
     margin-bottom: 20px; /* Optional: add space below the heading */
+    text-align: center;
 }
 
 
@@ -3049,8 +2357,8 @@ input:checked + .slider:before {
 /* Filter container layout */
 .review-filters {    
     justify-content: space-between; /* Use space-between for tighter spacing */
-    margin-bottom: 20px; /* Space below the filter section */
-    justify-items:left;
+    margin-bottom: 20px; /* Space below the filter section */    
+    text-align: center;
 }
 
 /* Individual filter button styling */
@@ -3216,19 +2524,29 @@ html, body {
     padding: 0;
 }
 
-/* Flexbox container to push footer to the bottom */
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensure body takes full height of viewport */
-    margin: 0; /* Remove default body margin */
-    padding: 0; /* Remove default body padding */
+
+/* Global reset to prevent horizontal scrolling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Include padding and borders in width/height */
 }
 
-/* Main content should take up all available space */
-main {
-    flex: 1;
-    margin-bottom: 0; /* Ensure there's no extra space below main content */
+html, body {
+    width: 100%;
+    height: 100%; /* Ensures the full height of the viewport */
+    display: flex;
+    flex-direction: column; /* Flex container for vertical alignment */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* General container styling to fit within the screen width */
+.container {
+    width: 100%; /* Full width */
+    max-width: 100%; /* Prevent exceeding viewport */
+    margin: 0 auto; /* Center align if there's additional width */
+    padding: 0; /* Remove any padding */    
+    flex: 1; /* Take up available vertical space */
 }
 
 /* Footer styles */
@@ -3236,7 +2554,7 @@ footer {
     background-color: #161947;
     text-align: center;
     padding: 20px; /* Adjust padding as needed */
-    height: 100px; /* Adjust height as needed */
+    height: 60px; /* Adjust height as needed */
     margin-top: 0; /* Remove margin to ensure it directly follows the content */
     color: #fff;
     margin-top: auto; /* Push footer to the bottom */
@@ -3265,15 +2583,6 @@ footer {
 
 
 
-/* Container styles */
-.container {
-    width: 100%;
-    max-width: 1536px;
-    margin: 0 auto;
-    padding: 0.5rem;
-    box-sizing: border-box;
-    /*border: 1px solid red; /* Red border for the container */
-}
 
 
 
@@ -4379,16 +3688,15 @@ footer {
         font-weight: bold;
         margin: 10px 0;
         border-bottom: 2px solid #ccc;
-        padding: 10px 5px;
+        
     }
 
     /* Service Description */
-    .service-description {
-        padding: 0 20px; 
+    .service-description {        
         margin-left: auto; 
         margin-right: auto; 
         width: 100%;
-        max-width: 380px; /* Increased max width for large phones */
+        
     }
 
     /* Modify service item styling for larger screens */
@@ -4416,7 +3724,7 @@ footer {
     /* Professions Section */
     #professions {
         padding: 20px 10px;
-        margin-top: 120px;
+        margin-top: 70px;
     }
 
     .professions-grid {
@@ -4431,8 +3739,8 @@ footer {
 
     /* Skills Section */
     #skills {
-        padding: 20px;
-        padding-top: 140px;
+        
+        padding-top: 90px;
     }
 
     .skill-item {
@@ -4753,14 +4061,13 @@ footer {
         display: none;
     }
 
-
     .navigation-block ul li a {
         font-size: 3.1vw; /* Increase nav bar font size */
     }
 
        /* Bio section styles */
     #bio {
-        margin-top: 10px; /* Adjust this value based on the height of your navigation bar */
+        margin-top: 20px; /* Adjust this value based on the height of your navigation bar */
         
     }
 
@@ -4777,12 +4084,11 @@ footer {
 
 
     /* Adjust the layout for service description */
-    .service-description {
-        padding: 0 15px;  /* Reduce padding to prevent too much space on the sides */
+    .service-description {        
         margin-left: auto; /* Center content horizontally */
         margin-right: auto; /* Center content horizontally */
         width: 100%; /* Ensure it takes up full width */
-        max-width: 320px; /* Max width to avoid it getting too wide */
+        max-width: 300px; /* Max width to avoid it getting too wide */
     }
 
     /* Modify service item styling for smaller screens */
@@ -5025,183 +4331,6 @@ footer {
     }
     
 
-    /* GENERAL STYLES FOR THE HIRE SECTION */
-
-    #hire {
-        padding: 20px 10px; /* Adequate padding for readability */
-        padding-top: 120px; /* Reduced padding-top */       
-        text-align: left;        
-        
-    }
-    
-    /* Heading styles */
-    #hire h2 {
-        font-size: 1.2rem; /* Headline with readable size */
-        margin-bottom: 15px; /* Proper spacing below the title */        
-    }
-
-    #hire p {
-        font-size: 0.9rem; /* Supporting text slightly smaller */
-        margin-bottom: 20px; /* Spacing before form starts */
-        color: #555; /* Softer text for paragraph */
-    }
-    
-    /* Form styles */
-    #hire-form {
-        gap: 15px; /* Reduced gap between form elements */
-        max-width: 100%; /* Ensure full width on small screens */
-        margin: 0 auto;                
-    }
-    
-    /* Form group styles */
-    #hire-form .form-group {
-        gap: 0; /* Reduced gap within form groups */
-    }
-    
-    /* Label styling */
-    #hire-form label {
-        margin-left: 0;
-        font-size: 0.9rem; /* Small but readable labels */
-        color: #34d10c;
-        margin-bottom: 5px;
-        
-    }
-    
-    /* Input, select, and textarea styling */
-    #hire-form input[type="text"],
-    #hire-form input[type="datetime-local"],
-    #hire-form textarea,
-    #hire-form select {
-        width: 100%; /* Full width for all fields */
-        padding: 10px; /* Comfortable padding for inputs */
-        font-size: 0.9rem;
-        margin-bottom: 0; /* Space between fields */        
-        
-    }
-    
-    /* Specific adjustments for select */
-    #hire-form select {
-        background-size: 10px 10px, 10px 10px; /* Reduced background size */
-    }
-    
-    
-    
-    /* Textarea styling */
-    textarea#instructions {
-        min-height: 200px; /* Reduced min-height */
-        font-size: 14px; /* Reduced font-size */
-    }
-
-
-    /* Duration Container */
-    #duration-container {
-        margin-bottom: 15px;
-        padding: 15px;        
-        
-    }
-
-    /* Deadline Wrapper */
-    .deadline-wrapper {
-        display: flex;
-        flex-wrap: wrap;        
-        gap: 10px;
-    }
-
-    /* Deadline Input */
-    #deadline {
-        flex: 1;
-        padding: 8px;
-        max-width: 100%;
-    }
-
-    /* Remaining Time Section */
-    .remaining-time {
-        flex: 1;
-        display: flex; /* Align items in one row */
-        justify-content: space-between; /* Space between each item */
-        align-items:flex-start;
-        gap: 5px;    
-    }
-
-    /* Remaining Time Items */
-    .remaining-time p {
-        margin: 0;
-        padding: 6px 8px;   
-    }
-
-
-    
-    /* File upload container */
-    #file-upload-container {
-        margin-bottom: 10px; /* Reduced margin-bottom */
-    }
-    
-    /* File upload input */
-    #file-upload {
-        padding: 6px; /* Reduced padding */
-    }
-    
-    /* File list and file item styling */
-    .file-list {
-        padding: 8px; /* Reduced padding */
-    }
-    
-    .file-item {
-        padding: 6px; /* Reduced padding */
-        font-size: 14px; /* Reduced font-size */
-    }
-    
-    .remove-button {
-        font-size: 12px; /* Increased font-size */
-        padding: 4px 6px; /* Reduced padding */
-    }
-
-
-
-
-    /* Adjust the switch size */
-    .switch {
-        width: 50px; /* Smaller width */
-        height: 25px; /* Smaller height */
-    }
-
-    .slider {
-        height: 25px; /* Adjust slider height */
-    }
-
-    .slider:before {
-        height: 18px; /* Smaller circle */
-        width: 18px; /* Smaller circle */
-    }
-
-    /* Adjust the text font size */
-    .addon-item span {
-        font-size: 14px; /* Smaller font size */
-    }
-
-
-    /* Button Styles */
-    button[type="submit"] {
-        padding: 8px 10px;
-        font-size: 14px;
-        max-width: 120px;
-        display: block; /* Ensures it's treated as a block element */
-        margin: 0 auto; /* Center the button horizontally */
-        text-align: center; /* Align text inside the button */
-        color: rgb(10, 6, 207);
-        background-color: #0ae9e9;
-        font-weight: bold;
-    }
-
-    /* Ensure the parent container of the button is a flex container */
-    .button-container {
-        display: flex;
-        justify-content: center; /* Center the button */
-        align-items: center; /* Center vertically, if needed */
-    }
-
-
-
     /*REVIEW section*/
     .reviews-section {
         padding: 10px;
@@ -5348,13 +4477,6 @@ footer {
         padding: 10px 15px;    
         margin: 10px auto 0;    
     }
-
-
-
-
-
-    
-
 
 
 
